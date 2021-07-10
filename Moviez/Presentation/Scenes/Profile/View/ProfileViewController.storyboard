@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="Moviez" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_line" translatesAutoresizingMaskIntoConstraints="NO" id="VuQ-k9-XtQ">
+                                <rect key="frame" x="16" y="84" width="5" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="YHr-6S-GyB"/>
+                                    <constraint firstAttribute="width" constant="5" id="pQM-cF-RW1"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-wH-H87">
+                                <rect key="frame" x="26" y="89" width="93.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Qv-7o-pQQ">
+                                <rect key="frame" x="16" y="166" width="382" height="32"/>
+                                <color key="backgroundColor" name="itemBackgroundColor"/>
+                                <segments>
+                                    <segment title="Watchlist"/>
+                                    <segment title="Favourites"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" name="textColor"/>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0o-Tw-1a4">
+                                <rect key="frame" x="126" y="433" width="162" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="lightBackground"/>
+                        <constraints>
+                            <constraint firstItem="C0o-Tw-1a4" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="4th-6j-slZ"/>
+                            <constraint firstItem="BgI-wH-H87" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="45" id="794-ff-nGS"/>
+                            <constraint firstItem="VuQ-k9-XtQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="7W5-dH-FAH"/>
+                            <constraint firstItem="BgI-wH-H87" firstAttribute="leading" secondItem="VuQ-k9-XtQ" secondAttribute="trailing" constant="5" id="H2D-N2-pMe"/>
+                            <constraint firstItem="2Qv-7o-pQQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Kwn-nJ-sat"/>
+                            <constraint firstItem="VuQ-k9-XtQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="acp-59-abv"/>
+                            <constraint firstItem="C0o-Tw-1a4" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gwT-mD-kZQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2Qv-7o-pQQ" secondAttribute="trailing" constant="16" id="itb-Vb-imG"/>
+                            <constraint firstItem="2Qv-7o-pQQ" firstAttribute="top" secondItem="VuQ-k9-XtQ" secondAttribute="bottom" constant="50" id="z7k-ya-dxK"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="WSt-Vc-adQ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="labelWelcomeUser" destination="BgI-wH-H87" id="ram-hA-P4a"/>
+                        <outlet property="segmentedControl" destination="2Qv-7o-pQQ" id="Cqw-Gt-7X7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="79.6875"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_line" width="4" height="32"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <namedColor name="itemBackgroundColor">
+            <color red="0.13300000131130219" green="0.11400000005960464" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightBackground">
+            <color red="0.082000002264976501" green="0.071000002324581146" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
