@@ -19,6 +19,7 @@ class SearchListViewController: BaseViewController {
     private var viewModel: SearchListViewModelProtocol!
     private var searchText = ""
     private var timer: Timer?
+//    var tabBarDelegate: TabBarViewControllerDelegate?
     
     //MARK: - VC LifeCycle
     override func viewDidLoad() {
@@ -52,7 +53,7 @@ class SearchListViewController: BaseViewController {
     func configureViewModel() {
         searchManager = SearchManager()
         viewModel = SearchListViewModel(with: searchManager,
-                                        navigationController: self.navigationController)
+                                        navigationController: self.navigationController, controller: self)
         dataSource = SearchDataSource(with: tableView,
                                       viewModel: viewModel,
                                       searchBar: searchBar,vc: self)

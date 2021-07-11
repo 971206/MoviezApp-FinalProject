@@ -80,6 +80,7 @@
 		FA4BDC75269A29D700B2369B /* CoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BDC74269A29D700B2369B /* CoordinatorDelegate.swift */; };
 		FA4BDC77269A29F000B2369B /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BDC76269A29F000B2369B /* Storyboarded.swift */; };
 		FA4BDC7A269A2A3C00B2369B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4BDC79269A2A3C00B2369B /* BaseViewController.swift */; };
+		FA4BDC7D269A372A00B2369B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FA4BDC7C269A372A00B2369B /* SnapKit */; };
 		FA58607F2673765500933FF7 /* ReviewsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA58607E2673765500933FF7 /* ReviewsDataSource.swift */; };
 		FA5860812673766600933FF7 /* ReviewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5860802673766600933FF7 /* ReviewsViewModel.swift */; };
 		FA586083267376E800933FF7 /* ReviewsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA586082267376E800933FF7 /* ReviewsListViewModel.swift */; };
@@ -279,6 +280,7 @@
 				FA607F4C266B8DCB009C9C61 /* Kingfisher in Frameworks */,
 				FA607F47266B8D97009C9C61 /* FirebaseAuth in Frameworks */,
 				FA607F49266B8D97009C9C61 /* FirebaseFirestore in Frameworks */,
+				FA4BDC7D269A372A00B2369B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -746,8 +748,8 @@
 		FA607F24266B85BD009C9C61 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FA4BDC78269A2A2700B2369B /* Base */,
 				FAB4C17B2698C9F100207D30 /* Reusable */,
+				FA4BDC78269A2A2700B2369B /* Base */,
 				FA607F25266B85D6009C9C61 /* TabBar */,
 				FA607F2B266B8669009C9C61 /* Home */,
 				FA2B634B2672A9A90000A038 /* Reviews */,
@@ -1048,6 +1050,7 @@
 				FA607F48266B8D97009C9C61 /* FirebaseFirestore */,
 				FA607F4B266B8DCB009C9C61 /* Kingfisher */,
 				FAD6309A2677D8BE00A0CF9B /* NVActivityIndicatorView */,
+				FA4BDC7C269A372A00B2369B /* SnapKit */,
 			);
 			productName = Moviez;
 			productReference = FA607EEC266B83D2009C9C61 /* Moviez.app */;
@@ -1059,6 +1062,9 @@
 		FA607EE4266B83D2009C9C61 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					0,
+				);
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
@@ -1080,6 +1086,7 @@
 				FA607F45266B8D97009C9C61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FA607F4A266B8DCA009C9C61 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FAD630992677D8BE00A0CF9B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				FA4BDC7B269A372A00B2369B /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = FA607EED266B83D2009C9C61 /* Products */;
 			projectDirPath = "";
@@ -1424,6 +1431,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA4BDC7B269A372A00B2369B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		FA607F45266B8D97009C9C61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1451,6 +1466,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA4BDC7C269A372A00B2369B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA4BDC7B269A372A00B2369B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		FA607F46266B8D97009C9C61 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA607F45266B8D97009C9C61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

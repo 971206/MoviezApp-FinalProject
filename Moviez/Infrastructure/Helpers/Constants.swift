@@ -38,8 +38,7 @@ struct APIURLS {
     static let boxOffice = "https://imdb-api.com/en/API/BoxOffice/k_d30kcp21"
     static let movieNewsURL = "https://newsapi.org/v2/everything?q=movie&from=&sortBy=publishedAt&apiKey=aa33cd6cf56b4ec69f1ec574996fbbf7&domains=variety.com,indiewire.com,screendaily.com,theplaylist.net,slashfilm.com,theguardian.com&language=en&pageSize=20&page=1"
     static let celebrityNewsURL = "https://newsapi.org/v2/everything?q=celebrity&from=&sortBy=publishedAt&apiKey=aa33cd6cf56b4ec69f1ec574996fbbf7&domains=variety.com,indiewire.com,etcanada.com,screendaily.com,theplaylist.net,slashfilm.com,theguardian.com,eonline.com&language=en&pageSize=20&page=1"
-    static let tvShowNewsURL = "https://newsapi.org/v2/everything?q=tv&from=&sortBy=publishedAt&apiKey=aa33cd6cf56b4ec69f1ec574996fbbf7&domains=variety.com,indiewire.com,tvline.com,etcanada.com,screendaily.com,theplaylist.net,slashfilm.com,theguardian.com,eonline.com,hollywoodreporter.com&language=en&pageSize=50&page=1"
-    
+    static let tvShowNewsURL = "https://newsapi.org/v2/everything?q=tv&from=&sortBy=publishedAt&apiKey=aa33cd6cf56b4ec69f1ec574996fbbf7&domains=variety.com,indiewire.com,tvline.com,etcanada.com,screendaily.com,theplaylist.net,slashfilm.com,theguardian.com,eonline.com,hollywoodreporter.com&language=en&pageSize=50&page=1"    
 }
 
 struct UDKeys {

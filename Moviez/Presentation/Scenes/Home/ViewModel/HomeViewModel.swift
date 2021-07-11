@@ -12,6 +12,7 @@ protocol HomeViewModelProtocol: AnyObject {
     func fetchTrendingMovies(completion: @escaping([Movies]) -> Void)
     func fetchTrendingTvShows(completion: @escaping([TvShows]) -> Void)
     func fetchComingSoonMovies(completion: @escaping ([Movies]) -> Void)
+    
     var controller: CoordinatorDelegate { get }
 
     
@@ -23,6 +24,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private var trendingMoviesManager: TrendingMoviesManagerProtocol!
     private var trendingTvShowsManager: TrendingTvShowsManagerProtocol!
     private var comingSoonManager: ComingSoonManagerProtocol!
+    
     private(set) var controller: CoordinatorDelegate
 
     
@@ -31,6 +33,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         self.trendingMoviesManager = trendingMoviesManager
         self.trendingTvShowsManager = trendingTvShowsManager
         self.comingSoonManager = comingSoonManager
+        
         self.controller = controller
     }
     

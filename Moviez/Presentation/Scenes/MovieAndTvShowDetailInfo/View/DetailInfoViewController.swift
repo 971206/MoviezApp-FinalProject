@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailInfoViewController: UIViewController {
+class DetailInfoViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     

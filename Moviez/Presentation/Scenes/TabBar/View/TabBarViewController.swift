@@ -7,6 +7,10 @@
 
 import UIKit
 import FirebaseAuth
+//
+//protocol TabBarViewControllerDelegate {
+//    func getData()
+//}
 
 class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegate {
     var coordinator: CoordinatorProtocol?
@@ -16,16 +20,17 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
         super.viewDidLoad()
     
         
-//        let vc1 = self.viewControllers![0] as! HomeViewController
-//        vc1.coordinator = coordinator
-//        let vc2 = self.viewControllers![1] as! SearchListViewController
-//        vc2.coordinator = coordinator
-//
-//        let vc3 = self.viewControllers![2] as! NewsViewController
-//        vc3.coordinator = coordinator
-//
-//        let vc4 = self.viewControllers![3] as! RegistrationViewController
-//        vc4.coordinator = coordinator
+        let vc1 = self.viewControllers![0] as! HomeViewController
+        vc1.coordinator = coordinator
+        let vc2 = self.viewControllers![1] as! SearchListViewController
+        vc2.coordinator = coordinator
+//        vc2.tabBarDelegate = self
+
+        let vc3 = self.viewControllers![2] as! NewsViewController
+        vc3.coordinator = coordinator
+
+        let vc4 = self.viewControllers![3] as? RegistrationViewController
+        vc4?.coordinator = coordinator
 
         setupTabbar()
         addObersver()
@@ -93,4 +98,10 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     }
 }
 
+//extension TabBarViewController: TabBarViewControllerDelegate {
+//    func getData() {
+//        print("get data called")
+//    }
+//}
+// romeli vcdan ginda wamogeba? 
 

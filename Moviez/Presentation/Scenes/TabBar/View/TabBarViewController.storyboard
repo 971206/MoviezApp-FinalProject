@@ -32,7 +32,7 @@
         <!--HomeViewController-->
         <scene sceneID="QLX-Od-vrf">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeViewController" id="95n-Es-YHw" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="HomeViewController" referencedIdentifier="HomeViewController" id="95n-Es-YHw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="ldg-bJ-uoV"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBy-Dl-XMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -42,7 +42,7 @@
         <!--SearchListViewController-->
         <scene sceneID="7hn-BK-6H9">
             <objects>
-                <viewControllerPlaceholder storyboardName="SearchListViewController" id="Ynb-7t-SOV" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="SearchListViewController" storyboardName="SearchListViewController" referencedIdentifier="SearchListViewController" id="Ynb-7t-SOV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="1" title="Search" image="magnifyingglass" catalog="system" id="Rrf-pi-Oxa"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="knM-dI-UbK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

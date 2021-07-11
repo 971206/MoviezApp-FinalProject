@@ -14,7 +14,10 @@ protocol HomePageCellDelegate: AnyObject {
     func onInTheatersClicked(movie: Movies)
 }
 
+
+
 class HomePageCell: UITableViewCell {
+    
     @IBOutlet weak var labelSectionHeader: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -28,8 +31,10 @@ class HomePageCell: UITableViewCell {
     private var listoOfComingSoon: [Movies]?
     private var listOfInTheaters: [Movies]?
     
+    
     //MARK: - Local Properties
     weak var delegate: HomePageCellDelegate?
+    
     var collectionViewOffset: CGFloat {
         get {
             return collectionView.contentOffset.x
@@ -88,57 +93,7 @@ class HomePageCell: UITableViewCell {
         self.listOfInTheaters = nil
         self.listOfTrendingTvShows = nil
     }
-
-    
-//    func fetchTrendingTvShows() {
-//        apiManagerOfTrendingTvShows = TrendingTvShowsManager()
-//        apiManagerOfTrendingTvShows.fetchTrendingTvShows { [weak self] listOfTrendingTvShows in
-//            guard let self = self else {return}
-//            self.listOfTrendingTvShows = listOfTrendingTvShows
-//            self.collectionView.reloadData()
-//            self.listOfTrendingMovies = nil
-//            self.listOfInTheaters = nil
-//            self.listoOfComingSoon = nil
-//        }
-//    }
-//
-//    func fetchTrendingMovies(){
-//        apiManagerOfTrendingMovies = TrendingMoviesManager()
-//        apiManagerOfTrendingMovies.fetchTrendingMovies{ [weak self] listOfTrendingMovies in
-//            guard let self = self else {return}
-//            self.listOfTrendingMovies = listOfTrendingMovies
-//            self.collectionView.reloadData()
-//            self.listOfTrendingTvShows = nil
-//            self.listOfInTheaters = nil
-//            self.listoOfComingSoon = nil
-//        }
-//    }
-//
-//    func fetchComingSoon() {
-//        apiManagerOfComingSoon = ComingSoonManager()
-//        apiManagerOfComingSoon.fetchComingSoonMovies {[weak self] listoOfComingSoon in
-//            guard let self = self else {return}
-//            self.listoOfComingSoon = listoOfComingSoon
-//            self.collectionView.reloadData()
-//            self.listOfTrendingMovies = nil
-//            self.listOfInTheaters = nil
-//            self.listOfTrendingTvShows = nil
-//        }
-//    }
-//
-//    func fetchInTheaters() {
-//        apiManagerOfInTheaters = InTheatersManager()
-//        apiManagerOfInTheaters.fetchInTheatersMovies { [weak self] listOfInTheaters in
-//            guard let self = self else {return}
-//            self.listOfInTheaters = listOfInTheaters
-//            self.collectionView.reloadData()
-//            self.listOfTrendingMovies = nil
-//            self.listOfTrendingTvShows = nil
-//            self.listoOfComingSoon = nil
-//        }
-//    }
-    
-    
+        
 }
 
 //MARK: - CollectionView Datasource and Delegate

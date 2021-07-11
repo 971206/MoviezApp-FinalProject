@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonDetailInfoViewController: UIViewController {
+class PersonDetailInfoViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var dataSource: PersonDetailInfoDataSource!

@@ -10,27 +10,35 @@ import UIKit
 protocol SearchListViewModelProtocol: AnyObject {
     var searchBar: UISearchBar? { get set }
     var searchedText: String? { get set }
-    func proceedToDetailsMovieAndTvShowChoosed(with id : SearchModel)
-    func proceedToDetailsWhenPersonChoosed(with item: SearchModel) 
     func getSearchResult(searchText: String,page: Int, completion: @escaping (([SearchModel]) -> Void))
-    init(with searchManager: SearchManagerProtocol, navigationController: UINavigationController?)
+    var controller: CoordinatorDelegate { get }
+//    var tabBarDelegate: TabBarViewControllerDelegate { get set }
+
+    init(with searchManager: SearchManagerProtocol, navigationController: UINavigationController?, controller: CoordinatorDelegate)
 }
 
 class SearchListViewModel: SearchListViewModelProtocol {
-    
+
     //MARK: - Private Properties
     private var searchManager: SearchManagerProtocol!
     private var searchItems:[SearchModel]?
     private var navigationController: UINavigationController?
     var searchedText: String?
     
+    private(set) var controller: CoordinatorDelegate
+//    var tabBarDelegate: TabBarViewControllerDelegate
+
+    
     //MARK: - Internal Properties
     var searchBar: UISearchBar?
     
     //MARK: - Init
-    required init(with searchManager: SearchManagerProtocol, navigationController: UINavigationController?) {
+    required init(with searchManager: SearchManagerProtocol, navigationController: UINavigationController?, controller: CoordinatorDelegate) {
+        
         self.searchManager = searchManager
         self.navigationController = navigationController
+        self.controller = controller
+//        self.tabBarDelegate = tabBarDelegate
     }
     
     //MARK: - Get Search Result
@@ -39,21 +47,5 @@ class SearchListViewModel: SearchListViewModelProtocol {
         searchManager.fetchSearchedInfo(searchText: searchText,page: page) { searchResult in
             completion(searchResult)
         }
-    }
-    
-    func proceedToDetailsMovieAndTvShowChoosed(with item : SearchModel) {
-        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
-        let detailsInfoVC = sb.instantiateViewController(withIdentifier: VCIds.detailInfoVC) as! DetailInfoViewController
-        detailsInfoVC.idOfItem = item.id
-        detailsInfoVC.typeOfItem = item.mediaType
-        self.navigationController?.pushViewController(detailsInfoVC, animated: true)
-    }
-    
-    func proceedToDetailsWhenPersonChoosed(with item: SearchModel) {
-        let sb = UIStoryboard(name: VCIds.personDetailInfoVC, bundle: nil)
-        let detailsInfoVC = sb.instantiateViewController(withIdentifier: VCIds.personDetailInfoVC) as! PersonDetailInfoViewController
-        detailsInfoVC.id = item.id
-        detailsInfoVC.mediaType = item.mediaType
-        self.navigationController?.pushViewController(detailsInfoVC, animated: true)
     }
 }

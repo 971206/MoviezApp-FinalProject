@@ -102,7 +102,6 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
     
     //MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-   
         return 395
     }
     
@@ -117,11 +116,13 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
     
     //MARK: - HomePageCell Delegate
     func onTrendingMoviesClicked(movie: Movies) {
-        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
-        let detailInfoVC = sb.instantiateViewController(identifier: VCIds.detailInfoVC) as! DetailInfoViewController
-        detailInfoVC.idOfItem = movie.id ?? 0
-        detailInfoVC.typeOfItem = MediaType.movie.rawValue
-        self.navigationController?.pushViewController(detailInfoVC, animated: true)
+//        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
+//        let detailInfoVC = sb.instantiateViewController(identifier: VCIds.detailInfoVC) as! DetailInfoViewController
+//        detailInfoVC.idOfItem = movie.id ?? 0
+//        detailInfoVC.typeOfItem = MediaType.movie.rawValue
+//        self.navigationController?.pushViewController(detailInfoVC, animated: true)
+        viewModel.controller.coordinator?.onTrendingMoviesClicked(movie: movie)
+
     }
     
     func onInTheatersClicked(movie: Movies) {
@@ -130,6 +131,8 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         detailInfoVC.idOfItem = movie.id ?? 0
         detailInfoVC.typeOfItem = MediaType.movie.rawValue
         self.navigationController?.pushViewController(detailInfoVC, animated: true)
+        
+//        viewModel.controller.coordinator?.onInTheatersClicked(movie: movie)
     }
     
     func onTrendingTvShowClicked(tvShow: TvShows) {
@@ -138,6 +141,8 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         detailInfoVC.idOfItem = tvShow.id ?? 0
         detailInfoVC.typeOfItem = MediaType.tv.rawValue
         self.navigationController?.pushViewController(detailInfoVC, animated: true)
+//        viewModel.controller.coordinator?.onTrendingTvShowClicked(tvShow: tvShow)
+        
     }
     
     func onComingSoonClicked(movie: Movies) {
@@ -146,6 +151,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         detailInfoVC.idOfItem = movie.id ?? 0
         detailInfoVC.typeOfItem = MediaType.movie.rawValue
         self.navigationController?.pushViewController(detailInfoVC, animated: true)
+//        viewModel.controller.coordinator?.onComingSoonClicked(movie: movie)
     }
     
 }

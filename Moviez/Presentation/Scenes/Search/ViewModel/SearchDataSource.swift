@@ -14,11 +14,11 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var viewModel: SearchListViewModelProtocol!
     private var searchBar: UISearchBar!
     private var searchResult: [SearchModel]?
-    private var page = 1
+    private var searchListVC: SearchListViewController?
     private var isFetchigMoreData = false
     private var isPagingDone = false
     private var pageSize = 20
-    private var vc: SearchListViewController?
+    private var page = 1
     
     //MARK: - Init
     init(with tableView: UITableView, viewModel: SearchListViewModelProtocol, searchBar: UISearchBar,vc: SearchListViewController) {
@@ -28,7 +28,7 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.searchBar = searchBar
-        self.vc = vc
+        self.searchListVC = vc
     }
     
     // MARK: - Search
@@ -39,7 +39,7 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             guard let self = self else {return}
             self.searchResult = searchResult
             self.isPagingDone = searchResult.count != self.pageSize
-            self.vc?.view.stopLoading()
+            self.searchListVC?.view.stopLoading()
             self.tableView.reloadData()
         }
     }
@@ -81,11 +81,13 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         guard let result = searchResult?[indexPath.row] else {return}
         
         if choosedItemsMediaType == MediaType.movie.rawValue  {
-            viewModel.proceedToDetailsMovieAndTvShowChoosed(with: result)
+            viewModel.controller.coordinator?.proceedToDetailsMovieAndTvShowChoosed(with: result)
+
         } else if choosedItemsMediaType == MediaType.tv.rawValue  {
-            viewModel.proceedToDetailsMovieAndTvShowChoosed(with: result)
+            viewModel.controller.coordinator?.proceedToDetailsMovieAndTvShowChoosed(with: result)
+//            viewModel.tabBarDelegate.getData()
         } else {
-            viewModel.proceedToDetailsWhenPersonChoosed(with: result)
+            viewModel.controller.coordinator?.proceedToDetailsWhenPersonChoosed(with: result)
         }
     }
     
@@ -96,7 +98,6 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 108
         }
     }
-    
     
 }
 
