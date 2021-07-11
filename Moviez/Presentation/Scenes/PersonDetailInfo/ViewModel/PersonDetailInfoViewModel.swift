@@ -11,7 +11,9 @@ protocol PersonDetailInfoViewModelProtocol: AnyObject {
     func fetchPersonDetailInfo(id: Int, completion: @escaping (Person) -> Void)
     func fetchMovieCredits(with PersonId: Int, completion: @escaping ([SearchModel]) -> Void)
     func fetchTVShowCredits(with PersonId: Int, completion: @escaping ([SearchModel]) -> Void)
-    init(with personManager: PersonManagerProtocol, personCreditsManager: PersonCreditsManagerProtocol )
+    var controller: CoordinatorDelegate { get }
+
+    init(with personManager: PersonManagerProtocol, personCreditsManager: PersonCreditsManagerProtocol, controller: CoordinatorDelegate )
 }
 
 final class PersonDetailInfoViewModel: PersonDetailInfoViewModelProtocol {
@@ -20,10 +22,13 @@ final class PersonDetailInfoViewModel: PersonDetailInfoViewModelProtocol {
     private var personDetailInfo: Person?
     private var personMovieCredits: [SearchModel]?
     private var personTvShowCredits: [SearchModel]?
+    private(set) var controller: CoordinatorDelegate
+
     
-     init(with personManager: PersonManagerProtocol, personCreditsManager: PersonCreditsManagerProtocol) {
+    init(with personManager: PersonManagerProtocol, personCreditsManager: PersonCreditsManagerProtocol, controller: CoordinatorDelegate) {
         self.personManager = personManager
         self.personCreditsManager = personCreditsManager
+        self.controller = controller
     }
     
     func fetchPersonDetailInfo(id: Int, completion: @escaping (Person) -> Void) {

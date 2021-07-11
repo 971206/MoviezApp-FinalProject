@@ -77,7 +77,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         if indexPath.row == 2 {
             let cell = tableView.deque(SimilarCell.self, for: indexPath)
             cell.delegate = self
-            cell.configureSimilarItems(items: similarItemsList ?? [], mediaType: mediaType ?? "")
+            cell.configureSimilarItems(items: similarItemsList ?? [])
             return cell
         }
         if indexPath.row == 3 {
@@ -108,18 +108,14 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 }
 
 extension DetailInfoDataSource: CastCellDelegate, SimilarCellDelegate {
-    
     func onSimilarClicked(id: Int) {
-        viewModel.controller.coordinator?.onSimilarAndRecommendedClicked(id: id , type: mediaType ?? "")
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id , type: mediaType ?? "")
     }
-    
     func onRecommendedClicked(id: Int) {
-        viewModel.controller.coordinator?.onSimilarAndRecommendedClicked(id: id, type: mediaType ?? "")
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, type: mediaType ?? "")
     }
-    
-
     func onCastClicked(personId: Int) {
-        viewModel.controller.coordinator?.onCastClicked(personId: personId, media: mediaType ?? "")
+        viewModel.controller.coordinator?.proceedToPersonDetailInfo(personId: personId, media: mediaType ?? "")
     }
 }
 

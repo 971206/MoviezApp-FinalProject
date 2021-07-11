@@ -58,14 +58,16 @@ class PersonDetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDe
         }
         if indexPath.row == 1 {
             let cell = tableView.deque(SimilarCell.self, for: indexPath)
-            cell.configureKnownFromMoviesitems(items: movieCreditsList)
+            cell.configureMovieCredits(items: movieCreditsList)
+            cell.personCreditsDelegate = self
             return cell
             
         }
         
         if indexPath.row == 2 {
             let cell = tableView.deque(SimilarCell.self, for: indexPath)
-            cell.configureKnownFromTvShows(items: tvShowCreditsList)
+            cell.configureTvShowCredits(items: tvShowCreditsList)
+            cell.personCreditsDelegate = self
             return cell
         }
         
@@ -86,5 +88,16 @@ class PersonDetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDe
             return 305
         }
         return 0
+    }
+}
+
+extension PersonDetailInfoDataSource: PersonCreditsDelegate {
+    func onTvShowCreditsClicked(id: Int) {
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, type: MediaType.tv.rawValue)
+    }
+    
+    func onMovieCreditsClicked(id: Int) {
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, type: MediaType.movie.rawValue)
+
     }
 }

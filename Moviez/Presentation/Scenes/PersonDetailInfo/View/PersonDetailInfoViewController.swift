@@ -30,7 +30,7 @@ class PersonDetailInfoViewController: BaseViewController {
         personManager = PersonManager()
         personCreditsManager = PersonCreditsManager()
         viewModel = PersonDetailInfoViewModel(with: personManager,
-                                              personCreditsManager: personCreditsManager)
+                                              personCreditsManager: personCreditsManager, controller: self)
         dataSource = PersonDetailInfoDataSource(with: tableView,
                                                 viewModel: viewModel)
         dataSource.id = id

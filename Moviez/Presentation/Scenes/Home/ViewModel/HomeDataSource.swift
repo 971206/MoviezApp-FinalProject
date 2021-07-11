@@ -116,21 +116,19 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
     
     //MARK: - HomePageCell Delegate
     func onTrendingMoviesClicked(movie: Movies) {
-        viewModel.controller.coordinator?.onTrendingMoviesClicked(movie: movie)
-
+        viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }
     
     func onInTheatersClicked(movie: Movies) {
-        viewModel.controller.coordinator?.onInTheatersClicked(movie: movie)
+        viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }
     
     func onTrendingTvShowClicked(tvShow: TvShows) {
         viewModel.controller.coordinator?.onTrendingTvShowClicked(tvShow: tvShow)
-        
     }
     
     func onComingSoonClicked(movie: Movies) {
-        viewModel.controller.coordinator?.onComingSoonClicked(movie: movie)
+        viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }
     
 }

@@ -10,8 +10,13 @@ import UIKit
 protocol SimilarCellDelegate: AnyObject {
     func onSimilarClicked(id: Int)
     func onRecommendedClicked(id: Int)
+   
 }
 
+protocol PersonCreditsDelegate: AnyObject {
+    func onTvShowCreditsClicked(id: Int)
+    func onMovieCreditsClicked(id: Int)
+}
 
 class SimilarCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -21,6 +26,7 @@ class SimilarCell: UITableViewCell {
     private var similarItemsList: [SearchModel]?
     private var recommendedItemsList: [SearchModel]?
     weak var delegate: SimilarCellDelegate!
+    weak var personCreditsDelegate: PersonCreditsDelegate!
     private var creditsManager: PersonCreditsManagerProtocol!
     var creditsMovieList: [SearchModel]?
     var creditsTvShowList: [SearchModel]?
@@ -57,13 +63,13 @@ class SimilarCell: UITableViewCell {
         collectionView.reloadData()
     }
     
-    func configureKnownFromTvShows(items: [SearchModel]?) {
+    func configureTvShowCredits(items: [SearchModel]?) {
         creditsTvShowList = items
         creditsMovieList = nil
         collectionView.reloadData()
         
     }
-    func configureKnownFromMoviesitems(items: [SearchModel]?) {
+    func configureMovieCredits(items: [SearchModel]?) {
         creditsMovieList = items
         creditsTvShowList = nil
         collectionView.reloadData()
@@ -129,6 +135,13 @@ extension SimilarCell: UICollectionViewDelegate {
         }
         if let recommendedItemId = recommendedItemsList?[indexPath.row].id {
             delegate.onRecommendedClicked(id:recommendedItemId)
+        }
+        if let movieCreditsId = creditsMovieList?[indexPath.row].id {
+            personCreditsDelegate.onMovieCreditsClicked(id: movieCreditsId)
+        }
+        
+        if let tvShowCreditsId = creditsTvShowList?[indexPath.row].id {
+            personCreditsDelegate.onTvShowCreditsClicked(id: tvShowCreditsId)
         }
     }
 }

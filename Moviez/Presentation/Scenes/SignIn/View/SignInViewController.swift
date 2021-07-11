@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-class SignInViewController: UIViewController {
+class SignInViewController: BaseViewController {
     
     // MARK: - Sign in Outlets
     @IBOutlet weak var labelWelcome: UILabel!
@@ -41,7 +41,7 @@ class SignInViewController: UIViewController {
         if let email = fieldEmail.text, let password = fieldPassword.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if  error != nil {
-                    self.problemAlert()
+                    self.coordinator?.alertSignInProblem()
                 } else {
                     UserDefaults.standard.setValue(true, forKey:"is_logged_in")
                     let sb = UIStoryboard(name: VCIds.profile, bundle: nil)
@@ -67,17 +67,15 @@ class SignInViewController: UIViewController {
     }
     
     //MARK: - Alert
-    private func problemAlert() {
-        let alert = UIAlertController(title: "There was a problem", message: "Details are not correct or user does not exist ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-        self.present(alert, animated: true)
-    }
-    
+//    private func problemAlert() {
+//        let alert = UIAlertController(title: "There was a problem", message: "Details are not correct or user does not exist ", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+//        self.present(alert, animated: true)
+//    }
+//
     // MARK: - Signup Pressed
     @IBAction func onSignup(_ sender: Any) {
-        let sb = UIStoryboard(name: VCIds.registrationVC, bundle: nil)
-        guard let registrationVc = sb.instantiateViewController(identifier: VCIds.registrationVC) as? RegistrationViewController else {return}
-        self.present(registrationVc, animated: true, completion: nil)
+        coordinator?.proceedToSignUp()
     }
     
 }

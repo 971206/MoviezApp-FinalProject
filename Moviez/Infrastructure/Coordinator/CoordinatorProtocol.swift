@@ -20,13 +20,15 @@ protocol CoordinatorProtocol: AnyObject {
     init(_ window: UIWindow?, navigationController: UINavigationController?)
     
     func start()
-    func onTrendingMoviesClicked(movie: Movies) 
-    func onInTheatersClicked(movie: Movies)
     func onTrendingTvShowClicked(tvShow: TvShows)
-    func onComingSoonClicked(movie: Movies)
+    func onTrendingComingSoonTheatersClicked(movie: Movies)
     func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel)
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel)
-    func onCastClicked(personId: Int, media: String)
-    func onSimilarAndRecommendedClicked(id: Int, type: String)
+    func proceedToPersonDetailInfo(personId: Int, media: String)
+    func proceedToMovieAndTvShowDetailInfo(id: Int, type: String)
+    func proceedToSignUp()
+    func alertRegistrationProblem(message: String)
+    func alertRegistrationSuccess()
+    func alertSignInProblem() 
     
 }
