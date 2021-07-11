@@ -14,6 +14,7 @@ import FirebaseAuth
 
 class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegate {
     var coordinator: CoordinatorProtocol?
+    var searchCoordinator: CoordinatorProtocol?
     
 // MARK: - VC LifeCycle
     override func viewDidLoad() {
@@ -23,7 +24,7 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
         let vc1 = self.viewControllers![0] as! HomeViewController
         vc1.coordinator = coordinator
         let vc2 = self.viewControllers![1] as! SearchListViewController
-        vc2.coordinator = coordinator
+        vc2.coordinator = searchCoordinator
 //        vc2.tabBarDelegate = self
 
         let vc3 = self.viewControllers![2] as! NewsViewController

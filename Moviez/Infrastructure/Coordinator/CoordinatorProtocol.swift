@@ -24,6 +24,9 @@ protocol CoordinatorProtocol: AnyObject {
     func onInTheatersClicked(movie: Movies)
     func onTrendingTvShowClicked(tvShow: TvShows)
     func onComingSoonClicked(movie: Movies)
-    func proceedToDetailsMovieAndTvShowChoosed(with item : SearchModel)
-    func proceedToDetailsWhenPersonChoosed(with item: SearchModel)
+    func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel)
+    func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel)
+    func onCastClicked(personId: Int, media: String)
+    func onSimilarAndRecommendedClicked(id: Int, type: String)
+    
 }

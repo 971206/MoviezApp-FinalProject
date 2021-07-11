@@ -72,6 +72,7 @@
         <!--Item-->
         <scene sceneID="kg5-Cn-W7H">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beE-ej-9r2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hDB-wd-wwz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" image="house" catalog="system" id="G6J-Rq-mEO"/>
                     <toolbarItems/>
@@ -84,7 +85,6 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="DOw-x8-N7I"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="beE-ej-9r2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.98550724637687" y="79.6875"/>
         </scene>

@@ -81,13 +81,13 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         guard let result = searchResult?[indexPath.row] else {return}
         
         if choosedItemsMediaType == MediaType.movie.rawValue  {
-            viewModel.controller.coordinator?.proceedToDetailsMovieAndTvShowChoosed(with: result)
+            viewModel.controller.coordinator?.proceedToDetailsFromSearchMovieAndTvShowChoosed(with: result)
 
         } else if choosedItemsMediaType == MediaType.tv.rawValue  {
-            viewModel.controller.coordinator?.proceedToDetailsMovieAndTvShowChoosed(with: result)
+            viewModel.controller.coordinator?.proceedToDetailsFromSearchMovieAndTvShowChoosed(with: result)
 //            viewModel.tabBarDelegate.getData()
         } else {
-            viewModel.controller.coordinator?.proceedToDetailsWhenPersonChoosed(with: result)
+            viewModel.controller.coordinator?.proceedToDetailsFromSearchWhenPersonChoosed(with: result)
         }
     }
     

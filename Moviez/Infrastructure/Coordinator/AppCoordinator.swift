@@ -9,14 +9,14 @@ import UIKit
 
 final class AppCoordinator: CoordinatorProtocol {
     
-//    
-//    var inTheatersManager: InTheatersManagerProtocol
-//    
-//    var trendingMoviesManager: TrendingMoviesManagerProtocol
-//    
-//    var trendingTvShowsManager: TrendingTvShowsManagerProtocol
-//    
-//    var comingSoonManager: ComingSoonManagerProtocol
+    //
+    //    var inTheatersManager: InTheatersManagerProtocol
+    //
+    //    var trendingMoviesManager: TrendingMoviesManagerProtocol
+    //
+    //    var trendingTvShowsManager: TrendingTvShowsManagerProtocol
+    //
+    //    var comingSoonManager: ComingSoonManagerProtocol
     
     
     // MARK: - Private properties
@@ -25,14 +25,14 @@ final class AppCoordinator: CoordinatorProtocol {
     private var navigationController: UINavigationController?
     
     // MARK: - Internal properties
-        
+    
     init(_ window: UIWindow?, navigationController: UINavigationController?) {
         self.window = window
         self.navigationController = navigationController
-//        self.trendingMoviesManager = TrendingMoviesManager()
-//        self.trendingTvShowsManager = TrendingTvShowsManager()
-//        self.comingSoonManager = ComingSoonManager()
-//        self.inTheatersManager = InTheatersManager()
+        //        self.trendingMoviesManager = TrendingMoviesManager()
+        //        self.trendingTvShowsManager = TrendingTvShowsManager()
+        //        self.comingSoonManager = ComingSoonManager()
+        //        self.inTheatersManager = InTheatersManager()
         
     }
     
@@ -76,7 +76,7 @@ final class AppCoordinator: CoordinatorProtocol {
         navigationController?.pushViewController(detailInfoVC, animated: true)
     }
     
-    func proceedToDetailsMovieAndTvShowChoosed(with item : SearchModel) {
+    func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel) {
         let detailInfoVC = DetailInfoViewController.instantiateFromStoryboard()
         detailInfoVC.idOfItem = item.id
         detailInfoVC.typeOfItem = item.mediaType
@@ -84,13 +84,29 @@ final class AppCoordinator: CoordinatorProtocol {
         navigationController?.pushViewController(detailInfoVC, animated: true)
     }
     
-        func proceedToDetailsWhenPersonChoosed(with item: SearchModel) {
-            let detailsInfoVC = PersonDetailInfoViewController.instantiateFromStoryboard()
-            detailsInfoVC.id = item.id
-            detailsInfoVC.mediaType = item.mediaType
-            detailsInfoVC.coordinator = self
-            navigationController?.pushViewController(detailsInfoVC, animated: true)
-        }
+    func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel) {
+        let detailsInfoVC = PersonDetailInfoViewController.instantiateFromStoryboard()
+        detailsInfoVC.id = item.id
+        detailsInfoVC.mediaType = item.mediaType
+        detailsInfoVC.coordinator = self
+        navigationController?.pushViewController(detailsInfoVC, animated: true)
+    }
     
+    func onSimilarAndRecommendedClicked(id: Int, type: String) {
+        let detailInfoVC = DetailInfoViewController.instantiateFromStoryboard()
+        detailInfoVC.idOfItem = id
+        detailInfoVC.typeOfItem = type
+        detailInfoVC.coordinator = self
+       navigationController?.pushViewController(detailInfoVC, animated: true)
+    }
 
+    func onCastClicked(personId: Int, media: String) {
+        let vc = PersonDetailInfoViewController.instantiateFromStoryboard()
+        vc.id = personId
+        vc.mediaType = media
+        vc.coordinator = self
+        navigationController?.pushViewController(vc, animated: true)
+
+    }
+    
 }

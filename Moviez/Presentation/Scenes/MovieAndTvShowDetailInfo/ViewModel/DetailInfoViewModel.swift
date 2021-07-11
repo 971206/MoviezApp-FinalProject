@@ -14,10 +14,13 @@ protocol DetailInfoViewModelProtocol: AnyObject {
     func fetchRecommendedItems(with type: String, id: Int, completion: @escaping ([SearchModel]) -> Void)
     func fetchDetailInfo(id: Int,type: String, completion: @escaping (Details) -> Void)
     func fetchCastInfo(id: Int, type: String, completion: @escaping ([Person]) -> Void)
-    func proceedToDetailsWhenTvShowSelected(with item : SearchModel)
-    func proceedToDetailsWhenMovieSelected(with item : SearchModel)
+//    func proceedToDetailsWhenTvShowSelected(with item : SearchModel)
+//    func proceedToDetailsWhenMovieSelected(with item : SearchModel)
+    var controller: CoordinatorDelegate { get }
+
     
-    init(with similarItemsManager: SimilarItemsManagerProtocol, with recommendedItemsManager: RecommendedApiManagerProtocol, with detailsManager: DetailsManagerProtocol, with castManager: CastManagerProtocol, with navigationController: UINavigationController)
+    
+    init(with similarItemsManager: SimilarItemsManagerProtocol, with recommendedItemsManager: RecommendedApiManagerProtocol, with detailsManager: DetailsManagerProtocol, with castManager: CastManagerProtocol, with navigationController: UINavigationController, with controller: CoordinatorDelegate)
 }
 
 class DetailInfoViewModel: DetailInfoViewModelProtocol {
@@ -30,14 +33,18 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
     private var detailInfo: Details?
     private var similarItems: [SearchModel]?
     private var recommendedItems: [SearchModel]?
+    private(set) var controller: CoordinatorDelegate
+
     
     
-    required init(with similarItemsManager: SimilarItemsManagerProtocol, with recommendedItemsManager: RecommendedApiManagerProtocol, with detailsManager: DetailsManagerProtocol, with castManager: CastManagerProtocol, with navigationController: UINavigationController) {
+    
+    required init(with similarItemsManager: SimilarItemsManagerProtocol, with recommendedItemsManager: RecommendedApiManagerProtocol, with detailsManager: DetailsManagerProtocol, with castManager: CastManagerProtocol, with navigationController: UINavigationController, with controller: CoordinatorDelegate) {
         self.similarItemsManager = similarItemsManager
         self.detailsManager = detailsManager
         self.recommendedItemsManager = recommendedItemsManager
         self.castManager = castManager
         self.navigationController = navigationController
+        self.controller = controller
     }
     
     // MARK: - Fetch Info
@@ -66,19 +73,19 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
     }
     
     //MARK: - Show Details
-    func proceedToDetailsWhenTvShowSelected(with item : SearchModel) {
-        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
-        let detailsInfoVC = sb.instantiateViewController(withIdentifier: VCIds.detailInfoVC) as! DetailInfoViewController
-        detailsInfoVC.idOfItem = item.id
-        detailsInfoVC.typeOfItem = MediaType.tv.rawValue
-        self.navigationController?.pushViewController(detailsInfoVC, animated: true)
-    }
-    
-    func proceedToDetailsWhenMovieSelected(with item : SearchModel) {
-        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
-        let detailsInfoVC = sb.instantiateViewController(withIdentifier: VCIds.detailInfoVC) as! DetailInfoViewController
-        detailsInfoVC.idOfItem = item.id
-        detailsInfoVC.typeOfItem = MediaType.movie.rawValue
-        self.navigationController?.pushViewController(detailsInfoVC, animated: true)
-    }
+//    func proceedToDetailsWhenTvShowSelected(with item : SearchModel) {
+//        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
+//        let detailsInfoVC = sb.instantiateViewController(withIdentifier: VCIds.detailInfoVC) as! DetailInfoViewController
+//        detailsInfoVC.idOfItem = item.id
+//        detailsInfoVC.typeOfItem = MediaType.tv.rawValue
+//        self.navigationController?.pushViewController(detailsInfoVC, animated: true)
+//    }
+//
+//    func proceedToDetailsWhenMovieSelected(with item : SearchModel) {
+//        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
+//        let detailsInfoVC = sb.instantiateViewController(withIdentifier: VCIds.detailInfoVC) as! DetailInfoViewController
+//        detailsInfoVC.idOfItem = item.id
+//        detailsInfoVC.typeOfItem = MediaType.movie.rawValue
+//        self.navigationController?.pushViewController(detailsInfoVC, animated: true)
+//    }
 }

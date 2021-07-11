@@ -49,12 +49,12 @@ class DetailInfoViewController: BaseViewController {
                                         with: recommendedItemManager,
                                         with: detailsManager,
                                         with: castManager,
-                                        with: navigationController!)
+                                        with: navigationController!, with: self)
         dataSource = DetailInfoDataSource(with: tableView,
                                           viewModel: viewModel,
                                           navigationController: navigationController!)
         dataSource.id = idOfItem
-        dataSource.type = typeOfItem
+        dataSource.mediaType = typeOfItem
         dataSource.refresh()
     }
     
