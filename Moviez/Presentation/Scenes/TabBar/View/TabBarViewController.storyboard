@@ -52,7 +52,7 @@
         <!--NewsViewController-->
         <scene sceneID="39O-Fo-nGn">
             <objects>
-                <viewControllerPlaceholder storyboardName="NewsViewController" id="NLK-dK-wEB" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="NewsViewController" referencedIdentifier="NewsViewController" id="NLK-dK-wEB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" tag="2" title="News" id="Vtt-Xs-u7M"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipr-ou-8CY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -62,7 +62,7 @@
         <!--SignInViewController-->
         <scene sceneID="280-L6-fk4">
             <objects>
-                <viewControllerPlaceholder storyboardName="SignInViewController" id="bxR-qb-V6Z" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="SignInViewController" storyboardName="SignInViewController" referencedIdentifier="SignInViewController" id="bxR-qb-V6Z" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" id="a6k-q6-LgE"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QmZ-KA-tiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

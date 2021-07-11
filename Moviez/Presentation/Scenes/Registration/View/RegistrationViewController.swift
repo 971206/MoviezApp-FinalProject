@@ -49,14 +49,14 @@ class RegistrationViewController: BaseViewController {
         
         if error != nil {
             
-//            alertProblem(message: error ?? "")
-            coordinator?.alertRegistrationProblem(message: error ?? "")
+            alertProblem(message: error ?? "")
+//            coordinator?.alertRegistrationProblem(message: error ?? "")
         } else {
             if let email = fieldEmail.text, let password = fieldPassword.text, let fullName = fieldFullName.text {
                 Auth.auth().createUser(withEmail: email, password: password) { result, error in
                     if let error = error  {
-//                        self.alertProblem(message: error.localizedDescription )
-                        self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
+                        self.alertProblem(message: error.localizedDescription )
+//                        self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
                         print(error.localizedDescription)
                     } else {
                         let dataBase = Firestore.firestore()
@@ -67,7 +67,8 @@ class RegistrationViewController: BaseViewController {
                                 self.coordinator?.alertRegistrationProblem(message: error)
                             }
                         }
-                        self.coordinator?.alertRegistrationSuccess()
+//                        self.coordinator?.alertRegistrationSuccess()
+                        self.alertSuccess()
                     }
                 }
             }
@@ -90,17 +91,17 @@ class RegistrationViewController: BaseViewController {
     }
     
     //MARK: - Alerts
-//    private func alertProblem(message: String) {
-//        let alert = UIAlertController(title: "There was a problem", message: message , preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-//        self.present(alert, animated: true)
-//    }
-//    
-//    private func alertSuccess() {
-//        let alert = UIAlertController(title: "Congratulations!", message: "User has successfully been registered! Now you can sign in." , preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
-//            self.dismiss(animated: true, completion: nil)
-//        }))
-//        self.present(alert, animated: true)
-//    }
+    private func alertProblem(message: String) {
+        let alert = UIAlertController(title: "There was a problem", message: message , preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    private func alertSuccess() {
+        let alert = UIAlertController(title: "Congratulations!", message: "User has successfully been registered! Now you can sign in." , preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true)
+    }
 }

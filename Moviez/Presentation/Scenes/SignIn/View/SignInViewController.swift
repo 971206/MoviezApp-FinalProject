@@ -44,9 +44,10 @@ class SignInViewController: BaseViewController {
                     self.coordinator?.alertSignInProblem()
                 } else {
                     UserDefaults.standard.setValue(true, forKey:"is_logged_in")
-                    let sb = UIStoryboard(name: VCIds.profile, bundle: nil)
-                    let vc = sb.instantiateViewController(withIdentifier: VCIds.profile)
-                    self.navigationController?.pushViewController(vc, animated: true)
+//                    let sb = UIStoryboard(name: VCIds.profile, bundle: nil)
+//                    let vc = sb.instantiateViewController(withIdentifier: VCIds.profile)
+//                    self.navigationController?.pushViewController(vc, animated: true)
+                    self.coordinator?.proceedToProfile()
                     NotificationCenter.default.post(name: .signedIn, object: nil)
                 }
             }
@@ -75,6 +76,9 @@ class SignInViewController: BaseViewController {
 //
     // MARK: - Signup Pressed
     @IBAction func onSignup(_ sender: Any) {
+//        let sb = UIStoryboard(name: VCIds.registrationVC, bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: VCIds.registrationVC)
+//        self.navigationController?.pushViewController(vc, animated: true)
         coordinator?.proceedToSignUp()
     }
     

@@ -27,6 +27,7 @@ protocol CoordinatorProtocol: AnyObject {
     func proceedToPersonDetailInfo(personId: Int, media: String)
     func proceedToMovieAndTvShowDetailInfo(id: Int, type: String)
     func proceedToSignUp()
+    func proceedToProfile() 
     func alertRegistrationProblem(message: String)
     func alertRegistrationSuccess()
     func alertSignInProblem() 

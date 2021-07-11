@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import SnapKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
     
     lazy var box = UIView()
     
