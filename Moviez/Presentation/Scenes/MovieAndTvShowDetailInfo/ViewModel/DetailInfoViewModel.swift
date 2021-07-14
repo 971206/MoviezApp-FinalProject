@@ -72,20 +72,4 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
         }
     }
     
-    //MARK: - Show Details
-//    func proceedToDetailsWhenTvShowSelected(with item : SearchModel) {
-//        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
-//        let detailsInfoVC = sb.instantiateViewController(withIdentifier: VCIds.detailInfoVC) as! DetailInfoViewController
-//        detailsInfoVC.idOfItem = item.id
-//        detailsInfoVC.typeOfItem = MediaType.tv.rawValue
-//        self.navigationController?.pushViewController(detailsInfoVC, animated: true)
-//    }
-//
-//    func proceedToDetailsWhenMovieSelected(with item : SearchModel) {
-//        let sb = UIStoryboard(name: VCIds.detailInfoVC, bundle: nil)
-//        let detailsInfoVC = sb.instantiateViewController(withIdentifier: VCIds.detailInfoVC) as! DetailInfoViewController
-//        detailsInfoVC.idOfItem = item.id
-//        detailsInfoVC.typeOfItem = MediaType.movie.rawValue
-//        self.navigationController?.pushViewController(detailsInfoVC, animated: true)
-//    }
 }

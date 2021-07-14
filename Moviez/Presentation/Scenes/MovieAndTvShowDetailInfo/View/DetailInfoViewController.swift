@@ -17,6 +17,7 @@ class DetailInfoViewController: BaseViewController {
     private var castManager: CastManagerProtocol!
     private var dataSource: DetailInfoDataSource!
     private var viewModel: DetailInfoViewModel!
+    var navCont: UINavigationController!
     
     var similarItemsList: [SearchModel]?
     var recommendedItemsList: [SearchModel]?

@@ -46,6 +46,7 @@ class MovieAndTvShowDescriptionCell: UITableViewCell {
         labelLanguage.text = "Language: \(item?.originalLanguage?.uppercased() ?? "")"
         labelRate.text = String(describing: item?.voteAverage ?? 0)
         labelOverview.text = item?.overview
+//        labelGenres.text = item?.genres![0].name
         let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.posterURL ?? "")")
         self.imagePoster.kf.setImage(with: posterURL)
     }

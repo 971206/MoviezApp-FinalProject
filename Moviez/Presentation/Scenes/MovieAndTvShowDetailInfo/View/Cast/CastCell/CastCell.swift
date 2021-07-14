@@ -24,32 +24,21 @@ class CastCell: UITableViewCell {
         super.awakeFromNib()
         setUpCollectionView()
     }
-
+    
     
     // MARK: - Setup CollectionView
-         func setUpCollectionView() {
-            collectionView.dataSource = self
-            collectionView.delegate = self
-            collectionView.showsHorizontalScrollIndicator = false
-            collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-            collectionView.registerNib(class: CastItem.self)
-            let layout = UICollectionViewFlowLayout()
-            layout.itemSize = CGSize(width: 130, height: 230)
-            layout.scrollDirection = .horizontal
-            collectionView.collectionViewLayout = layout
-            
-        }
-    
-    
-    
-//    func fetchCast(with id:Int, type: String) {
-//        castManager = CastManager()
-//        castManager.fetchCastInfo(id: id, type: type) { [weak self] cast in
-//            guard let self = self else {return}
-//            self.listOfCast = cast
-//            self.collectionView.reloadData()
-//        }
-//    }
+    func setUpCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        collectionView.registerNib(class: CastItem.self)
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 130, height: 230)
+        layout.scrollDirection = .horizontal
+        collectionView.collectionViewLayout = layout
+        
+    }
     
     func configureCastList(items: [Person]) {
         castList = items
@@ -81,7 +70,7 @@ extension CastCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let personId = castList?[indexPath.row].id else {return}
-            delegate?.onCastClicked(personId: personId)
-
+        delegate?.onCastClicked(personId: personId)
+        
     }
 }
