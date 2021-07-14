@@ -11,8 +11,6 @@ protocol CastCellDelegate: AnyObject {
     func onCastClicked(personId: Int)
 }
 
-
-
 class CastCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     private var castManager: CastManagerProtocol!

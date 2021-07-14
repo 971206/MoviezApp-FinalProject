@@ -13,28 +13,27 @@ import FirebaseAuth
 //}
 
 class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegate {
+    
+    private var homeCoordinator = HomeCoordinator()
+    private var searchCoordinator = SearchCoordinator()
+    private var newsCoordinator = NewsCoordinator()
+    private var profileCoordinator = ProfileCoordinator()
+    private var signInCoordinator = SignInCoordinator()
     var coordinator: CoordinatorProtocol?
-    var searchCoordinator: CoordinatorProtocol?
+    
+    
     
 // MARK: - VC LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        viewControllers = [
+            homeCoordinator.navigationController!,
+            searchCoordinator.navigationController!,
+            newsCoordinator.navigationController!,
+            signInCoordinator.navigationController!
+        ]
         
-        let vc1 = self.viewControllers![0] as! HomeViewController
-        vc1.coordinator = coordinator
-        
-        let vc2 = self.viewControllers![1] as! SearchListViewController
-        vc2.coordinator = coordinator
-        
-//        vc2.tabBarDelegate = self
-
-        let vc3 = self.viewControllers![2] as! NewsViewController
-        vc3.coordinator = coordinator
-
-        let vc4 = self.viewControllers![3] as! SignInViewController
-        vc4.coordinator = coordinator
-
         setupTabbar()
         addObersver()
         

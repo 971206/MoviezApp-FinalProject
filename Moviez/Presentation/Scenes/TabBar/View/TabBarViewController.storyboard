@@ -18,60 +18,13 @@
                         <color key="barTintColor" name="lightBackground"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="95n-Es-YHw" kind="relationship" relationship="viewControllers" id="ZDs-nX-x5M"/>
-                        <segue destination="Ynb-7t-SOV" kind="relationship" relationship="viewControllers" id="Ju7-We-3MP"/>
-                        <segue destination="NLK-dK-wEB" kind="relationship" relationship="viewControllers" id="InX-zf-Rbg"/>
-                        <segue destination="bxR-qb-V6Z" kind="relationship" relationship="viewControllers" id="4oY-9D-Ulh"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sbp-WS-wTJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-682" y="38"/>
         </scene>
-        <!--HomeViewController-->
-        <scene sceneID="QLX-Od-vrf">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="HomeViewController" storyboardName="HomeViewController" referencedIdentifier="HomeViewController" id="95n-Es-YHw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" id="ldg-bJ-uoV"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBy-Dl-XMc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="250" y="-99"/>
-        </scene>
-        <!--SearchListViewController-->
-        <scene sceneID="7hn-BK-6H9">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SearchListViewController" storyboardName="SearchListViewController" referencedIdentifier="SearchListViewController" id="Ynb-7t-SOV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="1" title="Search" image="magnifyingglass" catalog="system" id="Rrf-pi-Oxa"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="knM-dI-UbK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="250" y="38"/>
-        </scene>
-        <!--NewsViewController-->
-        <scene sceneID="39O-Fo-nGn">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NewsViewController" referencedIdentifier="NewsViewController" id="NLK-dK-wEB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="2" title="News" id="Vtt-Xs-u7M"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipr-ou-8CY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="250" y="157"/>
-        </scene>
-        <!--SignInViewController-->
-        <scene sceneID="280-L6-fk4">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="SignInViewController" storyboardName="SignInViewController" referencedIdentifier="SignInViewController" id="bxR-qb-V6Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="a6k-q6-LgE"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QmZ-KA-tiN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="229" y="249"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="lightBackground">
             <color red="0.082000002264976501" green="0.071000002324581146" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

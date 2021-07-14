@@ -20,7 +20,7 @@ protocol CoordinatorProtocol: AnyObject {
     init(_ window: UIWindow?, navigationController: UINavigationController?)
     
     func start()
-    
+
     func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel)
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel)
     func proceedToMovieAndTvShowDetailInfo(id: Int, type: String)
@@ -33,4 +33,20 @@ protocol CoordinatorProtocol: AnyObject {
     func proceedToProfile()
     func proceedToSignUp()
 
+}
+
+
+extension CoordinatorProtocol {
+    func start(){}
+    func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel) {}
+    func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel){}
+    func proceedToMovieAndTvShowDetailInfo(id: Int, type: String){}
+    func proceedToPersonDetailInfo(personId: Int, media: String){}
+    func onTrendingComingSoonTheatersClicked(movie: Movies) {}
+    func alertRegistrationProblem(message: String) {}
+    func onTrendingTvShowClicked(tvShow: TvShows) {}
+    func alertRegistrationSuccess() {}
+    func alertSignInProblem(){}
+    func proceedToProfile() {}
+    func proceedToSignUp(){}
 }

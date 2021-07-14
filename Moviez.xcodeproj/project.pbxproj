@@ -45,6 +45,11 @@
 		FA3BFF9A2687AA0F00F076E5 /* PersonDetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF992687AA0F00F076E5 /* PersonDetailInfoViewModel.swift */; };
 		FA3BFF9C2687AA1E00F076E5 /* PersonDetailInfoDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF9B2687AA1E00F076E5 /* PersonDetailInfoDataSource.swift */; };
 		FA3BFF9E2687AA4600F076E5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF9D2687AA4600F076E5 /* Person.swift */; };
+		FA3CD765269F73E800A56BCA /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD764269F73E800A56BCA /* HomeCoordinator.swift */; };
+		FA3CD768269F740400A56BCA /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD767269F740400A56BCA /* SearchCoordinator.swift */; };
+		FA3CD76B269F741E00A56BCA /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD76A269F741E00A56BCA /* NewsCoordinator.swift */; };
+		FA3CD76D269F743C00A56BCA /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD76C269F743C00A56BCA /* SignInCoordinator.swift */; };
+		FA3CD771269F748000A56BCA /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD770269F748000A56BCA /* ProfileCoordinator.swift */; };
 		FA3DAC1B2688676B00E75C35 /* MovieAndTvShowDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DAC192688676B00E75C35 /* MovieAndTvShowDescriptionCell.swift */; };
 		FA3DAC1C2688676B00E75C35 /* MovieAndTvShowDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3DAC1A2688676B00E75C35 /* MovieAndTvShowDescriptionCell.xib */; };
 		FA3DAC1F2688756900E75C35 /* SimilarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DAC1D2688756900E75C35 /* SimilarCell.swift */; };
@@ -179,6 +184,11 @@
 		FA3BFF992687AA0F00F076E5 /* PersonDetailInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailInfoViewModel.swift; sourceTree = "<group>"; };
 		FA3BFF9B2687AA1E00F076E5 /* PersonDetailInfoDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailInfoDataSource.swift; sourceTree = "<group>"; };
 		FA3BFF9D2687AA4600F076E5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		FA3CD764269F73E800A56BCA /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		FA3CD767269F740400A56BCA /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		FA3CD76A269F741E00A56BCA /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
+		FA3CD76C269F743C00A56BCA /* SignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCoordinator.swift; sourceTree = "<group>"; };
+		FA3CD770269F748000A56BCA /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		FA3DAC192688676B00E75C35 /* MovieAndTvShowDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAndTvShowDescriptionCell.swift; sourceTree = "<group>"; };
 		FA3DAC1A2688676B00E75C35 /* MovieAndTvShowDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieAndTvShowDescriptionCell.xib; sourceTree = "<group>"; };
 		FA3DAC1D2688756900E75C35 /* SimilarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarCell.swift; sourceTree = "<group>"; };
@@ -325,6 +335,7 @@
 		FA20B40526754FAF0020065A /* News */ = {
 			isa = PBXGroup;
 			children = (
+				FA3CD769269F740B00A56BCA /* Coordinator */,
 				FA20B406267551600020065A /* View */,
 				FA20B407267551690020065A /* ViewModel */,
 			);
@@ -478,6 +489,46 @@
 				FA3BFF9D2687AA4600F076E5 /* Person.swift */,
 			);
 			path = Person;
+			sourceTree = "<group>";
+		};
+		FA3CD763269F73D400A56BCA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FA3CD764269F73E800A56BCA /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FA3CD766269F73F600A56BCA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FA3CD767269F740400A56BCA /* SearchCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FA3CD769269F740B00A56BCA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FA3CD76A269F741E00A56BCA /* NewsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FA3CD76E269F744000A56BCA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FA3CD76C269F743C00A56BCA /* SignInCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		FA3CD76F269F747200A56BCA /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				FA3CD770269F748000A56BCA /* ProfileCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		FA3DAC182688673000E75C35 /* MovieAndTvShowDescriptionCell */ = {
@@ -784,6 +835,7 @@
 		FA607F2B266B8669009C9C61 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FA3CD763269F73D400A56BCA /* Coordinator */,
 				FA607F2C266B8672009C9C61 /* View */,
 				FA3BFF9126874E2E00F076E5 /* ViewModel */,
 			);
@@ -806,6 +858,7 @@
 		FA607F31266B86AB009C9C61 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				FA3CD766269F73F600A56BCA /* Coordinator */,
 				FA607F34266B86C7009C9C61 /* View */,
 				FA440CB9266FAE1000F2B22D /* ViewModel */,
 			);
@@ -826,6 +879,7 @@
 		FA607F37266B88D4009C9C61 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				FA3CD76F269F747200A56BCA /* Coordinator */,
 				FA607F3A266B893C009C9C61 /* View */,
 			);
 			path = Profile;
@@ -888,6 +942,7 @@
 		FA947307266CAFCD0094069D /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				FA3CD76E269F744000A56BCA /* Coordinator */,
 				FA947308266CAFDF0094069D /* View */,
 			);
 			path = SignIn;
@@ -1178,9 +1233,11 @@
 				FA3DAC362688B60D00E75C35 /* RecommendedItemsAPIManager.swift in Sources */,
 				FACFAE6F269B3B6300CFDCAD /* NewDetailInfoDataSoure.swift in Sources */,
 				FA947331266D6CA20094069D /* BoxOffice.swift in Sources */,
+				FA3CD76D269F743C00A56BCA /* SignInCoordinator.swift in Sources */,
 				FA4BDC71269A291600B2369B /* CoordinatorProtocol.swift in Sources */,
 				FA94730A266CAFFA0094069D /* SignInViewController.swift in Sources */,
 				FA2AFA53268CE64400F34245 /* DetailInfoDataSource.swift in Sources */,
+				FA3CD765269F73E800A56BCA /* HomeCoordinator.swift in Sources */,
 				FA607F06266B8416009C9C61 /* InTheatersAPIManager.swift in Sources */,
 				FA607F39266B892B009C9C61 /* ProfileViewController.swift in Sources */,
 				FA20B3FD26754E7C0020065A /* News.swift in Sources */,
@@ -1219,6 +1276,7 @@
 				FA440CB2266FA5CC00F2B22D /* Movies.swift in Sources */,
 				FA40CDA7268672D600801FED /* HomeDataSource.swift in Sources */,
 				FA607F6C266C1341009C9C61 /* TvShows.swift in Sources */,
+				FA3CD768269F740400A56BCA /* SearchCoordinator.swift in Sources */,
 				FA14D619269790CA00F47C94 /* BoxOfficeItem.swift in Sources */,
 				FA58607F2673765500933FF7 /* ReviewsDataSource.swift in Sources */,
 				FA947323266D53810094069D /* ComingSoonAPIManager.swift in Sources */,
@@ -1229,12 +1287,14 @@
 				FA4012F62690F2DE007FF29A /* CreditsItem.swift in Sources */,
 				FA5860952673DDDF00933FF7 /* DetailInfoViewModel.swift in Sources */,
 				FA607F1C266B8520009C9C61 /* UIColor + Extension.swift in Sources */,
+				FA3CD771269F748000A56BCA /* ProfileCoordinator.swift in Sources */,
 				FA3DAC2F268888FE00E75C35 /* CastCell.swift in Sources */,
 				FA2B633E2671FCEB0000A038 /* NSNotification.name + Extension.swift in Sources */,
 				FA4BDC77269A29F000B2369B /* Storyboarded.swift in Sources */,
 				FA3BFF8D2687417C00F076E5 /* VideoResponse.swift in Sources */,
 				FA2B63592672AD3A0000A038 /* ReviewResponse.swift in Sources */,
 				FA607F29266B8607009C9C61 /* TabBarViewController.swift in Sources */,
+				FA3CD76B269F741E00A56BCA /* NewsCoordinator.swift in Sources */,
 				FA14D61F269796E900F47C94 /* BoxOfficeCell.swift in Sources */,
 				FAEFC64F266EA4E600183B45 /* HomePageItem.swift in Sources */,
 				FA607F6E266C134A009C9C61 /* TvShowsResponse.swift in Sources */,
