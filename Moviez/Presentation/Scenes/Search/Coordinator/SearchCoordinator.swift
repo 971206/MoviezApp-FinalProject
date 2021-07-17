@@ -33,4 +33,29 @@ final class SearchCoordinator: CoordinatorProtocol {
         detailsInfoVC.coordinator = self
         navigationController?.pushViewController(detailsInfoVC, animated: true)
     }
+    
+    func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String) {
+        let detailInfoVC = DetailInfoViewController.instantiateFromStoryboard()
+        detailInfoVC.idOfItem = id
+        detailInfoVC.typeOfItem = mediaType
+        detailInfoVC.coordinator = self
+        navigationController?.pushViewController(detailInfoVC, animated: true)
+    }
+    
+    func proceedToPersonDetailInfo(personId: Int, mediaType: String) {
+        let vc = PersonDetailInfoViewController.instantiateFromStoryboard()
+        vc.id = personId
+        vc.mediaType = mediaType
+        vc.coordinator = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func proceetToReviews(with itemID: Int, mediaType: String) {
+        let vc = ReviewsListViewController.instantiateFromStoryboard()
+        vc.type = mediaType
+        vc.id = itemID
+        vc.coordinator = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

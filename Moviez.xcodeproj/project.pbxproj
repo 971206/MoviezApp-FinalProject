@@ -309,6 +309,7 @@
 		FA14D61C2697953C00F47C94 /* BoxOfficeCell */ = {
 			isa = PBXGroup;
 			children = (
+				FA14D61B269790D100F47C94 /* BoxOfficeItem */,
 				FA14D61D269796E900F47C94 /* BoxOfficeCell.swift */,
 				FA14D61E269796E900F47C94 /* BoxOfficeCell.xib */,
 			);
@@ -550,6 +551,7 @@
 		FA3DAC212688757000E75C35 /* SimilarCell */ = {
 			isa = PBXGroup;
 			children = (
+				FAD630852677468A00A0CF9B /* SimilarItem */,
 				FA3DAC1D2688756900E75C35 /* SimilarCell.swift */,
 				FA3DAC1E2688756900E75C35 /* SimilarCell.xib */,
 			);
@@ -853,9 +855,7 @@
 		FA607F2C266B8672009C9C61 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FA94730E266D09110094069D /* HomePageItem */,
 				FA947313266D09460094069D /* HomePageCell */,
-				FA14D61B269790D100F47C94 /* BoxOfficeItem */,
 				FA14D61C2697953C00F47C94 /* BoxOfficeCell */,
 				FA607F2F266B868E009C9C61 /* HomeViewController.swift */,
 				FA607F2D266B8680009C9C61 /* HomeViewController.storyboard */,
@@ -977,6 +977,7 @@
 		FA947313266D09460094069D /* HomePageCell */ = {
 			isa = PBXGroup;
 			children = (
+				FA94730E266D09110094069D /* HomePageItem */,
 				FAEFC651266EA4FC00183B45 /* HomePageCell.swift */,
 				FAEFC652266EA4FC00183B45 /* HomePageCell.xib */,
 			);
@@ -1032,7 +1033,6 @@
 		FAB4C17B2698C9F100207D30 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				FAD630852677468A00A0CF9B /* SimilarItem */,
 				FA3DAC212688757000E75C35 /* SimilarCell */,
 			);
 			path = Reusable;

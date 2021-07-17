@@ -7,6 +7,7 @@
 
 
 import UIKit
+import Firebase
 
 class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
    
@@ -17,6 +18,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     private var viewModel: DetailInfoViewModelProtocol!
     var recommendedItemsList: [SearchModel]?
     var similarItemsList: [SearchModel]?
+    let dataBase = Firestore.firestore()
     var detailInfo: Details?
     var castList: [Person]?
     var mediaType: String?
@@ -98,11 +100,35 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     
     @objc func addToFavorites () {
         print("fav")
-    }
-    @objc func addToWatchlist() {
-        print("watch")
+        guard let mediaType = mediaType else {return}
+        guard let id = id else  {return}
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        dataBase.collection(userID).addDocument(data: ["collection" : "favorites", "mediaType" : mediaType, "id" : id])
 
     }
+    @objc func addToWatchlist() {
+        guard let mediaType = mediaType else {return}
+        guard let id = id else  {return}
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        print("watch")
+        dataBase.collection(userID).addDocument(data: ["collection" : "watchlist", "mediaType" : mediaType, "id" : id])
+        
+   
+//
+//      dataBase.collection(userID).whereField("collection", isEqualTo: "watchlist").getDocuments { (snapShot, error) in
+//            if error == nil && snapShot != nil {
+//                snapShot!.documents.forEach { documet in
+//                    let documentData = documet.data()
+//                    print(documentData)
+//
+//                }
+//            }
+//        }
+      
+    }
+    
+    
+  
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

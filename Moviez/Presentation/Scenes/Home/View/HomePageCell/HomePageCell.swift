@@ -15,7 +15,6 @@ protocol HomePageCellDelegate: AnyObject {
 }
 
 
-
 class HomePageCell: UITableViewCell {
     
     @IBOutlet weak var labelSectionHeader: UILabel!
