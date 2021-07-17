@@ -64,7 +64,10 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if indexPath.row == 0 {
-            let cell = tableView.deque(MovieAndTvShowDescriptionCell.self, for: indexPath)
+            let cell = tableView.deque(DescriptionCell.self, for: indexPath)
+            cell.buttonReviews.addTarget(self, action: #selector(proceedToReviews), for: .touchUpInside)
+            cell.buttonAddFavorites.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
+            cell.buttonAddWatchlist.addTarget(self, action: #selector(addToWatchlist), for: .touchUpInside)
             cell.configure(with: detailInfo)
             return cell
         }
@@ -89,6 +92,19 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+    @objc func proceedToReviews() {
+        viewModel.controller.coordinator?.proceetToReviews(with: id ?? 0, mediaType: mediaType ?? "")
+    }
+    
+    @objc func addToFavorites () {
+        print("fav")
+    }
+    @objc func addToWatchlist() {
+        print("watch")
+
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
             return 500
@@ -109,13 +125,13 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 
 extension DetailInfoDataSource: CastCellDelegate, SimilarCellDelegate {
     func onSimilarClicked(id: Int) {
-        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id , type: mediaType ?? "")
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id , mediaType: mediaType ?? "")
     }
     func onRecommendedClicked(id: Int) {
-        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, type: mediaType ?? "")
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: mediaType ?? "")
     }
     func onCastClicked(personId: Int) {
-        viewModel.controller.coordinator?.proceedToPersonDetailInfo(personId: personId, media: mediaType ?? "")
+        viewModel.controller.coordinator?.proceedToPersonDetailInfo(personId: personId, mediaType: mediaType ?? "")
     }
 }
 

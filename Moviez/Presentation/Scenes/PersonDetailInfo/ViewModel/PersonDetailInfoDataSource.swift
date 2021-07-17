@@ -93,11 +93,11 @@ class PersonDetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDe
 
 extension PersonDetailInfoDataSource: PersonCreditsDelegate {
     func onTvShowCreditsClicked(id: Int) {
-        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, type: MediaType.tv.rawValue)
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: MediaType.tv.rawValue)
     }
     
     func onMovieCreditsClicked(id: Int) {
-        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, type: MediaType.movie.rawValue)
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: MediaType.movie.rawValue)
 
     }
 }

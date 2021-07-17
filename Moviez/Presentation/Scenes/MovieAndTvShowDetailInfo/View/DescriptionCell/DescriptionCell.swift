@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieAndTvShowDescriptionCell: UITableViewCell {
+class DescriptionCell: UITableViewCell {
     @IBOutlet weak var imagePoster: UIImageView!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelGenres: UILabel!
@@ -17,7 +17,10 @@ class MovieAndTvShowDescriptionCell: UITableViewCell {
     @IBOutlet weak var labelRate: UILabel!
     @IBOutlet weak var labelOverview: UILabel!
     @IBOutlet weak var labelRuntime: UILabel!
+    @IBOutlet weak var buttonReviews: UIButton!
+    @IBOutlet weak var buttonAddFavorites: UIButton!
     
+    @IBOutlet weak var buttonAddWatchlist: UIButton!
     var typeOfItem: MediaType.RawValue?
     override func awakeFromNib() {
         super.awakeFromNib()

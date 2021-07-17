@@ -20,7 +20,12 @@ protocol DetailInfoViewModelProtocol: AnyObject {
 
     
     
-    init(with similarItemsManager: SimilarItemsManagerProtocol, with recommendedItemsManager: RecommendedApiManagerProtocol, with detailsManager: DetailsManagerProtocol, with castManager: CastManagerProtocol, with navigationController: UINavigationController, with controller: CoordinatorDelegate)
+    init(with similarItemsManager: SimilarItemsManagerProtocol,
+         with recommendedItemsManager: RecommendedApiManagerProtocol,
+         with detailsManager: DetailsManagerProtocol,
+         with castManager: CastManagerProtocol,
+         with navigationController: UINavigationController,
+         with controller: CoordinatorDelegate)
 }
 
 class DetailInfoViewModel: DetailInfoViewModelProtocol {
@@ -38,7 +43,12 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
     
     
     
-    required init(with similarItemsManager: SimilarItemsManagerProtocol, with recommendedItemsManager: RecommendedApiManagerProtocol, with detailsManager: DetailsManagerProtocol, with castManager: CastManagerProtocol, with navigationController: UINavigationController, with controller: CoordinatorDelegate) {
+    required init(with similarItemsManager: SimilarItemsManagerProtocol,
+                  with recommendedItemsManager: RecommendedApiManagerProtocol,
+                  with detailsManager: DetailsManagerProtocol,
+                  with castManager: CastManagerProtocol,
+                  with navigationController: UINavigationController,
+                  with controller: CoordinatorDelegate) {
         self.similarItemsManager = similarItemsManager
         self.detailsManager = detailsManager
         self.recommendedItemsManager = recommendedItemsManager

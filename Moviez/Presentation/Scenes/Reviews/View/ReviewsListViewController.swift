@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewsListViewController: UIViewController {
+class ReviewsListViewController: BaseViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak var tableView: UITableView!

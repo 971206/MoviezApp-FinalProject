@@ -23,8 +23,8 @@ protocol CoordinatorProtocol: AnyObject {
 
     func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel)
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel)
-    func proceedToMovieAndTvShowDetailInfo(id: Int, type: String)
-    func proceedToPersonDetailInfo(personId: Int, media: String)
+    func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String)
+    func proceedToPersonDetailInfo(personId: Int, mediaType: String)
     func onTrendingComingSoonTheatersClicked(movie: Movies)
     func alertRegistrationProblem(message: String)
     func onTrendingTvShowClicked(tvShow: TvShows)
@@ -32,6 +32,9 @@ protocol CoordinatorProtocol: AnyObject {
     func alertSignInProblem()
     func proceedToProfile()
     func proceedToSignUp()
+    func proceetToReviews(with itemID: Int, mediaType: String)
+    func addToFavorites ()
+    func addToWatchlist()
 
 }
 
@@ -40,8 +43,8 @@ extension CoordinatorProtocol {
     func start(){}
     func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel) {}
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel){}
-    func proceedToMovieAndTvShowDetailInfo(id: Int, type: String){}
-    func proceedToPersonDetailInfo(personId: Int, media: String){}
+    func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String){}
+    func proceedToPersonDetailInfo(personId: Int, mediaType: String){}
     func onTrendingComingSoonTheatersClicked(movie: Movies) {}
     func alertRegistrationProblem(message: String) {}
     func onTrendingTvShowClicked(tvShow: TvShows) {}
@@ -49,4 +52,7 @@ extension CoordinatorProtocol {
     func alertSignInProblem(){}
     func proceedToProfile() {}
     func proceedToSignUp(){}
+    func proceetToReviews(with itemID: Int, mediaType: String) {}
+    func addToFavorites (){}
+    func addToWatchlist(){}
 }
