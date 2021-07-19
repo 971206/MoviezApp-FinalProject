@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol VideoManagerProtocol: AnyObject {
+protocol YoutubeVideoManagerProtocol: AnyObject {
     func fetchVideos(with type: String, id: Int, completion: @escaping ([Video]) -> Void)
 }
 
-class VideoManager: VideoManagerProtocol {
+class YoutubeVideoManager: YoutubeVideoManagerProtocol {
     func fetchVideos(with type: String, id: Int, completion: @escaping ([Video]) -> Void) {
-        let link = APIURLS.createPath(path: "\(type)/\(id)videos")
+        let link = "https://api.themoviedb.org/3/\(type)/\(id)/videos?api_key=705f6a951803d1ed4524ef2a658cbc16&language=en-US"
         NetworkManager.shared.get(url: link) { (result: Result<VideoResponse, Error>) in
             switch result {
             case .success(let response):

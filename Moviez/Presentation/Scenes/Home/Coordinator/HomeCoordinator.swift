@@ -58,11 +58,12 @@ final class HomeCoordinator: CoordinatorProtocol {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func addToWatchlist() {
-        
-    }
-    func addToFavorites () {
-        
+    func proceedToTrailer(with mediaType: String, with itemID: Int) {
+        let vc = YoutubeVideoViewController.instantiateFromStoryboard()
+        vc.mediaType = mediaType
+        vc.itemID = itemID
+        vc.coordinator = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -79,7 +79,7 @@
                         <rect key="frame" x="330" y="343" width="94" height="70"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OG3-48-xaL">
-                                <rect key="frame" x="39.5" y="24" width="15.5" height="22"/>
+                                <rect key="frame" x="5" y="5" width="84" height="60"/>
                                 <color key="tintColor" name="textColor"/>
                                 <state key="normal" image="play" catalog="system"/>
                             </button>
@@ -87,8 +87,10 @@
                         <color key="backgroundColor" name="purple"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="93S-s4-mUN"/>
-                            <constraint firstItem="OG3-48-xaL" firstAttribute="centerX" secondItem="S73-wv-NUS" secondAttribute="centerX" id="YNH-5R-Y4R"/>
-                            <constraint firstItem="OG3-48-xaL" firstAttribute="centerY" secondItem="S73-wv-NUS" secondAttribute="centerY" id="pRC-tt-pr6"/>
+                            <constraint firstAttribute="trailing" secondItem="OG3-48-xaL" secondAttribute="trailing" constant="5" id="EYn-5x-SJO"/>
+                            <constraint firstItem="OG3-48-xaL" firstAttribute="top" secondItem="S73-wv-NUS" secondAttribute="top" constant="5" id="PWm-ab-fbN"/>
+                            <constraint firstAttribute="bottom" secondItem="OG3-48-xaL" secondAttribute="bottom" constant="5" id="ZhU-N5-jbE"/>
+                            <constraint firstItem="OG3-48-xaL" firstAttribute="leading" secondItem="S73-wv-NUS" secondAttribute="leading" constant="5" id="tTV-AB-sXe"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IgL-UM-iTV">

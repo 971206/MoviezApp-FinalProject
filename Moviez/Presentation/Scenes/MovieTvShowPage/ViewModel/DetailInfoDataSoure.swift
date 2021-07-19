@@ -56,6 +56,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
             self.tableView.reloadData()
             
         }
+        
     }
     
     
@@ -130,6 +131,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     
     @objc func playTrailer() {
         print("play")
+        viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
