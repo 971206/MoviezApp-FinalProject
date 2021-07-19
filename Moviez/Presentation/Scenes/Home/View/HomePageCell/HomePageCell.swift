@@ -16,7 +16,6 @@ protocol HomePageCellDelegate: AnyObject {
 
 
 class HomePageCell: UITableViewCell {
-    
     @IBOutlet weak var labelSectionHeader: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -30,9 +29,8 @@ class HomePageCell: UITableViewCell {
     private var listoOfComingSoon: [Movies]?
     private var listOfInTheaters: [Movies]?
     
-    
     //MARK: - Local Properties
-    weak var delegate: HomePageCellDelegate?
+    weak var homePageCellDelegate: HomePageCellDelegate?
     
     var collectionViewOffset: CGFloat {
         get {
@@ -146,16 +144,16 @@ extension HomePageCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let tvShow = listOfTrendingTvShows?[indexPath.row] {
-            delegate?.onTrendingTvShowClicked(tvShow: tvShow)
+            homePageCellDelegate?.onTrendingTvShowClicked(tvShow: tvShow)
         }
         if let movie = listOfTrendingMovies?[indexPath.row] {
-            delegate?.onTrendingMoviesClicked(movie: movie)
+            homePageCellDelegate?.onTrendingMoviesClicked(movie: movie)
         }
         if let movie = listoOfComingSoon?[indexPath.row] {
-            delegate?.onComingSoonClicked(movie: movie)
+            homePageCellDelegate?.onComingSoonClicked(movie: movie)
         }
         if let movie = listOfInTheaters?[indexPath.row] {
-            delegate?.onInTheatersClicked(movie: movie)
+            homePageCellDelegate?.onInTheatersClicked(movie: movie)
         }
         
     }

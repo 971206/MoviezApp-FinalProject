@@ -39,4 +39,15 @@ class SimilarItem: UICollectionViewCell {
         let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.posterURL ?? "")")
         imagePoster.kf.setImage(with: posterURL)
     }
+    
+    func configure(with item: FirebaseModel?) {
+        if item?.tvShowTitle == nil {
+            self.labelName.text = item?.movieTitle
+        } else {
+            self.labelName.text = item?.tvShowTitle
+        }
+        self.labelAverageRate.text = String(item?.averageRate ?? 0 )
+        let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.imageURL ?? "")")
+        imagePoster.kf.setImage(with: posterURL)
+    }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, HomePageCellDelegate {
+class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, HomePageCellDelegate, InTheatersCellDelegate {
     
     private var tableView: UITableView!
     private var viewModel: HomeViewModelProtocol!
@@ -63,7 +63,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         let cell = UITableViewCell()
         if indexPath.row == 0 {
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
-            cell.delegate = self
+            cell.homePageCellDelegate = self
             cell.configureTrendingMovies(items: trendingMoviesList ?? [])
             cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
@@ -71,23 +71,23 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         
         if indexPath.row == 1 {
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
-            cell.delegate = self
+            cell.homePageCellDelegate = self
             cell.configureTrendingTvShows(items: trendingTvShowList ?? [])
             cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
         }
         
         if indexPath.row == 2 {
-            let cell = tableView.deque(HomePageCell.self, for: indexPath)
-            cell.delegate = self
-            cell.configureInTheaters(items: inTheatersList ?? [])
-            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+            let cell = tableView.deque(InTheatersCell.self, for: indexPath)
+            cell.inTheatersCellDelegate = self
+            cell.configureInTheares(movies: inTheatersList ?? [])
+//            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
         }
         
         if indexPath.row == 3 {
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
-            cell.delegate = self
+            cell.homePageCellDelegate = self
             cell.configureComingSoon(items: comingSoonList ?? [])
             cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
@@ -102,6 +102,9 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
     
     //MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 2 {
+            return 260
+        }
         return 395
     }
     

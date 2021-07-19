@@ -15,8 +15,11 @@ protocol HomeViewModelProtocol: AnyObject {
     
     var controller: CoordinatorDelegate { get }
 
-    
-    init(with inTheatersManager: InTheatersManagerProtocol, trendingMoviesManager: TrendingMoviesManagerProtocol, trendingTvShowsManager: TrendingTvShowsManagerProtocol, comingSoonManager: ComingSoonManagerProtocol, controller: CoordinatorDelegate)
+    init(with inTheatersManager: InTheatersManagerProtocol,
+         trendingMoviesManager: TrendingMoviesManagerProtocol,
+         trendingTvShowsManager: TrendingTvShowsManagerProtocol,
+         comingSoonManager: ComingSoonManagerProtocol,
+         controller: CoordinatorDelegate)
 }
 
 final class HomeViewModel: HomeViewModelProtocol {
@@ -28,12 +31,16 @@ final class HomeViewModel: HomeViewModelProtocol {
     private(set) var controller: CoordinatorDelegate
 
     
-    init(with inTheatersManager: InTheatersManagerProtocol, trendingMoviesManager: TrendingMoviesManagerProtocol, trendingTvShowsManager: TrendingTvShowsManagerProtocol, comingSoonManager: ComingSoonManagerProtocol, controller: CoordinatorDelegate) {
+    init(with inTheatersManager: InTheatersManagerProtocol,
+         trendingMoviesManager: TrendingMoviesManagerProtocol,
+         trendingTvShowsManager: TrendingTvShowsManagerProtocol,
+         comingSoonManager: ComingSoonManagerProtocol,
+         controller: CoordinatorDelegate) {
+        
         self.inTheatersManager = inTheatersManager
         self.trendingMoviesManager = trendingMoviesManager
         self.trendingTvShowsManager = trendingTvShowsManager
         self.comingSoonManager = comingSoonManager
-        
         self.controller = controller
     }
     
@@ -61,6 +68,5 @@ final class HomeViewModel: HomeViewModelProtocol {
         comingSoonManager.fetchComingSoonMovies { comingSoonList in
             completion(comingSoonList)
         }
-    }
-    
+    }    
 }

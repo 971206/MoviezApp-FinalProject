@@ -43,7 +43,7 @@ final class HomeCoordinator: CoordinatorProtocol {
     }
     
     func proceedToPersonDetailInfo(personId: Int, mediaType: String) {
-        let vc = PersonDetailInfoViewController.instantiateFromStoryboard()
+        let vc = PersonViewController.instantiateFromStoryboard()
         vc.id = personId
         vc.mediaType = mediaType
         vc.coordinator = self

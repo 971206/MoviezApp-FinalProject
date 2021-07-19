@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Detail Info View Controller-->
+        <scene sceneID="Wmp-fz-XgA">
+            <objects>
+                <viewController storyboardIdentifier="DetailInfoViewController" id="f9T-GG-T5S" customClass="DetailInfoViewController" customModule="Moviez" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9el-CG-g5Q">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nhZ-jB-wGS">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" name="lightBackground"/>
+                                <color key="sectionIndexColor" name="lightBackground"/>
+                                <color key="sectionIndexBackgroundColor" name="lightBackground"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CK9-8v-MIt"/>
+                        <color key="backgroundColor" name="lightBackground"/>
+                        <constraints>
+                            <constraint firstItem="nhZ-jB-wGS" firstAttribute="leading" secondItem="CK9-8v-MIt" secondAttribute="leading" id="It0-fo-RHf"/>
+                            <constraint firstItem="CK9-8v-MIt" firstAttribute="trailing" secondItem="nhZ-jB-wGS" secondAttribute="trailing" id="SSD-Pi-khp"/>
+                            <constraint firstItem="nhZ-jB-wGS" firstAttribute="top" secondItem="9el-CG-g5Q" secondAttribute="top" id="nkr-3c-pAC"/>
+                            <constraint firstItem="CK9-8v-MIt" firstAttribute="bottom" secondItem="nhZ-jB-wGS" secondAttribute="bottom" id="zLi-W7-2Yx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bfh-rs-oYz"/>
+                    <connections>
+                        <outlet property="tableView" destination="nhZ-jB-wGS" id="Fc0-mY-gMz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Efl-Nl-Kxx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2739.130434782609" y="42.391304347826093"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="lightBackground">
+            <color red="0.082000002264976501" green="0.071000002324581146" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

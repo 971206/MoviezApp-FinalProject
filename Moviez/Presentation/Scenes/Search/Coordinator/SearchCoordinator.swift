@@ -27,7 +27,7 @@ final class SearchCoordinator: CoordinatorProtocol {
     }
     
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel) {
-        let detailsInfoVC = PersonDetailInfoViewController.instantiateFromStoryboard()
+        let detailsInfoVC = PersonViewController.instantiateFromStoryboard()
         detailsInfoVC.id = item.id
         detailsInfoVC.mediaType = item.mediaType
         detailsInfoVC.coordinator = self
@@ -43,7 +43,7 @@ final class SearchCoordinator: CoordinatorProtocol {
     }
     
     func proceedToPersonDetailInfo(personId: Int, mediaType: String) {
-        let vc = PersonDetailInfoViewController.instantiateFromStoryboard()
+        let vc = PersonViewController.instantiateFromStoryboard()
         vc.id = personId
         vc.mediaType = mediaType
         vc.coordinator = self

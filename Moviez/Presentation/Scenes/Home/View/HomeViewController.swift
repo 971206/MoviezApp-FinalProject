@@ -36,12 +36,14 @@ class HomeViewController: BaseViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
           navigationController?.navigationBar.shadowImage = UIImage()
           navigationController?.navigationBar.isTranslucent = true
+        navigationController?.isNavigationBarHidden = true
     }
     
 // MARK: - Configure TableView
     private func configureTableView() {
         tableView.registerNib(class: HomePageCell.self)
         tableView.registerNib(class: BoxOfficeCell.self)
+        tableView.registerNib(class: InTheatersCell.self)
         tableView.separatorStyle = .none
         header.layer.cornerRadius = 8
     }
