@@ -104,7 +104,6 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     }
     
     @objc func addToFavorites () {
-        print("fav")
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
         guard let userID = Auth.auth().currentUser?.uid else { return }
@@ -126,7 +125,6 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        print("watch")
         guard let detailInfo = detailInfo else {return}
         dataBase.collection(userID).addDocument(data: ["collection" : "watchlist",
                                                        "mediaType" : mediaType,
@@ -144,7 +142,6 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     }
     
     @objc func playTrailer() {
-        print("play")
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
     }
     

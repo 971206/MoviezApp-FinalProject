@@ -22,7 +22,28 @@ class YoutubeVideoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         playerView.delegate = self
-        configureViewModel()
+        
+        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        self.view.addGestureRecognizer(tapgesture)
+    }
+    
+    @objc func tapped() {
+        UIView.animate(withDuration: 1) {
+            self.view.alpha = 0
+        } completion: { _ in
+            self.dismiss(animated: false, completion: nil)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 1) {
+            self.view.alpha = 1
+            self.playerView.isHidden = false
+        } completion: { completed in
+            self.view.backgroundColor = UIColor(r: 0, g: 0, b: 0, alpha: 0.8)
+            self.configureViewModel()
+        }
     }
     
     

@@ -28,17 +28,29 @@ class ProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDataSource()
         buttonLogOut.layer.cornerRadius = 8
         self.navigationController?.isNavigationBarHidden = true
         collectionView.registerNib(class: WaterfallLayoutCell.self)
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
         collectionView.addGestureRecognizer(longPressGesture)
+        
+        
+        dataSource.segmentedControlIndex = segmentedControl.selectedSegmentIndex
+        segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+       
     }
-
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        configureDataSource()
+    
+    
+    
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        dataSource.segmentedControlIndex = sender.selectedSegmentIndex
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataSource.refresh()
     }
     
     
@@ -60,16 +72,12 @@ class ProfileViewController: BaseViewController {
     }
     
     
-    
-    
-    
     func configureDataSource() {
         viewModel = ProfileViewModel()
         dataSource = ProfileDataSource(with: collectionView,
                                        viewModel: viewModel,
-                                       segmentedControl: segmentedControl,
                                        controller: self)
-        dataSource.refresh()
+      
     }
     @IBAction func onSignOut(_ sender: Any) {
         do {

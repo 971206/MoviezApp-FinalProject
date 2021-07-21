@@ -35,7 +35,7 @@ class NewDescriptionCell: UITableViewCell {
         viewPlay.layer.cornerRadius = 30
         imagePoster.layer.cornerRadius = 20
         viewPlay.layer.masksToBounds = true
-        imagePoster.layer.maskedCorners = .layerMinXMaxYCorner
+        imagePoster.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMinXMinYCorner]
 
     }
 

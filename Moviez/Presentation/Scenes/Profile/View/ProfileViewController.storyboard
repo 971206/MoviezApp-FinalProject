@@ -29,7 +29,7 @@
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Qv-7o-pQQ">
+                            <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Qv-7o-pQQ">
                                 <rect key="frame" x="16" y="222" width="382" height="32"/>
                                 <color key="backgroundColor" name="itemBackgroundColor"/>
                                 <segments>
@@ -37,9 +37,6 @@
                                     <segment title="Favourites"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" name="textColor"/>
-                                <connections>
-                                    <action selector="indexChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="e5C-7f-H5m"/>
-                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LSt-pZ-hbX">
                                 <rect key="frame" x="16" y="263" width="382" height="550"/>

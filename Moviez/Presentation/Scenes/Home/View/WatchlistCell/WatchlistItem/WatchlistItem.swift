@@ -15,9 +15,9 @@ class WatchlistItem: UICollectionViewCell {
     @IBOutlet weak var labelAverageRate: UILabel!
     @IBOutlet weak var labelMediaType: UILabel!
     @IBOutlet weak var mediaTypeView: UIView!
-    @IBOutlet weak var imageBackroundView: UIView!
     @IBOutlet weak var imagePoster: UIImageView!
     @IBOutlet weak var itemBackgroundView: UIView!
+    @IBOutlet weak var blurView: UIView!
     private let cornerRadius = CGFloat(8)
 
     
@@ -27,12 +27,14 @@ class WatchlistItem: UICollectionViewCell {
     }
     
     private func setupLayout() {
-        mediaTypeView.layer.cornerRadius = mediaTypeView.bounds.width / 2
+        mediaTypeView.layer.cornerRadius = cornerRadius
         mediaTypeView.clipsToBounds = true
+        blurView.layer.cornerRadius = cornerRadius
+        blurView.clipsToBounds = true
+        
         mediaTypeView.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
-        imageBackroundView.layer.cornerRadius = cornerRadius
         imagePoster.layer.cornerRadius = cornerRadius
-        itemBackgroundView.setShadow(UIView: itemBackgroundView, viewCornerRadius: cornerRadius)
+//        itemBackgroundView.setShadow(UIView: itemBackgroundView, viewCornerRadius: cornerRadius)
         
     }
     

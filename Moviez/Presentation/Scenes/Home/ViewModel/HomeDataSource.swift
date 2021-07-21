@@ -118,6 +118,9 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         if indexPath.row == 3 {
             return 260
         }
+        if indexPath.row == 2 {
+            return 453
+        }
         return 395
     }
     

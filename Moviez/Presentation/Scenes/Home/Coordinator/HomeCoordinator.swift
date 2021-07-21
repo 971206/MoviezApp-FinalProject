@@ -63,7 +63,9 @@ final class HomeCoordinator: CoordinatorProtocol {
         vc.mediaType = mediaType
         vc.itemID = itemID
         vc.coordinator = self
-        navigationController?.pushViewController(vc, animated: true)
+//        navigationController?.pushViewController(vc, animated: true)
+        vc.modalPresentationStyle = .overFullScreen
+        navigationController?.present(vc, animated: true, completion: nil)
     }
     
     func onBack() {
