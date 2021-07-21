@@ -142,6 +142,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     }
     
     @objc func playTrailer() {
+        print("play")
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
     }
     

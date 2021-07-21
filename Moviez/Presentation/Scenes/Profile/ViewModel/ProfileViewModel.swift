@@ -11,8 +11,6 @@ import Firebase
 protocol ProfileViewModelProtocol {
     func fetchUsersWatchlist(completion: @escaping([FirebaseModel]) -> Void)
     func fetchUsersFavorites(completion: @escaping([FirebaseModel]) -> Void)
-    
-
 }
 
 class ProfileViewModel: ProfileViewModelProtocol {

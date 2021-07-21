@@ -58,4 +58,14 @@ final class SearchCoordinator: CoordinatorProtocol {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    func proceedToTrailer(with mediaType: String, with itemID: Int) {
+        let vc = YoutubeVideoViewController.instantiateFromStoryboard()
+        vc.mediaType = mediaType
+        vc.itemID = itemID
+        vc.coordinator = self
+        vc.modalPresentationStyle = .overFullScreen
+        navigationController?.present(vc, animated: true, completion: nil)
+    }
+    
 }

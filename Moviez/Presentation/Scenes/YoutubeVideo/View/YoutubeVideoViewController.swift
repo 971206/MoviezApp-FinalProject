@@ -10,7 +10,7 @@ import UIKit
 
 class YoutubeVideoViewController: BaseViewController {
     
- 
+    
     private var youtubeVideoManager: YoutubeVideoManagerProtocol!
     private var viewModel: YoutubeVideoViewModelProtocol!
     var videoItem: [Video]?
@@ -22,7 +22,11 @@ class YoutubeVideoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         playerView.delegate = self
+        setupTabGesture()
         
+    }
+    
+    private func setupTabGesture() {
         let tapgesture = UITapGestureRecognizer(target: self, action: #selector(tapped))
         self.view.addGestureRecognizer(tapgesture)
     }
@@ -37,6 +41,10 @@ class YoutubeVideoViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        presentWithAnimation()
+    }
+    
+    private func presentWithAnimation() {
         UIView.animate(withDuration: 1) {
             self.view.alpha = 1
             self.playerView.isHidden = false
@@ -44,8 +52,8 @@ class YoutubeVideoViewController: BaseViewController {
             self.view.backgroundColor = UIColor(r: 0, g: 0, b: 0, alpha: 0.8)
             self.configureViewModel()
         }
+        
     }
-    
     
     private func playTrailer(with videoID: String) {
         playerView.load(withVideoId: videoID, playerVars: ["playsinline" : 1])
