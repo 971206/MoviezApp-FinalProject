@@ -23,43 +23,90 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     
     
     
-// MARK: - VC LifeCycle
+    // MARK: - VC LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         viewControllers = [
             homeCoordinator.navigationController!,
             searchCoordinator.navigationController!,
             newsCoordinator.navigationController!,
-            signInCoordinator.navigationController!
+            signInCoordinator.navigationController!,
+//            profileCoordinator.navigationController!
         ]
         
         setupTabbar()
-        addObersver()
+//        addSignInObersver()
+//        addSignOutObserver()
         
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTabBar()
         checkUserSignedIn()
+        addSignInObersver()
+        addSignOutObserver()
+        
     }
     
     //MARK: - Add Oberver
-    func addObersver() {
+    func addSignInObersver() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(userSignedIm(with:)),
+            selector: #selector(userSignedIn(with:)),
             name: .signedIn,
+            object: nil)
+    }
+    
+    func addSignOutObserver() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(userSignedOut(with:)),
+            name: .signedOut,
             object: nil)
     }
     
     // MARK: - Check user
     func checkUserSignedIn() {
         if Auth.auth().currentUser != nil {
-           appendProfileVc()
+            appendProfileVc()
         } else {
-            print("Not Logged In")
+           appendSignIn()
+        }
+    }
+    
+    
+    //MARK: - Show profile page when user signed in
+    @objc func userSignedIn(with: Notification) {
+        appendProfileVc()
+    }
+    
+    func appendProfileVc() {
+        if Auth.auth().currentUser != nil {
+            if let viewControllers = self.viewControllers {
+                var controllers = viewControllers
+                controllers.removeLast()
+                let profileVC = profileCoordinator.navigationController!
+                controllers.append(profileVC)
+                self.setViewControllers(controllers, animated: true)
+            }
+        }
+    }
+    
+    //MARK: - Show Sign in page when user signed out
+    
+    @objc func userSignedOut(with: Notification) {
+        appendSignIn()
+    }
+
+    func appendSignIn() {
+        if let viewControllers = self.viewControllers {
+            var controllers = viewControllers
+            controllers.removeLast()
+            let signInVC = signInCoordinator.navigationController!
+            controllers.append(signInVC)
+            self.setViewControllers(controllers, animated: true)
         }
     }
     
@@ -81,23 +128,9 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
         tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-//MARK: - Show profile page when user signed in
-    @objc func userSignedIm(with: Notification) {
-        appendProfileVc()
-    }
+
     
-    func appendProfileVc() {
-        if UserDefaults.standard.bool(forKey: UDKeys.isLoggedIn) {
-            if let viewControllers = self.viewControllers {
-                var controllers = viewControllers
-                controllers.removeLast()
-                let sb = UIStoryboard(name: VCIds.profile, bundle: nil)
-                let profileVC = sb.instantiateViewController(identifier: VCIds.profile) as! ProfileViewController
-                controllers.append(profileVC)
-                self.setViewControllers(controllers, animated: true)
-            }
-        }
-    }
+  
 }
 
 //extension TabBarViewController: TabBarViewControllerDelegate {

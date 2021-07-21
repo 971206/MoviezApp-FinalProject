@@ -18,4 +18,7 @@ struct FirebaseModel {
     var collection: String?
     var averageRate: Float?
     var id: Int?
+    var movieRuntime: Int?
+    var tvshowRuntime: Int?
+    
 }

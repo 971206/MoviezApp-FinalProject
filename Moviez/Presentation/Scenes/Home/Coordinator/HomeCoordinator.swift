@@ -66,4 +66,10 @@ final class HomeCoordinator: CoordinatorProtocol {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func onBack() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
 }

@@ -21,6 +21,10 @@ class PersonInfoCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        imagePerson.layer.cornerRadius = 20
+  
+        imagePerson.layer.maskedCorners = .layerMinXMaxYCorner
         // Initialization code
     }
     

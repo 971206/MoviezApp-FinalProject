@@ -17,4 +17,19 @@ final class NewsCoordinator: CoordinatorProtocol {
 
         self.navigationController?.viewControllers = [vc]
     }
+    
+    func proceedToMoreNews(newsList: [Articles]) {
+        let vc = MoreNewsViewController.instantiateFromStoryboard()
+        vc.coordinator = self
+        vc.newsList = newsList
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func proceetToNewsDetail(with news: Articles) {
+        let vc = NewsDetailViewController.instantiateFromStoryboard()
+        vc.coordinator = self
+        vc.news = news
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
 }

@@ -29,9 +29,9 @@ class NewsCell: UITableViewCell {
     }
     
     
-    func configure(with news: News?) {
+    func configure(with news: Articles?) {
         self.labelTitle.text = news?.title
-        self.labelTime.text = news?.publishedAt
+        self.labelTime.text = "\(news?.publishedAt?.dropLast(10) ?? "")"
         self.labelDescription.text = news?.description
         let posterURL = URL(string: news?.urlToImage ?? "")
         poster.kf.setImage(with: posterURL)

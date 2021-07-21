@@ -35,7 +35,6 @@ class YoutubeVideoViewController: BaseViewController {
         viewModel = YoutubeVideoViewModel(with: youtubeVideoManager, controller: self)
         viewModel.fetchVideos(with: mediaType ?? "", id: itemID ?? 0) { [weak self] videoItem in
             self?.videoItem = videoItem
-            
             DispatchQueue.main.async {
                 self?.playTrailer(with: videoItem.first?.key ?? "")
             }
@@ -48,6 +47,4 @@ extension YoutubeVideoViewController: YTPlayerViewDelegate {
     func playerViewDidBecomeReady(_ playerView: YTPlayerView) {
         playerView.playVideo()
     }
-    
-    
 }

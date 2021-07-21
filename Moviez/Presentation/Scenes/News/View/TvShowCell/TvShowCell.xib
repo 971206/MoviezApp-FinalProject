@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TvShowCell" customModule="Moviez" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="326"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gQM-AZ-s52">
+                        <rect key="frame" x="0.0" y="50" width="320" height="276"/>
+                        <color key="backgroundColor" name="lightBackground"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jWT-Se-hOG">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tv Show News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I09-pI-Yha">
+                        <rect key="frame" x="30" y="21" width="137" height="24"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" name="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_line" translatesAutoresizingMaskIntoConstraints="NO" id="CcS-gE-dIv">
+                        <rect key="frame" x="16" y="17" width="4" height="32"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RS-JW-lvN">
+                        <rect key="frame" x="243" y="17" width="61" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="Read More"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" name="lightBackground"/>
+                <constraints>
+                    <constraint firstItem="I09-pI-Yha" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="JPa-HW-KAJ"/>
+                    <constraint firstItem="I09-pI-Yha" firstAttribute="leading" secondItem="CcS-gE-dIv" secondAttribute="trailing" constant="10" id="R0L-g3-nRm"/>
+                    <constraint firstItem="0RS-JW-lvN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="WG5-se-noR"/>
+                    <constraint firstAttribute="trailing" secondItem="0RS-JW-lvN" secondAttribute="trailing" constant="16" id="Xu0-ku-V9D"/>
+                    <constraint firstItem="CcS-gE-dIv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Zrc-5d-N1c"/>
+                    <constraint firstItem="gQM-AZ-s52" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jVk-ZO-3x9"/>
+                    <constraint firstAttribute="trailing" secondItem="gQM-AZ-s52" secondAttribute="trailing" id="lv6-Dq-yKw"/>
+                    <constraint firstItem="gQM-AZ-s52" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="50" id="ncv-6V-GkN"/>
+                    <constraint firstItem="CcS-gE-dIv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="nq7-hM-pns"/>
+                    <constraint firstAttribute="bottom" secondItem="gQM-AZ-s52" secondAttribute="bottom" id="vcX-Gf-BWh"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="onReadMore" destination="0RS-JW-lvN" id="Fob-7n-8vg"/>
+                <outlet property="tvShowCollectionView" destination="gQM-AZ-s52" id="AdZ-Qq-Ubl"/>
+            </connections>
+            <point key="canvasLocation" x="22" y="58"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_line" width="4" height="32"/>
+        <namedColor name="lightBackground">
+            <color red="0.082000002264976501" green="0.071000002324581146" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -85,7 +85,6 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
         } else if choosedItemsMediaType == MediaType.tv.rawValue  {
             viewModel.controller.coordinator?.proceedToDetailsFromSearchMovieAndTvShowChoosed(with: result)
-//            viewModel.tabBarDelegate.getData()
         } else {
             viewModel.controller.coordinator?.proceedToDetailsFromSearchWhenPersonChoosed(with: result)
         }

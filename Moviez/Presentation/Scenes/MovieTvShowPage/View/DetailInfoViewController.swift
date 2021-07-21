@@ -36,10 +36,12 @@ class DetailInfoViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isTranslucent = false
+//        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor(named: "lightBackground")
         navigationController?.navigationBar.tintColor = UIColor(named: "textColor")
-        navigationController?.isNavigationBarHidden = true
+//        navigationController?.isNavigationBarHidden = true
+//        tableView.contentInsetAdjustmentBehavior = .never
+
     }
     
     private func configureDataSource() {
@@ -64,7 +66,6 @@ class DetailInfoViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.registerNib(class: SimilarCell.self)
         tableView.registerNib(class: CastCell.self)
-//        tableView.registerNib(class: DescriptionCell.self)
         tableView.registerNib(class: NewDescriptionCell.self)
     }
 }

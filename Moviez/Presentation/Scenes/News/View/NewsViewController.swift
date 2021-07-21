@@ -16,27 +16,34 @@ class NewsViewController: BaseViewController {
     private var dataSource: NewsDataSource!
     private var viewModel: NewsViewModelProtocol!
     private var newsManager: NewsManagerProtocol!
+    private var awardsManager: AwardsManagerProtocol!
     
     //MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "News"
         self.view.startLoading()
-        tableView.registerNib(class: NewsCell.self)
+        setUpTableView()
         configureViewModel()
-        fetchNews()
+    }
+    
+    private func setUpTableView() {
+        tableView.registerNib(class: NewsCell.self)
+        tableView.registerNib(class: AwardsCell.self)
+        tableView.registerNib(class: MoviesCell.self)
+        tableView.registerNib(class: TvShowCell.self)
+        tableView.registerNib(class: CelebrityCell.self)
+       
+       
     }
 
     
     //MARK: - Configure ViewModel
     private func configureViewModel() {
         newsManager = NewsManager()
-        viewModel = NewsViewModel(with: newsManager)
+        awardsManager = AwardsManager()
+        viewModel = NewsViewModel(with: newsManager, awardsManager: awardsManager, controller: self)
         dataSource = NewsDataSource(with: tableView, viewModel: viewModel,vc: self)
-    }
-    
-    //MARK: - Fetch News
-    private func fetchNews() {
-        dataSource.fetchNews()
-        tableView.reloadData()
+        dataSource.refresh()
     }
 }

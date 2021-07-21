@@ -9,13 +9,42 @@ import Foundation
 
 
 protocol NewsManagerProtocol: AnyObject {
-    func fetchNews(completion: @escaping ([News]) -> Void)
+    func fetchMovieNews(completion: @escaping ([Articles]) -> Void)
+    func fetchCelebrityNews(completion: @escaping ([Articles]) -> Void)
+    func fetchTvShowNews(completion: @escaping ([Articles]) -> Void)
+
 }
 
 class NewsManager: NewsManagerProtocol {
-    func fetchNews(completion: @escaping ([News]) -> Void) {
-        let url = APIURLS.newsURL
-        NetworkManager.shared.get(url: url) { (result: Result<NewsResponse, Error>) in
+    func fetchMovieNews(completion: @escaping ([Articles]) -> Void) {
+        let url = APIURLS.movieNewsURL
+        NetworkManager.shared.get(url: url) { (result: Result<ArticlesResponse, Error>) in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    completion(response.articles ?? [])
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func fetchCelebrityNews(completion: @escaping ([Articles]) -> Void) {
+        let url = APIURLS.celebrityNewsURL
+        NetworkManager.shared.get(url: url) { (result: Result<ArticlesResponse, Error>) in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    completion(response.articles ?? [])
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    func fetchTvShowNews(completion: @escaping ([Articles]) -> Void) {
+        let url = APIURLS.tvShowNewsURL
+        NetworkManager.shared.get(url: url) { (result: Result<ArticlesResponse, Error>) in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {

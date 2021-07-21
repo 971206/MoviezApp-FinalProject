@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MoviesItem" customModule="Moviez" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="270"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="230" height="270"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vD2-Mk-W2y">
+                        <rect key="frame" x="0.0" y="0.0" width="230" height="270"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For New ‘Old’ Song, M. Night Shyamalan and Daughter Saleka Sought Inspiration in U2’s ‘With or Without You" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G39-he-GrN">
+                                <rect key="frame" x="8" y="185" width="214" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021-07-20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wru-PP-WGW">
+                                <rect key="frame" x="164" y="248" width="58" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Variety" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KcL-FR-Dla">
+                                <rect key="frame" x="8" y="245.5" width="42" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="itemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Wru-PP-WGW" secondAttribute="bottom" constant="10" id="6pZ-6b-5hE"/>
+                            <constraint firstAttribute="trailing" secondItem="G39-he-GrN" secondAttribute="trailing" constant="8" id="F7x-LH-ofe"/>
+                            <constraint firstAttribute="trailing" secondItem="Wru-PP-WGW" secondAttribute="trailing" constant="8" id="Jtb-KV-rzT"/>
+                            <constraint firstItem="KcL-FR-Dla" firstAttribute="leading" secondItem="vD2-Mk-W2y" secondAttribute="leading" constant="8" id="KcG-ZH-SUf"/>
+                            <constraint firstItem="G39-he-GrN" firstAttribute="leading" secondItem="vD2-Mk-W2y" secondAttribute="leading" constant="8" id="TQW-aS-4vD"/>
+                            <constraint firstItem="G39-he-GrN" firstAttribute="top" secondItem="vD2-Mk-W2y" secondAttribute="top" constant="185" id="XLH-uj-dBv"/>
+                            <constraint firstAttribute="bottom" secondItem="KcL-FR-Dla" secondAttribute="bottom" constant="10" id="hwn-dj-HOu"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Xi-B8-ilR">
+                        <rect key="frame" x="0.0" y="0.0" width="230" height="180"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="180" id="TA3-BX-aC5"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="vD2-Mk-W2y" secondAttribute="bottom" id="6Id-BY-kmG"/>
+                <constraint firstItem="vD2-Mk-W2y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="EHK-pJ-FT0"/>
+                <constraint firstItem="1Xi-B8-ilR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="FL8-1v-UNN"/>
+                <constraint firstAttribute="trailing" secondItem="vD2-Mk-W2y" secondAttribute="trailing" id="Xc3-0I-hdA"/>
+                <constraint firstItem="vD2-Mk-W2y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Xip-Rg-eNZ"/>
+                <constraint firstItem="1Xi-B8-ilR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="d5J-zl-bFQ"/>
+                <constraint firstAttribute="trailing" secondItem="1Xi-B8-ilR" secondAttribute="trailing" id="ixv-Gg-xfs"/>
+            </constraints>
+            <size key="customSize" width="172" height="204"/>
+            <connections>
+                <outlet property="imageNews" destination="1Xi-B8-ilR" id="U7A-b5-Uxk"/>
+                <outlet property="labelDate" destination="Wru-PP-WGW" id="ZeZ-KI-V2r"/>
+                <outlet property="labelSource" destination="KcL-FR-Dla" id="tWY-eW-Zm5"/>
+                <outlet property="labelTitle" destination="G39-he-GrN" id="2l7-gf-Uzz"/>
+                <outlet property="moviesItemView" destination="vD2-Mk-W2y" id="R7x-YX-BfK"/>
+            </connections>
+            <point key="canvasLocation" x="108.69565217391305" y="108.48214285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="itemBackgroundColor">
+            <color red="0.13300000131130219" green="0.11400000005960464" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

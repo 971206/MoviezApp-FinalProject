@@ -75,9 +75,8 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 500
-        }
+        if indexPath.row == 0 { return  UITableView.automaticDimension}
+        
         if indexPath.row == 1 {
             return 330
         }

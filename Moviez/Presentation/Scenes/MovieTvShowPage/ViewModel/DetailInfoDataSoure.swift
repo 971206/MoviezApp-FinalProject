@@ -72,6 +72,9 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
             cell.buttonPlayTrailer.addTarget(self, action: #selector(playTrailer), for: .touchUpInside)
             cell.buttonAddFavorites.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
             cell.buttonAddWatchlist.addTarget(self, action: #selector(addToWatchlist), for: .touchUpInside)
+            cell.onBack.addTarget(self, action: #selector(onBack), for: .touchUpInside)
+
+            
             cell.configure(with: detailInfo)
             return cell
         }
@@ -105,9 +108,18 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
         guard let userID = Auth.auth().currentUser?.uid else { return }
+        guard let detailInfo = detailInfo else {return}
         dataBase.collection(userID).addDocument(data: ["collection" : "favorites",
                                                        "mediaType" : mediaType,
-                                                       "id" : id])
+                                                       "id" : id,
+                                                       "movieRuntime": detailInfo.runtime ?? 0,
+                                                       "tvshowRuntime": detailInfo.episodeRunTime ?? 0,
+                                                       "imageURL" : detailInfo.posterURL ?? "",
+                                                       "movieReleaseDate" : detailInfo.releaseDate ?? "",
+                                                       "tvShowReleaseDate" : detailInfo.firstAirDate ?? "",
+                                                       "averageRate" : detailInfo.voteAverage ?? "",
+                                                       "movieTitle" : detailInfo.nameMovie ?? "",
+                                                       "tvShowTitle" : detailInfo.nameTvShow ?? ""])
         
     }
     @objc func addToWatchlist() {
@@ -119,7 +131,9 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         dataBase.collection(userID).addDocument(data: ["collection" : "watchlist",
                                                        "mediaType" : mediaType,
                                                        "id" : id,
-                                                       "imageURL" : detailInfo.imageURL ?? "",
+                                                       "imageURL" : detailInfo.posterURL ?? "",
+                                                       "movieRuntime": detailInfo.runtime ?? 0,
+                                                       "tvshowRuntime": detailInfo.episodeRunTime ?? 0,
                                                        "movieReleaseDate" : detailInfo.releaseDate ?? "",
                                                        "tvShowReleaseDate" : detailInfo.firstAirDate ?? "",
                                                        "averageRate" : detailInfo.voteAverage ?? "",
@@ -133,6 +147,11 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         print("play")
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
     }
+    
+    @objc func onBack() {
+        viewModel.controller.coordinator?.onBack()
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         

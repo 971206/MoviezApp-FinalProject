@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AwardsItem" customModule="Moviez" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="140" height="180"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gky-IE-t7E">
+                        <rect key="frame" x="5" y="5" width="130" height="170"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kib-S4-eqq">
+                                <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emmy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chi-1R-jun">
+                                <rect key="frame" x="16" y="138" width="98" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="itemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kib-S4-eqq" secondAttribute="trailing" id="2OE-qi-Qaf"/>
+                            <constraint firstItem="kib-S4-eqq" firstAttribute="top" secondItem="gky-IE-t7E" secondAttribute="top" id="Hz3-fw-SjV"/>
+                            <constraint firstItem="kib-S4-eqq" firstAttribute="leading" secondItem="gky-IE-t7E" secondAttribute="leading" id="J0b-Ng-O0g"/>
+                            <constraint firstItem="chi-1R-jun" firstAttribute="top" secondItem="kib-S4-eqq" secondAttribute="bottom" constant="8" symbolic="YES" id="Uqo-NI-I2Q"/>
+                            <constraint firstAttribute="bottom" secondItem="kib-S4-eqq" secondAttribute="bottom" constant="40" id="a2v-gY-y8D"/>
+                            <constraint firstItem="chi-1R-jun" firstAttribute="leading" secondItem="gky-IE-t7E" secondAttribute="leading" constant="16" id="rGT-bn-7dc"/>
+                            <constraint firstAttribute="trailing" secondItem="chi-1R-jun" secondAttribute="trailing" constant="16" id="tRx-CL-Arx"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="gky-IE-t7E" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="9qP-R8-13w"/>
+                <constraint firstItem="gky-IE-t7E" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="ETT-jg-qyN"/>
+                <constraint firstAttribute="bottom" secondItem="gky-IE-t7E" secondAttribute="bottom" constant="5" id="XR1-Pd-vpT"/>
+                <constraint firstAttribute="trailing" secondItem="gky-IE-t7E" secondAttribute="trailing" constant="5" id="xww-Za-x20"/>
+            </constraints>
+            <size key="customSize" width="145" height="138"/>
+            <connections>
+                <outlet property="imageCover" destination="kib-S4-eqq" id="U3H-Ew-whX"/>
+                <outlet property="labelAward" destination="chi-1R-jun" id="Bgg-sX-iiL"/>
+                <outlet property="viewItem" destination="gky-IE-t7E" id="40S-SR-bDe"/>
+            </connections>
+            <point key="canvasLocation" x="86.956521739130437" y="84.375"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="itemBackgroundColor">
+            <color red="0.13300000131130219" green="0.11400000005960464" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

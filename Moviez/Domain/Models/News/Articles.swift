@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct News: Codable {
+struct Articles: Codable {
     let source: ArticleSource?
     let title: String?
+    let author: String?
     let description: String?
     let url: String?
     let urlToImage: String?

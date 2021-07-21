@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct NewsResponse: Codable {
-    let articles: [News]?
+struct ArticlesResponse: Codable {
+    let articles: [Articles]?
 }

@@ -12,88 +12,72 @@ import Firebase
 
 class ProfileViewController: BaseViewController {
     
-//    lazy var box = UIView()
     
     // MARK: - Profile Outlets
     @IBOutlet weak var labelWelcomeUser: UILabel!
+    @IBOutlet weak var buttonLogOut: UIButton!
+    @IBOutlet weak var buttonDone: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     private var dataSource: ProfileDataSource!
     private var viewModel: ProfileViewModelProtocol!
-    
-    let userID = Auth.auth().currentUser?.uid
-    let dataBase = Firestore.firestore()
-    private var favoriteList: [String: Any]?
-
-//
-//    let segmentindicator: UIView = {
-//        let v = UIView()
-//        v.translatesAutoresizingMaskIntoConstraints = false
-//        v.backgroundColor = UIColor.systemPink
-//        return v
-//    }()
+    let firebaseAuth = Auth.auth()
+    var longPressedEnabled = false
     
     //MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.registerNib(class: SimilarItem.self)
+        buttonLogOut.layer.cornerRadius = 8
+        self.navigationController?.isNavigationBarHidden = true
+        collectionView.registerNib(class: WaterfallLayoutCell.self)
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        collectionView.addGestureRecognizer(longPressGesture)
+    }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         configureDataSource()
     }
     
+    
+    @objc func longTap(_ gesture: UIGestureRecognizer){
+        switch gesture.state {
+        case .began:
+            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {return}
+            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+        case .ended:
+            collectionView.endInteractiveMovement()
+            buttonDone.isHidden = false
+            longPressedEnabled = true
+            self.collectionView.reloadData()
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
+    }
+    
+    
+    
+    
+    
     func configureDataSource() {
         viewModel = ProfileViewModel()
-        dataSource = ProfileDataSource(with: collectionView, viewModel: viewModel, segmentedControl: segmentedControl)
+        dataSource = ProfileDataSource(with: collectionView,
+                                       viewModel: viewModel,
+                                       segmentedControl: segmentedControl,
+                                       controller: self)
         dataSource.refresh()
+    }
+    @IBAction func onSignOut(_ sender: Any) {
+        do {
+            try firebaseAuth.signOut()
+            NotificationCenter.default.post(name: .signedOut, object: nil)
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
     }
 }
 
-
-//
-//
-//        segmentedControl.backgroundColor = .clear
-//        segmentedControl.tintColor = .clear
-//        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "Helvetica Neue UltraLight", size: 20)!, NSAttributedString.Key.foregroundColor: UIColor(named: "lightBackground")!], for: .normal)
-//        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "Helvetica Neue UltraLight", size: 24)!, NSAttributedString.Key.foregroundColor: UIColor.systemPink], for: .selected)
-//        self.view.addSubview(segmentindicator)
-//        segmentindicator.snp.makeConstraints { (make) in
-//            make.top.equalTo(segmentedControl.snp.bottom).offset(3)
-//            make.height.equalTo(2)
-//            make.width.equalTo(15 + segmentedControl.titleForSegment(at: 0)!.count * 8)
-//            make.centerX.equalTo(segmentedControl.snp.centerX).dividedBy(segmentedControl.numberOfSegments)
-//            make.width.equalTo(segmentedControl.snp.width).multipliedBy(1 / CGFloat(segmentedControl.numberOfSegments) / 1.5)
-            
-            
-            
-//        }
-        
-        //    override func viewWillAppear(_ animated: Bool) {
-        //        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "darkBackground") ?? .black], for: .selected)
-        //        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
-        //    }
-//    }
-//    @IBAction func indexChanged(_ sender: UISegmentedControl) {
-//        let numberOfSegments = CGFloat(segmentedControl.numberOfSegments)
-//        let selectedIndex = CGFloat(sender.selectedSegmentIndex)
-//        let titlecount = CGFloat((segmentedControl.titleForSegment(at: sender.selectedSegmentIndex)!.count))
-//        segmentindicator.snp.remakeConstraints { (make) in
-//            make.top.equalTo(segmentedControl.snp.bottom).offset(3)
-//            make.height.equalTo(2)
-//            make.width.equalTo(15 + titlecount * 8)
-//            make.centerX.equalTo(segmentedControl.snp.centerX).dividedBy(numberOfSegments / CGFloat(3.0 + CGFloat(selectedIndex-1.0)*2.0))
-//        }
-//        UIView.animate(withDuration: 0.5) {
-//            self.view.layoutIfNeeded()
-//
-//            UIView.animate(withDuration: 0.7, animations: {
-//                self.view.layoutIfNeeded()
-//                self.segmentindicator.transform = CGAffineTransform(scaleX: 1.4, y: 1)
-//            }) { (finish) in
-//                UIView.animate(withDuration: 0.4, animations: {
-//                    self.segmentindicator.transform = CGAffineTransform.identity
-//                })
-//            }
-//
-//        }
-//    }
-//}

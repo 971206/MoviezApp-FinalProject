@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
+            <connections>
+                <outlet property="category" destination="e89-Wf-ht4" id="WDD-eF-zHO"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="NewsCategoryHeader" customModule="Moviez" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e89-Wf-ht4">
+                    <rect key="frame" x="30" y="8" width="70.5" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <color key="textColor" name="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_line" translatesAutoresizingMaskIntoConstraints="NO" id="FQR-YE-Yha">
+                    <rect key="frame" x="16" y="4" width="4" height="32"/>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="lightBackground"/>
+            <constraints>
+                <constraint firstItem="e89-Wf-ht4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="4Lu-oq-iEh"/>
+                <constraint firstItem="FQR-YE-Yha" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="9We-Xb-PIX"/>
+                <constraint firstItem="FQR-YE-Yha" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IZK-gs-d7s"/>
+                <constraint firstItem="e89-Wf-ht4" firstAttribute="leading" secondItem="FQR-YE-Yha" secondAttribute="trailing" constant="10" id="Lpv-2i-qWL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="22" y="58"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_line" width="4" height="32"/>
+        <namedColor name="lightBackground">
+            <color red="0.082000002264976501" green="0.071000002324581146" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

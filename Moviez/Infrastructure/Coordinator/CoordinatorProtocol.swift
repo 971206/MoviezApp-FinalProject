@@ -35,8 +35,10 @@ protocol CoordinatorProtocol: AnyObject {
     func proceetToReviews(with itemID: Int, mediaType: String)
     func addToFavorites ()
     func addToWatchlist()
-    func proceedToTrailer(with mediaType: String, with itemID: Int) 
-    
+    func proceedToTrailer(with mediaType: String, with itemID: Int)
+    func onBack()
+    func proceedToMoreNews(newsList: [Articles])
+    func proceetToNewsDetail(with news: Articles) 
 
 }
 
@@ -58,5 +60,7 @@ extension CoordinatorProtocol {
     func addToFavorites (){}
     func addToWatchlist(){}
     func proceedToTrailer(with mediaType: String, with itemID: Int) {}
-    
+    func onBack() {}
+    func proceedToMoreNews(newsList: [Articles]) {}
+    func proceetToNewsDetail(with news: Articles) {}
 }

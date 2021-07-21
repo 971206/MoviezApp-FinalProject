@@ -49,4 +49,12 @@ final class SignInCoordinator: CoordinatorProtocol {
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         self.navigationController?.present(alert, animated: true)
     }
+    
+    func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String) {
+        let detailInfoVC = DetailInfoViewController.instantiateFromStoryboard()
+        detailInfoVC.idOfItem = id
+        detailInfoVC.typeOfItem = mediaType
+        detailInfoVC.coordinator = self
+        navigationController?.pushViewController(detailInfoVC, animated: true)
+    }
 }

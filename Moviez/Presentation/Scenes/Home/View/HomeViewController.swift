@@ -44,6 +44,9 @@ class HomeViewController: BaseViewController {
         tableView.registerNib(class: HomePageCell.self)
         tableView.registerNib(class: BoxOfficeCell.self)
         tableView.registerNib(class: InTheatersCell.self)
+        tableView.registerNib(class: WatchlistCell.self)
+        tableView.registerNib(class: EmptyCell.self)
+        
         tableView.separatorStyle = .none
         header.layer.cornerRadius = 8
     }

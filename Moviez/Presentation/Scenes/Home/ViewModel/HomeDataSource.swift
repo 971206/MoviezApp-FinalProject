@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Firebase
 
-class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, HomePageCellDelegate, InTheatersCellDelegate {
-    
+
+class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, HomePageCellDelegate, InTheatersCellDelegate, WatchlistCellDelegate {
+ 
     private var tableView: UITableView!
     private var viewModel: HomeViewModelProtocol!
     private var navigationController: UINavigationController!
@@ -56,53 +58,64 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
 
     //MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        if indexPath.row == 0 {
+        
+        switch indexPath.row {
+        case 0:
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
             cell.homePageCellDelegate = self
             cell.configureTrendingMovies(items: trendingMoviesList ?? [])
             cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
-        }
-        
-        if indexPath.row == 1 {
+            
+        case 1:
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
             cell.homePageCellDelegate = self
             cell.configureTrendingTvShows(items: trendingTvShowList ?? [])
             cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
-        }
-        
-        if indexPath.row == 2 {
+            
+        case 2:
+            if Auth.auth().currentUser != nil {
+                let cell = tableView.deque(WatchlistCell.self, for: indexPath)
+                cell.configure()
+                cell.watchlistDelegate = self
+                cell.onSeeAll.addTarget(self, action: #selector(proceedToWatchlist), for: .touchUpInside)
+                return cell
+            } else {
+                let cell = tableView.deque(EmptyCell.self, for: indexPath)
+                return cell
+            }
+            
+        case 3:
             let cell = tableView.deque(InTheatersCell.self, for: indexPath)
             cell.inTheatersCellDelegate = self
             cell.configureInTheares(movies: inTheatersList ?? [])
-//            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
-        }
-        
-        if indexPath.row == 3 {
+            
+        case 4:
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
             cell.homePageCellDelegate = self
             cell.configureComingSoon(items: comingSoonList ?? [])
             cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
-        }
-        
-        if indexPath.row == 4 {
+            
+        case 5:
             let cell = tableView.deque(BoxOfficeCell.self, for: indexPath)
             return cell
+            
+        default:
+            return cell
         }
-        return cell
     }
     
     //MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 2 {
+        if indexPath.row == 3 {
             return 260
         }
         return 395
@@ -116,6 +129,11 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         guard let cell = cell as? HomePageCell else { return }
         storedOffsets[indexPath.row] = cell.collectionViewOffset
     }
+    
+    @objc func proceedToWatchlist() {
+        print("vc here")
+    }
+    
     
     //MARK: - HomePageCell Delegate
     func onTrendingMoviesClicked(movie: Movies) {
@@ -134,6 +152,13 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }
     
+    func onWatchlisClicked(id: Int, mediaType: String) {
+        viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: mediaType)
+    }
+    
+ 
+    
+
 }
 
 

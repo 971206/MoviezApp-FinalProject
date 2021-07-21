@@ -43,10 +43,6 @@ class SignInViewController: BaseViewController {
                 if  error != nil {
                     self.coordinator?.alertSignInProblem()
                 } else {
-                    UserDefaults.standard.setValue(true, forKey:"is_logged_in")
-//                    let sb = UIStoryboard(name: VCIds.profile, bundle: nil)
-//                    let vc = sb.instantiateViewController(withIdentifier: VCIds.profile)
-//                    self.navigationController?.pushViewController(vc, animated: true)
                     self.coordinator?.proceedToProfile()
                     NotificationCenter.default.post(name: .signedIn, object: nil)
                 }
