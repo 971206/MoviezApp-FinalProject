@@ -18,7 +18,7 @@ class ButtonAnimationView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "icShoppingCart24Px"), for: .normal)
         button.titleLabel?.font = UIFont(name: fontName, size: textSize)
-//        button.setTitle(Localization.shared.getLocalizableString(for: "add"), for: .normal)
+        button.setTitle("Damateba", for: .normal)
         button.setTitleColor(.lightText, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
@@ -32,7 +32,7 @@ class ButtonAnimationView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "checked-orange"), for: .normal)
         button.titleLabel?.font = UIFont(name: fontName, size: textSize)
-//        button.setTitle(Localization.shared.getLocalizableString(for: "added"), for: .normal)
+        button.setTitle("Damatebulia", for: .normal)
         button.setTitleColor(.lightText, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)

@@ -28,8 +28,6 @@
 		FA04670326A5728C00C1A411 /* Sarabun-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA0466FF26A5728C00C1A411 /* Sarabun-Light.ttf */; };
 		FA04670626A5A42900C1A411 /* YoutubeVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04670526A5A42900C1A411 /* YoutubeVideoViewController.swift */; };
 		FA04670826A5A43600C1A411 /* YoutubeVideoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA04670726A5A43600C1A411 /* YoutubeVideoViewController.storyboard */; };
-		FA04670E26A5A59C00C1A411 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA04670D26A5A59C00C1A411 /* YTPlayerView.m */; };
-		FA04671026A5A5D400C1A411 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FA04670F26A5A5D300C1A411 /* Assets.bundle */; };
 		FA04671326A5B63A00C1A411 /* YoutubeVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04671226A5B63A00C1A411 /* YoutubeVideoViewModel.swift */; };
 		FA04671526A5D6B800C1A411 /* Double + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04671426A5D6B800C1A411 /* Double + Extension.swift */; };
 		FA04671826A5F75C00C1A411 /* Awards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04671726A5F75C00C1A411 /* Awards.swift */; };
@@ -217,10 +215,6 @@
 		FA0466FF26A5728C00C1A411 /* Sarabun-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarabun-Light.ttf"; sourceTree = "<group>"; };
 		FA04670526A5A42900C1A411 /* YoutubeVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoViewController.swift; sourceTree = "<group>"; };
 		FA04670726A5A43600C1A411 /* YoutubeVideoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YoutubeVideoViewController.storyboard; sourceTree = "<group>"; };
-		FA04670B26A5A59B00C1A411 /* Moviez-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Moviez-Bridging-Header.h"; sourceTree = "<group>"; };
-		FA04670C26A5A59C00C1A411 /* YTPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTPlayerView.h; sourceTree = "<group>"; };
-		FA04670D26A5A59C00C1A411 /* YTPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTPlayerView.m; sourceTree = "<group>"; };
-		FA04670F26A5A5D300C1A411 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
 		FA04671226A5B63A00C1A411 /* YoutubeVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoViewModel.swift; sourceTree = "<group>"; };
 		FA04671426A5D6B800C1A411 /* Double + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Extension.swift"; sourceTree = "<group>"; };
 		FA04671726A5F75C00C1A411 /* Awards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Awards.swift; sourceTree = "<group>"; };
@@ -506,17 +500,6 @@
 				FA04670726A5A43600C1A411 /* YoutubeVideoViewController.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		FA04670A26A5A54300C1A411 /* YoutubePlayer */ = {
-			isa = PBXGroup;
-			children = (
-				FA04670F26A5A5D300C1A411 /* Assets.bundle */,
-				FA04670C26A5A59C00C1A411 /* YTPlayerView.h */,
-				FA04670D26A5A59C00C1A411 /* YTPlayerView.m */,
-				FA04670B26A5A59B00C1A411 /* Moviez-Bridging-Header.h */,
-			);
-			path = YoutubePlayer;
 			sourceTree = "<group>";
 		};
 		FA04671126A5B60300C1A411 /* ViewModel */ = {
@@ -1400,7 +1383,6 @@
 		FAB4C17D2698CC2600207D30 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				FA04670A26A5A54300C1A411 /* YoutubePlayer */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1568,7 +1550,6 @@
 				FA607F3F266B8A2A009C9C61 /* RegistrationViewController.storyboard in Resources */,
 				FA03418C26A72DBC00712CDE /* WatchlistViewController.storyboard in Resources */,
 				FA607F27266B85EA009C9C61 /* TabBarViewController.storyboard in Resources */,
-				FA04671026A5A5D400C1A411 /* Assets.bundle in Resources */,
 				FA3A611A26A8175900B6C4AB /* TvShowItem.xib in Resources */,
 				FA04671F26A5FB5800C1A411 /* AwardsCell.xib in Resources */,
 				FA2B63532672AC4D0000A038 /* ReviewsCell.xib in Resources */,
@@ -1629,7 +1610,6 @@
 				FA3CD76D269F743C00A56BCA /* SignInCoordinator.swift in Sources */,
 				FA4BDC71269A291600B2369B /* CoordinatorProtocol.swift in Sources */,
 				FA94730A266CAFFA0094069D /* SignInViewController.swift in Sources */,
-				FA04670E26A5A59C00C1A411 /* YTPlayerView.m in Sources */,
 				FA3CD765269F73E800A56BCA /* HomeCoordinator.swift in Sources */,
 				FA607F06266B8416009C9C61 /* InTheatersManager.swift in Sources */,
 				FA04671A26A5F7C400C1A411 /* AwardsManager.swift in Sources */,

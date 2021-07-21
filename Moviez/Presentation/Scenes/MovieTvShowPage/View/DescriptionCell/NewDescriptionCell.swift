@@ -19,8 +19,8 @@ class NewDescriptionCell: UITableViewCell {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var viewPlay: UIView!
     @IBOutlet weak var buttonPlayTrailer: UIButton!
-    @IBOutlet weak var buttonAddWatchlist: UIButton!
-    @IBOutlet weak var buttonAddFavorites: UIButton!
+    @IBOutlet weak var addToWatchListButton: ButtonAnimationView!
+    @IBOutlet weak var addToFavoritesButton: ButtonAnimationView!
     @IBOutlet weak var labelAverageRate: UILabel!
     @IBOutlet weak var labelReleaseDate: UILabel!
     @IBOutlet weak var labelRuntime: UILabel!
