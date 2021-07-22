@@ -23,13 +23,15 @@ class HomeViewController: BaseViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTableView()
-        configureDataSource()
+       
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(false)
         setupNavController()
+        configureDataSource()
+      
     }
     
     private func setupNavController() {
@@ -45,7 +47,7 @@ class HomeViewController: BaseViewController {
         tableView.registerNib(class: BoxOfficeCell.self)
         tableView.registerNib(class: InTheatersCell.self)
         tableView.registerNib(class: WatchlistCell.self)
-        tableView.registerNib(class: EmptyCell.self)
+        tableView.registerNib(class: SignInCell.self)
         
         tableView.separatorStyle = .none
         header.layer.cornerRadius = 8
@@ -62,9 +64,9 @@ class HomeViewController: BaseViewController {
                                   comingSoonManager: comingSoonManager,
                                   controller: self)
         dataSource = HomeDataSource(with: tableView,
-                                    viewModel: viewModel,
-                                    navigationController: navigationController!)
+                                    viewModel: viewModel)
         dataSource.refresh()
+      
     }
 }
 

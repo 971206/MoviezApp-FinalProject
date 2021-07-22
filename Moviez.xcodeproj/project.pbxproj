@@ -92,6 +92,8 @@
 		FA3BFF9E2687AA4600F076E5 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF9D2687AA4600F076E5 /* Person.swift */; };
 		FA3C6B0826A98E01000EDFD2 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C6B0726A98E01000EDFD2 /* MoviesViewModel.swift */; };
 		FA3C6B0B26A99499000EDFD2 /* TvShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C6B0A26A99499000EDFD2 /* TvShowViewModel.swift */; };
+		FA3C6B0F26A99FC1000EDFD2 /* SignInCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3C6B0D26A99FC1000EDFD2 /* SignInCell.swift */; };
+		FA3C6B1026A99FC1000EDFD2 /* SignInCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3C6B0E26A99FC1000EDFD2 /* SignInCell.xib */; };
 		FA3CD765269F73E800A56BCA /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD764269F73E800A56BCA /* HomeCoordinator.swift */; };
 		FA3CD768269F740400A56BCA /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD767269F740400A56BCA /* SearchCoordinator.swift */; };
 		FA3CD76B269F741E00A56BCA /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD76A269F741E00A56BCA /* NewsCoordinator.swift */; };
@@ -281,6 +283,8 @@
 		FA3BFF9D2687AA4600F076E5 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		FA3C6B0726A98E01000EDFD2 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		FA3C6B0A26A99499000EDFD2 /* TvShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowViewModel.swift; sourceTree = "<group>"; };
+		FA3C6B0D26A99FC1000EDFD2 /* SignInCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCell.swift; sourceTree = "<group>"; };
+		FA3C6B0E26A99FC1000EDFD2 /* SignInCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInCell.xib; sourceTree = "<group>"; };
 		FA3CD764269F73E800A56BCA /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		FA3CD767269F740400A56BCA /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
 		FA3CD76A269F741E00A56BCA /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
@@ -806,6 +810,15 @@
 			path = Person;
 			sourceTree = "<group>";
 		};
+		FA3C6B0C26A99F56000EDFD2 /* SignInCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA3C6B0D26A99FC1000EDFD2 /* SignInCell.swift */,
+				FA3C6B0E26A99FC1000EDFD2 /* SignInCell.xib */,
+			);
+			path = SignInCell;
+			sourceTree = "<group>";
+		};
 		FA3CD763269F73D400A56BCA /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -1191,6 +1204,7 @@
 		FA607F2C266B8672009C9C61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FA3C6B0C26A99F56000EDFD2 /* SignInCell */,
 				FA03417E26A6C5ED00712CDE /* WatchlistCell */,
 				FA3F7BE226A4A24800265171 /* InTheatersCell */,
 				FA947313266D09460094069D /* HomePageCell */,
@@ -1501,6 +1515,7 @@
 				FA03419726A74F3800712CDE /* MoviesCell.xib in Resources */,
 				FA3A612526A8210E00B6C4AB /* NewsCategoryHeader.xib in Resources */,
 				FA3A612F26A82DA300B6C4AB /* CelebrityItem.xib in Resources */,
+				FA3C6B1026A99FC1000EDFD2 /* SignInCell.xib in Resources */,
 				FA04670226A5728C00C1A411 /* Sarabun-Regular.ttf in Resources */,
 				FA3A612A26A82D7500B6C4AB /* CelebrityCell.xib in Resources */,
 				FA04672426A5FB7D00C1A411 /* AwardsItem.xib in Resources */,
@@ -1559,6 +1574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3C6B0F26A99FC1000EDFD2 /* SignInCell.swift in Sources */,
 				FA2AFA57268D059800F34245 /* PersonInfoCell.swift in Sources */,
 				FA586083267376E800933FF7 /* ReviewsListViewModel.swift in Sources */,
 				FA3BFF962687A96600F076E5 /* PersonViewController.swift in Sources */,

@@ -9,26 +9,25 @@ import UIKit
 import Firebase
 
 
-class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, HomePageCellDelegate, InTheatersCellDelegate, WatchlistCellDelegate {
-
-
+class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+    
+    
     private var tableView: UITableView!
     private var viewModel: HomeViewModelProtocol!
-    private var navigationController: UINavigationController!
     private var storedOffsets = [Int: CGFloat]()
     private var inTheatersList: [MoviesViewModel]?
     private var trendingMoviesList: [MoviesViewModel]?
     private var trendingTvShowList: [TvShowViewModel]?
     private var comingSoonList: [MoviesViewModel]?
+    private var currentUser = Auth.auth().currentUser
     
     
-    init(with tableView: UITableView, viewModel: HomeViewModelProtocol, navigationController: UINavigationController) {
+    init(with tableView: UITableView, viewModel: HomeViewModelProtocol) {
         super.init()
         self.tableView = tableView
         self.viewModel = viewModel
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.navigationController = navigationController
     }
     
     func refresh() {
@@ -41,13 +40,13 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
             guard let self = self else {return}
             self.trendingMoviesList = trendingMoviesList
             self.tableView.reloadData()
-
+            
         }
         viewModel.fetchTrendingTvShows { [weak self] trendingTvShowList in
             guard let self = self else {return}
             self.trendingTvShowList = trendingTvShowList
             self.tableView.reloadData()
-
+            
         }
         viewModel.fetchComingSoonMovies { [weak self] comingSoonList in
             guard let self = self else {return}
@@ -56,7 +55,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         }
     }
     
-
+    
     //MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
@@ -81,14 +80,14 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
             return cell
             
         case 2:
-            if Auth.auth().currentUser != nil {
+            if currentUser != nil {
                 let cell = tableView.deque(WatchlistCell.self, for: indexPath)
                 cell.configure()
                 cell.watchlistDelegate = self
                 cell.onSeeAll.addTarget(self, action: #selector(proceedToWatchlist), for: .touchUpInside)
                 return cell
             } else {
-                let cell = tableView.deque(EmptyCell.self, for: indexPath)
+                let cell = tableView.deque(SignInCell.self, for: indexPath)
                 return cell
             }
             
@@ -116,11 +115,15 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
     
     //MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 2 {
+            if currentUser != nil {
+                return 453
+            } else {
+                return 300
+            }
+        }
         if indexPath.row == 3 {
             return 260
-        }
-        if indexPath.row == 2 {
-            return 453
         }
         return 395
     }
@@ -139,7 +142,12 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
     }
     
     
-    //MARK: - HomePageCell Delegate
+}
+
+//MARK: - HomePageCell Delegate
+
+extension HomeDataSource: HomePageCellDelegate, InTheatersCellDelegate, WatchlistCellDelegate {
+    
     func onTrendingMoviesClicked(movie: MoviesViewModel) {
         viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }
@@ -160,11 +168,6 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
         viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: mediaType)
     }
     
- 
     
-
 }
-
-
-    
 

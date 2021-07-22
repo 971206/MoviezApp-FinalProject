@@ -42,13 +42,7 @@ class SimilarCell: UITableViewCell {
             collectionView.dataSource = self
             collectionView.delegate = self
             collectionView.showsHorizontalScrollIndicator = false
-//            collectionView.contentInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
             collectionView.registerNib(class: SimilarItem.self)
-//            let layout = UICollectionViewFlowLayout()
-//            layout.itemSize = CGSize(width: 130, height: 240)
-//            layout.scrollDirection = .horizontal
-//            collectionView.collectionViewLayout = layout
-            
         }
 
     func configureSimilarItems(items:[SearchModel]) {
@@ -73,11 +67,8 @@ class SimilarCell: UITableViewCell {
         creditsMovieList = items
         creditsTvShowList = nil
         collectionView.reloadData()
-        
     }
-    
 
-    
 }
 
 extension SimilarCell: UICollectionViewDataSource {
