@@ -19,6 +19,7 @@ class DetailInfoViewController: BaseViewController {
     private var viewModel: DetailInfoViewModel!
     var navCont: UINavigationController!
     private var profileViewModel: ProfileViewModelProtocol!
+    private var firebaseManager: FirebaseManagerProtocol!
     
     var similarItemsList: [SearchModel]?
     var recommendedItemsList: [SearchModel]?
@@ -50,7 +51,8 @@ class DetailInfoViewController: BaseViewController {
         similarItemManager = SimilarItemsManager()
         recommendedItemManager = RecommendedManager()
         castManager = CastManager()
-        profileViewModel = ProfileViewModel()
+        firebaseManager = FirebaseManager()
+        profileViewModel = ProfileViewModel(with: firebaseManager)
         viewModel = DetailInfoViewModel(with: similarItemManager,
                                         with: recommendedItemManager,
                                         with: detailsManager,

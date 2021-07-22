@@ -21,6 +21,7 @@ class ProfileViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     private var dataSource: ProfileDataSource!
     private var viewModel: ProfileViewModelProtocol!
+    private var firebaseManager: FirebaseManagerProtocol!
     let firebaseAuth = Auth.auth()
     var longPressedEnabled = false
     
@@ -56,7 +57,7 @@ class ProfileViewController: BaseViewController {
     }
     
     
-
+    
     @objc func longTap(_ gesture: UIGestureRecognizer){
         switch gesture.state {
         case .began:
@@ -75,13 +76,14 @@ class ProfileViewController: BaseViewController {
     }
     
     
-   private func configureDataSource() {
-        viewModel = ProfileViewModel()
+    private func configureDataSource() {
+        firebaseManager = FirebaseManager()
+        viewModel = ProfileViewModel(with: firebaseManager)
         dataSource = ProfileDataSource(with: collectionView,
                                        viewModel: viewModel,
                                        controller: self)
         dataSource.segmentedControlIndex = segmentedControl.selectedSegmentIndex
-      
+        
     }
     @IBAction func onSignOut(_ sender: Any) {
         do {

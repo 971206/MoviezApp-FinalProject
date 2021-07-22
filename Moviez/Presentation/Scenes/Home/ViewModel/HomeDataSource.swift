@@ -59,6 +59,9 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             self?.boxOfficeList = boxOfficeList
             self?.tableView.reloadData()
         }
+        viewModel.fetchUsersWatchlist { [weak self] usersWatchlist in
+            self?.usersWatchlist = usersWatchlist
+        }
     }
 
     //MARK: - TableView Data Source
@@ -87,7 +90,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         case 2:
             if currentUser != nil {
                 let cell = tableView.deque(WatchlistCell.self, for: indexPath)
-                cell.configure()
+                cell.configure(with: usersWatchlist)
                 cell.watchlistDelegate = self
                 cell.onSeeAll.addTarget(self, action: #selector(proceedToWatchlist), for: .touchUpInside)
                 return cell

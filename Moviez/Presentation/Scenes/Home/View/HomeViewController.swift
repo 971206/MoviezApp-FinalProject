@@ -20,8 +20,7 @@ class HomeViewController: BaseViewController {
     private var trendingTvShowsManager: TrendingTvShowsManagerProtocol!
     private var comingSoonManager: ComingSoonManagerProtocol!
     private var boxOfficeManager: BoxOfficeManagerProtocol!
-    private var profileViewModel: ProfileViewModelProtocol!
-
+    private var firebaseManager: FirebaseManagerProtocol!
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,12 +60,13 @@ class HomeViewController: BaseViewController {
         trendingTvShowsManager = TrendingTvShowsManager()
         comingSoonManager = ComingSoonManager()
         boxOfficeManager = BoxOfficeManager()
-        profileViewModel = ProfileViewModel()
+//        profileViewModel = ProfileViewModel()
+        firebaseManager = FirebaseManager()
         viewModel = HomeViewModel(with: inTheatersManager,
                                   trendingMoviesManager: trendingMoviesManager,
                                   trendingTvShowsManager: trendingTvShowsManager,
                                   comingSoonManager: comingSoonManager,
-                                  boxOfficeManager: boxOfficeManager,
+                                  boxOfficeManager: boxOfficeManager, firebaseManager: firebaseManager,
                                   controller: self)
         dataSource = HomeDataSource(with: tableView,
                                     viewModel: viewModel)

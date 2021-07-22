@@ -29,12 +29,9 @@ class WatchlistCell: UITableViewCell {
         watchlistCollectionView.registerNib(class: WatchlistItem.self)
     }
     
-    func configure() {
-        profileViewModel = ProfileViewModel()
-        profileViewModel.fetchUsersWatchlist { [weak self] usersWatchlist in
-            self?.usersWatchlist = usersWatchlist
-            self?.watchlistCollectionView.reloadData()
-        }
+    func configure(with item: [FirebaseModel]?) {
+        self.usersWatchlist = item
+        self.watchlistCollectionView.reloadData()
     }
 }
 
