@@ -11,7 +11,7 @@ class ButtonAnimationView: UIView {
     // MARK: - IBInspectables
     @IBInspectable var textSize: CGFloat = 0
     @IBInspectable var buttonHeight: CGFloat = 0
-    @IBInspectable var fontName: String = "Helvetica Neue Medium Extended"
+    @IBInspectable var fontName: String = "Sarabun-Medium.ttf"
     @IBInspectable var addButtonText: String = ""
     @IBInspectable var doneButtonText: String = ""
     @IBInspectable var addButtonImageTitle: String = ""
@@ -29,7 +29,6 @@ class ButtonAnimationView: UIView {
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: 0)
-        button.backgroundColor = .clear
         return button
     }()
     
@@ -43,7 +42,6 @@ class ButtonAnimationView: UIView {
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 3, bottom: 0, right: -3)
-        button.backgroundColor = .clear
         button.isUserInteractionEnabled = false
         button.alpha = 0
         return button
@@ -63,7 +61,6 @@ class ButtonAnimationView: UIView {
     }
     
     func configure() {
-        self.backgroundColor = .lightText
         createAddButton()
     }
     private func createAddButton() {

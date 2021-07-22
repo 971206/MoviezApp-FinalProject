@@ -11,14 +11,17 @@ import Firebase
 protocol ProfileViewModelProtocol {
     func fetchUsersWatchlist(completion: @escaping([FirebaseModel]) -> Void)
     func fetchUsersFavorites(completion: @escaping([FirebaseModel]) -> Void)
+    
+   
 }
 
 class ProfileViewModel: ProfileViewModelProtocol {
-
+    
     let dataBase = Firestore.firestore()
     func fetchUsersWatchlist(completion: @escaping([FirebaseModel]) -> Void) {
         var usersWatchlistArray = [FirebaseModel]()
-        dataBase.collection(Auth.auth().currentUser?.uid ?? "").whereField("collection", isEqualTo: "watchlist").getDocuments { (snapShot, error) in
+        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+        dataBase.collection(currentUserID).whereField("collection", isEqualTo: "watchlist").getDocuments { (snapShot, error) in
             if error == nil && snapShot != nil {
                 snapShot!.documents.forEach { documet in
                     
@@ -51,7 +54,9 @@ class ProfileViewModel: ProfileViewModelProtocol {
     
     func fetchUsersFavorites(completion: @escaping([FirebaseModel]) -> Void) {
         var usersFavoritesArray = [FirebaseModel]()
-        dataBase.collection(Auth.auth().currentUser?.uid ?? "").whereField("collection", isEqualTo: "favorites").getDocuments { (snapShot, error) in
+        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+
+        dataBase.collection(currentUserID).whereField("collection", isEqualTo: "favorites").getDocuments { (snapShot, error) in
             if error == nil && snapShot != nil {
                 
                 snapShot!.documents.forEach { documet in

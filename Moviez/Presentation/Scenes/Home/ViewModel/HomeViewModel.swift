@@ -12,6 +12,9 @@ protocol HomeViewModelProtocol: AnyObject {
     func fetchTrendingMovies(completion: @escaping([MoviesViewModel]) -> Void)
     func fetchTrendingTvShows(completion: @escaping([TvShowViewModel]) -> Void)
     func fetchComingSoonMovies(completion: @escaping ([MoviesViewModel]) -> Void)
+    func fetchBoxOfficeInfo(completion: @escaping ([BoxOfficeViewModel]) -> Void)
+    
+
     
     var controller: CoordinatorDelegate { get }
 
@@ -19,6 +22,7 @@ protocol HomeViewModelProtocol: AnyObject {
          trendingMoviesManager: TrendingMoviesManagerProtocol,
          trendingTvShowsManager: TrendingTvShowsManagerProtocol,
          comingSoonManager: ComingSoonManagerProtocol,
+         boxOfficeManager: BoxOfficeManagerProtocol,
          controller: CoordinatorDelegate)
 }
 
@@ -27,6 +31,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private var trendingMoviesManager: TrendingMoviesManagerProtocol!
     private var trendingTvShowsManager: TrendingTvShowsManagerProtocol!
     private var comingSoonManager: ComingSoonManagerProtocol!
+    private var boxOfficeManager: BoxOfficeManagerProtocol!
     
     private(set) var controller: CoordinatorDelegate
 
@@ -35,12 +40,14 @@ final class HomeViewModel: HomeViewModelProtocol {
          trendingMoviesManager: TrendingMoviesManagerProtocol,
          trendingTvShowsManager: TrendingTvShowsManagerProtocol,
          comingSoonManager: ComingSoonManagerProtocol,
+         boxOfficeManager: BoxOfficeManagerProtocol,
          controller: CoordinatorDelegate) {
         
         self.inTheatersManager = inTheatersManager
         self.trendingMoviesManager = trendingMoviesManager
         self.trendingTvShowsManager = trendingTvShowsManager
         self.comingSoonManager = comingSoonManager
+        self.boxOfficeManager = boxOfficeManager
         self.controller = controller
     }
     
@@ -69,4 +76,10 @@ final class HomeViewModel: HomeViewModelProtocol {
         }
     }
     
+    func fetchBoxOfficeInfo(completion: @escaping ([BoxOfficeViewModel]) -> Void) {
+        boxOfficeManager.fetchBoxOfficeInfo { boxOfficeList in
+            completion(boxOfficeList.map({ BoxOfficeViewModel(boxOffice: $0)}))
+        }
+    }
+
 }

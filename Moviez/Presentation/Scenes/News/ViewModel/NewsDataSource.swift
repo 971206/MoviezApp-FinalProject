@@ -25,7 +25,6 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         self.tableView.dataSource = self
         self.viewModel = viewModel
         self.tableView.delegate = self
-//        self.tableView.register(UINib(nibName: "NewsCategoryHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "NewsCategoryHeader")
         self.vc = vc
     }
     
@@ -55,24 +54,9 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 4
-//    }
-//
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        switch section {
-//        case 0:
-//            return 1
-//        case 1:
-//            return 2
-//        case 2:
-//            return 1
-//        case 3:
-//            return 1
-//        default:
-//            return 0
-//        }
-        
+
         return 4
     }
     
@@ -114,32 +98,7 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     @objc func readMoreCelebrityNews() {
         viewModel.controller.coordinator?.proceedToMoreNews(newsList: celebrityNewsList ?? [])
     }
-   
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 40
-//    }
-    
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: "NewsCategoryHeader") as! NewsCategoryHeader
-//        switch  section {
-//        case 0:
-//            header.category.text = "Movie News"
-//            return header
-//        case 1:
-//            header.category.text = "Awards"
-//            return header
-//        case 2:
-//            header.category.text = "Tv Show News"
-//            return header
-//        case 3:
-//            header.category.text = "Celebrity News"
-//            return header
-//        default:
-//            return UIView()
-//        }
-//    }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:

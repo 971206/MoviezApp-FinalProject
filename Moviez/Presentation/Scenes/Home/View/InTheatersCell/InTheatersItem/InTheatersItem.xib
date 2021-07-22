@@ -32,7 +32,7 @@
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUD-dc-2ML">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overvies" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUD-dc-2ML">
                                 <rect key="frame" x="120" y="81" width="180" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="0.50594314676246899" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,7 +79,7 @@
                 <outlet property="backView" destination="4YL-VC-BXV" id="CQb-Ge-gbn"/>
                 <outlet property="imagePoster" destination="zbw-qC-TgR" id="P4u-IJ-dS1"/>
                 <outlet property="labelAverageRate" destination="N3y-Fd-VHx" id="c5c-BL-JmX"/>
-                <outlet property="labelRuntime" destination="QUD-dc-2ML" id="g2c-R3-ZbL"/>
+                <outlet property="labelTagline" destination="QUD-dc-2ML" id="g2c-R3-ZbL"/>
                 <outlet property="labelTitle" destination="fKj-O5-K8A" id="Vtf-Pw-2SK"/>
             </connections>
             <point key="canvasLocation" x="21.739130434782609" y="41.517857142857139"/>

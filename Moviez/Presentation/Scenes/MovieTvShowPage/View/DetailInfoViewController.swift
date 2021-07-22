@@ -18,6 +18,7 @@ class DetailInfoViewController: BaseViewController {
     private var dataSource: DetailInfoDataSource!
     private var viewModel: DetailInfoViewModel!
     var navCont: UINavigationController!
+    private var profileViewModel: ProfileViewModelProtocol!
     
     var similarItemsList: [SearchModel]?
     var recommendedItemsList: [SearchModel]?
@@ -49,6 +50,7 @@ class DetailInfoViewController: BaseViewController {
         similarItemManager = SimilarItemsManager()
         recommendedItemManager = RecommendedManager()
         castManager = CastManager()
+        profileViewModel = ProfileViewModel()
         viewModel = DetailInfoViewModel(with: similarItemManager,
                                         with: recommendedItemManager,
                                         with: detailsManager,
@@ -67,6 +69,7 @@ class DetailInfoViewController: BaseViewController {
         tableView.registerNib(class: SimilarCell.self)
         tableView.registerNib(class: CastCell.self)
         tableView.registerNib(class: NewDescriptionCell.self)
+        tableView.registerNib(class: SeasonCell.self)
     }
 }
 

@@ -79,6 +79,9 @@
                                 <state key="normal" title="Done">
                                     <color key="titleColor" name="textColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="onDone:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wtE-UZ-cD9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

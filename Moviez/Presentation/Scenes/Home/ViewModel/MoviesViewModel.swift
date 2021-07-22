@@ -39,4 +39,12 @@ struct MoviesViewModel {
         String(describing: movies.releaseDate ?? "")
     }
     
+    var tagline: String? {
+        movies.tagline
+    }
+    
+    var overview: String? {
+        movies.overview
+    }
+    
 }

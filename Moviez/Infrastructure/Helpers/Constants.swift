@@ -7,20 +7,6 @@
 
 import Foundation
 
-struct VCIds {
-    static let tabBarVC                 = "TabBarViewController"
-    static let homeVC                   = "HomeViewController"
-    static let searchVC                 = "SearchListViewController"
-    static let profile                  = "ProfileViewController"
-    static let signInVC                 = "SignInViewController"
-    static let registrationVC           = "RegistrationViewController"
-    static let detailInfoVC             = "DetailInfoViewController"
-    static let reviewsVC                = "ReviewsListViewController"
-    static let newsVC                   = "NewsViewController"
-    static let newsDetailVC             = "NewsDetailViewController"
-    static let personDetailInfoVC       = "PersonDetailInfoViewController"
-    static let detailVC                 = "DetailViewController"
-}
 
 struct BaseURL {
     static let imageBaseURL            = "https://image.tmdb.org/t/p/w342"
@@ -42,8 +28,5 @@ struct APIURLS {
     static let awardsURL = "https://run.mocky.io/v3/2c6ac2ae-7e31-44d4-865e-4438a019b545"
 }
 
-struct UDKeys {
-    static let isLoggedIn = "is_logged_in"
-}
 
 

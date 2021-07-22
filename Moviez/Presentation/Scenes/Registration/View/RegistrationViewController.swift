@@ -57,6 +57,7 @@ class RegistrationViewController: BaseViewController {
                     if let error = error  {
                         self.alertProblem(message: error.localizedDescription )
 //                        self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
+                        self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
                         print(error.localizedDescription)
                     } else {
                         let dataBase = Firestore.firestore()
@@ -68,6 +69,7 @@ class RegistrationViewController: BaseViewController {
                             }
                         }
 //                        self.coordinator?.alertRegistrationSuccess()
+                        self.coordinator?.alertRegistrationSuccess()
                         self.alertSuccess()
                     }
                 }

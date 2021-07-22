@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 
 class ProfileDataSource: NSObject {
@@ -50,6 +51,7 @@ class ProfileDataSource: NSObject {
             self?.profileCollectionView.reloadData()
             
         }
+        
     }
     
 }

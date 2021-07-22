@@ -12,7 +12,7 @@ class InTheatersItem: UICollectionViewCell {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var labelAverageRate: UILabel!
-    @IBOutlet weak var labelRuntime: UILabel!
+    @IBOutlet weak var labelTagline: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var imagePoster: UIImageView!
     override func awakeFromNib() {
@@ -25,7 +25,7 @@ class InTheatersItem: UICollectionViewCell {
 
     func configure(with item: MoviesViewModel?) {
         self.labelAverageRate.text = item?.averageRate
-        self.labelRuntime.text = item?.runtime
+        self.labelTagline.text = item?.overview
         self.labelTitle.text = item?.title
         imagePoster.kf.setImage(with: item?.imageURL)
     }

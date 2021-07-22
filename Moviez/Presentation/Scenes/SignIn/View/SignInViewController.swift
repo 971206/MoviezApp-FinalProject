@@ -43,7 +43,7 @@ class SignInViewController: BaseViewController {
                 if  error != nil {
                     self.coordinator?.alertSignInProblem()
                 } else {
-                    self.coordinator?.proceedToProfile()
+//                    self.coordinator?.proceedToProfile()
                     NotificationCenter.default.post(name: .signedIn, object: nil)
                 }
             }

@@ -19,6 +19,8 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var trendingMoviesList: [MoviesViewModel]?
     private var trendingTvShowList: [TvShowViewModel]?
     private var comingSoonList: [MoviesViewModel]?
+    private var boxOfficeList: [BoxOfficeViewModel]?
+    private var usersWatchlist: [FirebaseModel]?
     private var currentUser = Auth.auth().currentUser
     
     
@@ -53,9 +55,12 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             self.comingSoonList = comingSoonList
             self.tableView.reloadData()
         }
+        viewModel.fetchBoxOfficeInfo { [weak self] boxOfficeList in
+            self?.boxOfficeList = boxOfficeList
+            self?.tableView.reloadData()
+        }
     }
-    
-    
+
     //MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
@@ -106,6 +111,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             
         case 5:
             let cell = tableView.deque(BoxOfficeCell.self, for: indexPath)
+            cell.configure(with: boxOfficeList ?? [])
             return cell
             
         default:
@@ -124,6 +130,9 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         if indexPath.row == 3 {
             return 260
+        }
+        if indexPath.row == 5 {
+            return 510
         }
         return 395
     }

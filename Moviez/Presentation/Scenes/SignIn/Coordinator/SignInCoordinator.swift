@@ -23,13 +23,7 @@ final class SignInCoordinator: CoordinatorProtocol {
         vc.coordinator = self
         navigationController?.present(vc, animated: true, completion: nil)
     }
-    func proceedToProfile() {
-        let vc = ProfileViewController.instantiateFromStoryboard()
-        vc.coordinator = self
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
+
     func alertRegistrationProblem(message: String) {
         let alert = UIAlertController(title: "There was a problem", message: message , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))

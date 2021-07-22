@@ -19,12 +19,14 @@ class HomeViewController: BaseViewController {
     private var trendingMoviesManager: TrendingMoviesManagerProtocol!
     private var trendingTvShowsManager: TrendingTvShowsManagerProtocol!
     private var comingSoonManager: ComingSoonManagerProtocol!
+    private var boxOfficeManager: BoxOfficeManagerProtocol!
+    private var profileViewModel: ProfileViewModelProtocol!
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
        
-       
+       configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,10 +60,13 @@ class HomeViewController: BaseViewController {
         trendingMoviesManager = TrendingMoviesManager()
         trendingTvShowsManager = TrendingTvShowsManager()
         comingSoonManager = ComingSoonManager()
+        boxOfficeManager = BoxOfficeManager()
+        profileViewModel = ProfileViewModel()
         viewModel = HomeViewModel(with: inTheatersManager,
                                   trendingMoviesManager: trendingMoviesManager,
                                   trendingTvShowsManager: trendingTvShowsManager,
                                   comingSoonManager: comingSoonManager,
+                                  boxOfficeManager: boxOfficeManager,
                                   controller: self)
         dataSource = HomeDataSource(with: tableView,
                                     viewModel: viewModel)

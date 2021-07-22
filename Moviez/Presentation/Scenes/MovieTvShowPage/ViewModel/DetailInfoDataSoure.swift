@@ -24,10 +24,11 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     var mediaType: String?
     var id: Int?
     var descriptionCell:NewDescriptionCell?
-    var newcell: NewDescriptionCell?
+
     
     init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol, navigationController: UINavigationController) {
         super.init()
+        
         self.tableView = tableView
         self.viewModel = viewModel
         self.navigationController = navigationController
@@ -61,9 +62,9 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         
     }
     
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,23 +78,28 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
 
             
             cell.configure(with: detailInfo)
-            descriptionCell = cell
-            newcell = cell
+           descriptionCell = cell
             return cell
         }
+        
         if indexPath.row == 1 {
+            let cell = tableView.deque(SeasonCell.self, for: indexPath)
+            return cell
+        }
+        
+        if indexPath.row == 2 {
             let cell = tableView.deque(CastCell.self, for: indexPath)
             cell.delegate = self
             cell.configureCastList(items: castList ?? [])
             return cell
         }
-        if indexPath.row == 2 {
+        if indexPath.row == 3 {
             let cell = tableView.deque(SimilarCell.self, for: indexPath)
             cell.delegate = self
             cell.configureSimilarItems(items: similarItemsList ?? [])
             return cell
         }
-        if indexPath.row == 3 {
+        if indexPath.row == 4 {
             let cell = tableView.deque(SimilarCell.self, for: indexPath)
             cell.delegate = self
             cell.configureRecommenderItems(items: recommendedItemsList ?? [])
@@ -111,19 +117,26 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let id = id else  {return}
         guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
-        dataBase.collection(userID).addDocument(data: ["collection" : "favorites",
-                                                       "mediaType" : mediaType,
-                                                       "id" : id,
-                                                       "movieRuntime": detailInfo.runtime ?? 0,
-                                                       "tvshowRuntime": detailInfo.episodeRunTime ?? 0,
-                                                       "imageURL" : detailInfo.posterURL ?? "",
-                                                       "movieReleaseDate" : detailInfo.releaseDate ?? "",
-                                                       "tvShowReleaseDate" : detailInfo.firstAirDate ?? "",
-                                                       "averageRate" : detailInfo.voteAverage ?? "",
-                                                       "movieTitle" : detailInfo.nameMovie ?? "",
-                                                       "tvShowTitle" : detailInfo.nameTvShow ?? ""]) { error in
-            self.descriptionCell?.addToFavoritesButton.makeAnimation()
-        }
+        
+       
+     
+            dataBase.collection(userID).addDocument(data: ["collection" : "favorites",
+                                                           "mediaType" : mediaType,
+                                                           "id" : id,
+                                                           "movieRuntime": detailInfo.runtime ?? 0,
+                                                           "tvshowRuntime": detailInfo.episodeRunTime ?? 0,
+                                                           "imageURL" : detailInfo.posterURL ?? "",
+                                                           "movieReleaseDate" : detailInfo.releaseDate ?? "",
+                                                           "tvShowReleaseDate" : detailInfo.firstAirDate ?? "",
+                                                           "averageRate" : detailInfo.voteAverage ?? "",
+                                                           "movieTitle" : detailInfo.nameMovie ?? "",
+                                                           "tvShowTitle" : detailInfo.nameTvShow ?? ""]) { error in
+                self.descriptionCell?.addToFavoritesButton.makeAnimation()
+            }
+
+        
+        
+        
         
     }
     @objc func addToWatchlist(_ sender: Any) {
@@ -131,6 +144,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let id = id else  {return}
         guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
+        
         dataBase.collection(userID).addDocument(data: ["collection" : "watchlist",
                                                        "mediaType" : mediaType,
                                                        "id" : id,
@@ -142,13 +156,10 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
                                                        "averageRate" : detailInfo.voteAverage ?? "",
                                                        "movieTitle" : detailInfo.nameMovie ?? "",
                                                        "tvShowTitle" : detailInfo.nameTvShow ?? ""]) { error in
-            self.newcell?.addToFavoritesButton.makeAnimation()
+            self.descriptionCell?.addToWatchListButton.makeAnimation()
         }
-
-      
-
     }
-    
+
     @objc func playTrailer() {
         print("play")
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
@@ -165,6 +176,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         if indexPath.row == 1 { return 330 }
         if indexPath.row == 2 { return 305 }
         if indexPath.row == 3 { return 305 }
+        if indexPath.row == 4 { return 305 }
         return 0
     }
 }

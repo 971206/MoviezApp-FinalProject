@@ -34,7 +34,8 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
             signInCoordinator.navigationController!,
 //            profileCoordinator.navigationController!
         ]
-        
+        addSignInObersver()
+        addSignOutObserver()
         setupTabbar()
 //        addSignInObersver()
 //        addSignOutObserver()
@@ -45,8 +46,7 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
         super.viewWillAppear(animated)
         setupTabBar()
         checkUserSignedIn()
-        addSignInObersver()
-        addSignOutObserver()
+
         
     }
     
@@ -83,14 +83,11 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     }
     
     func appendProfileVc() {
-        if Auth.auth().currentUser != nil {
-            if let viewControllers = self.viewControllers {
-                var controllers = viewControllers
-                controllers.removeLast()
-                let profileVC = profileCoordinator.navigationController!
-                controllers.append(profileVC)
-                self.setViewControllers(controllers, animated: true)
-            }
+        if var viewControllers = self.viewControllers {
+            viewControllers.removeLast()
+            let profileVC = profileCoordinator.navigationController!
+            viewControllers.append(profileVC)
+            self.setViewControllers(viewControllers, animated: true)
         }
     }
     
