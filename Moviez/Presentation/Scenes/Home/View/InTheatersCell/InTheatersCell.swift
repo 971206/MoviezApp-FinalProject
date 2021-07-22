@@ -8,14 +8,14 @@
 import UIKit
 
 protocol InTheatersCellDelegate: AnyObject {
-    func onInTheatersClicked(movie: Movies)
+    func onInTheatersClicked(movie: MoviesViewModel)
 }
 
 class InTheatersCell: UITableViewCell {
 
     @IBOutlet weak var inTheatersCollectionView: UICollectionView!
     
-    private var inTheatersList: [Movies]?
+    private var inTheatersList: [MoviesViewModel]?
     weak var inTheatersCellDelegate: InTheatersCellDelegate?
 
     
@@ -39,8 +39,8 @@ class InTheatersCell: UITableViewCell {
 
 
     
-    func configureInTheares(movies: [Movies]) {
-        inTheatersList = movies
+    func configureInTheares(movies: [MoviesViewModel]) {
+      inTheatersList = movies
        self.inTheatersCollectionView.reloadData()
        
    }

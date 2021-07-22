@@ -23,12 +23,11 @@ class InTheatersItem: UICollectionViewCell {
         
     }
 
-    func configure(with item: Movies?) {
-        self.labelAverageRate.text = String(item?.voteAverage ?? 0.0)
-        self.labelRuntime.text = "Runtime \(item?.runtime ?? 0)"
+    func configure(with item: MoviesViewModel?) {
+        self.labelAverageRate.text = item?.averageRate
+        self.labelRuntime.text = item?.runtime
         self.labelTitle.text = item?.title
-        let imageURL = URL(string:  BaseURL.imageBaseURL + "\(item?.posterURL ?? "")")
-        imagePoster.kf.setImage(with: imageURL)
+        imagePoster.kf.setImage(with: item?.imageURL)
     }
     
 }

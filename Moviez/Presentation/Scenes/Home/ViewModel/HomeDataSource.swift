@@ -10,15 +10,16 @@ import Firebase
 
 
 class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, HomePageCellDelegate, InTheatersCellDelegate, WatchlistCellDelegate {
- 
+
+
     private var tableView: UITableView!
     private var viewModel: HomeViewModelProtocol!
     private var navigationController: UINavigationController!
     private var storedOffsets = [Int: CGFloat]()
-    private var inTheatersList: [Movies]?
-    private var trendingMoviesList: [Movies]?
-    private var trendingTvShowList: [TvShows]?
-    private var comingSoonList: [Movies]?
+    private var inTheatersList: [MoviesViewModel]?
+    private var trendingMoviesList: [MoviesViewModel]?
+    private var trendingTvShowList: [TvShowViewModel]?
+    private var comingSoonList: [MoviesViewModel]?
     
     
     init(with tableView: UITableView, viewModel: HomeViewModelProtocol, navigationController: UINavigationController) {
@@ -139,19 +140,19 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate, Home
     
     
     //MARK: - HomePageCell Delegate
-    func onTrendingMoviesClicked(movie: Movies) {
+    func onTrendingMoviesClicked(movie: MoviesViewModel) {
         viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }
     
-    func onInTheatersClicked(movie: Movies) {
+    func onInTheatersClicked(movie: MoviesViewModel) {
         viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }
     
-    func onTrendingTvShowClicked(tvShow: TvShows) {
+    func onTrendingTvShowClicked(tvShow: TvShowViewModel) {
         viewModel.controller.coordinator?.onTrendingTvShowClicked(tvShow: tvShow)
     }
     
-    func onComingSoonClicked(movie: Movies) {
+    func onComingSoonClicked(movie: MoviesViewModel) {
         viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }
     

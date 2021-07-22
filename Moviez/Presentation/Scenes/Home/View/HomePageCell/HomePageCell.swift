@@ -8,10 +8,10 @@
 import UIKit
 
 protocol HomePageCellDelegate: AnyObject {
-    func onTrendingTvShowClicked(tvShow: TvShows)
-    func onTrendingMoviesClicked(movie: Movies)
-    func onComingSoonClicked(movie: Movies)
-    func onInTheatersClicked(movie: Movies)
+    func onTrendingTvShowClicked(tvShow: TvShowViewModel)
+    func onTrendingMoviesClicked(movie: MoviesViewModel)
+    func onComingSoonClicked(movie: MoviesViewModel)
+    func onInTheatersClicked(movie: MoviesViewModel)
 }
 
 
@@ -24,10 +24,10 @@ class HomePageCell: UITableViewCell {
     private var apiManagerOfTrendingMovies: TrendingMoviesManagerProtocol!
     private var apiManagerOfComingSoon: ComingSoonManagerProtocol!
     private var apiManagerOfInTheaters: InTheatersManagerProtocol!
-    private var listOfTrendingTvShows: [TvShows]?
-    private var listOfTrendingMovies: [Movies]?
-    private var listoOfComingSoon: [Movies]?
-    private var listOfInTheaters: [Movies]?
+    private var listOfTrendingTvShows: [TvShowViewModel]?
+    private var listOfTrendingMovies: [MoviesViewModel]?
+    private var listoOfComingSoon: [MoviesViewModel]?
+    private var listOfInTheaters: [MoviesViewModel]?
     
     //MARK: - Local Properties
     weak var homePageCellDelegate: HomePageCellDelegate?
@@ -62,28 +62,28 @@ class HomePageCell: UITableViewCell {
     
     //MARK: - FetchInfo
     
-    func configureTrendingTvShows(items: [TvShows]) {
+    func configureTrendingTvShows(items: [TvShowViewModel]) {
         listOfTrendingTvShows = items
         self.collectionView.reloadData()
         self.listOfTrendingMovies = nil
         self.listOfInTheaters = nil
         self.listoOfComingSoon = nil
     }
-    func configureTrendingMovies(items: [Movies]) {
+    func configureTrendingMovies(items: [MoviesViewModel]) {
         listOfTrendingMovies = items
         self.collectionView.reloadData()
         self.listOfTrendingTvShows = nil
         self.listOfInTheaters = nil
         self.listoOfComingSoon = nil
     }
-    func configureInTheaters(items: [Movies]) {
+    func configureInTheaters(items: [MoviesViewModel]) {
         listOfInTheaters = items
         self.collectionView.reloadData()
         self.listOfTrendingMovies = nil
         self.listOfTrendingTvShows = nil
         self.listoOfComingSoon = nil
     }
-    func configureComingSoon(items: [Movies]) {
+    func configureComingSoon(items: [MoviesViewModel]) {
         listoOfComingSoon = items
         self.collectionView.reloadData()
         self.listOfTrendingMovies = nil

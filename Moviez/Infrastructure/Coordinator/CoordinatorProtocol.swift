@@ -25,9 +25,9 @@ protocol CoordinatorProtocol: AnyObject {
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel)
     func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String)
     func proceedToPersonDetailInfo(personId: Int, mediaType: String)
-    func onTrendingComingSoonTheatersClicked(movie: Movies)
+    func onTrendingComingSoonTheatersClicked(movie: MoviesViewModel)
     func alertRegistrationProblem(message: String)
-    func onTrendingTvShowClicked(tvShow: TvShows)
+    func onTrendingTvShowClicked(tvShow: TvShowViewModel)
     func alertRegistrationSuccess()
     func alertSignInProblem()
     func proceedToProfile()
@@ -49,9 +49,9 @@ extension CoordinatorProtocol {
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel){}
     func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String){}
     func proceedToPersonDetailInfo(personId: Int, mediaType: String){}
-    func onTrendingComingSoonTheatersClicked(movie: Movies) {}
+    func onTrendingComingSoonTheatersClicked(movie: MoviesViewModel) {}
     func alertRegistrationProblem(message: String) {}
-    func onTrendingTvShowClicked(tvShow: TvShows) {}
+    func onTrendingTvShowClicked(tvShow: TvShowViewModel) {}
     func alertRegistrationSuccess() {}
     func alertSignInProblem(){}
     func proceedToProfile() {}

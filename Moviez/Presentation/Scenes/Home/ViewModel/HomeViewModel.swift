@@ -8,10 +8,10 @@
 import UIKit
 
 protocol HomeViewModelProtocol: AnyObject {
-    func fetchInTheatersMovies(completion: @escaping ([Movies]) -> Void)
-    func fetchTrendingMovies(completion: @escaping([Movies]) -> Void)
-    func fetchTrendingTvShows(completion: @escaping([TvShows]) -> Void)
-    func fetchComingSoonMovies(completion: @escaping ([Movies]) -> Void)
+    func fetchInTheatersMovies(completion: @escaping ([MoviesViewModel]) -> Void)
+    func fetchTrendingMovies(completion: @escaping([MoviesViewModel]) -> Void)
+    func fetchTrendingTvShows(completion: @escaping([TvShowViewModel]) -> Void)
+    func fetchComingSoonMovies(completion: @escaping ([MoviesViewModel]) -> Void)
     
     var controller: CoordinatorDelegate { get }
 
@@ -45,28 +45,28 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
     
-    func fetchInTheatersMovies(completion: @escaping ([Movies]) -> Void) {
-        inTheatersManager.fetchInTheatersMovies {  inTheatersList in
-            completion(inTheatersList)
+    func fetchInTheatersMovies(completion: @escaping ([MoviesViewModel]) -> Void) {
+        inTheatersManager.fetchInTheatersMovies { inTheatersList in
+            completion(inTheatersList.map { MoviesViewModel(movies: $0) })
         }
     }
     
-    func fetchTrendingMovies(completion: @escaping ([Movies]) -> Void) {
-        trendingMoviesManager.fetchTrendingMovies { trendingMoviesList in
-            completion(trendingMoviesList)
+    func fetchTrendingMovies(completion: @escaping ([MoviesViewModel]) -> Void) {
+        trendingMoviesManager.fetchTrendingMovies { trendingMoviewList in
+            completion(trendingMoviewList.map { MoviesViewModel(movies: $0) })
         }
     }
     
-    func fetchTrendingTvShows(completion: @escaping ([TvShows]) -> Void) {
-        trendingTvShowsManager.fetchTrendingTvShows { trendingTvShowList in
-            completion(trendingTvShowList)
-            
-        }
-    }
-    
-    func fetchComingSoonMovies(completion: @escaping ([Movies]) -> Void) {
+    func fetchComingSoonMovies(completion: @escaping ([MoviesViewModel]) -> Void) {
         comingSoonManager.fetchComingSoonMovies { comingSoonList in
-            completion(comingSoonList)
+            completion(comingSoonList.map { MoviesViewModel(movies: $0) })
         }
-    }    
+    }
+    
+    func fetchTrendingTvShows(completion: @escaping ([TvShowViewModel]) -> Void) {
+        trendingTvShowsManager.fetchTrendingTvShows { trendingTvShowList in
+            completion(trendingTvShowList.map { TvShowViewModel(tvShow: $0) })
+        }
+    }
+    
 }

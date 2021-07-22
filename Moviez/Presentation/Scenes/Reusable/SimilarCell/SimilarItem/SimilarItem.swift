@@ -40,6 +40,8 @@ class SimilarItem: UICollectionViewCell {
         imagePoster.kf.setImage(with: posterURL)
     }
     
+    
+    
     func configure(with item: FirebaseModel?) {
         if item?.tvShowTitle == nil {
             self.labelName.text = item?.movieTitle

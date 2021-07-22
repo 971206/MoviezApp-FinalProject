@@ -18,7 +18,7 @@ final class HomeCoordinator: CoordinatorProtocol {
         self.navigationController?.viewControllers = [vc]
     }
     
-    func onTrendingComingSoonTheatersClicked(movie: Movies) {
+    func onTrendingComingSoonTheatersClicked(movie: MoviesViewModel) {
         let detailInfoVC = DetailInfoViewController.instantiateFromStoryboard()
         detailInfoVC.idOfItem = movie.id ?? 0
         detailInfoVC.typeOfItem = MediaType.movie.rawValue
@@ -26,7 +26,7 @@ final class HomeCoordinator: CoordinatorProtocol {
         navigationController?.pushViewController(detailInfoVC, animated: true)
     }
     
-    func onTrendingTvShowClicked(tvShow: TvShows) {
+    func onTrendingTvShowClicked(tvShow: TvShowViewModel) {
         let detailInfoVC = DetailInfoViewController.instantiateFromStoryboard()
         detailInfoVC.idOfItem = tvShow.id ?? 0
         detailInfoVC.typeOfItem = MediaType.tv.rawValue

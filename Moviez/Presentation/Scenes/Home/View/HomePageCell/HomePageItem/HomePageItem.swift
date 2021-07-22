@@ -30,19 +30,17 @@ class HomePageItem: UICollectionViewCell {
     }
     
     //MARK: - Configure
-    func configure(with item: TvShows) {
-        self.labelRate.text = String(describing: item.voteAverage ?? 0)
-        self.labelTitle.text = item.name
-        self.labelReleaseDate.text = item.firstAirDate
-        let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item.posterURL ?? "")")
-        self.imagePoster.kf.setImage(with: posterURL)
+    func configure(with item: TvShowViewModel) {
+        self.labelRate.text = item.averageRate
+        self.labelTitle.text = item.title
+        self.labelReleaseDate.text = item.releaseDate
+        self.imagePoster.kf.setImage(with: item.imageURL)
     }
     
-    func configureMovie(with item: Movies){
+    func configureMovie(with item: MoviesViewModel){
         self.labelTitle.text = item.title
-        self.labelRate.text = String(item.voteAverage ?? 0 )
-        self.labelReleaseDate.text = String(describing: item.releaseDate ?? "")
-        let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item.posterURL ?? "")")
-        imagePoster.kf.setImage(with: posterURL)
+        self.labelRate.text = item.averageRate
+        self.labelReleaseDate.text = item.releaseDate
+        imagePoster.kf.setImage(with: item.imageURL)
     }
 }
