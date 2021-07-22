@@ -24,7 +24,7 @@ class PersonInfoCell: UITableViewCell {
         
         imagePerson.layer.cornerRadius = 20
   
-        imagePerson.layer.maskedCorners = .layerMinXMaxYCorner
+        imagePerson.layer.maskedCorners = [.layerMinXMaxYCorner, . layerMinXMinYCorner]
         // Initialization code
     }
     

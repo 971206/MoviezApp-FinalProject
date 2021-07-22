@@ -146,6 +146,10 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="textSize">
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="addButtonText" value="Add To Watchlist"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="doneButtonText" value="Added"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="addButtonImageTitle" value="ic_add_watchlist"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="doneButtonImageTitle" value="ic_added_watchlist"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9Q-XW-4k1" customClass="ButtonAnimationView" customModule="Moviez" customModuleProvider="target">
@@ -157,6 +161,8 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="textSize">
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="addButtonText" value="Add To Favorites"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="doneButtonText" value="Added"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
@@ -201,6 +207,7 @@
                     <constraint firstItem="S73-wv-NUS" firstAttribute="top" secondItem="p0D-8h-R2W" secondAttribute="bottom" constant="3" id="jGU-j1-O61"/>
                     <constraint firstAttribute="trailing" secondItem="q3T-8z-iL8" secondAttribute="trailing" id="l78-WA-CFc"/>
                     <constraint firstItem="rvx-W6-3dM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="s0e-ro-2A8"/>
+                    <constraint firstItem="S73-wv-NUS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="tz3-yx-KmO"/>
                     <constraint firstItem="wrx-ek-gD1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vBf-dm-zql"/>
                 </constraints>
             </tableViewCellContentView>

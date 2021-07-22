@@ -20,7 +20,7 @@ class MoreNewsViewController: BaseViewController {
     }
     
     func configureDataSource() {
-        dataSource = MoreNewsDataSource(with: tableView)
+        dataSource = MoreNewsDataSource(with: tableView, controller: self)
         dataSource.newsList = newsList
     }
 }

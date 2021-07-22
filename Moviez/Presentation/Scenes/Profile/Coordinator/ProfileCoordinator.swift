@@ -12,6 +12,7 @@ final class ProfileCoordinator: CoordinatorProtocol {
     
     init(_ window: UIWindow? = nil, navigationController: UINavigationController? = UINavigationController()) {
         self.navigationController = navigationController
+        self.navigationController?.isNavigationBarHidden = true
         let vc = ProfileViewController.instantiateFromStoryboard()
         vc.coordinator = self
         self.navigationController?.viewControllers = [vc]

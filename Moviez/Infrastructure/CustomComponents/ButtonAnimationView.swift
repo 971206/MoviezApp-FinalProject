@@ -12,13 +12,19 @@ class ButtonAnimationView: UIView {
     @IBInspectable var textSize: CGFloat = 0
     @IBInspectable var buttonHeight: CGFloat = 0
     @IBInspectable var fontName: String = "Helvetica Neue Medium Extended"
+    @IBInspectable var addButtonText: String = ""
+    @IBInspectable var doneButtonText: String = ""
+    @IBInspectable var addButtonImageTitle: String = ""
+    @IBInspectable var doneButtonImageTitle: String = ""
+    
+    
     
     lazy var addButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "icShoppingCart24Px"), for: .normal)
+        button.setImage(UIImage(named: addButtonImageTitle), for: .normal)
         button.titleLabel?.font = UIFont(name: fontName, size: textSize)
-        button.setTitle("Damateba", for: .normal)
+        button.setTitle(addButtonText, for: .normal)
         button.setTitleColor(.lightText, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
@@ -30,9 +36,9 @@ class ButtonAnimationView: UIView {
     lazy var doneButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "checked-orange"), for: .normal)
+        button.setImage(UIImage(named: doneButtonImageTitle), for: .normal)
         button.titleLabel?.font = UIFont(name: fontName, size: textSize)
-        button.setTitle("Damatebulia", for: .normal)
+        button.setTitle(doneButtonText, for: .normal)
         button.setTitleColor(.lightText, for: .normal)
         button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 3)
@@ -85,18 +91,6 @@ class ButtonAnimationView: UIView {
             self.firstConstraint?.constant = -(self.frame.height / 2)
             self.secondConstraint?.constant = -(self.frame.height / 2)
             self.layoutIfNeeded()
-        } completion: { completed in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                UIView.animate(withDuration: 0.5) {
-                    self.doneButton.alpha = 0
-                    self.addButton.alpha = 1
-                    self.firstConstraint?.constant = 0
-                    self.secondConstraint?.constant = 0
-                    self.addButton.isUserInteractionEnabled = true
-                    self.addButton.isEnabled = true
-                    self.layoutIfNeeded()
-                }
-            }
         }
     }
     

@@ -23,7 +23,8 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     var castList: [Person]?
     var mediaType: String?
     var id: Int?
-    var myCell:NewDescriptionCell?
+    var descriptionCell:NewDescriptionCell?
+    var newcell: NewDescriptionCell?
     
     init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol, navigationController: UINavigationController) {
         super.init()
@@ -69,15 +70,15 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         let cell = UITableViewCell()
         if indexPath.row == 0 {
             let cell = tableView.deque(NewDescriptionCell.self, for: indexPath)
-//            cell.butt.addTarget(self, action: #selector(proceedToReviews), for: .touchUpInside)
             cell.buttonPlayTrailer.addTarget(self, action: #selector(playTrailer), for: .touchUpInside)
             cell.addToFavoritesButton.addButton.addTarget(self, action: #selector(addToFavorites(_:)), for: .touchUpInside)
-            cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist), for: .touchUpInside)
+            cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist(_:)), for: .touchUpInside)
             cell.onBack.addTarget(self, action: #selector(onBack), for: .touchUpInside)
 
             
             cell.configure(with: detailInfo)
-            myCell = cell
+            descriptionCell = cell
+            newcell = cell
             return cell
         }
         if indexPath.row == 1 {
@@ -121,11 +122,11 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
                                                        "averageRate" : detailInfo.voteAverage ?? "",
                                                        "movieTitle" : detailInfo.nameMovie ?? "",
                                                        "tvShowTitle" : detailInfo.nameTvShow ?? ""]) { error in
-            self.myCell?.addToFavoritesButton.makeAnimation()
+            self.descriptionCell?.addToFavoritesButton.makeAnimation()
         }
         
     }
-    @objc func addToWatchlist() {
+    @objc func addToWatchlist(_ sender: Any) {
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
         guard let userID = Auth.auth().currentUser?.uid else { return }
@@ -140,9 +141,12 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
                                                        "tvShowReleaseDate" : detailInfo.firstAirDate ?? "",
                                                        "averageRate" : detailInfo.voteAverage ?? "",
                                                        "movieTitle" : detailInfo.nameMovie ?? "",
-                                                       "tvShowTitle" : detailInfo.nameTvShow ?? ""])
+                                                       "tvShowTitle" : detailInfo.nameTvShow ?? ""]) { error in
+            self.newcell?.addToFavoritesButton.makeAnimation()
+        }
 
-        
+      
+
     }
     
     @objc func playTrailer() {

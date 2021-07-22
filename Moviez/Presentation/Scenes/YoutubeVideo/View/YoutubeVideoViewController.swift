@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import YouTubeiOSPlayerHelper
 
 
 class YoutubeVideoViewController: BaseViewController {
@@ -54,11 +55,7 @@ class YoutubeVideoViewController: BaseViewController {
         }
         
     }
-    
-    private func playTrailer(with videoID: String) {
-        playerView.load(withVideoId: videoID, playerVars: ["playsinline" : 1])
-    }
-    
+
     func configureViewModel() {
         youtubeVideoManager = YoutubeVideoManager()
         viewModel = YoutubeVideoViewModel(with: youtubeVideoManager, controller: self)
@@ -69,6 +66,11 @@ class YoutubeVideoViewController: BaseViewController {
             }
         }
     }
+    
+    private func playTrailer(with videoID: String) {
+        playerView.load(withVideoId: videoID, playerVars: ["playsinline" : 1])
+    }
+    
     
 }
 

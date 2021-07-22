@@ -41,6 +41,7 @@
 		FA04672A26A60F2F00C1A411 /* CollectionViewWaterfallFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04672926A60F2F00C1A411 /* CollectionViewWaterfallFlowLayout.swift */; };
 		FA04672E26A6158400C1A411 /* WaterfallLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04672C26A6158400C1A411 /* WaterfallLayoutCell.swift */; };
 		FA04672F26A6158400C1A411 /* WaterfallLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04672D26A6158400C1A411 /* WaterfallLayoutCell.xib */; };
+		FA04D8F426A8CD37000DFE4A /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = FA04D8F326A8CD37000DFE4A /* YouTubeiOSPlayerHelper */; };
 		FA14D619269790CA00F47C94 /* BoxOfficeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14D617269790CA00F47C94 /* BoxOfficeItem.swift */; };
 		FA14D61A269790CA00F47C94 /* BoxOfficeItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA14D618269790CA00F47C94 /* BoxOfficeItem.xib */; };
 		FA14D61F269796E900F47C94 /* BoxOfficeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14D61D269796E900F47C94 /* BoxOfficeCell.swift */; };
@@ -387,6 +388,7 @@
 				FA607F47266B8D97009C9C61 /* FirebaseAuth in Frameworks */,
 				FA607F49266B8D97009C9C61 /* FirebaseFirestore in Frameworks */,
 				FA4BDC7D269A372A00B2369B /* SnapKit in Frameworks */,
+				FA04D8F426A8CD37000DFE4A /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1005,7 +1007,6 @@
 			children = (
 				FA607F03266B83D9009C9C61 /* App */,
 				FA607F07266B8429009C9C61 /* Domain */,
-				FAB4C17D2698CC2600207D30 /* Modules */,
 				FA607F11266B84B0009C9C61 /* Infrastructure */,
 				FA607F04266B83FB009C9C61 /* APIManagers */,
 				FA607F23266B85A9009C9C61 /* Presentation */,
@@ -1380,13 +1381,6 @@
 			path = Cast;
 			sourceTree = "<group>";
 		};
-		FAB4C17D2698CC2600207D30 /* Modules */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Modules;
-			sourceTree = "<group>";
-		};
 		FAD630852677468A00A0CF9B /* SimilarItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -1450,6 +1444,7 @@
 				FA607F4B266B8DCB009C9C61 /* Kingfisher */,
 				FAD6309A2677D8BE00A0CF9B /* NVActivityIndicatorView */,
 				FA4BDC7C269A372A00B2369B /* SnapKit */,
+				FA04D8F326A8CD37000DFE4A /* YouTubeiOSPlayerHelper */,
 			);
 			productName = Moviez;
 			productReference = FA607EEC266B83D2009C9C61 /* Moviez.app */;
@@ -1487,6 +1482,7 @@
 				FA607F4A266B8DCA009C9C61 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FAD630992677D8BE00A0CF9B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				FA4BDC7B269A372A00B2369B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				FA04D8F226A8CD37000DFE4A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 			);
 			productRefGroup = FA607EED266B83D2009C9C61 /* Products */;
 			projectDirPath = "";
@@ -1838,7 +1834,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = eka.altunashvili.Moviez;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Moviez/Modules/YoutubePlayer/Moviez-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1859,7 +1854,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = eka.altunashvili.Moviez;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Moviez/Modules/YoutubePlayer/Moviez-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1889,6 +1883,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FA04D8F226A8CD37000DFE4A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanlisovyi/youtube-ios-player-helper";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		FA4BDC7B269A372A00B2369B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -1924,6 +1926,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FA04D8F326A8CD37000DFE4A /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA04D8F226A8CD37000DFE4A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
+		};
 		FA4BDC7C269A372A00B2369B /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FA4BDC7B269A372A00B2369B /* XCRemoteSwiftPackageReference "SnapKit" */;

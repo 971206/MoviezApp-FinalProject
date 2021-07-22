@@ -28,24 +28,11 @@ class ProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupLayout()
         configureDataSource()
-        buttonLogOut.layer.cornerRadius = 8
-        self.navigationController?.isNavigationBarHidden = true
         collectionView.registerNib(class: WaterfallLayoutCell.self)
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
-        collectionView.addGestureRecognizer(longPressGesture)
-        
-        
-        dataSource.segmentedControlIndex = segmentedControl.selectedSegmentIndex
+        setupLongPressGesture()
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
-       
-    }
-    
-    
-    
-    
-    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
-        dataSource.segmentedControlIndex = sender.selectedSegmentIndex
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +41,22 @@ class ProfileViewController: BaseViewController {
     }
     
     
+    
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        dataSource.segmentedControlIndex = sender.selectedSegmentIndex
+    }
+    
+    private func setupLayout() {
+        buttonLogOut.layer.cornerRadius = 8
+    }
+    
+    private func setupLongPressGesture() {
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
+        collectionView.addGestureRecognizer(longPressGesture)
+    }
+    
+    
+
     @objc func longTap(_ gesture: UIGestureRecognizer){
         switch gesture.state {
         case .began:
@@ -72,11 +75,12 @@ class ProfileViewController: BaseViewController {
     }
     
     
-    func configureDataSource() {
+   private func configureDataSource() {
         viewModel = ProfileViewModel()
         dataSource = ProfileDataSource(with: collectionView,
                                        viewModel: viewModel,
                                        controller: self)
+        dataSource.segmentedControlIndex = segmentedControl.selectedSegmentIndex
       
     }
     @IBAction func onSignOut(_ sender: Any) {

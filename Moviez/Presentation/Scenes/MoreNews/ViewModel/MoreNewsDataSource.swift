@@ -6,17 +6,23 @@
 //
 
 import Foundation
+import UIKit
+//import  AVKit
+
 
 class MoreNewsDataSource: NSObject {
     private var tableView: UITableView!
     
+    private var controller: CoordinatorDelegate?
+    
      var newsList: [Articles]?
     
-    init(with tableView: UITableView) {
+    init(with tableView: UITableView, controller: CoordinatorDelegate) {
         super.init()
         self.tableView = tableView
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.controller = controller
     }
     
     
@@ -31,6 +37,21 @@ extension MoreNewsDataSource: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.deque(NewsCell.self, for: indexPath)
         cell.configure(with: newsList?[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let news = newsList?[indexPath.row] else {return}
+        controller?.coordinator?.proceetToNewsDetail(with: news)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, -15, 0)
+        cell.layer.transform = rotationTransform
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.7) {
+            cell.layer.transform = CATransform3DIdentity
+            cell.alpha = 1
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

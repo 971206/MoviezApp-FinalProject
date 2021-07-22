@@ -32,6 +32,8 @@ class NewDescriptionCell: UITableViewCell {
     
     private func setupLayout() {
         viewPlay.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
+//        addToFavoritesButton.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
+        addToFavoritesButton.backgroundColor = UIColor.init(hex: "931BBD")
         viewPlay.layer.cornerRadius = 30
         imagePoster.layer.cornerRadius = 20
         viewPlay.layer.masksToBounds = true
