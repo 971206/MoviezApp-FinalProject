@@ -48,7 +48,7 @@ class NewDescriptionCell: UITableViewCell {
         } else {
             labelTitle.text = item?.movieTitle
         }
-        if item?.movieReleaseDate == nil {
+        if item?.movieReleaseDate == "0s" {
             labelReleaseDate.text = item?.tvShowReleaseDate
         } else {
             labelReleaseDate.text = item?.movieReleaseDate
@@ -61,7 +61,9 @@ class NewDescriptionCell: UITableViewCell {
         labelTagline.text = item?.tagline
         labelAverageRate.text = item?.averageVote
         labelOverview.text = item?.overview
-        self.imagePoster.kf.setImage(with: item?.posterURL)
+        guard let imageURL = item?.imageURL else {return}
+        let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
+        self.imagePoster.kf.setImage(with: posterURL)
     }
     
     

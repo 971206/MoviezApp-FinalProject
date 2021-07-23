@@ -20,7 +20,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var trendingTvShowList: [TvShowViewModel]?
     private var comingSoonList: [MoviesViewModel]?
     private var boxOfficeList: [BoxOfficeViewModel]?
-    private var usersWatchlist: [FirebaseModelViewModel]?
+    private var usersWatchlist: [FirebaseModel]?
     private var currentUser = Auth.auth().currentUser
     
     

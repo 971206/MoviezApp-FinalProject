@@ -61,7 +61,11 @@ class RegistrationViewController: BaseViewController {
                         print(error.localizedDescription)
                     } else {
                         let dataBase = Firestore.firestore()
-                        dataBase.collection("users").addDocument(data: ["fullName" : fullName, "uid" : result!.user.uid]) { error in
+                        let uid = Auth.auth().currentUser?.uid
+                        dataBase.collection("users").document(uid!).setData(["fullName" : fullName, "uid" : uid!])
+                        
+//                        dataBase.collection("users").addDocument(data: ["fullName" : fullName, "uid" : result!.user.uid])
+                        { error in
                             if error != nil {
                                 guard let error = error?.localizedDescription else {return}
 //                                self.alertProblem(message: error ?? "")

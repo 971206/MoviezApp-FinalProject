@@ -12,11 +12,9 @@ class ArticleViewModel {
     init(article: Article) {
         self.article = article
     }
-    
     var sourceName: String? {
         article.source?.name ?? "Unknown Source"
     }
-    
     var publishDate: String? {
         "\(article.publishedAt?.dropLast(10) ?? "N/A")"
     }
@@ -29,15 +27,12 @@ class ArticleViewModel {
     var description: String? {
         article.description
     }
-    
     var content: String? {
         article.content
     }
-    
     var fullSourceName: String? {
         "\(article.author ?? ""),  \(article.source?.name ?? "")"
     }
-    
     var sourceURL: URL? {
         URL(string: article.url ?? "")
     }

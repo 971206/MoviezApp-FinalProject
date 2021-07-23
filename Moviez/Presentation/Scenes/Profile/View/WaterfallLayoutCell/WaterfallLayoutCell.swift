@@ -18,15 +18,14 @@ class WaterfallLayoutCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        imagePoster.frame = contentView.bounds
         imagePoster.layer.cornerRadius = 20
         imagePoster.layer.masksToBounds = true
     }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        imagePoster.image = nil
-    }
+//
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        imagePoster.image = nil
+//    }
 
     func configure(with item: FirebaseModel?) {
         let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.imageURL ?? "")")

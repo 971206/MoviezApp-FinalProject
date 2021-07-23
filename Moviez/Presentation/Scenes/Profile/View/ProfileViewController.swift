@@ -24,11 +24,13 @@ class ProfileViewController: BaseViewController {
     private var firebaseManager: FirebaseManagerProtocol!
     let firebaseAuth = Auth.auth()
     var longPressedEnabled = false
+    let currentUser =  Auth.auth().currentUser?.uid
     
     //MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        labelWelcomeUser.text = ""
         setupLayout()
         configureDataSource()
         collectionView.registerNib(class: WaterfallLayoutCell.self)

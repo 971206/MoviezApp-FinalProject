@@ -33,10 +33,10 @@ class ProfileDataSource: NSObject {
         self.profileCollectionView.delegate = self
         self.profileCollectionView.dataSource = self
         
-        let layout = CHTCollectionViewWaterfallLayout()
-        layout.itemRenderDirection = .leftToRight
-        layout.columnCount = 2
-        profileCollectionView.collectionViewLayout = layout
+//        let layout = CHTCollectionViewWaterfallLayout()
+//        layout.itemRenderDirection = .leftToRight
+//        layout.columnCount = 2
+//        profileCollectionView.collectionViewLayout = layout
     }
     
     
@@ -56,7 +56,7 @@ class ProfileDataSource: NSObject {
     
 }
 
-extension ProfileDataSource: UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
+extension ProfileDataSource: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -94,25 +94,25 @@ extension ProfileDataSource: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: profileCollectionView.bounds.height / 2 , height:CGFloat.random(in: 260...360))
+        return CGSize(width: UIScreen.main.bounds.width / 2 - 24 , height: 260)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingFor section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
-        
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
+ 
 }
 
 

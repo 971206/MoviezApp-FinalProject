@@ -24,7 +24,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     var mediaType: String?
     var id: Int?
     var descriptionCell: NewDescriptionCell?
-
+    
     
     init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol, navigationController: UINavigationController) {
         super.init()
@@ -60,7 +60,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         }
     }
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -74,7 +74,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
             cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist(_:)), for: .touchUpInside)
             cell.onBack.addTarget(self, action: #selector(onBack), for: .touchUpInside)
             cell.configure(with: detailInfo)
-           descriptionCell = cell
+            descriptionCell = cell
             return cell
         }
         
@@ -114,21 +114,19 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
         
-       
-     
-            dataBase.collection(userID).addDocument(data: ["collection" : "favorites",
-                                                           "mediaType" : mediaType,
-                                                           "id" : id,
-                                                           "movieRuntime": detailInfo.movieRuntime ?? "",
-                                                           "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "",
-                                                           "imageURL" : detailInfo.posterURL ?? "",
-                                                           "movieReleaseDate" : detailInfo.movieReleaseDate ?? "",
-                                                           "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "",
-                                                           "averageRate" : detailInfo.averageVote ?? "",
-                                                           "movieTitle" : detailInfo.movieTitle ?? "",
-                                                           "tvShowTitle" : detailInfo.tvShowTitle ?? ""]) { error in
-                self.descriptionCell?.addToFavoritesButton.makeAnimation()
-            }
+        dataBase.collection("users").document(userID).collection("favorites").document(String(detailInfo.id!)).setData(["id" : id,
+                                                                                                                        "mediaType" : mediaType,
+                                                                                                                        "movieRuntime": detailInfo.movieRuntime ?? "",
+                                                                                                                        "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "",
+                                                                                                                        "imageURL" : detailInfo.imageURL ?? "",
+                                                                                                                        "movieReleaseDate" : detailInfo.movieReleaseDate ?? "",
+                                                                                                                        "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "",
+                                                                                                                        "averageRate" : detailInfo.averageVote ?? "",
+                                                                                                                        "movieTitle" : detailInfo.movieTitle ?? "",
+                                                                                                                        "tvShowTitle" : detailInfo.tvShowTitle ?? "",
+        ]) {_ in
+            self.descriptionCell?.addToFavoritesButton.makeAnimation()
+        }
         
     }
     @objc func addToWatchlist(_ sender: Any) {
@@ -137,21 +135,21 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
         
-        dataBase.collection(userID).addDocument(data: ["collection" : "watchlist",
-                                                       "mediaType" : mediaType,
-                                                       "id" : id,
-                                                       "movieRuntime": detailInfo.movieRuntime ?? "",
-                                                       "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "",
-                                                       "imageURL" : detailInfo.posterURL ?? "",
-                                                       "movieReleaseDate" : detailInfo.movieReleaseDate ?? "",
-                                                       "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "",
-                                                       "averageRate" : detailInfo.averageVote ?? "",
-                                                       "movieTitle" : detailInfo.movieTitle ?? "",
-                                                       "tvShowTitle" : detailInfo.tvShowTitle ?? ""]){ error in
+        dataBase.collection("users").document(userID).collection("watchlist").document(String(detailInfo.id!)).setData(["id" : id,
+                                                                                                                        "mediaType" : mediaType,
+                                                                                                                        "movieRuntime": detailInfo.movieRuntime ?? "",
+                                                                                                                        "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "",
+                                                                                                                        "imageURL" : detailInfo.imageURL ?? "",
+                                                                                                                        "movieReleaseDate" : detailInfo.movieReleaseDate ?? "",
+                                                                                                                        "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "",
+                                                                                                                        "averageRate" : detailInfo.averageVote ?? "",
+                                                                                                                        "movieTitle" : detailInfo.movieTitle ?? "",
+                                                                                                                        "tvShowTitle" : detailInfo.tvShowTitle ?? "",
+        ]) {_ in
             self.descriptionCell?.addToWatchListButton.makeAnimation()
         }
     }
-
+    
     @objc func playTrailer() {
         print("play")
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)

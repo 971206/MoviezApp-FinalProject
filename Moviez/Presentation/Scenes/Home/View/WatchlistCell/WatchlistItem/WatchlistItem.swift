@@ -37,17 +37,17 @@ class WatchlistItem: UICollectionViewCell {
         
     }
     
-    func configure(with item: FirebaseModelViewModel?) {
+    func configure(with item: FirebaseModel?) {
         if item?.movieReleaseDate == "" {
             self.labelReleaseDate.text = item?.tvShowReleaseDate
         } else {
             self.labelReleaseDate.text = item?.movieReleaseDate
         }
         
-        if item?.tvShowRuntime == "" {
+        if item?.tvshowRuntime == "0" {
             self.labelDuration.text = item?.movieRuntime
         } else {
-            self.labelDuration.text = item?.tvShowRuntime
+            self.labelDuration.text = item?.tvshowRuntime
         }
         
         if item?.tvShowTitle == "" {
@@ -57,6 +57,8 @@ class WatchlistItem: UICollectionViewCell {
         }
         self.labelAverageRate.text = item?.averageRate
         self.labelMediaType.text = item?.mediaType
-        imagePoster.kf.setImage(with: item?.posterURL)
+        guard let imageURL = item?.imageURL else {return}
+        let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
+        imagePoster.kf.setImage(with: posterURL)
     }
 }

@@ -13,7 +13,7 @@ protocol HomeViewModelProtocol: AnyObject {
     func fetchTrendingTvShows(completion: @escaping([TvShowViewModel]) -> Void)
     func fetchComingSoonMovies(completion: @escaping ([MoviesViewModel]) -> Void)
     func fetchBoxOfficeInfo(completion: @escaping ([BoxOfficeViewModel]) -> Void)
-    func fetchUsersWatchlist(completion: @escaping([FirebaseModelViewModel]) -> Void)
+    func fetchUsersWatchlist(completion: @escaping([FirebaseModel]) -> Void)
 
     
     var controller: CoordinatorDelegate { get }
@@ -59,10 +59,8 @@ final class HomeViewModel: HomeViewModelProtocol {
     }
     
    
-    func fetchUsersWatchlist(completion: @escaping ([FirebaseModelViewModel]) -> Void) {
-        firebaseManager.fetchUsersWatchlist { usersWatchlist in
-            completion(usersWatchlist.map { FirebaseModelViewModel(firebaseModel: $0) })
-        }
+    func fetchUsersWatchlist(completion: @escaping ([FirebaseModel]) -> Void) {
+        firebaseManager.fetchUsersWatchlist(completion: completion)
     }
     
     func fetchInTheatersMovies(completion: @escaping ([MoviesViewModel]) -> Void) {

@@ -38,7 +38,7 @@ struct MovieTvShowDetails: Codable {
         case releaseDate           = "release_date"
         case voteAverage           = "vote_average"
         case totalVotes            = "vote_coun"
-        case nameTvShow            = "name"
+        case nameTvShow            = "original_name"
         case nameMovie             = "title"
         case firstAirDate          = "first_air_date"
         case lastAirDate           = "last_air_date"

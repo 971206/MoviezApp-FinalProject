@@ -16,10 +16,10 @@ struct FirebaseModel {
     var tvShowTitle: String?
     var imageURL: String?
     var collection: String?
-    var averageRate: Float?
+    var averageRate: String?
     var id: Int?
-    var movieRuntime: Int?
-    var tvshowRuntime: Int?
+    var movieRuntime: String?
+    var tvshowRuntime: String?
     var documentID: String?
     
 }
