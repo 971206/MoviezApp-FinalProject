@@ -15,7 +15,7 @@ class MoreNewsDataSource: NSObject {
     
     private var controller: CoordinatorDelegate?
     
-     var newsList: [Articles]?
+     var newsList: [ArticleViewModel]?
     
     init(with tableView: UITableView, controller: CoordinatorDelegate) {
         super.init()

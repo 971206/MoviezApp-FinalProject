@@ -9,14 +9,14 @@ import Foundation
 
 
 protocol NewsManagerProtocol: AnyObject {
-    func fetchMovieNews(completion: @escaping ([Articles]) -> Void)
-    func fetchCelebrityNews(completion: @escaping ([Articles]) -> Void)
-    func fetchTvShowNews(completion: @escaping ([Articles]) -> Void)
+    func fetchMovieNews(completion: @escaping ([Article]) -> Void)
+    func fetchCelebrityNews(completion: @escaping ([Article]) -> Void)
+    func fetchTvShowNews(completion: @escaping ([Article]) -> Void)
 
 }
 
 class NewsManager: NewsManagerProtocol {
-    func fetchMovieNews(completion: @escaping ([Articles]) -> Void) {
+    func fetchMovieNews(completion: @escaping ([Article]) -> Void) {
         let url = APIURLS.movieNewsURL
         NetworkManager.shared.get(url: url) { (result: Result<ArticlesResponse, Error>) in
             switch result {
@@ -29,7 +29,7 @@ class NewsManager: NewsManagerProtocol {
             }
         }
     }
-    func fetchCelebrityNews(completion: @escaping ([Articles]) -> Void) {
+    func fetchCelebrityNews(completion: @escaping ([Article]) -> Void) {
         let url = APIURLS.celebrityNewsURL
         NetworkManager.shared.get(url: url) { (result: Result<ArticlesResponse, Error>) in
             switch result {
@@ -42,7 +42,7 @@ class NewsManager: NewsManagerProtocol {
             }
         }
     }
-    func fetchTvShowNews(completion: @escaping ([Articles]) -> Void) {
+    func fetchTvShowNews(completion: @escaping ([Article]) -> Void) {
         let url = APIURLS.tvShowNewsURL
         NetworkManager.shared.get(url: url) { (result: Result<ArticlesResponse, Error>) in
             switch result {

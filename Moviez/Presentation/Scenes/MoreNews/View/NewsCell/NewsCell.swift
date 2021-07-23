@@ -29,12 +29,11 @@ class NewsCell: UITableViewCell {
     }
     
     
-    func configure(with news: Articles?) {
-        self.labelTitle.text = news?.title
-        self.labelTime.text = "\(news?.publishedAt?.dropLast(10) ?? "")"
-        self.labelDescription.text = news?.description
-        let posterURL = URL(string: news?.urlToImage ?? "")
-        poster.kf.setImage(with: posterURL)
+    func configure(with item: ArticleViewModel?) {
+        self.labelTitle.text = item?.title
+        self.labelTime.text = item?.publishDate
+        self.labelDescription.text = item?.description
+        poster.kf.setImage(with: item?.imageURL)
     }
 
 }

@@ -25,12 +25,11 @@ class MoviesItem: UICollectionViewCell {
         moviesItemView.setShadow(UIView: moviesItemView, viewCornerRadius: 8)
     }
     
-    func configure(with item: Articles?) {
-        self.labelDate.text = "\(item?.publishedAt?.dropLast(8) ?? "")"
-        self.labelSource.text = item?.source?.name ?? "Unknown Source"
+    func configure(with item: ArticleViewModel?) {
+        self.labelDate.text = item?.publishDate
+        self.labelSource.text = item?.sourceName
         self.labelTitle.text = item?.title
-        let imageURL = URL(string: item?.urlToImage ?? "")
-        imageNews.kf.setImage(with: imageURL)
+        imageNews.kf.setImage(with: item?.imageURL)
     }
 
 }

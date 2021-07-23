@@ -11,10 +11,10 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     //MARK: - Private Properties
     private var tableView: UITableView!
-    private var newsList: [Articles]?
-    private var celebrityNewsList: [Articles]?
-    private var moviesNewsList: [Articles]?
-    private var tvShowNewsList: [Articles]?
+    private var newsList: [ArticleViewModel]?
+    private var celebrityNewsList: [ArticleViewModel]?
+    private var moviesNewsList: [ArticleViewModel]?
+    private var tvShowNewsList: [ArticleViewModel]?
     private var viewModel: NewsViewModelProtocol!
     private var vc: NewsViewController?
     private var awardsList: [Awards]?
@@ -117,15 +117,15 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
 extension NewsDataSource: MovieNewsCellDelegate, CelebrityCellDelegate, TvShowCellDelegate {
     
-    func onNewsCellClicked(news: Articles?) {
+    func onNewsCellClicked(news: ArticleViewModel?) {
         guard let news = news else {return}
         viewModel.controller.coordinator?.proceetToNewsDetail(with: news)
     }
-    func onCelebrityCellClicked(news: Articles?) {
+    func onCelebrityCellClicked(news: ArticleViewModel?) {
         guard let news = news else {return}
         viewModel.controller.coordinator?.proceetToNewsDetail(with: news)
     }
-    func onTvShowCellClicked(news: Articles?) {
+    func onTvShowCellClicked(news: ArticleViewModel?) {
         guard let news = news else {return}
         viewModel.controller.coordinator?.proceetToNewsDetail(with: news)
 

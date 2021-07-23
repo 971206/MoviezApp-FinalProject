@@ -26,11 +26,10 @@ class TvShowItem: UICollectionViewCell {
         itemView.layer.cornerRadius = 8
     }
     
-    func configure(with item: Articles?) {
-        self.labelSource.text = item?.source?.name ?? "Unknown Source"
-        self.labelDate.text = "\(item?.publishedAt?.dropLast(10) ?? "")"
+    func configure(with item: ArticleViewModel?) {
+        self.labelSource.text = item?.sourceName
+        self.labelDate.text = item?.publishDate
         self.labelTitle.text = item?.title
-        let imageURL = URL(string: item?.urlToImage ?? "")
-        imageCover.kf.setImage(with: imageURL)
+        imageCover.kf.setImage(with: item?.imageURL)
     }
 }

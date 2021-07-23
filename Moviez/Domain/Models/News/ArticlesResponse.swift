@@ -8,5 +8,5 @@
 import Foundation
 
 struct ArticlesResponse: Codable {
-    let articles: [Articles]?
+    let articles: [Article]?
 }

@@ -11,7 +11,7 @@ class MoreNewsViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var dataSource: MoreNewsDataSource!
-     var newsList: [Articles]?
+     var newsList: [ArticleViewModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()

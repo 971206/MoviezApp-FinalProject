@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MovieNewsCellDelegate: AnyObject {
-    func onNewsCellClicked(news: Articles?)
+    func onNewsCellClicked(news: ArticleViewModel?)
 }
 
 class MoviesCell: UITableViewCell {
@@ -16,7 +16,7 @@ class MoviesCell: UITableViewCell {
     @IBOutlet weak var onReadMore: UIButton!
     @IBOutlet weak var movieNewsCollectionView: UICollectionView!
     
-    private var movieNewsList: [Articles]?
+    private var movieNewsList: [ArticleViewModel]?
     weak var movieNewsCellDelegate: MovieNewsCellDelegate?
     
     override func awakeFromNib() {
@@ -31,7 +31,7 @@ class MoviesCell: UITableViewCell {
         movieNewsCollectionView.registerNib(class: MoviesItem.self)
     }
     
-    func configure(with items: [Articles]?) {
+    func configure(with items: [ArticleViewModel]?) {
         self.movieNewsList = items
         self.movieNewsCollectionView.reloadData()
     }

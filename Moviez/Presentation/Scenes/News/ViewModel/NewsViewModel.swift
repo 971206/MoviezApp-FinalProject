@@ -9,9 +9,9 @@ import Foundation
 
 protocol NewsViewModelProtocol: AnyObject {
     func fetchAwards(completion: @escaping ([Awards]) -> Void)
-    func fetchMovieNews(completion: @escaping ([Articles]) -> Void)
-    func fetchCelebrityNews(completion: @escaping ([Articles]) -> Void)
-    func fetchTvShowNews(completion: @escaping ([Articles]) -> Void)
+    func fetchMovieNews(completion: @escaping ([ArticleViewModel]) -> Void)
+    func fetchCelebrityNews(completion: @escaping ([ArticleViewModel]) -> Void)
+    func fetchTvShowNews(completion: @escaping ([ArticleViewModel]) -> Void)
     var controller: CoordinatorDelegate {get}
     init(with newsManager: NewsManagerProtocol, awardsManager: AwardsManagerProtocol, controller: CoordinatorDelegate)
 }
@@ -28,16 +28,22 @@ class NewsViewModel: NewsViewModelProtocol {
         self.controller = controller
     }
     
-    func fetchMovieNews(completion: @escaping ([Articles]) -> Void) {
-        newsManager.fetchMovieNews(completion: completion)
+    func fetchMovieNews(completion: @escaping ([ArticleViewModel]) -> Void) {
+        newsManager.fetchMovieNews { movieNews in
+            completion(movieNews.map({ ArticleViewModel(article: $0)}))
+        }
+    }
+
+    func fetchCelebrityNews(completion: @escaping ([ArticleViewModel]) -> Void) {
+        newsManager.fetchCelebrityNews { celebrityNews in
+            completion(celebrityNews.map({ ArticleViewModel(article: $0)}))
+        }
     }
     
-    func fetchCelebrityNews(completion: @escaping ([Articles]) -> Void) {
-        newsManager.fetchCelebrityNews(completion: completion)
-    }
-    
-    func fetchTvShowNews(completion: @escaping ([Articles]) -> Void) {
-        newsManager.fetchTvShowNews(completion: completion)
+    func fetchTvShowNews(completion: @escaping ([ArticleViewModel]) -> Void) {
+        newsManager.fetchTvShowNews { tvShowNews in
+            completion(tvShowNews.map({ ArticleViewModel(article: $0)}))
+        }
     }
     
     func fetchAwards(completion: @escaping ([Awards]) -> Void) {

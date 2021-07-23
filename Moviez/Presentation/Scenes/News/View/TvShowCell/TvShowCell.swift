@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TvShowCellDelegate: AnyObject {
-    func onTvShowCellClicked(news: Articles?)
+    func onTvShowCellClicked(news: ArticleViewModel?)
 }
 
 
@@ -16,7 +16,7 @@ class TvShowCell: UITableViewCell {
 
     @IBOutlet weak var onReadMore: UIButton!
     @IBOutlet weak var tvShowCollectionView: UICollectionView!
-    private var tvShowNewsList: [Articles]?
+    private var tvShowNewsList: [ArticleViewModel]?
     weak var tvShowCellDelegate: TvShowCellDelegate?
 
     
@@ -32,7 +32,7 @@ class TvShowCell: UITableViewCell {
         tvShowCollectionView.dataSource = self
     }
     
-    func configure(with items: [Articles]?) {
+    func configure(with items: [ArticleViewModel]?) {
         self.tvShowNewsList = items
         self.tvShowCollectionView.reloadData()
     }

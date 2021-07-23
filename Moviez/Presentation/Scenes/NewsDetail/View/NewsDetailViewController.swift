@@ -16,7 +16,7 @@ class NewsDetailViewController: BaseViewController {
     @IBOutlet weak var labelTitle: UILabel!
     
     @IBOutlet weak var buttonSeeFullArticle: UIButton!
-    var news: Articles?
+    var news: ArticleViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +24,18 @@ class NewsDetailViewController: BaseViewController {
         configure(with: news)
     }
     
-    func configure(with item: Articles?) {
+    func configure(with item: ArticleViewModel?) {
         self.labelContent.text = item?.content
-        self.labelDate.text = "\(item?.publishedAt?.dropLast(10) ?? "")"
-        self.labelSource.text = "\(item?.author ?? ""),  \(item?.source?.name ?? "")"
+        self.labelDate.text = item?.publishDate
+        self.labelSource.text = item?.fullSourceName
         self.labelTitle.text = item?.title
-        let imageURL = URL(string: item?.urlToImage ?? "")
-        imageCover.kf.setImage(with: imageURL)
+        imageCover.kf.setImage(with: item?.imageURL)
     }
     
 
     @IBAction func onSeeFullArticle(_ sender: Any) {
-        if let articleURL = URL(string: news?.url ?? "") {
-            UIApplication.shared.open(articleURL)
+        if let sourceURL = news?.sourceURL {
+            UIApplication.shared.open(sourceURL)
         }
     }
     

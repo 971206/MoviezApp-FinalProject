@@ -26,6 +26,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
        
        configureTableView()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

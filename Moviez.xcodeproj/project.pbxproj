@@ -45,7 +45,7 @@
 		FA14D61F269796E900F47C94 /* BoxOfficeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14D61D269796E900F47C94 /* BoxOfficeCell.swift */; };
 		FA14D620269796E900F47C94 /* BoxOfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA14D61E269796E900F47C94 /* BoxOfficeCell.xib */; };
 		FA20B3FB267535750020065A /* MovieTvShowDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20B3FA267535750020065A /* MovieTvShowDetails.swift */; };
-		FA20B3FD26754E7C0020065A /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20B3FC26754E7C0020065A /* Articles.swift */; };
+		FA20B3FD26754E7C0020065A /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20B3FC26754E7C0020065A /* Article.swift */; };
 		FA20B40026754F1E0020065A /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20B3FF26754F1E0020065A /* NewsManager.swift */; };
 		FA20B40226754F9E0020065A /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA20B40126754F9E0020065A /* NewsViewController.swift */; };
 		FA20B40426754FAB0020065A /* NewsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA20B40326754FAB0020065A /* NewsViewController.storyboard */; };
@@ -82,6 +82,7 @@
 		FA3BFF3B26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF3A26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift */; };
 		FA3BFF3D26AACA190015EBE6 /* PersonInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF3C26AACA190015EBE6 /* PersonInfoViewModel.swift */; };
 		FA3BFF3F26AAD0FF0015EBE6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF3E26AAD0FF0015EBE6 /* SearchViewModel.swift */; };
+		FA3BFF4126AAF4390015EBE6 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF4026AAF4390015EBE6 /* ArticleViewModel.swift */; };
 		FA3BFF8A2687416A00F076E5 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF892687416A00F076E5 /* Video.swift */; };
 		FA3BFF8D2687417C00F076E5 /* VideoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF8C2687417C00F076E5 /* VideoResponse.swift */; };
 		FA3BFF8F2687437C00F076E5 /* YoutubeVideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF8E2687437C00F076E5 /* YoutubeVideoManager.swift */; };
@@ -241,7 +242,7 @@
 		FA14D61D269796E900F47C94 /* BoxOfficeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeCell.swift; sourceTree = "<group>"; };
 		FA14D61E269796E900F47C94 /* BoxOfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxOfficeCell.xib; sourceTree = "<group>"; };
 		FA20B3FA267535750020065A /* MovieTvShowDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTvShowDetails.swift; sourceTree = "<group>"; };
-		FA20B3FC26754E7C0020065A /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
+		FA20B3FC26754E7C0020065A /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		FA20B3FF26754F1E0020065A /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		FA20B40126754F9E0020065A /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		FA20B40326754FAB0020065A /* NewsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewsViewController.storyboard; sourceTree = "<group>"; };
@@ -278,6 +279,7 @@
 		FA3BFF3A26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTvShowDetailsViewModel.swift; sourceTree = "<group>"; };
 		FA3BFF3C26AACA190015EBE6 /* PersonInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoViewModel.swift; sourceTree = "<group>"; };
 		FA3BFF3E26AAD0FF0015EBE6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		FA3BFF4026AAF4390015EBE6 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		FA3BFF892687416A00F076E5 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		FA3BFF8C2687417C00F076E5 /* VideoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoResponse.swift; sourceTree = "<group>"; };
 		FA3BFF8E2687437C00F076E5 /* YoutubeVideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeVideoManager.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 			isa = PBXGroup;
 			children = (
 				FA20B3FA267535750020065A /* MovieTvShowDetails.swift */,
+				FA3BFF3A26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -596,7 +599,7 @@
 		FA20B3FE26754E820020065A /* News */ = {
 			isa = PBXGroup;
 			children = (
-				FA20B3FC26754E7C0020065A /* Articles.swift */,
+				FA20B3FC26754E7C0020065A /* Article.swift */,
 				FA4B2EEE2676598B00383B56 /* ArticlesResponse.swift */,
 			);
 			path = News;
@@ -630,6 +633,7 @@
 			children = (
 				FA20B40D267554AF0020065A /* NewsDataSource.swift */,
 				FA20B40F267554BF0020065A /* NewsViewModel.swift */,
+				FA3BFF4026AAF4390015EBE6 /* ArticleViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -657,7 +661,6 @@
 			children = (
 				FACFAE6E269B3B6300CFDCAD /* DetailInfoDataSoure.swift */,
 				FA5860942673DDDF00933FF7 /* DetailInfoViewModel.swift */,
-				FA3BFF3A26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 			children = (
 				FA32AECC2674A71400D3F0F3 /* SearchModel.swift */,
 				FA32AECE2674A7FE00D3F0F3 /* SearchResponse.swift */,
+				FA3BFF3E26AAD0FF0015EBE6 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -769,10 +773,6 @@
 			children = (
 				FA40CDA6268672D600801FED /* HomeDataSource.swift */,
 				FA3EC3622691C5A300BDA214 /* HomeViewModel.swift */,
-				FA3C6B0726A98E01000EDFD2 /* MoviesViewModel.swift */,
-				FA3C6B0A26A99499000EDFD2 /* TvShowViewModel.swift */,
-				FA3C6B1A26A9C8A3000EDFD2 /* BoxOfficeViewModel.swift */,
-				FA3BFF3826AAB5430015EBE6 /* FirebaseModelViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -801,8 +801,6 @@
 			children = (
 				FA3BFF992687AA0F00F076E5 /* PersonViewModel.swift */,
 				FA3BFF9B2687AA1E00F076E5 /* PersonDataSource.swift */,
-				FA3BFF3C26AACA190015EBE6 /* PersonInfoViewModel.swift */,
-				FA3BFF3E26AAD0FF0015EBE6 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -811,6 +809,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3BFF9D2687AA4600F076E5 /* PersonInfo.swift */,
+				FA3BFF3C26AACA190015EBE6 /* PersonInfoViewModel.swift */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -959,6 +958,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3F7BEF26A4B40C00265171 /* FirebaseModel.swift */,
+				FA3BFF3826AAB5430015EBE6 /* FirebaseModelViewModel.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -977,6 +977,7 @@
 			children = (
 				FA440CB1266FA5CC00F2B22D /* Movies.swift */,
 				FA440CB3266FA7D200F2B22D /* MoviesResponse.swift */,
+				FA3C6B0726A98E01000EDFD2 /* MoviesViewModel.swift */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -1292,6 +1293,7 @@
 			children = (
 				FA607F6B266C1341009C9C61 /* TvShows.swift */,
 				FA607F6D266C134A009C9C61 /* TvShowsResponse.swift */,
+				FA3C6B0A26A99499000EDFD2 /* TvShowViewModel.swift */,
 			);
 			path = TvShows;
 			sourceTree = "<group>";
@@ -1388,6 +1390,7 @@
 			children = (
 				FA947330266D6CA20094069D /* BoxOffice.swift */,
 				FA947332266D6D3D0094069D /* BoxOfficeResponse.swift */,
+				FA3C6B1A26A9C8A3000EDFD2 /* BoxOfficeViewModel.swift */,
 			);
 			path = BoxOffice;
 			sourceTree = "<group>";
@@ -1630,6 +1633,7 @@
 				FA3A611D26A8177100B6C4AB /* TvShowCell.swift in Sources */,
 				FA04671826A5F75C00C1A411 /* Awards.swift in Sources */,
 				FA440CB6266FA86F00F2B22D /* SearchManager.swift in Sources */,
+				FA3BFF4126AAF4390015EBE6 /* ArticleViewModel.swift in Sources */,
 				FA32AED12674C06C00D3F0F3 /* DetailsManager.swift in Sources */,
 				FA3DAC362688B60D00E75C35 /* RecommendedManager.swift in Sources */,
 				FACFAE6F269B3B6300CFDCAD /* DetailInfoDataSoure.swift in Sources */,
@@ -1642,7 +1646,7 @@
 				FA04671A26A5F7C400C1A411 /* AwardsManager.swift in Sources */,
 				FA3BFF3F26AAD0FF0015EBE6 /* SearchViewModel.swift in Sources */,
 				FA607F39266B892B009C9C61 /* ProfileViewController.swift in Sources */,
-				FA20B3FD26754E7C0020065A /* Articles.swift in Sources */,
+				FA20B3FD26754E7C0020065A /* Article.swift in Sources */,
 				FA586085267378BB00933FF7 /* ReviewsManager.swift in Sources */,
 				FA20B40E267554AF0020065A /* NewsDataSource.swift in Sources */,
 				FA4BDC73269A299300B2369B /* AppCoordinator.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CelebrityCellDelegate: AnyObject {
-    func onCelebrityCellClicked(news: Articles?)
+    func onCelebrityCellClicked(news: ArticleViewModel?)
 }
 
 class CelebrityCell: UITableViewCell {
@@ -16,7 +16,7 @@ class CelebrityCell: UITableViewCell {
     @IBOutlet weak var celebrityCollectionView: UICollectionView!
     @IBOutlet weak var onReadMore: UIButton!
     
-    var celebrityNewsList: [Articles]?
+    var celebrityNewsList: [ArticleViewModel]?
     weak var celebrityCellDelegate: CelebrityCellDelegate?
     
     override func awakeFromNib() {
@@ -30,7 +30,7 @@ class CelebrityCell: UITableViewCell {
         celebrityCollectionView.dataSource = self
     }
     
-    func configure(with items: [Articles]?) {
+    func configure(with items: [ArticleViewModel]?) {
         self.celebrityNewsList = items
         self.celebrityCollectionView.reloadData()
     }
