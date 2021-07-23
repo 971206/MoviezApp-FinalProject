@@ -25,24 +25,21 @@ class PersonInfoCell: UITableViewCell {
         imagePerson.layer.cornerRadius = 20
   
         imagePerson.layer.maskedCorners = [.layerMinXMaxYCorner, . layerMinXMinYCorner]
-        // Initialization code
+     
     }
     
-    func configure(with person: Person?) {
-        let posterURL = URL(string:  BaseURL.imageBaseURL + "\(person?.imageProfile ?? "")")
-        imagePerson.kf.setImage(with: posterURL)
-        labelName.text = person?.name
-        if person?.gender == 1 {
-            labelGender.text = "Gender: Female"
+    func configure(with item: PersonInfoViewModel?) {
+        imagePerson.kf.setImage(with: item?.posterURL )
+        labelName.text = item?.name
+        if item?.gender == 1 {
+            labelGender.text = item?.female
         } else {
-            labelGender.text = "Gender: Male"
+            labelGender.text = item?.male
         }
-        labelBirthAndDeath.text = "\(person?.birthday ?? "") - \(person?.deathday ?? "")"
-        labelBirthPlace.text = "Born in \(person?.birthPlace ?? "")"
-        labelKnownFor.text = "Known for \(person?.knownFor ?? "")"
-        labelBiography.text = person?.biography
-        
-        
+        labelBirthAndDeath.text = item?.birthday
+        labelBirthPlace.text = item?.bornPlace
+        labelKnownFor.text = item?.knownFor
+        labelBiography.text = item?.biography
     }
     
 }

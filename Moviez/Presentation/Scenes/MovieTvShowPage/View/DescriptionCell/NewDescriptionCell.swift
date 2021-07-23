@@ -41,29 +41,27 @@ class NewDescriptionCell: UITableViewCell {
 
     }
 
-    func configure(with item: Details?) {
+    func configure(with item: MovieTvShowDetailsViewModel?) {
         
-        if item?.nameMovie == nil {
-            labelTitle.text = item?.nameTvShow
+        if item?.movieTitle == nil {
+            labelTitle.text = item?.tvShowTitle
         } else {
-            labelTitle.text = item?.nameMovie
+            labelTitle.text = item?.movieTitle
         }
-        if item?.releaseDate == nil {
-            labelReleaseDate.text = "\(item?.firstAirDate?.dropLast(6) ?? "" )"
+        if item?.movieReleaseDate == nil {
+            labelReleaseDate.text = item?.tvShowReleaseDate
         } else {
-            labelReleaseDate.text = "\(item?.releaseDate?.dropLast(6) ?? "" )"
+            labelReleaseDate.text = item?.movieReleaseDate
         }
-        if item?.runtime == nil {
-//            labelRuntime.text = String(item?.episodeRunTime?[0] ?? 0)
+        if item?.movieRuntime == nil {
+            labelRuntime.text = item?.tvShowEpisodeRuntime
         } else {
-            labelRuntime.text = Double((item?.runtime ?? 0) * 60).asString(style: .abbreviated)
+            labelRuntime.text = item?.movieRuntime
         }
-        
         labelTagline.text = item?.tagline
-        labelAverageRate.text = String(describing: item?.voteAverage ?? 0)
+        labelAverageRate.text = item?.averageVote
         labelOverview.text = item?.overview
-        let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.posterURL ?? "")")
-        self.imagePoster.kf.setImage(with: posterURL)
+        self.imagePoster.kf.setImage(with: item?.posterURL)
     }
     
     

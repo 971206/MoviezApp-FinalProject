@@ -20,5 +20,6 @@ struct FirebaseModel {
     var id: Int?
     var movieRuntime: Int?
     var tvshowRuntime: Int?
+    var documentID: String?
     
 }

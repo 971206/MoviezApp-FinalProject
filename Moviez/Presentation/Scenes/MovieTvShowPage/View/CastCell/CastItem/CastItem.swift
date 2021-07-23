@@ -26,7 +26,7 @@ class CastItem: UICollectionViewCell {
         imageProfile.layer.cornerRadius = cornerRadius
     }
     
-    func configure(with person: Person?) {
+    func configure(with person: PersonInfo?) {
         let imageURL = URL(string:  BaseURL.imageBaseURL + "\(person?.imageProfile ?? "")")
         imageProfile.kf.setImage(with: imageURL)
         labelPersonsRealName.text = person?.name

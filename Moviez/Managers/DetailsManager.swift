@@ -8,14 +8,14 @@
 import Foundation
 
 protocol DetailsManagerProtocol: AnyObject {
-    func fetchDetailInfo(id: Int, type: String, completion: @escaping (Details) -> Void)
+    func fetchDetailInfo(id: Int, type: String, completion: @escaping (MovieTvShowDetails) -> Void)
 }
 
 class DetailsManager: DetailsManagerProtocol {
     
-    func fetchDetailInfo(id: Int, type: String, completion: @escaping (Details) -> Void) {
+    func fetchDetailInfo(id: Int, type: String, completion: @escaping (MovieTvShowDetails) -> Void) {
         let url = APIURLS.createPath(path: "/\(type)/\(id)")
-        NetworkManager.shared.get(url: url) { (result: Result<Details, Error>) in
+        NetworkManager.shared.get(url: url) { (result: Result<MovieTvShowDetails, Error>) in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {

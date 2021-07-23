@@ -27,7 +27,7 @@ class DetailInfoViewController: BaseViewController {
     
     var idOfItem: Int?
     var typeOfItem: MediaType.RawValue?
-    var detailInfo: Details?
+    var detailInfo: MovieTvShowDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()

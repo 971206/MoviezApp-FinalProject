@@ -13,7 +13,7 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var viewModel: PersonViewModelProtocol!
     var movieCreditsList: [SearchModel]?
     var tvShowCreditsList: [SearchModel]?
-    var personDetailInfo: Person?
+    var personDetailInfo: PersonInfoViewModel?
     var id: Int?
     
     
@@ -28,7 +28,7 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     func refresh() {
         viewModel.fetchPersonDetailInfo(id: id ?? 0) { [weak self] personDetailInfo in
             guard let self = self else {return}
-            self.personDetailInfo = personDetailInfo
+            self.personDetailInfo = PersonInfoViewModel(with: personDetailInfo)
             self.tableView.reloadData()
         }
         

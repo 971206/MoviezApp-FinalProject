@@ -20,7 +20,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var trendingTvShowList: [TvShowViewModel]?
     private var comingSoonList: [MoviesViewModel]?
     private var boxOfficeList: [BoxOfficeViewModel]?
-    private var usersWatchlist: [FirebaseModel]?
+    private var usersWatchlist: [FirebaseModelViewModel]?
     private var currentUser = Auth.auth().currentUser
     
     
@@ -77,14 +77,14 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
             cell.homePageCellDelegate = self
             cell.configureTrendingMovies(items: trendingMoviesList ?? [])
-            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+//            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
             
         case 1:
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
             cell.homePageCellDelegate = self
             cell.configureTrendingTvShows(items: trendingTvShowList ?? [])
-            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+//            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
             
         case 2:
@@ -96,6 +96,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
                 return cell
             } else {
                 let cell = tableView.deque(SignInCell.self, for: indexPath)
+                cell.buttonSignIn.addTarget(self, action: #selector(proceedToSignIn), for: .touchUpInside)
                 return cell
             }
             
@@ -109,7 +110,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
             cell.homePageCellDelegate = self
             cell.configureComingSoon(items: comingSoonList ?? [])
-            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
+//            cell.collectionViewOffset = storedOffsets[indexPath.row] ?? 0
             return cell
             
         case 5:
@@ -151,6 +152,10 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     @objc func proceedToWatchlist() {
         print("vc here")
+    }
+    
+    @objc func proceedToSignIn() {
+        viewModel.controller.coordinator?.proceedToSignUp()
     }
     
     

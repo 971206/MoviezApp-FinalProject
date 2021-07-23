@@ -1,52 +1,55 @@
 //
-//  PersonDetailInfoViewModel.swift
+//  PersonInfoViewModel.swift
 //  Moviez
 //
-//  Created by MacBook  on 26.06.21.
+//  Created by MacBook  on 23.07.21.
 //
 
-import UIKit
+import Foundation
 
-protocol PersonViewModelProtocol: AnyObject {
-    func fetchPersonDetailInfo(id: Int, completion: @escaping (Person) -> Void)
-    func fetchMovieCredits(with PersonId: Int, completion: @escaping ([SearchModel]) -> Void)
-    func fetchTVShowCredits(with PersonId: Int, completion: @escaping ([SearchModel]) -> Void)
-    var controller: CoordinatorDelegate { get }
-
-    init(with personManager: PersonManagerProtocol, personCreditsManager: PersonCreditsManagerProtocol, controller: CoordinatorDelegate )
-}
-
-final class PersonViewModel: PersonViewModelProtocol {
-    private var personManager: PersonManagerProtocol!
-    private var personCreditsManager: PersonCreditsManagerProtocol!
-    private var personDetailInfo: Person?
-    private var personMovieCredits: [SearchModel]?
-    private var personTvShowCredits: [SearchModel]?
-    private(set) var controller: CoordinatorDelegate
-
+struct PersonInfoViewModel {
     
-    init(with personManager: PersonManagerProtocol, personCreditsManager: PersonCreditsManagerProtocol, controller: CoordinatorDelegate) {
-        self.personManager = personManager
-        self.personCreditsManager = personCreditsManager
-        self.controller = controller
+    var personInfo: PersonInfo
+    init(with personInfo: PersonInfo) {
+        self.personInfo = personInfo
     }
     
-    func fetchPersonDetailInfo(id: Int, completion: @escaping (Person) -> Void) {
-        personManager.fetchPersonDetailInfo(id: id) { personDetailInfo in
-            completion(personDetailInfo)
-        }
+    var posterURL: URL? {
+        URL(string:  BaseURL.imageBaseURL + "\(personInfo.imageProfile ?? "")")
     }
     
-    func fetchMovieCredits(with PersonId: Int, completion: @escaping ([SearchModel]) -> Void) {
-        personCreditsManager.fetchMovieCredits(with: PersonId) {  personMovieCredits in
-            completion(personMovieCredits)
-        }
+    var name: String? {
+        personInfo.name
     }
     
-    func fetchTVShowCredits(with PersonId: Int, completion: @escaping ([SearchModel]) -> Void) {
-        personCreditsManager.fetchTVShowCredits(with: PersonId) { personTVShowCredits in
-            completion(personTVShowCredits)
-        }
+    var female: String? {
+        "Gender - Female"
     }
-
+    
+    var male: String? {
+        "Gender - Male"
+    }
+    
+    var birthday: String? {
+        "\(personInfo.birthday ?? "") - \(personInfo.deathday ?? "")"
+    }
+    
+    var bornPlace: String? {
+        "Born in \(personInfo.birthPlace ?? "")"
+    }
+    
+    var knownFor: String? {
+        "Known for \(personInfo.knownFor ?? "")"
+    }
+    
+    var biography: String? {
+        personInfo.biography
+    }
+    
+    var gender: Int? {
+        personInfo.gender
+    }
+    
+    
+    
 }

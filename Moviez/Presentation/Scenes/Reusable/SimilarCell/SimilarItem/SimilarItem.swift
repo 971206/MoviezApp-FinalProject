@@ -24,7 +24,6 @@ class SimilarItem: UICollectionViewCell {
     private func setUpLayout() {
         itemView.clipsToBounds = true
         itemView.layer.cornerRadius = cornerRadius
-//        imagePoster.clipsToBounds = true
         imagePoster.layer.cornerRadius = cornerRadius
         
     }
@@ -42,14 +41,13 @@ class SimilarItem: UICollectionViewCell {
     
     
     
-    func configure(with item: FirebaseModel?) {
+    func configure(with item: FirebaseModelViewModel?) {
         if item?.tvShowTitle == nil {
             self.labelName.text = item?.movieTitle
         } else {
             self.labelName.text = item?.tvShowTitle
         }
-        self.labelAverageRate.text = String(item?.averageRate ?? 0 )
-        let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.imageURL ?? "")")
-        imagePoster.kf.setImage(with: posterURL)
+        self.labelAverageRate.text = item?.averageRate
+        imagePoster.kf.setImage(with: item?.posterURL)
     }
 }

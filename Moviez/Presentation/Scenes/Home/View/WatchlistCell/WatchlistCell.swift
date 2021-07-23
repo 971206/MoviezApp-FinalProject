@@ -18,7 +18,7 @@ class WatchlistCell: UITableViewCell {
     @IBOutlet weak var watchlistCollectionView: UICollectionView!
     
     private var profileViewModel: ProfileViewModelProtocol!
-    private var usersWatchlist: [FirebaseModel]?
+    private var usersWatchlist: [FirebaseModelViewModel]?
     weak var watchlistDelegate: WatchlistCellDelegate?
     
     
@@ -29,7 +29,7 @@ class WatchlistCell: UITableViewCell {
         watchlistCollectionView.registerNib(class: WatchlistItem.self)
     }
     
-    func configure(with item: [FirebaseModel]?) {
+    func configure(with item: [FirebaseModelViewModel]?) {
         self.usersWatchlist = item
         self.watchlistCollectionView.reloadData()
     }

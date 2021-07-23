@@ -19,11 +19,11 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     var recommendedItemsList: [SearchModel]?
     var similarItemsList: [SearchModel]?
     let dataBase = Firestore.firestore()
-    var detailInfo: Details?
-    var castList: [Person]?
+    var detailInfo: MovieTvShowDetailsViewModel?
+    var castList: [PersonInfo]?
     var mediaType: String?
     var id: Int?
-    var descriptionCell:NewDescriptionCell?
+    var descriptionCell: NewDescriptionCell?
 
     
     init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol, navigationController: UINavigationController) {
@@ -40,7 +40,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     func refresh() {
         viewModel.fetchDetailInfo(id: id ?? 0, type: mediaType ?? "") { [weak self] detailInfo in
             guard let self = self else {return}
-            self.detailInfo = detailInfo
+            self.detailInfo = MovieTvShowDetailsViewModel(details: detailInfo)
             self.tableView.reloadData()
         }
         viewModel.fetchRecommendedItems(with: mediaType ?? "", id: id ?? 0) { [weak self] recommendedItems in
@@ -57,9 +57,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
             guard let self = self else {return}
             self.castList = castList
             self.tableView.reloadData()
-            
         }
-        
     }
     
 
@@ -75,8 +73,6 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
             cell.addToFavoritesButton.addButton.addTarget(self, action: #selector(addToFavorites(_:)), for: .touchUpInside)
             cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist(_:)), for: .touchUpInside)
             cell.onBack.addTarget(self, action: #selector(onBack), for: .touchUpInside)
-
-            
             cell.configure(with: detailInfo)
            descriptionCell = cell
             return cell
@@ -123,20 +119,16 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
             dataBase.collection(userID).addDocument(data: ["collection" : "favorites",
                                                            "mediaType" : mediaType,
                                                            "id" : id,
-                                                           "movieRuntime": detailInfo.runtime ?? 0,
-                                                           "tvshowRuntime": detailInfo.episodeRunTime ?? 0,
+                                                           "movieRuntime": detailInfo.movieRuntime ?? "",
+                                                           "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "",
                                                            "imageURL" : detailInfo.posterURL ?? "",
-                                                           "movieReleaseDate" : detailInfo.releaseDate ?? "",
-                                                           "tvShowReleaseDate" : detailInfo.firstAirDate ?? "",
-                                                           "averageRate" : detailInfo.voteAverage ?? "",
-                                                           "movieTitle" : detailInfo.nameMovie ?? "",
-                                                           "tvShowTitle" : detailInfo.nameTvShow ?? ""]) { error in
+                                                           "movieReleaseDate" : detailInfo.movieReleaseDate ?? "",
+                                                           "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "",
+                                                           "averageRate" : detailInfo.averageVote ?? "",
+                                                           "movieTitle" : detailInfo.movieTitle ?? "",
+                                                           "tvShowTitle" : detailInfo.tvShowTitle ?? ""]) { error in
                 self.descriptionCell?.addToFavoritesButton.makeAnimation()
             }
-
-        
-        
-        
         
     }
     @objc func addToWatchlist(_ sender: Any) {
@@ -148,14 +140,14 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         dataBase.collection(userID).addDocument(data: ["collection" : "watchlist",
                                                        "mediaType" : mediaType,
                                                        "id" : id,
+                                                       "movieRuntime": detailInfo.movieRuntime ?? "",
+                                                       "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "",
                                                        "imageURL" : detailInfo.posterURL ?? "",
-                                                       "movieRuntime": detailInfo.runtime ?? 0,
-                                                       "tvshowRuntime": detailInfo.episodeRunTime ?? 0,
-                                                       "movieReleaseDate" : detailInfo.releaseDate ?? "",
-                                                       "tvShowReleaseDate" : detailInfo.firstAirDate ?? "",
-                                                       "averageRate" : detailInfo.voteAverage ?? "",
-                                                       "movieTitle" : detailInfo.nameMovie ?? "",
-                                                       "tvShowTitle" : detailInfo.nameTvShow ?? ""]) { error in
+                                                       "movieReleaseDate" : detailInfo.movieReleaseDate ?? "",
+                                                       "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "",
+                                                       "averageRate" : detailInfo.averageVote ?? "",
+                                                       "movieTitle" : detailInfo.movieTitle ?? "",
+                                                       "tvShowTitle" : detailInfo.tvShowTitle ?? ""]){ error in
             self.descriptionCell?.addToWatchListButton.makeAnimation()
         }
     }

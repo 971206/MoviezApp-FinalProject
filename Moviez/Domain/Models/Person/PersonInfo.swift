@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Person: Codable {
+struct PersonInfo: Codable {
     let biography: String?
     let birthday: String?
     let deathday: String?

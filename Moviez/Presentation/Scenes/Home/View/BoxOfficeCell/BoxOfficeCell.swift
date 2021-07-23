@@ -20,6 +20,7 @@ class BoxOfficeCell: UITableViewCell {
         self.boxOfficeCollectionView.delegate = self
         self.boxOfficeCollectionView.dataSource = self
     }
+    
     func configure(with items: [BoxOfficeViewModel]?) {
         self.boxOfficeList = items
         self.boxOfficeCollectionView.reloadData()

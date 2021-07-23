@@ -12,8 +12,8 @@ protocol DetailInfoViewModelProtocol: AnyObject {
     
     func fetchSimilarItems(with type: String, id: Int, completion: @escaping ([SearchModel]) -> Void)
     func fetchRecommendedItems(with type: String, id: Int, completion: @escaping ([SearchModel]) -> Void)
-    func fetchDetailInfo(id: Int,type: String, completion: @escaping (Details) -> Void)
-    func fetchCastInfo(id: Int, type: String, completion: @escaping ([Person]) -> Void)
+    func fetchDetailInfo(id: Int,type: String, completion: @escaping (MovieTvShowDetails) -> Void)
+    func fetchCastInfo(id: Int, type: String, completion: @escaping ([PersonInfo]) -> Void)
     var controller: CoordinatorDelegate { get }
 
     
@@ -33,7 +33,7 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
     private var recommendedItemsManager: RecommendedManagerProtocol!
     private var castManager: CastManagerProtocol!
     private var navigationController: UINavigationController?
-    private var detailInfo: Details?
+    private var detailInfo: MovieTvShowDetails?
     private var similarItems: [SearchModel]?
     private var recommendedItems: [SearchModel]?
     private(set) var controller: CoordinatorDelegate
@@ -56,17 +56,24 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
     }
     
     // MARK: - Fetch Info
-    func fetchCastInfo(id: Int, type: String, completion: @escaping ([Person]) -> Void) {
+    func fetchCastInfo(id: Int, type: String, completion: @escaping ([PersonInfo]) -> Void) {
         castManager.fetchCastInfo(id: id, type: type) { castList in
             completion(castList)
         }
     }
     
-    func fetchDetailInfo(id: Int, type: String, completion: @escaping (Details) -> Void) {
+    
+    
+    
+    func fetchDetailInfo(id: Int, type: String, completion: @escaping (MovieTvShowDetails) -> Void) {
         detailsManager.fetchDetailInfo(id: id, type: type) {detailInfo in
             completion(detailInfo)
         }
     }
+    
+    
+    
+    
     
     func fetchSimilarItems(with type: String, id: Int, completion: @escaping ([SearchModel]) -> Void) {
         similarItemsManager.fetchSimilarItems(with: type, id: id) {similarItems in

@@ -34,21 +34,20 @@ class WatchlistItem: UICollectionViewCell {
         
         mediaTypeView.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
         imagePoster.layer.cornerRadius = cornerRadius
-//        itemBackgroundView.setShadow(UIView: itemBackgroundView, viewCornerRadius: cornerRadius)
         
     }
     
-    func configure(with item: FirebaseModel?) {
+    func configure(with item: FirebaseModelViewModel?) {
         if item?.movieReleaseDate == "" {
-            self.labelReleaseDate.text = "\(item?.tvShowReleaseDate?.dropLast(6) ?? "" )"
+            self.labelReleaseDate.text = item?.tvShowReleaseDate
         } else {
-            self.labelReleaseDate.text = "\(item?.movieReleaseDate?.dropLast(6) ?? "" )"
+            self.labelReleaseDate.text = item?.movieReleaseDate
         }
         
-        if item?.tvshowRuntime == 0 {
-            self.labelDuration.text =  Double((item?.movieRuntime ?? 0) * 60).asString(style: .abbreviated)
+        if item?.tvShowRuntime == "" {
+            self.labelDuration.text = item?.movieRuntime
         } else {
-            self.labelDuration.text =  Double((item?.tvshowRuntime ?? 0) * 60).asString(style: .abbreviated)
+            self.labelDuration.text = item?.tvShowRuntime
         }
         
         if item?.tvShowTitle == "" {
@@ -56,10 +55,8 @@ class WatchlistItem: UICollectionViewCell {
         } else {
             self.labelTitle.text = item?.tvShowTitle
         }
-        
-        self.labelAverageRate.text = String(item?.averageRate ?? 0.0)
-        self.labelMediaType.text = item?.mediaType?.uppercased()
-        let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.imageURL ?? "")")
-        imagePoster.kf.setImage(with: posterURL)
+        self.labelAverageRate.text = item?.averageRate
+        self.labelMediaType.text = item?.mediaType
+        imagePoster.kf.setImage(with: item?.posterURL)
     }
 }

@@ -8,7 +8,9 @@
 import UIKit
 
 class BoxOfficeItem: UICollectionViewCell {
-
+    
+    @IBOutlet weak var viewRank: UIView!
+    @IBOutlet weak var viewBoxOffice: UIView!
     @IBOutlet weak var imagePoster: UIImageView!
     @IBOutlet weak var labelTotalRevenue: UILabel!
     @IBOutlet weak var labelWeekRevenue: UILabel!
@@ -16,7 +18,15 @@ class BoxOfficeItem: UICollectionViewCell {
     @IBOutlet weak var labelRank: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupLayout()
+        
+    }
+    
+    private func setupLayout() {
+        viewBoxOffice.layer.cornerRadius = 8
+        viewBoxOffice.clipsToBounds = true
+        viewRank.layer.cornerRadius = 20
+        viewRank.clipsToBounds = true
     }
     
     func configure(with item: BoxOfficeViewModel?) {
@@ -26,6 +36,4 @@ class BoxOfficeItem: UICollectionViewCell {
         self.labelTitle.text = item?.title
         imagePoster.kf.setImage(with: item?.imageURL)
     }
-    
-
 }

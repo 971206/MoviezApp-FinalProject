@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Details: Codable {
+struct MovieTvShowDetails: Codable {
     let id: Int?
     let mediaType: MediaType?
     let originalLanguage: String?

@@ -8,11 +8,11 @@
 import Foundation
 
 protocol CastManagerProtocol: AnyObject {
-    func fetchCastInfo(id: Int, type: String, completion: @escaping ([Person]) -> Void)
+    func fetchCastInfo(id: Int, type: String, completion: @escaping ([PersonInfo]) -> Void)
 }
 
 class CastManager: CastManagerProtocol {
-    func fetchCastInfo(id: Int, type: String, completion: @escaping ([Person]) -> Void) {
+    func fetchCastInfo(id: Int, type: String, completion: @escaping ([PersonInfo]) -> Void) {
         let url = "https://api.themoviedb.org/3/\(type)/\(id)/credits?api_key=705f6a951803d1ed4524ef2a658cbc16&language=en-US"
         NetworkManager.shared.get(url: url) { (result: Result<CastResponse, Error>) in
             switch result {

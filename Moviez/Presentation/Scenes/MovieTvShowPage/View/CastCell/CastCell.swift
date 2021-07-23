@@ -14,7 +14,7 @@ protocol CastCellDelegate: AnyObject {
 class CastCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     private var castManager: CastManagerProtocol!
-    private var castList: [Person]?
+    private var castList: [PersonInfo]?
     weak var delegate: CastCellDelegate?
     
     
@@ -38,7 +38,7 @@ class CastCell: UITableViewCell {
         
     }
     
-    func configureCastList(items: [Person]) {
+    func configureCastList(items: [PersonInfo]) {
         castList = items
         collectionView.reloadData()
     }}
