@@ -54,7 +54,7 @@ class SearchListViewController: BaseViewController {
     func configureViewModel() {
         searchManager = SearchManager()
         viewModel = SearchListViewModel(with: searchManager,
-                                        navigationController: self.navigationController, controller: self)
+                                      controller: self)
         dataSource = SearchDataSource(with: tableView,
                                       viewModel: viewModel,
                                       searchBar: searchBar,vc: self)

@@ -22,6 +22,7 @@ class BoxOfficeCell: UITableViewCell {
     }
     
     func configure(with items: [BoxOfficeViewModel]?) {
+
         self.boxOfficeList = items
         self.boxOfficeCollectionView.reloadData()
     }

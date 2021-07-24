@@ -88,9 +88,20 @@ extension ProfileDataSource: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let id = usersWatchlistArray?[indexPath.row].id else {return}
-        guard let mediaType = usersWatchlistArray?[indexPath.row].mediaType else {return}
-        controller?.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: mediaType)
+        switch segmentedControlIndex {
+        case 0:
+            guard let id = usersWatchlistArray?[indexPath.row].id else {return}
+            guard let mediaType = usersWatchlistArray?[indexPath.row].mediaType else {return}
+            controller?.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: mediaType)
+        case 1:
+            guard let id = usersFavoritesArray?[indexPath.row].id else {return}
+            guard let mediaType = usersFavoritesArray?[indexPath.row].mediaType else {return}
+            controller?.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: mediaType)
+        default:
+            return
+        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

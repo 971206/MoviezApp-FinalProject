@@ -23,7 +23,11 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     var castList: [PersonInfo]?
     var mediaType: String?
     var id: Int?
-    var descriptionCell: NewDescriptionCell?
+    var descriptionCell: DescriptionCell?
+    var detailInfoFetched = false
+    var recomendedItemsFetched = false
+    var similarItemsFetched = false
+    var castInfoFetched = false
     
     
     init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol, navigationController: UINavigationController) {
@@ -41,21 +45,31 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         viewModel.fetchDetailInfo(id: id ?? 0, type: mediaType ?? "") { [weak self] detailInfo in
             guard let self = self else {return}
             self.detailInfo = MovieTvShowDetailsViewModel(details: detailInfo)
-            self.tableView.reloadData()
+            self.detailInfoFetched = true
+            self.reloadFetchedData()
         }
         viewModel.fetchRecommendedItems(with: mediaType ?? "", id: id ?? 0) { [weak self] recommendedItems in
             guard let self = self else {return}
             self.recommendedItemsList = recommendedItems
-            self.tableView.reloadData()
+            self.recomendedItemsFetched = true
+            self.reloadFetchedData()
         }
         viewModel.fetchSimilarItems(with: mediaType ?? "", id: id ?? 0) { [weak self] similarItems in
             guard let self = self else {return}
             self.similarItemsList = similarItems
-            self.tableView.reloadData()
+            self.similarItemsFetched = true
+            self.reloadFetchedData()
         }
         viewModel.fetchCastInfo(id: id ?? 0, type: mediaType ?? "") { [weak self] castList in
             guard let self = self else {return}
             self.castList = castList
+            self.castInfoFetched = true
+            self.reloadFetchedData()
+        }
+    }
+    
+    func reloadFetchedData(){
+        if castInfoFetched && similarItemsFetched && recomendedItemsFetched && detailInfoFetched {
             self.tableView.reloadData()
         }
     }
@@ -68,17 +82,24 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         if indexPath.row == 0 {
-            let cell = tableView.deque(NewDescriptionCell.self, for: indexPath)
-            cell.buttonPlayTrailer.addTarget(self, action: #selector(playTrailer), for: .touchUpInside)
-            cell.addToFavoritesButton.addButton.addTarget(self, action: #selector(addToFavorites(_:)), for: .touchUpInside)
-            cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist(_:)), for: .touchUpInside)
-            cell.onBack.addTarget(self, action: #selector(onBack), for: .touchUpInside)
-            cell.configure(with: detailInfo)
-            descriptionCell = cell
-            return cell
+            let cell = tableView.deque(DescriptionCell.self, for: indexPath)
+            if detailInfo != nil {
+                cell.configure(with: detailInfo)
+                
+                cell.buttonPlayTrailer.addTarget(self, action: #selector(playTrailer), for: .touchUpInside)
+                cell.addToFavoritesButton.addButton.addTarget(self, action: #selector(addToFavorites(_:)), for: .touchUpInside)
+                cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist(_:)), for: .touchUpInside)
+                cell.onBack.addTarget(self, action: #selector(onBack), for: .touchUpInside)
+                
+                descriptionCell = cell
+                return cell
+            }
+          
+            return .init()
         }
         
         if indexPath.row == 1 {
+            
             let cell = tableView.deque(SeasonCell.self, for: indexPath)
             return cell
         }
@@ -114,16 +135,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
         
-        dataBase.collection("users").document(userID).collection("favorites").document(String(detailInfo.id!)).setData(["id" : id,
-                                                                                                                        "mediaType" : mediaType,
-                                                                                                                        "movieRuntime": detailInfo.movieRuntime ?? "",
-                                                                                                                        "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "",
-                                                                                                                        "imageURL" : detailInfo.imageURL ?? "",
-                                                                                                                        "movieReleaseDate" : detailInfo.movieReleaseDate ?? "",
-                                                                                                                        "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "",
-                                                                                                                        "averageRate" : detailInfo.averageVote ?? "",
-                                                                                                                        "movieTitle" : detailInfo.movieTitle ?? "",
-                                                                                                                        "tvShowTitle" : detailInfo.tvShowTitle ?? "",
+        dataBase.collection("users").document(userID).collection("favorites").document(String(detailInfo.id!)).setData(["id" : id, "mediaType" : mediaType, "movieRuntime": detailInfo.movieRuntime ?? "", "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "", "imageURL" : detailInfo.imageURL ?? "", "movieReleaseDate" : detailInfo.movieReleaseDate ?? "", "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "", "averageRate" : detailInfo.averageVote ?? "", "movieTitle" : detailInfo.movieTitle ?? "", "tvShowTitle" : detailInfo.tvShowTitle ?? "",
         ]) {_ in
             self.descriptionCell?.addToFavoritesButton.makeAnimation()
         }
@@ -135,23 +147,13 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
         
-        dataBase.collection("users").document(userID).collection("watchlist").document(String(detailInfo.id!)).setData(["id" : id,
-                                                                                                                        "mediaType" : mediaType,
-                                                                                                                        "movieRuntime": detailInfo.movieRuntime ?? "",
-                                                                                                                        "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "",
-                                                                                                                        "imageURL" : detailInfo.imageURL ?? "",
-                                                                                                                        "movieReleaseDate" : detailInfo.movieReleaseDate ?? "",
-                                                                                                                        "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "",
-                                                                                                                        "averageRate" : detailInfo.averageVote ?? "",
-                                                                                                                        "movieTitle" : detailInfo.movieTitle ?? "",
-                                                                                                                        "tvShowTitle" : detailInfo.tvShowTitle ?? "",
+        dataBase.collection("users").document(userID).collection("watchlist").document(String(detailInfo.id!)).setData(["id" : id, "mediaType" : mediaType, "movieRuntime": detailInfo.movieRuntime ?? "", "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "", "imageURL" : detailInfo.imageURL ?? "", "movieReleaseDate" : detailInfo.movieReleaseDate ?? "", "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "", "averageRate" : detailInfo.averageVote ?? "", "movieTitle" : detailInfo.movieTitle ?? "", "tvShowTitle" : detailInfo.tvShowTitle ?? "",
         ]) {_ in
             self.descriptionCell?.addToWatchListButton.makeAnimation()
         }
     }
     
     @objc func playTrailer() {
-        print("play")
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
     }
     
@@ -163,7 +165,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.row == 0 { return  UITableView.automaticDimension}
-        if indexPath.row == 1 { return 330 }
+        if indexPath.row == 1 && mediaType == "tv" { return 100 }
         if indexPath.row == 2 { return 305 }
         if indexPath.row == 3 { return 305 }
         if indexPath.row == 4 { return 305 }

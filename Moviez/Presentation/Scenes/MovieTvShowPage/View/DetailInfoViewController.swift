@@ -70,7 +70,7 @@ class DetailInfoViewController: BaseViewController {
         tableView.separatorStyle = .none
         tableView.registerNib(class: SimilarCell.self)
         tableView.registerNib(class: CastCell.self)
-        tableView.registerNib(class: NewDescriptionCell.self)
+        tableView.registerNib(class: DescriptionCell.self)
         tableView.registerNib(class: SeasonCell.self)
     }
 }

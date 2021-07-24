@@ -56,7 +56,7 @@ class WatchlistItem: UICollectionViewCell {
             self.labelTitle.text = item?.tvShowTitle
         }
         self.labelAverageRate.text = item?.averageRate
-        self.labelMediaType.text = item?.mediaType
+        self.labelMediaType.text = item?.mediaType?.uppercased()
         guard let imageURL = item?.imageURL else {return}
         let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
         imagePoster.kf.setImage(with: posterURL)

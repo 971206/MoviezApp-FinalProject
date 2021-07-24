@@ -14,7 +14,7 @@ protocol SearchListViewModelProtocol: AnyObject {
     var controller: CoordinatorDelegate { get }
 //    var tabBarDelegate: TabBarViewControllerDelegate { get set }
 
-    init(with searchManager: SearchManagerProtocol, navigationController: UINavigationController?, controller: CoordinatorDelegate)
+    init(with searchManager: SearchManagerProtocol, controller: CoordinatorDelegate)
 }
 
 class SearchListViewModel: SearchListViewModelProtocol {
@@ -22,7 +22,6 @@ class SearchListViewModel: SearchListViewModelProtocol {
     //MARK: - Private Properties
     private var searchManager: SearchManagerProtocol!
     private var searchItems:[SearchModel]?
-    private var navigationController: UINavigationController?
     var searchedText: String?
     
     private(set) var controller: CoordinatorDelegate
@@ -33,10 +32,9 @@ class SearchListViewModel: SearchListViewModelProtocol {
     var searchBar: UISearchBar?
     
     //MARK: - Init
-    required init(with searchManager: SearchManagerProtocol, navigationController: UINavigationController?, controller: CoordinatorDelegate) {
+    required init(with searchManager: SearchManagerProtocol, controller: CoordinatorDelegate) {
         
         self.searchManager = searchManager
-        self.navigationController = navigationController
         self.controller = controller
 //        self.tabBarDelegate = tabBarDelegate
     }

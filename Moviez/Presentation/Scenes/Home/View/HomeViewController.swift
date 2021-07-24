@@ -24,15 +24,15 @@ class HomeViewController: BaseViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+//        self.view.startLoading()
        configureTableView()
-        
+        configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         setupNavController()
-        configureDataSource()
+        dataSource.refresh()
       
     }
     
@@ -61,17 +61,17 @@ class HomeViewController: BaseViewController {
         trendingTvShowsManager = TrendingTvShowsManager()
         comingSoonManager = ComingSoonManager()
         boxOfficeManager = BoxOfficeManager()
-//        profileViewModel = ProfileViewModel()
         firebaseManager = FirebaseManager()
         viewModel = HomeViewModel(with: inTheatersManager,
                                   trendingMoviesManager: trendingMoviesManager,
                                   trendingTvShowsManager: trendingTvShowsManager,
                                   comingSoonManager: comingSoonManager,
-                                  boxOfficeManager: boxOfficeManager, firebaseManager: firebaseManager,
+                                  boxOfficeManager: boxOfficeManager,
+                                  firebaseManager: firebaseManager,
                                   controller: self)
         dataSource = HomeDataSource(with: tableView,
-                                    viewModel: viewModel)
-        dataSource.refresh()
+                                    viewModel: viewModel, homeVC: self)
+      
       
     }
 }

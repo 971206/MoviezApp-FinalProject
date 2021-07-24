@@ -34,7 +34,6 @@ class SearchResultCell: UITableViewCell {
         labelType.text = item.mediaType?.firstUppercased
         labelReleaseDate.text = item.mediaType == MediaType.movie.rawValue ? item.movieReleaseDate : item.tvShowFirstAirDate ?? item.knownFor
         let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item.posterURL ?? item.personImage ?? "")")
-        
         self.imagePoster.kf.setImage(with: posterURL)
         
     }

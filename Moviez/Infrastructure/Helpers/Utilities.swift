@@ -5,7 +5,7 @@
 //  Created by MacBook  on 05.06.21.
 //
 
-import Foundation
+import UIKit
 
 
 class Utilities {
@@ -14,4 +14,11 @@ class Utilities {
         return passwordTest.evaluate(with: password)
     }
 
+}
+
+extension UILabel {
+    func setFont(label: UILabel, fontName: String, size: CGFloat, numberOfLines: Int) {
+        label.font = UIFont(name: fontName, size: size)
+        label.numberOfLines = numberOfLines
+    }
 }

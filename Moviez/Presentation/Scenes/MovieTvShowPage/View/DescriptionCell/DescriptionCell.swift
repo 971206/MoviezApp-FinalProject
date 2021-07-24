@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewDescriptionCell: UITableViewCell {
+class DescriptionCell: UITableViewCell {
 
     @IBOutlet weak var onBack: UIButton!
     @IBOutlet weak var rateStackView: UIStackView!
@@ -42,29 +42,27 @@ class NewDescriptionCell: UITableViewCell {
     }
 
     func configure(with item: MovieTvShowDetailsViewModel?) {
+  
+            if item?.movieTitle == nil {
+                labelTitle.text = item?.tvShowTitle
+            } else {
+                labelTitle.text = item?.movieTitle
+            }
+            
+        labelReleaseDate.text = item?.releaseDate
+
+         
+                labelRuntime.text = item?.movieRuntime
+         
+            labelTagline.text = item?.tagline
+            labelAverageRate.text = item?.averageVote
+            labelOverview.text = item?.overview
+            guard let imageURL = item?.imageURL else {return}
+            let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
+            self.imagePoster.kf.setImage(with: posterURL)
         
-        if item?.movieTitle == nil {
-            labelTitle.text = item?.tvShowTitle
-        } else {
-            labelTitle.text = item?.movieTitle
+        
         }
-        if item?.movieReleaseDate == "0s" {
-            labelReleaseDate.text = item?.tvShowReleaseDate
-        } else {
-            labelReleaseDate.text = item?.movieReleaseDate
-        }
-        if item?.movieRuntime == nil {
-            labelRuntime.text = item?.tvShowEpisodeRuntime
-        } else {
-            labelRuntime.text = item?.movieRuntime
-        }
-        labelTagline.text = item?.tagline
-        labelAverageRate.text = item?.averageVote
-        labelOverview.text = item?.overview
-        guard let imageURL = item?.imageURL else {return}
-        let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
-        self.imagePoster.kf.setImage(with: posterURL)
-    }
     
     
 }

@@ -22,45 +22,57 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var boxOfficeList: [BoxOfficeViewModel]?
     private var usersWatchlist: [FirebaseModel]?
     private var currentUser = Auth.auth().currentUser
+    private var homeVC: HomeViewController!
+
     
     
-    init(with tableView: UITableView, viewModel: HomeViewModelProtocol) {
+    init(with tableView: UITableView, viewModel: HomeViewModelProtocol, homeVC: HomeViewController) {
         super.init()
         self.tableView = tableView
         self.viewModel = viewModel
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.homeVC = homeVC
     }
     
     func refresh() {
         viewModel.fetchInTheatersMovies { [weak self] inTheatersList in
             guard let self = self else {return}
+            self.homeVC.view.stopLoading()
             self.inTheatersList = inTheatersList
             self.tableView.reloadData()
         }
         viewModel.fetchTrendingMovies { [weak self] trendingMoviesList in
             guard let self = self else {return}
+            self.homeVC.view.stopLoading()
             self.trendingMoviesList = trendingMoviesList
             self.tableView.reloadData()
             
         }
         viewModel.fetchTrendingTvShows { [weak self] trendingTvShowList in
             guard let self = self else {return}
+            self.homeVC.view.stopLoading()
             self.trendingTvShowList = trendingTvShowList
             self.tableView.reloadData()
             
         }
         viewModel.fetchComingSoonMovies { [weak self] comingSoonList in
             guard let self = self else {return}
+            self.homeVC.view.stopLoading()
             self.comingSoonList = comingSoonList
             self.tableView.reloadData()
         }
         viewModel.fetchBoxOfficeInfo { [weak self] boxOfficeList in
-            self?.boxOfficeList = boxOfficeList
-            self?.tableView.reloadData()
+            guard let self = self else {return}
+            self.boxOfficeList = boxOfficeList
+            self.homeVC.view.stopLoading()
+            self.tableView.reloadData()
         }
         viewModel.fetchUsersWatchlist { [weak self] usersWatchlist in
-            self?.usersWatchlist = usersWatchlist
+            guard let self = self else {return}
+            self.usersWatchlist = usersWatchlist
+            self.homeVC.view.stopLoading()
+            self.tableView.reloadData()
         }
     }
 
