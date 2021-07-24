@@ -22,9 +22,10 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="346" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cE3-lT-tNZ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" red="0.082352941176470587" green="0.070588235294117646" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.08235294118" green="0.070588235289999995" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <color key="sectionIndexTrackingBackgroundColor" red="0.08235294118" green="0.070588235289999995" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="lightBackground"/>
+                                <color key="tintColor" name="lightBackground"/>
+                                <color key="sectionIndexBackgroundColor" name="lightBackground"/>
+                                <color key="sectionIndexTrackingBackgroundColor" name="lightBackground"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="mbd-tf-QMs">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -45,7 +46,8 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.082352941176470587" green="0.070588235294117646" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="lightBackground"/>
+                        <color key="tintColor" name="lightBackground"/>
                         <constraints>
                             <constraint firstItem="cfQ-Mv-oAQ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="8WQ-48-Sc7"/>
                             <constraint firstAttribute="trailing" secondItem="cfQ-Mv-oAQ" secondAttribute="trailing" id="Y1z-N4-fif"/>
@@ -93,6 +95,9 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <namedColor name="darkBackground">
             <color red="0.078000001609325409" green="0.071000002324581146" blue="0.10199999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightBackground">
+            <color red="0.082000002264976501" green="0.071000002324581146" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textColor">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

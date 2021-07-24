@@ -33,14 +33,16 @@ class ProfileViewController: BaseViewController {
         labelWelcomeUser.text = ""
         setupLayout()
         configureDataSource()
-        collectionView.registerNib(class: WaterfallLayoutCell.self)
-        setupLongPressGesture()
+        collectionView.registerNib(class: ProfileCell.self)
+      
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dataSource.refresh()
+        dataSource.refreshFavorites()
+        dataSource.refreshWatchlist()
     }
     
     
@@ -53,31 +55,7 @@ class ProfileViewController: BaseViewController {
         buttonLogOut.layer.cornerRadius = 8
     }
     
-    private func setupLongPressGesture() {
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longTap(_:)))
-        collectionView.addGestureRecognizer(longPressGesture)
-    }
-    
-    
-    
-    @objc func longTap(_ gesture: UIGestureRecognizer){
-        switch gesture.state {
-        case .began:
-            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {return}
-            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
-        case .changed:
-            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
-        case .ended:
-            collectionView.endInteractiveMovement()
-            buttonDone.isHidden = false
-            longPressedEnabled = true
-            self.collectionView.reloadData()
-        default:
-            collectionView.cancelInteractiveMovement()
-        }
-    }
-    
-    
+
     private func configureDataSource() {
         firebaseManager = FirebaseManager()
         viewModel = ProfileViewModel(with: firebaseManager)

@@ -39,8 +39,8 @@
 		FA04672626A6024100C1A411 /* UICollectionViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04672526A6024100C1A411 /* UICollectionViewCell + Extension.swift */; };
 		FA04672826A6026100C1A411 /* UITableViewCell + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04672726A6026100C1A411 /* UITableViewCell + Extension.swift */; };
 		FA04672A26A60F2F00C1A411 /* CollectionViewWaterfallFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04672926A60F2F00C1A411 /* CollectionViewWaterfallFlowLayout.swift */; };
-		FA04672E26A6158400C1A411 /* WaterfallLayoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04672C26A6158400C1A411 /* WaterfallLayoutCell.swift */; };
-		FA04672F26A6158400C1A411 /* WaterfallLayoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04672D26A6158400C1A411 /* WaterfallLayoutCell.xib */; };
+		FA04672E26A6158400C1A411 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA04672C26A6158400C1A411 /* ProfileCell.swift */; };
+		FA04672F26A6158400C1A411 /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA04672D26A6158400C1A411 /* ProfileCell.xib */; };
 		FA04D8F426A8CD37000DFE4A /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = FA04D8F326A8CD37000DFE4A /* YouTubeiOSPlayerHelper */; };
 		FA14D61F269796E900F47C94 /* BoxOfficeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA14D61D269796E900F47C94 /* BoxOfficeCell.swift */; };
 		FA14D620269796E900F47C94 /* BoxOfficeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA14D61E269796E900F47C94 /* BoxOfficeCell.xib */; };
@@ -173,10 +173,10 @@
 		FA607F44266B8CDF009C9C61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA607F43266B8CDF009C9C61 /* GoogleService-Info.plist */; };
 		FA607F47266B8D97009C9C61 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA607F46266B8D97009C9C61 /* FirebaseAuth */; };
 		FA607F49266B8D97009C9C61 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FA607F48266B8D97009C9C61 /* FirebaseFirestore */; };
-		FA607F4C266B8DCB009C9C61 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA607F4B266B8DCB009C9C61 /* Kingfisher */; };
 		FA607F6C266C1341009C9C61 /* TvShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA607F6B266C1341009C9C61 /* TvShows.swift */; };
 		FA607F6E266C134A009C9C61 /* TvShowsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA607F6D266C134A009C9C61 /* TvShowsResponse.swift */; };
 		FA7F66C926AC3EC8008FC99E /* MovieTvShowDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7F66C826AC3EC8008FC99E /* MovieTvShowDetailsViewModel.swift */; };
+		FA7F66CC26AC5A8C008FC99E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA7F66CB26AC5A8C008FC99E /* Kingfisher */; };
 		FA83812F26A36C380091F0ED /* ButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83812E26A36C380091F0ED /* ButtonAnimationView.swift */; };
 		FA94730A266CAFFA0094069D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA947309266CAFFA0094069D /* SignInViewController.swift */; };
 		FA94730C266CB0020094069D /* SignInViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA94730B266CB0020094069D /* SignInViewController.storyboard */; };
@@ -237,8 +237,8 @@
 		FA04672526A6024100C1A411 /* UICollectionViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell + Extension.swift"; sourceTree = "<group>"; };
 		FA04672726A6026100C1A411 /* UITableViewCell + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell + Extension.swift"; sourceTree = "<group>"; };
 		FA04672926A60F2F00C1A411 /* CollectionViewWaterfallFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewWaterfallFlowLayout.swift; sourceTree = "<group>"; };
-		FA04672C26A6158400C1A411 /* WaterfallLayoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayoutCell.swift; sourceTree = "<group>"; };
-		FA04672D26A6158400C1A411 /* WaterfallLayoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaterfallLayoutCell.xib; sourceTree = "<group>"; };
+		FA04672C26A6158400C1A411 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		FA04672D26A6158400C1A411 /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		FA14D61D269796E900F47C94 /* BoxOfficeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeCell.swift; sourceTree = "<group>"; };
 		FA14D61E269796E900F47C94 /* BoxOfficeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoxOfficeCell.xib; sourceTree = "<group>"; };
 		FA20B3FA267535750020065A /* MovieTvShowDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTvShowDetails.swift; sourceTree = "<group>"; };
@@ -403,8 +403,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7F66CC26AC5A8C008FC99E /* Kingfisher in Frameworks */,
 				FAD6309B2677D8BE00A0CF9B /* NVActivityIndicatorView in Frameworks */,
-				FA607F4C266B8DCB009C9C61 /* Kingfisher in Frameworks */,
 				FA607F47266B8D97009C9C61 /* FirebaseAuth in Frameworks */,
 				FA607F49266B8D97009C9C61 /* FirebaseFirestore in Frameworks */,
 				FA4BDC7D269A372A00B2369B /* SnapKit in Frameworks */,
@@ -562,8 +562,8 @@
 		FA04672B26A6153B00C1A411 /* WaterfallLayoutCell */ = {
 			isa = PBXGroup;
 			children = (
-				FA04672C26A6158400C1A411 /* WaterfallLayoutCell.swift */,
-				FA04672D26A6158400C1A411 /* WaterfallLayoutCell.xib */,
+				FA04672C26A6158400C1A411 /* ProfileCell.swift */,
+				FA04672D26A6158400C1A411 /* ProfileCell.xib */,
 			);
 			path = WaterfallLayoutCell;
 			sourceTree = "<group>";
@@ -1471,10 +1471,10 @@
 			packageProductDependencies = (
 				FA607F46266B8D97009C9C61 /* FirebaseAuth */,
 				FA607F48266B8D97009C9C61 /* FirebaseFirestore */,
-				FA607F4B266B8DCB009C9C61 /* Kingfisher */,
 				FAD6309A2677D8BE00A0CF9B /* NVActivityIndicatorView */,
 				FA4BDC7C269A372A00B2369B /* SnapKit */,
 				FA04D8F326A8CD37000DFE4A /* YouTubeiOSPlayerHelper */,
+				FA7F66CB26AC5A8C008FC99E /* Kingfisher */,
 			);
 			productName = Moviez;
 			productReference = FA607EEC266B83D2009C9C61 /* Moviez.app */;
@@ -1509,10 +1509,10 @@
 			mainGroup = FA607EE3266B83D2009C9C61;
 			packageReferences = (
 				FA607F45266B8D97009C9C61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				FA607F4A266B8DCA009C9C61 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				FAD630992677D8BE00A0CF9B /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
 				FA4BDC7B269A372A00B2369B /* XCRemoteSwiftPackageReference "SnapKit" */,
 				FA04D8F226A8CD37000DFE4A /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				FA7F66CA26AC5A8B008FC99E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = FA607EED266B83D2009C9C61 /* Products */;
 			projectDirPath = "";
@@ -1556,7 +1556,7 @@
 				FAEFC654266EA4FC00183B45 /* HomePageCell.xib in Resources */,
 				FA3C6B1926A9C305000EDFD2 /* BoxOfficeItem.xib in Resources */,
 				FA3DAC2C2688845D00E75C35 /* CastItem.xib in Resources */,
-				FA04672F26A6158400C1A411 /* WaterfallLayoutCell.xib in Resources */,
+				FA04672F26A6158400C1A411 /* ProfileCell.xib in Resources */,
 				FA04670026A5728C00C1A411 /* Sarabun-Thin.ttf in Resources */,
 				FA03418226A6C6E600712CDE /* WatchlistItem.xib in Resources */,
 				FAD630962677C39C00A0CF9B /* Helvetica Neue Medium Extended.ttf in Resources */,
@@ -1719,7 +1719,7 @@
 				FA3A612E26A82DA300B6C4AB /* CelebrityItem.swift in Sources */,
 				FA3CD76B269F741E00A56BCA /* NewsCoordinator.swift in Sources */,
 				FA14D61F269796E900F47C94 /* BoxOfficeCell.swift in Sources */,
-				FA04672E26A6158400C1A411 /* WaterfallLayoutCell.swift in Sources */,
+				FA04672E26A6158400C1A411 /* ProfileCell.swift in Sources */,
 				FA3C6B1D26AA0DD2000EDFD2 /* FirebaseManager.swift in Sources */,
 				FA03418A26A72DAD00712CDE /* WatchlistViewController.swift in Sources */,
 				FA03419B26A7688D00712CDE /* NewsDetailViewController.swift in Sources */,
@@ -1947,7 +1947,7 @@
 				minimumVersion = 8.1.0;
 			};
 		};
-		FA607F4A266B8DCA009C9C61 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		FA7F66CA26AC5A8B008FC99E /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -1986,9 +1986,9 @@
 			package = FA607F45266B8D97009C9C61 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
 		};
-		FA607F4B266B8DCB009C9C61 /* Kingfisher */ = {
+		FA7F66CB26AC5A8C008FC99E /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FA607F4A266B8DCA009C9C61 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = FA7F66CA26AC5A8B008FC99E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		FAD6309A2677D8BE00A0CF9B /* NVActivityIndicatorView */ = {

@@ -53,7 +53,7 @@ class FirebaseManager: FirebaseManagerProtocol {
         func fetchUsersWatchlist(completion: @escaping([FirebaseModel]) -> Void) {
             var usersWatchlistArray = [FirebaseModel]()
             guard let currentUserID = Auth.auth().currentUser?.uid else {return}
-            Firestore.firestore().collection("users").document(currentUserID).collection("watchlist").getDocuments{ (snapShot, error) in
+            Firestore.firestore().collection("users").document(currentUserID).collection("watchlists").getDocuments{ (snapShot, error) in
                 if error == nil && snapShot != nil {
                     snapShot!.documents.forEach { documet in
     

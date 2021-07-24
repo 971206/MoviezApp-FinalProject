@@ -147,7 +147,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
         
-        dataBase.collection("users").document(userID).collection("watchlist").document(String(detailInfo.id!)).setData(["id" : id, "mediaType" : mediaType, "movieRuntime": detailInfo.movieRuntime ?? "", "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "", "imageURL" : detailInfo.imageURL ?? "", "movieReleaseDate" : detailInfo.movieReleaseDate ?? "", "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "", "averageRate" : detailInfo.averageVote ?? "", "movieTitle" : detailInfo.movieTitle ?? "", "tvShowTitle" : detailInfo.tvShowTitle ?? "",
+        dataBase.collection("users").document(userID).collection("watchlists").document(String(detailInfo.id!)).setData(["id" : id, "mediaType" : mediaType, "movieRuntime": detailInfo.movieRuntime ?? "", "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "", "imageURL" : detailInfo.imageURL ?? "", "movieReleaseDate" : detailInfo.movieReleaseDate ?? "", "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "", "averageRate" : detailInfo.averageVote ?? "", "movieTitle" : detailInfo.movieTitle ?? "", "tvShowTitle" : detailInfo.tvShowTitle ?? "",
         ]) {_ in
             self.descriptionCell?.addToWatchListButton.makeAnimation()
         }
