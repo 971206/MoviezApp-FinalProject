@@ -42,27 +42,20 @@ class DescriptionCell: UITableViewCell {
     }
 
     func configure(with item: MovieTvShowDetailsViewModel?) {
-  
-            if item?.movieTitle == nil {
-                labelTitle.text = item?.tvShowTitle
-            } else {
-                labelTitle.text = item?.movieTitle
-            }
-            
-        labelReleaseDate.text = item?.releaseDate
-
-         
-                labelRuntime.text = item?.movieRuntime
-         
-            labelTagline.text = item?.tagline
-            labelAverageRate.text = item?.averageVote
-            labelOverview.text = item?.overview
-            guard let imageURL = item?.imageURL else {return}
-            let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
-            self.imagePoster.kf.setImage(with: posterURL)
-        
-        
+        if item?.movieTitle == nil {
+            labelTitle.text = item?.tvShowTitle
+        } else {
+            labelTitle.text = item?.movieTitle
         }
+        labelReleaseDate.text = item?.releaseDate
+        labelRuntime.text = item?.runtime
+        labelTagline.text = item?.tagline
+        labelAverageRate.text = item?.averageVote
+        labelOverview.text = item?.overview
+        guard let imageURL = item?.imageURL else {return}
+        let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
+        self.imagePoster.kf.setImage(with: posterURL)
+    }
     
     
 }
