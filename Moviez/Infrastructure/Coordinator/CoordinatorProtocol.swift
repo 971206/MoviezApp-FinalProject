@@ -17,7 +17,13 @@ protocol CoordinatorProtocol: AnyObject {
     
 //    var networkManager: NetworkManagerProtocol {get}
     
+    var newsManager: NewsManagerProtocol? { get }
+    
     init(_ window: UIWindow?, navigationController: UINavigationController?)
+    
+    
+    
+    
     
     func start()
 
@@ -44,6 +50,11 @@ protocol CoordinatorProtocol: AnyObject {
 
 
 extension CoordinatorProtocol {
+    var newsManager: NewsManagerProtocol? {
+        set { print("") }
+        get { nil }
+    }
+    
     func start(){}
     func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel) {}
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel){}

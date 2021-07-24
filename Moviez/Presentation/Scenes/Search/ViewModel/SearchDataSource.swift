@@ -77,8 +77,8 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let choosedItemsMediaType = searchResult?[indexPath.row].mediaType
-        guard let result = searchResult?[indexPath.row] else {return}
+        guard let result = searchResult?[indexPath.row] else { return }
+        let choosedItemsMediaType = result.mediaType
         
         if choosedItemsMediaType == MediaType.movie.rawValue  {
             viewModel.controller.coordinator?.proceedToDetailsFromSearchMovieAndTvShowChoosed(with: result)

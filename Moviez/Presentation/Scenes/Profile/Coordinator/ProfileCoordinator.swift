@@ -17,6 +17,7 @@ final class ProfileCoordinator: CoordinatorProtocol {
         vc.coordinator = self
         self.navigationController?.viewControllers = [vc]
     }
+
     
     func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String) {
         let detailInfoVC = DetailInfoViewController.instantiateFromStoryboard()
@@ -25,8 +26,13 @@ final class ProfileCoordinator: CoordinatorProtocol {
         detailInfoVC.coordinator = self
         self.navigationController?.pushViewController(detailInfoVC, animated: true)
     }
-    func onBack() {
-        self.navigationController?.popViewController(animated: true)
+   
+    func proceedToPersonDetailInfo(personId: Int, mediaType: String) {
+        let vc = PersonViewController.instantiateFromStoryboard()
+        vc.id = personId
+        vc.mediaType = mediaType
+        vc.coordinator = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func proceedToTrailer(with mediaType: String, with itemID: Int) {

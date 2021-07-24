@@ -63,4 +63,6 @@ struct MovieTvShowDetailsViewModel {
     var mediaType: MediaType? {
         details.mediaType
     }
+    
+    var seasons: [TvShowSeason]?
 }

@@ -69,9 +69,9 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     }
     
     func reloadFetchedData(){
-        if castInfoFetched && similarItemsFetched && recomendedItemsFetched && detailInfoFetched {
+       // if castInfoFetched && similarItemsFetched && recomendedItemsFetched && detailInfoFetched {
             self.tableView.reloadData()
-        }
+       // }
     }
     
     
@@ -132,25 +132,21 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     @objc func addToFavorites (_ sender: Any) {
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
-        guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
         
-        dataBase.collection("users").document(userID).collection("favorites").document(String(detailInfo.id!)).setData(["id" : id, "mediaType" : mediaType, "movieRuntime": detailInfo.movieRuntime ?? "", "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "", "imageURL" : detailInfo.imageURL ?? "", "movieReleaseDate" : detailInfo.movieReleaseDate ?? "", "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "", "averageRate" : detailInfo.averageVote ?? "", "movieTitle" : detailInfo.movieTitle ?? "", "tvShowTitle" : detailInfo.tvShowTitle ?? "",
-        ]) {_ in
-            self.descriptionCell?.addToFavoritesButton.makeAnimation()
-        }
+        FirebaseHelper.saveItemInFirebaseCollection(collection:"favorites", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
+            self.descriptionCell?.addToWatchListButton.makeAnimation()
+        })
         
     }
     @objc func addToWatchlist(_ sender: Any) {
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
-        guard let userID = Auth.auth().currentUser?.uid else { return }
         guard let detailInfo = detailInfo else {return}
         
-        dataBase.collection("users").document(userID).collection("watchlists").document(String(detailInfo.id!)).setData(["id" : id, "mediaType" : mediaType, "movieRuntime": detailInfo.movieRuntime ?? "", "tvshowRuntime": detailInfo.tvShowEpisodeRuntime ?? "", "imageURL" : detailInfo.imageURL ?? "", "movieReleaseDate" : detailInfo.movieReleaseDate ?? "", "tvShowReleaseDate" : detailInfo.tvShowReleaseDate ?? "", "averageRate" : detailInfo.averageVote ?? "", "movieTitle" : detailInfo.movieTitle ?? "", "tvShowTitle" : detailInfo.tvShowTitle ?? "",
-        ]) {_ in
+        FirebaseHelper.saveItemInFirebaseCollection(collection:"watchlists", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
             self.descriptionCell?.addToWatchListButton.makeAnimation()
-        }
+        })
     }
     
     @objc func playTrailer() {

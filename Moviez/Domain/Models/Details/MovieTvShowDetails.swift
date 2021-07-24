@@ -28,6 +28,7 @@ struct MovieTvShowDetails: Codable {
     let firstAirDate: String?
     let lastAirDate: String?
     let episodeRunTime: [Int]?
+   // let seasons: [TvShowSeason]
 
     enum CodingKeys: String, CodingKey {
         case id, overview, budget, revenue, runtime, tagline, genres

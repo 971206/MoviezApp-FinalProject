@@ -76,6 +76,13 @@ extension SearchListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         startTimer()
         self.searchText = searchText
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        self.searchBar.text = ""
+        self.searchBar.endEditing(true)
     }
 }
 

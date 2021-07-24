@@ -33,17 +33,23 @@ class DetailInfoViewController: BaseViewController {
         super.viewDidLoad()
         configureDataSource()
         configureTableView()
-        
+//        self.navigationController?.navigationBar.transparentNavigationBar()
     }
+    
+  
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        navigationController?.navigationBar.isTranslucent = false
+        setupNavigationController()
+    }
+    
+    private func setupNavigationController() {
+        navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.barTintColor = UIColor(named: "lightBackground")
         navigationController?.navigationBar.tintColor = UIColor(named: "textColor")
-//        navigationController?.isNavigationBarHidden = true
-//        tableView.contentInsetAdjustmentBehavior = .never
-
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     private func configureDataSource() {
@@ -74,5 +80,4 @@ class DetailInfoViewController: BaseViewController {
         tableView.registerNib(class: SeasonCell.self)
     }
 }
-
 

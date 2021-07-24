@@ -18,6 +18,7 @@ class ProfileDataSource: NSObject {
     var usersWatchlistArray: [FirebaseModel]?
     var usersFavoritesArray: [FirebaseModel]?
     var controller: CoordinatorDelegate?
+    let firebaseHelper = FirebaseHelper()
     var segmentedControlIndex = 0 {
         didSet{
             self.profileCollectionView.reloadData()
@@ -36,10 +37,6 @@ class ProfileDataSource: NSObject {
         profileCollectionView.collectionViewLayout = layout
 
     }
-    
-    
-        
-    
     
     func refreshWatchlist() {
         viewModel.fetchUsersWatchlist() { [weak self] watchlistArray in
@@ -128,13 +125,13 @@ extension ProfileDataSource: UICollectionViewDelegate, UICollectionViewDataSourc
     }
     
     
-    func deleteSavedItems(id : String, collection: String) {
-        if Auth.auth().currentUser != nil {
-            guard let uuid = Auth.auth().currentUser?.uid else {return}
-            Firestore.firestore().collection("users").document(uuid).collection(collection).document(id).delete()
-        }
-    }
-    
+//    func deleteSavedItems(id : String, collection: String) {
+//        if Auth.auth().currentUser != nil {
+//            guard let uuid = Auth.auth().currentUser?.uid else {return}
+//            Firestore.firestore().collection("users").document(uuid).collection(collection).document(id).delete()
+//        }
+//    }
+//
 }
 
 
@@ -153,10 +150,10 @@ extension ProfileDataSource: ProfileCellDelegate {
            
             switch segmentedControlIndex {
             case 0:
-                deleteSavedItems(id: watchlistID, collection: "watchlists")
+                FirebaseHelper.deleteSavedItems(id: watchlistID, collection: "watchlists")
                 refreshWatchlist()
             case 1:
-                deleteSavedItems(id: favoritesID, collection: "favorites")
+                FirebaseHelper.deleteSavedItems(id: favoritesID, collection: "favorites")
                 refreshFavorites()
             default:
                 break

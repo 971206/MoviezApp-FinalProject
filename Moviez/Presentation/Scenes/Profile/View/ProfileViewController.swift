@@ -25,6 +25,7 @@ class ProfileViewController: BaseViewController {
     let firebaseAuth = Auth.auth()
     var longPressedEnabled = false
     let currentUser =  Auth.auth().currentUser?.uid
+    let firebaseHelper = FirebaseHelper()
     
     //MARK: - VC Lifecycle
     
@@ -34,7 +35,6 @@ class ProfileViewController: BaseViewController {
         setupLayout()
         configureDataSource()
         collectionView.registerNib(class: ProfileCell.self)
-      
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
     }
     
@@ -43,6 +43,7 @@ class ProfileViewController: BaseViewController {
         super.viewWillAppear(animated)
         dataSource.refreshFavorites()
         dataSource.refreshWatchlist()
+      
     }
     
     
@@ -66,12 +67,7 @@ class ProfileViewController: BaseViewController {
         
     }
     @IBAction func onSignOut(_ sender: Any) {
-        do {
-            try firebaseAuth.signOut()
-            NotificationCenter.default.post(name: .signedOut, object: nil)
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
+        FirebaseHelper.signOut()
     }
 }
 

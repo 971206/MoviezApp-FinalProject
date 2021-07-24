@@ -19,6 +19,7 @@ class RegistrationViewController: BaseViewController {
     @IBOutlet weak var buttonRegistration: UIButton!
     @IBOutlet weak var buttonShowAndHide: UIButton!
     @IBOutlet weak var buttonView: UIView!
+    private var firebaseHelper = FirebaseHelper()
 
     private var isHidden = true
     

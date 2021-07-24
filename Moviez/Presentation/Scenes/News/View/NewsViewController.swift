@@ -27,6 +27,16 @@ class NewsViewController: BaseViewController {
         configureViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barTintColor = UIColor(named: "lightBackground")
+        navigationController?.navigationBar.tintColor = UIColor(named: "textColor")
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
     private func setUpTableView() {
         tableView.registerNib(class: NewsCell.self)
         tableView.registerNib(class: AwardsCell.self)

@@ -9,6 +9,7 @@ import UIKit
 
 final class NewsCoordinator: CoordinatorProtocol {
      var navigationController: UINavigationController?
+    var newManager: NewsManagerProtocol?
     
     init(_ window: UIWindow? = nil, navigationController: UINavigationController? = UINavigationController()) {
         self.navigationController = navigationController
@@ -16,6 +17,7 @@ final class NewsCoordinator: CoordinatorProtocol {
         vc.coordinator = self
 
         self.navigationController?.viewControllers = [vc]
+        newManager = NewsManager()
     }
     
     func proceedToMoreNews(newsList: [ArticleViewModel]) {

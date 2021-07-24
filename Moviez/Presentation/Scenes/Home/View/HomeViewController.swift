@@ -24,9 +24,10 @@ class HomeViewController: BaseViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.startLoading()
+        self.view.startLoading()
        configureTableView()
         configureDataSource()
+        dataSource.refresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +39,8 @@ class HomeViewController: BaseViewController {
     
     private func setupNavController() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-          navigationController?.navigationBar.shadowImage = UIImage()
-          navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
         navigationController?.isNavigationBarHidden = true
     }
     
