@@ -79,7 +79,6 @@
 		FA3A612F26A82DA300B6C4AB /* CelebrityItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3A612D26A82DA300B6C4AB /* CelebrityItem.xib */; };
 		FA3A613226A835BD00B6C4AB /* MoreNewsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3A613126A835BD00B6C4AB /* MoreNewsDataSource.swift */; };
 		FA3BFF3926AAB5430015EBE6 /* FirebaseModelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF3826AAB5430015EBE6 /* FirebaseModelViewModel.swift */; };
-		FA3BFF3B26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF3A26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift */; };
 		FA3BFF3D26AACA190015EBE6 /* PersonInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF3C26AACA190015EBE6 /* PersonInfoViewModel.swift */; };
 		FA3BFF3F26AAD0FF0015EBE6 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF3E26AAD0FF0015EBE6 /* SearchViewModel.swift */; };
 		FA3BFF4126AAF4390015EBE6 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BFF4026AAF4390015EBE6 /* ArticleViewModel.swift */; };
@@ -177,6 +176,7 @@
 		FA607F4C266B8DCB009C9C61 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA607F4B266B8DCB009C9C61 /* Kingfisher */; };
 		FA607F6C266C1341009C9C61 /* TvShows.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA607F6B266C1341009C9C61 /* TvShows.swift */; };
 		FA607F6E266C134A009C9C61 /* TvShowsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA607F6D266C134A009C9C61 /* TvShowsResponse.swift */; };
+		FA7F66C926AC3EC8008FC99E /* MovieTvShowDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7F66C826AC3EC8008FC99E /* MovieTvShowDetailsViewModel.swift */; };
 		FA83812F26A36C380091F0ED /* ButtonAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA83812E26A36C380091F0ED /* ButtonAnimationView.swift */; };
 		FA94730A266CAFFA0094069D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA947309266CAFFA0094069D /* SignInViewController.swift */; };
 		FA94730C266CB0020094069D /* SignInViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA94730B266CB0020094069D /* SignInViewController.storyboard */; };
@@ -276,7 +276,6 @@
 		FA3A612D26A82DA300B6C4AB /* CelebrityItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CelebrityItem.xib; sourceTree = "<group>"; };
 		FA3A613126A835BD00B6C4AB /* MoreNewsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreNewsDataSource.swift; sourceTree = "<group>"; };
 		FA3BFF3826AAB5430015EBE6 /* FirebaseModelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModelViewModel.swift; sourceTree = "<group>"; };
-		FA3BFF3A26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTvShowDetailsViewModel.swift; sourceTree = "<group>"; };
 		FA3BFF3C26AACA190015EBE6 /* PersonInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoViewModel.swift; sourceTree = "<group>"; };
 		FA3BFF3E26AAD0FF0015EBE6 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		FA3BFF4026AAF4390015EBE6 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
@@ -372,6 +371,7 @@
 		FA607F43266B8CDF009C9C61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA607F6B266C1341009C9C61 /* TvShows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShows.swift; sourceTree = "<group>"; };
 		FA607F6D266C134A009C9C61 /* TvShowsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowsResponse.swift; sourceTree = "<group>"; };
+		FA7F66C826AC3EC8008FC99E /* MovieTvShowDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTvShowDetailsViewModel.swift; sourceTree = "<group>"; };
 		FA83812E26A36C380091F0ED /* ButtonAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimationView.swift; sourceTree = "<group>"; };
 		FA947309266CAFFA0094069D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FA94730B266CB0020094069D /* SignInViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInViewController.storyboard; sourceTree = "<group>"; };
@@ -591,7 +591,7 @@
 			isa = PBXGroup;
 			children = (
 				FA20B3FA267535750020065A /* MovieTvShowDetails.swift */,
-				FA3BFF3A26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift */,
+				FA7F66C826AC3EC8008FC99E /* MovieTvShowDetailsViewModel.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1659,6 +1659,7 @@
 				FA440CBB266FAE2600F2B22D /* SearchDataSource.swift in Sources */,
 				FA607F22266B8564009C9C61 /* UIView + Extension.swift in Sources */,
 				FA3C6B1B26A9C8A3000EDFD2 /* BoxOfficeViewModel.swift in Sources */,
+				FA7F66C926AC3EC8008FC99E /* MovieTvShowDetailsViewModel.swift in Sources */,
 				FAD6309F2677E7AC00A0CF9B /* NoReviewsCell.swift in Sources */,
 				FA3DAC322688984F00E75C35 /* CastManager.swift in Sources */,
 				FA3C6B1826A9C305000EDFD2 /* BoxOfficeItem.swift in Sources */,
@@ -1677,7 +1678,6 @@
 				FA947321266D53660094069D /* TrendingTvShowsManager.swift in Sources */,
 				FA3BFF3926AAB5430015EBE6 /* FirebaseModelViewModel.swift in Sources */,
 				FA3CD774269F8BAD00A56BCA /* TvShowSeason.swift in Sources */,
-				FA3BFF3B26AAB9B30015EBE6 /* MovieTvShowDetailsViewModel.swift in Sources */,
 				FA04672626A6024100C1A411 /* UICollectionViewCell + Extension.swift in Sources */,
 				FA440CC1266FBC7A00F2B22D /* String+Extension.swift in Sources */,
 				FA3F7BF026A4B40C00265171 /* FirebaseModel.swift in Sources */,
