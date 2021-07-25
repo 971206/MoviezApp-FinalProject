@@ -34,7 +34,8 @@ class SimilarItem: UICollectionViewCell {
         } else {
             self.labelName.text = item?.name
         }
-        self.labelAverageRate.text = String(item?.voteAverage ?? 0 )
+        let averageRate = String(String(item?.voteAverage ?? 0 ).dropLast(2))
+        self.labelAverageRate.text = averageRate
         let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.posterURL ?? "")")
         imagePoster.kf.setImage(with: posterURL)
     }

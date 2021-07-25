@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aq3-gK-8LS">
-                        <rect key="frame" x="16" y="170" width="58" height="20"/>
+                        <rect key="frame" x="16" y="130" width="58" height="20"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_calendar" translatesAutoresizingMaskIntoConstraints="NO" id="kQ3-Vz-Zoi">
                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -50,7 +50,7 @@
                         </subviews>
                     </stackView>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-P3-yhu">
-                        <rect key="frame" x="16" y="250" width="47" height="20"/>
+                        <rect key="frame" x="16" y="210" width="47" height="20"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_rate" translatesAutoresizingMaskIntoConstraints="NO" id="MJk-Sy-8Pc">
                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -117,7 +117,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SQw-J6-RWx">
-                        <rect key="frame" x="16" y="90" width="73.5" height="20"/>
+                        <rect key="frame" x="16" y="50" width="73.5" height="20"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_time" translatesAutoresizingMaskIntoConstraints="NO" id="wUs-zg-cXy">
                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -174,16 +174,10 @@
                             <constraint firstAttribute="height" constant="40" id="RCd-ZW-Esh"/>
                         </constraints>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvx-W6-3dM">
-                        <rect key="frame" x="16" y="16" width="58" height="14"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                        <state key="normal" title=" Back" image="ic_back"/>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" name="lightBackground"/>
                 <constraints>
                     <constraint firstItem="SQw-J6-RWx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="07T-Rh-gMW"/>
-                    <constraint firstItem="rvx-W6-3dM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="2dj-py-aA1"/>
                     <constraint firstItem="IgL-UM-iTV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="2eq-sh-n1K"/>
                     <constraint firstItem="S73-wv-NUS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="624-OX-vAb"/>
                     <constraint firstItem="p0D-8h-R2W" firstAttribute="leading" secondItem="q3T-8z-iL8" secondAttribute="leading" constant="16" id="8cW-6X-79a"/>
@@ -191,12 +185,11 @@
                     <constraint firstItem="RdN-a9-7vk" firstAttribute="top" secondItem="IgL-UM-iTV" secondAttribute="bottom" constant="5" id="A2a-P8-5nL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="p0D-8h-R2W" secondAttribute="trailing" constant="16" id="BCy-fS-kty"/>
                     <constraint firstAttribute="trailing" secondItem="IgL-UM-iTV" secondAttribute="trailing" constant="16" id="Cim-KL-eoN"/>
-                    <constraint firstItem="SQw-J6-RWx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="90" id="EZT-0e-Swp"/>
+                    <constraint firstItem="SQw-J6-RWx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="50" id="EZT-0e-Swp"/>
                     <constraint firstItem="S73-wv-NUS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="330" id="Ec1-6a-jfe"/>
                     <constraint firstItem="q3T-8z-iL8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LPB-da-v9J"/>
                     <constraint firstItem="RdN-a9-7vk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Mu0-DV-WEX"/>
                     <constraint firstItem="Ksh-P3-yhu" firstAttribute="top" secondItem="aq3-gK-8LS" secondAttribute="bottom" constant="60" id="OkK-2I-68z"/>
-                    <constraint firstItem="SQw-J6-RWx" firstAttribute="top" secondItem="rvx-W6-3dM" secondAttribute="bottom" constant="60" id="Psf-hy-Et3"/>
                     <constraint firstAttribute="trailing" secondItem="wrx-ek-gD1" secondAttribute="trailing" constant="16" id="TRm-co-0VJ"/>
                     <constraint firstItem="aq3-gK-8LS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="UoV-Bz-Vjf"/>
                     <constraint firstItem="p0D-8h-R2W" firstAttribute="bottom" secondItem="q3T-8z-iL8" secondAttribute="bottom" constant="-30" id="YlA-pM-mvP"/>
@@ -210,7 +203,6 @@
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="99I-hV-PDT" secondAttribute="bottom" constant="20" id="iqH-MW-oFi"/>
                     <constraint firstItem="S73-wv-NUS" firstAttribute="top" secondItem="p0D-8h-R2W" secondAttribute="bottom" constant="3" id="jGU-j1-O61"/>
                     <constraint firstAttribute="trailing" secondItem="q3T-8z-iL8" secondAttribute="trailing" id="l78-WA-CFc"/>
-                    <constraint firstItem="rvx-W6-3dM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="s0e-ro-2A8"/>
                     <constraint firstItem="S73-wv-NUS" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="tz3-yx-KmO"/>
                     <constraint firstItem="wrx-ek-gD1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vBf-dm-zql"/>
                 </constraints>
@@ -227,7 +219,6 @@
                 <outlet property="labelRuntime" destination="p4C-gT-0GJ" id="8Pd-yl-Mg3"/>
                 <outlet property="labelTagline" destination="RWg-Sc-nAt" id="4ab-M4-KCE"/>
                 <outlet property="labelTitle" destination="3xk-Wf-VOe" id="c5I-dw-5Yw"/>
-                <outlet property="onBack" destination="rvx-W6-3dM" id="rWD-Xx-Zic"/>
                 <outlet property="rateStackView" destination="Ksh-P3-yhu" id="gQ1-3J-PJm"/>
                 <outlet property="releaseDateStackView" destination="aq3-gK-8LS" id="aOM-lM-rbn"/>
                 <outlet property="runtimeStackView" destination="SQw-J6-RWx" id="bS6-tv-dIl"/>
@@ -237,7 +228,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="ic_back" width="18" height="18"/>
         <image name="ic_calendar" width="18" height="18"/>
         <image name="ic_rate" width="18" height="18"/>
         <image name="ic_time" width="18" height="18"/>

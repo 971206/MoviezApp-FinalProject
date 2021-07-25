@@ -35,7 +35,7 @@ class FirebaseHelper {
             Firestore.firestore().collection("users").document(currentUserID).collection(collection).document(id).delete()
         }
     }
-    
+//
 //    func signUp(email: String, password: String, fullName: String) -> Bool {
 //        var succeedRegistration = false
 //        firebaseAuth.createUser(withEmail: email, password: password) { result, error in
@@ -46,7 +46,7 @@ class FirebaseHelper {
 //                succeedRegistration = true
 //            }
 //        }
-//     
+//
 //        return succeedRegistration
 //    }
     
@@ -61,4 +61,20 @@ class FirebaseHelper {
         }
     }
     
+    static func checkIfItemIsInCollection(id: Int, collection: String, completion: @escaping (Bool) -> Void) {
+        let database = Firestore.firestore()
+        let currentUserID = Auth.auth().currentUser?.uid
+        
+        database.collection("users").document(currentUserID ?? "").collection(collection).document("\(id)").getDocument { document, error in
+            if error == nil {
+                if document != nil && document!.exists {
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            } else {
+                completion(false)
+            }
+        }
+    }
 }

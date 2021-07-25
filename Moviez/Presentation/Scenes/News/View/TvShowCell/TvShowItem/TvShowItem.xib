@@ -27,20 +27,20 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3oE-xV-nE6">
-                                <rect key="frame" x="5" y="10" width="195" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="8" y="10" width="192" height="20.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-Bq-yOL">
-                                <rect key="frame" x="5" y="99.5" width="54" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsC-Bq-yOL">
+                                <rect key="frame" x="8" y="99.5" width="46.5" height="20.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ck5-Z8-HLj">
-                                <rect key="frame" x="164" y="99.5" width="36" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="169.5" y="103" width="30.5" height="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -52,8 +52,8 @@
                             <constraint firstItem="3oE-xV-nE6" firstAttribute="top" secondItem="3Pb-XD-LzH" secondAttribute="top" constant="10" id="8aJ-wY-16J"/>
                             <constraint firstAttribute="bottom" secondItem="Ck5-Z8-HLj" secondAttribute="bottom" constant="10" id="9cq-WC-kc0"/>
                             <constraint firstItem="SN7-6D-OCe" firstAttribute="leading" secondItem="Ck5-Z8-HLj" secondAttribute="trailing" constant="10" id="DbR-Jh-sWf"/>
-                            <constraint firstItem="3oE-xV-nE6" firstAttribute="leading" secondItem="3Pb-XD-LzH" secondAttribute="leading" constant="5" id="HEZ-cg-aMZ"/>
-                            <constraint firstItem="JsC-Bq-yOL" firstAttribute="leading" secondItem="3Pb-XD-LzH" secondAttribute="leading" constant="5" id="MqA-zo-TyV"/>
+                            <constraint firstItem="3oE-xV-nE6" firstAttribute="leading" secondItem="3Pb-XD-LzH" secondAttribute="leading" constant="8" id="HEZ-cg-aMZ"/>
+                            <constraint firstItem="JsC-Bq-yOL" firstAttribute="leading" secondItem="3Pb-XD-LzH" secondAttribute="leading" constant="8" id="MqA-zo-TyV"/>
                             <constraint firstItem="SN7-6D-OCe" firstAttribute="leading" secondItem="3oE-xV-nE6" secondAttribute="trailing" constant="10" id="PRR-bb-o5Q"/>
                             <constraint firstAttribute="bottom" secondItem="SN7-6D-OCe" secondAttribute="bottom" id="ZLt-AG-22S"/>
                             <constraint firstItem="SN7-6D-OCe" firstAttribute="top" secondItem="3Pb-XD-LzH" secondAttribute="top" id="hza-Ag-SCH"/>

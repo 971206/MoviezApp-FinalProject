@@ -3,8 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,19 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qcG-q7-fPN">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="N9Q-Ow-9xs"/>
-                                    <constraint firstAttribute="width" constant="240" id="Nqb-dw-iVu"/>
-                                </constraints>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M o v i e z" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcq-fa-0nh">
+                                <rect key="frame" x="97" y="420.5" width="220" height="55"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="46"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="lightBackground"/>
                         <constraints>
-                            <constraint firstItem="qcG-q7-fPN" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="faC-p0-j7D"/>
-                            <constraint firstItem="qcG-q7-fPN" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="jYT-MV-vko"/>
+                            <constraint firstItem="Vcq-fa-0nh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="82U-IA-itG"/>
+                            <constraint firstItem="Vcq-fa-0nh" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rgR-Hv-YGg"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -38,9 +37,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="10076" height="11273"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <namedColor name="lightBackground">
+            <color red="0.082000002264976501" green="0.071000002324581146" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

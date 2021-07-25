@@ -21,27 +21,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="310" height="120"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qx-J8-kvr">
-                                <rect key="frame" x="270" y="94" width="36" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="275.5" y="97.5" width="26.5" height="14.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="12"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" name="itemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="2qx-J8-kvr" secondAttribute="bottom" constant="5" id="VH4-zr-YKs"/>
-                            <constraint firstAttribute="trailing" secondItem="2qx-J8-kvr" secondAttribute="trailing" constant="4" id="bsM-s4-dwv"/>
+                            <constraint firstAttribute="bottom" secondItem="2qx-J8-kvr" secondAttribute="bottom" constant="8" id="VH4-zr-YKs"/>
+                            <constraint firstAttribute="trailing" secondItem="2qx-J8-kvr" secondAttribute="trailing" constant="8" id="bsM-s4-dwv"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCI-58-mCO">
-                        <rect key="frame" x="105" y="94" width="54" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="108" y="97.5" width="40" height="14.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCp-sC-TLL">
-                        <rect key="frame" x="105" y="5" width="200" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <rect key="frame" x="108" y="5" width="194" height="20.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -58,15 +58,15 @@
                 <constraint firstAttribute="trailing" secondItem="psU-8S-IHd" secondAttribute="trailing" id="2Gx-HH-E4M"/>
                 <constraint firstItem="psU-8S-IHd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5BI-DN-uRZ"/>
                 <constraint firstAttribute="bottom" secondItem="WPy-kz-9bd" secondAttribute="bottom" id="9Yt-Gc-yFL"/>
-                <constraint firstItem="bCp-sC-TLL" firstAttribute="leading" secondItem="WPy-kz-9bd" secondAttribute="trailing" constant="5" id="At9-IZ-agd"/>
+                <constraint firstItem="bCp-sC-TLL" firstAttribute="leading" secondItem="WPy-kz-9bd" secondAttribute="trailing" constant="8" id="At9-IZ-agd"/>
                 <constraint firstItem="psU-8S-IHd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="C6p-KG-6PZ"/>
                 <constraint firstItem="WPy-kz-9bd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ECz-KJ-WfN"/>
-                <constraint firstAttribute="trailing" secondItem="bCp-sC-TLL" secondAttribute="trailing" constant="5" id="UIX-iM-TUb"/>
+                <constraint firstAttribute="trailing" secondItem="bCp-sC-TLL" secondAttribute="trailing" constant="8" id="UIX-iM-TUb"/>
                 <constraint firstAttribute="bottom" secondItem="psU-8S-IHd" secondAttribute="bottom" id="WXU-qH-GYK"/>
                 <constraint firstItem="WPy-kz-9bd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hMU-YX-E2u"/>
                 <constraint firstItem="bCp-sC-TLL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="rDX-EB-vYG"/>
-                <constraint firstItem="SCI-58-mCO" firstAttribute="leading" secondItem="WPy-kz-9bd" secondAttribute="trailing" constant="5" id="sYJ-4f-Hbv"/>
-                <constraint firstAttribute="bottom" secondItem="SCI-58-mCO" secondAttribute="bottom" constant="5" id="wow-pv-zkn"/>
+                <constraint firstItem="SCI-58-mCO" firstAttribute="leading" secondItem="WPy-kz-9bd" secondAttribute="trailing" constant="8" id="sYJ-4f-Hbv"/>
+                <constraint firstAttribute="bottom" secondItem="SCI-58-mCO" secondAttribute="bottom" constant="8" id="wow-pv-zkn"/>
             </constraints>
             <connections>
                 <outlet property="imageCover" destination="WPy-kz-9bd" id="cCB-sY-Znd"/>
@@ -75,7 +75,7 @@
                 <outlet property="labelSource" destination="SCI-58-mCO" id="qWo-S6-4pS"/>
                 <outlet property="labelTitle" destination="bCp-sC-TLL" id="HMf-3o-OTu"/>
             </connections>
-            <point key="canvasLocation" x="22" y="58"/>
+            <point key="canvasLocation" x="21.739130434782609" y="57.589285714285708"/>
         </collectionViewCell>
     </objects>
     <resources>

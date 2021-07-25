@@ -77,6 +77,7 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard searchResult?.count != 0 else { return }
         guard let result = searchResult?[indexPath.row] else { return }
         let choosedItemsMediaType = result.mediaType
         

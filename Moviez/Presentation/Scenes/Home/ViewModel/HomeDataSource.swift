@@ -44,14 +44,12 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     func refresh() {
         viewModel.fetchInTheatersMovies { [weak self] inTheatersList in
             guard let self = self else {return}
-            self.homeVC.view.stopLoading()
             self.inTheatersList = inTheatersList
             self.inTheatersInfoFetched = true
             self.reloadFetchedData()
         }
         viewModel.fetchTrendingMovies { [weak self] trendingMoviesList in
             guard let self = self else {return}
-            self.homeVC.view.stopLoading()
             self.trendingMoviesList = trendingMoviesList
             self.trendingMoviesInfoFetched = true
             self.reloadFetchedData()
@@ -59,7 +57,6 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         viewModel.fetchTrendingTvShows { [weak self] trendingTvShowList in
             guard let self = self else {return}
-            self.homeVC.view.stopLoading()
             self.trendingTvShowList = trendingTvShowList
             self.trendingTvShowsInfoFetched = true
             self.reloadFetchedData()
@@ -67,7 +64,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         viewModel.fetchComingSoonMovies { [weak self] comingSoonList in
             guard let self = self else {return}
-            self.homeVC.view.stopLoading()
+        
             self.comingSoonList = comingSoonList
             self.comingSoonInfoFetched = true
             self.reloadFetchedData()
@@ -75,14 +72,12 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         viewModel.fetchBoxOfficeInfo { [weak self] boxOfficeList in
             guard let self = self else {return}
             self.boxOfficeList = boxOfficeList
-            self.homeVC.view.stopLoading()
             self.boxOfficeInfoFetched = true
             self.reloadFetchedData()
         }
         viewModel.fetchUsersWatchlist { [weak self] usersWatchlist in
             guard let self = self else {return}
             self.usersWatchlist = usersWatchlist
-            self.homeVC.view.stopLoading()
             self.usersWatchlistFetched = true
             self.reloadFetchedData()
         }
@@ -91,6 +86,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     func reloadFetchedData(){
         if inTheatersInfoFetched && trendingMoviesInfoFetched && trendingTvShowsInfoFetched && comingSoonInfoFetched && usersWatchlistFetched && boxOfficeInfoFetched {
             self.tableView.reloadData()
+            self.homeVC.view.stopLoading()
     }
         
     }

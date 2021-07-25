@@ -89,7 +89,6 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
                 cell.buttonPlayTrailer.addTarget(self, action: #selector(playTrailer), for: .touchUpInside)
                 cell.addToFavoritesButton.addButton.addTarget(self, action: #selector(addToFavorites(_:)), for: .touchUpInside)
                 cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist(_:)), for: .touchUpInside)
-                cell.onBack.addTarget(self, action: #selector(onBack), for: .touchUpInside)
                 
                 descriptionCell = cell
                 return cell
