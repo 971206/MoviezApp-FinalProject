@@ -62,6 +62,14 @@
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vw5-2Y-lFe">
+                                <rect key="frame" x="121" y="187" width="21" height="22"/>
+                                <color key="tintColor" name="textColor"/>
+                                <state key="normal" image="arrowshape.turn.up.forward" catalog="system"/>
+                                <connections>
+                                    <action selector="onShare:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="qOO-ed-RUF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="itemBackgroundColor"/>
                         <constraints>
@@ -69,7 +77,10 @@
                             <constraint firstAttribute="trailing" secondItem="aZQ-Zj-k5x" secondAttribute="trailing" constant="11" id="9Z0-1N-q6A"/>
                             <constraint firstItem="5tI-QJ-JSo" firstAttribute="top" secondItem="aZQ-Zj-k5x" secondAttribute="bottom" constant="13" id="J87-dh-Ner"/>
                             <constraint firstItem="4JK-js-nax" firstAttribute="bottom" secondItem="5tI-QJ-JSo" secondAttribute="bottom" id="JP5-I0-07b"/>
+                            <constraint firstItem="vw5-2Y-lFe" firstAttribute="leading" secondItem="5tI-QJ-JSo" secondAttribute="trailing" constant="10" id="Tw8-mU-rue"/>
+                            <constraint firstItem="4JK-js-nax" firstAttribute="leading" secondItem="vw5-2Y-lFe" secondAttribute="trailing" constant="179.5" id="V46-wd-knI"/>
                             <constraint firstItem="aZQ-Zj-k5x" firstAttribute="leading" secondItem="Z8Q-Lz-tAa" secondAttribute="leading" constant="11" id="XoH-KD-KvV"/>
+                            <constraint firstAttribute="bottom" secondItem="vw5-2Y-lFe" secondAttribute="bottom" constant="9" id="ZW0-UW-SUz"/>
                             <constraint firstItem="5tI-QJ-JSo" firstAttribute="leading" secondItem="Z8Q-Lz-tAa" secondAttribute="leading" constant="11" id="b8u-jg-cO8"/>
                             <constraint firstAttribute="trailing" secondItem="Dvg-OK-V5h" secondAttribute="trailing" constant="11" id="bt1-cu-Ksa"/>
                             <constraint firstItem="azC-SI-jEj" firstAttribute="leading" secondItem="5tI-QJ-JSo" secondAttribute="trailing" constant="10" id="h8d-Hx-n3d"/>
@@ -91,6 +102,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="buttonShare" destination="vw5-2Y-lFe" id="bBa-Zu-uMY"/>
                 <outlet property="labelDescription" destination="azC-SI-jEj" id="ehM-wl-Fw3"/>
                 <outlet property="labelTime" destination="aZQ-Zj-k5x" id="hJS-dA-7bY"/>
                 <outlet property="labelTitle" destination="Dvg-OK-V5h" id="8Jl-Xo-klx"/>
@@ -101,6 +113,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="arrowshape.turn.up.forward" catalog="system" width="128" height="106"/>
         <namedColor name="itemBackgroundColor">
             <color red="0.13300000131130219" green="0.11400000005960464" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

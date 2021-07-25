@@ -35,8 +35,8 @@ class FirebaseHelper {
             Firestore.firestore().collection("users").document(currentUserID).collection(collection).document(id).delete()
         }
     }
-//
-//    func signUp(email: String, password: String, fullName: String) -> Bool {
+
+//    func signUp(email: String, password: String, fullName: String, completion: @escaping() -> Void) {
 //        var succeedRegistration = false
 //        firebaseAuth.createUser(withEmail: email, password: password) { result, error in
 //            if error != nil {
@@ -49,6 +49,27 @@ class FirebaseHelper {
 //
 //        return succeedRegistration
 //    }
+//
+    
+   static func signUp(email: String, password: String, fullName: String, completion: @escaping() -> Void) {
+        let firebaseAuth = Auth.auth()
+        let database = Firestore.firestore()
+        let currentUserID = Auth.auth().currentUser?.uid
+
+
+        firebaseAuth.createUser(withEmail: email, password: password) { result, error in
+            if error != nil {
+                completion()
+            } else {
+                database.collection("users").document(currentUserID ?? "").setData(["fullName" : fullName, "uid" : currentUserID ?? ""]) { error in
+                    if error != nil {
+                        completion()
+                    }
+                }
+            }
+        }
+    }
+    
     
     static func saveItemInFirebaseCollection(collection: String, id:Int, mediaType: String, movieRuntime: String, tvshowRuntime: String, imageURL: String, movieReleaseDate: String, tvShowReleaseDate: String, averageRate: String, movieTitle: String, tvShowTitle: String, completion: @escaping () -> Void) {
         let currentUserID = Auth.auth().currentUser?.uid

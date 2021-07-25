@@ -24,18 +24,22 @@ class ProfileViewController: BaseViewController {
     private var firebaseManager: FirebaseManagerProtocol!
     let firebaseAuth = Auth.auth()
     var longPressedEnabled = false
-    let currentUser =  Auth.auth().currentUser?.uid
+    let currentUserId =  Auth.auth().currentUser?.uid
+    let currentUser =  Auth.auth().currentUser?.email
+    
     let firebaseHelper = FirebaseHelper()
     
     //MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelWelcomeUser.text = ""
+//        labelWelcomeUser.text = currentUser?.dropLast(10)
         setupLayout()
         configureDataSource()
         collectionView.registerNib(class: ProfileCell.self)
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+        
+    
     }
     
     
@@ -43,7 +47,22 @@ class ProfileViewController: BaseViewController {
         super.viewWillAppear(animated)
         dataSource.refreshFavorites()
         dataSource.refreshWatchlist()
-      
+        
+        print(currentUserId)
+
+//        Firestore.firestore().collection("users").document(currentUserId!).getDocument { document, error in
+//            if error == nil{
+//                if document != nil && document!.exists {
+//                    let document = document?.data()
+//                    print(document)
+//                } else {
+//                    print(error)
+//                }
+//            }
+//        }
+          
+        
+        
     }
     
     

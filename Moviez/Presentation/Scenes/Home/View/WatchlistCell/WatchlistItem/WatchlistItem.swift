@@ -38,11 +38,11 @@ class WatchlistItem: UICollectionViewCell {
     }
     
     func configure(with item: FirebaseModel?) {
-        if item?.movieReleaseDate == "" {
-            self.labelReleaseDate.text = item?.tvShowReleaseDate
-        } else {
-            self.labelReleaseDate.text = item?.movieReleaseDate
-        }
+//        if item?.movieReleaseDate == "" {
+//            self.labelReleaseDate.text = item?.tvShowReleaseDate
+//        } else {
+//            self.labelReleaseDate.text = item?.movieReleaseDate
+//        }
         
         if item?.tvshowRuntime == "0" {
             self.labelDuration.text = item?.movieRuntime

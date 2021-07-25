@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,26 +44,16 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dHD-xk-JIC">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXK-p4-GcN">
                                         <rect key="frame" x="0.0" y="130.00000000000003" width="366" height="50"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXK-p4-GcN">
-                                                <rect key="frame" x="159.66666666666666" y="8.6666666666666288" width="47" height="33"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <state key="normal" title="Log In">
-                                                    <color key="titleColor" name="textColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="onLogin:" destination="R3U-Id-PFe" eventType="touchUpInside" id="kaP-MG-eCA"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="QXK-p4-GcN" firstAttribute="centerY" secondItem="dHD-xk-JIC" secondAttribute="centerY" id="YZy-oR-S5g"/>
-                                            <constraint firstItem="QXK-p4-GcN" firstAttribute="centerX" secondItem="dHD-xk-JIC" secondAttribute="centerX" id="pDM-65-ZEq"/>
-                                        </constraints>
-                                    </view>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <state key="normal" title="Log In">
+                                            <color key="titleColor" name="textColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onLogin:" destination="R3U-Id-PFe" eventType="touchUpInside" id="kaP-MG-eCA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tws-jw-1gG">
@@ -125,7 +114,6 @@
                         <outlet property="buttonSignup" destination="krf-CG-bhK" id="pzK-IJ-fhQ"/>
                         <outlet property="fieldEmail" destination="AcD-Vk-5Hu" id="12q-3U-IT6"/>
                         <outlet property="fieldPassword" destination="3Y9-dd-YUO" id="k3P-ac-xyA"/>
-                        <outlet property="gradientView" destination="dHD-xk-JIC" id="9xh-AW-ovy"/>
                         <outlet property="labelWelcome" destination="mBV-2f-qVX" id="QPW-xY-msN"/>
                     </connections>
                 </viewController>
@@ -143,8 +131,5 @@
         <namedColor name="textColor">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

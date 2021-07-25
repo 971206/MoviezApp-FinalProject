@@ -38,7 +38,7 @@
                         <rect key="frame" x="20" y="70" width="4" height="32"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From your Watchlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjm-wt-DTA">
-                        <rect key="frame" x="34" y="72" width="207.5" height="27.5"/>
+                        <rect key="frame" x="34" y="75" width="207.5" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
@@ -86,7 +86,7 @@
                     <constraint firstItem="e2g-yA-2TJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pP4-zM-RV4"/>
                     <constraint firstItem="JBc-DE-Ax5" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" id="sKw-Mh-yrf"/>
                     <constraint firstItem="CjZ-Sd-3Lx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="16" id="ttk-Hg-Hm2"/>
-                    <constraint firstItem="gjm-wt-DTA" firstAttribute="top" secondItem="e2g-yA-2TJ" secondAttribute="bottom" constant="12" id="xJX-My-Oxb"/>
+                    <constraint firstItem="gjm-wt-DTA" firstAttribute="top" secondItem="e2g-yA-2TJ" secondAttribute="bottom" constant="15" id="xJX-My-Oxb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

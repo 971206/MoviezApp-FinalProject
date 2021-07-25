@@ -124,14 +124,6 @@ extension ProfileDataSource: UICollectionViewDelegate, UICollectionViewDataSourc
         return 16
     }
     
-    
-//    func deleteSavedItems(id : String, collection: String) {
-//        if Auth.auth().currentUser != nil {
-//            guard let uuid = Auth.auth().currentUser?.uid else {return}
-//            Firestore.firestore().collection("users").document(uuid).collection(collection).document(id).delete()
-//        }
-//    }
-//
 }
 
 
@@ -140,25 +132,23 @@ extension ProfileDataSource: ProfileCellDelegate {
         if let indexPath = profileCollectionView?.indexPath(for: cell) {
             var favoritesID = String()
             var watchlistID = String()
-            if !(usersWatchlistArray?.isEmpty ?? true) {
-                watchlistID = String("\(usersWatchlistArray?[indexPath.row].id ?? 0)")
-            }
-            
-            if !(usersFavoritesArray?.isEmpty ?? true) {
-                favoritesID = String("\(usersFavoritesArray?[indexPath.row].id ?? 0)")
-            }
-           
             switch segmentedControlIndex {
             case 0:
-                FirebaseHelper.deleteSavedItems(id: watchlistID, collection: "watchlists")
-                refreshWatchlist()
+                if !(usersWatchlistArray?.isEmpty ?? true) {
+                    watchlistID = String("\(usersWatchlistArray?[indexPath.row].id ?? 0)")
+                    FirebaseHelper.deleteSavedItems(id: watchlistID, collection: "watchlists")
+                    refreshWatchlist()
+                }
             case 1:
-                FirebaseHelper.deleteSavedItems(id: favoritesID, collection: "favorites")
-                refreshFavorites()
+                if !(usersFavoritesArray?.isEmpty ?? true) {
+                    favoritesID = String("\(usersFavoritesArray?[indexPath.row].id ?? 0)")
+                    FirebaseHelper.deleteSavedItems(id: favoritesID, collection: "favorites")
+                    refreshFavorites()
+                }
+               
             default:
                 break
             }
         }
     }
-    
 }

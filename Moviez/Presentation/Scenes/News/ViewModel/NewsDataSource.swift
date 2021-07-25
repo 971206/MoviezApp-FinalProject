@@ -104,7 +104,7 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         case 0:
             return 330
         case 1:
-            return 326
+            return 350
         case 2:
             return 690
         case 3:

@@ -27,13 +27,13 @@ class HomeViewController: BaseViewController {
         self.view.startLoading()
        configureTableView()
         configureDataSource()
-        dataSource.refresh()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         setupNavController()
-        dataSource.refresh()
+        configureDataSource()
       
     }
     
@@ -72,7 +72,7 @@ class HomeViewController: BaseViewController {
                                   controller: self)
         dataSource = HomeDataSource(with: tableView,
                                     viewModel: viewModel, homeVC: self)
-      
+        dataSource.refresh()
       
     }
 }

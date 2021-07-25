@@ -25,15 +25,23 @@ class SignInViewController: BaseViewController {
     // MARK: - VC LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addGradient()
+    }
+    
+    func addGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame.size = buttonLogin.frame.size
+        gradientLayer.colors =
+            [UIColor(hex: "931BBD").cgColor, UIColor(hex: "FD286F").cgColor]
+        buttonLogin.layer.addSublayer(gradientLayer)
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        gradientLayer.cornerRadius = 8
-        gradientView.layer.cornerRadius = 8
-        gradientView.clipsToBounds = true
-        gradientView.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
+        buttonLogin.layer.cornerRadius = 8
+        buttonLogin.clipsToBounds = true
     }
     
     //MARK: - Login Pressed

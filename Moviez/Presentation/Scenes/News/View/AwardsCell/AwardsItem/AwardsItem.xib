@@ -24,8 +24,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emmy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chi-1R-jun">
-                                <rect key="frame" x="16" y="138" width="98" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="16" y="132" width="98" height="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -35,7 +35,7 @@
                             <constraint firstAttribute="trailing" secondItem="kib-S4-eqq" secondAttribute="trailing" id="2OE-qi-Qaf"/>
                             <constraint firstItem="kib-S4-eqq" firstAttribute="top" secondItem="gky-IE-t7E" secondAttribute="top" id="Hz3-fw-SjV"/>
                             <constraint firstItem="kib-S4-eqq" firstAttribute="leading" secondItem="gky-IE-t7E" secondAttribute="leading" id="J0b-Ng-O0g"/>
-                            <constraint firstItem="chi-1R-jun" firstAttribute="top" secondItem="kib-S4-eqq" secondAttribute="bottom" constant="8" symbolic="YES" id="Uqo-NI-I2Q"/>
+                            <constraint firstItem="chi-1R-jun" firstAttribute="top" secondItem="kib-S4-eqq" secondAttribute="bottom" constant="2" id="Uqo-NI-I2Q"/>
                             <constraint firstAttribute="bottom" secondItem="kib-S4-eqq" secondAttribute="bottom" constant="40" id="a2v-gY-y8D"/>
                             <constraint firstItem="chi-1R-jun" firstAttribute="leading" secondItem="gky-IE-t7E" secondAttribute="leading" constant="16" id="rGT-bn-7dc"/>
                             <constraint firstAttribute="trailing" secondItem="chi-1R-jun" secondAttribute="trailing" constant="16" id="tRx-CL-Arx"/>

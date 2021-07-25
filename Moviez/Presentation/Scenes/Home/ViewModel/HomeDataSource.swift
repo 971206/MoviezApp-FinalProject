@@ -77,14 +77,17 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         viewModel.fetchUsersWatchlist { [weak self] usersWatchlist in
             guard let self = self else {return}
-            self.usersWatchlist = usersWatchlist
-            self.usersWatchlistFetched = true
-            self.reloadFetchedData()
+            if self.currentUser != nil {
+                self.usersWatchlist = usersWatchlist
+                self.usersWatchlistFetched = true
+            }
+            
+            
         }
     }
     
     func reloadFetchedData(){
-        if inTheatersInfoFetched && trendingMoviesInfoFetched && trendingTvShowsInfoFetched && comingSoonInfoFetched && usersWatchlistFetched && boxOfficeInfoFetched {
+        if inTheatersInfoFetched && trendingMoviesInfoFetched && trendingTvShowsInfoFetched && comingSoonInfoFetched && boxOfficeInfoFetched {
             self.tableView.reloadData()
             self.homeVC.view.stopLoading()
     }
@@ -154,18 +157,16 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     //MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 2 {
-            if currentUser != nil {
-                return 453
-            } else {
-                return 300
-            }
+            return currentUser != nil ? 460 : 300
         }
         if indexPath.row == 3 {
-            return 260
+            return 290
         }
         if indexPath.row == 5 {
             return 510
         }
+        if indexPath.row == 4 {return 410}
+        
         return 395
     }
     

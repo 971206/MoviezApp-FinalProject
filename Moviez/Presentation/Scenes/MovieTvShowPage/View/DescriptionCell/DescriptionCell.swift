@@ -9,6 +9,7 @@ import UIKit
 
 class DescriptionCell: UITableViewCell {
 
+    @IBOutlet weak var labelWatchTrailer: UILabel!
     @IBOutlet weak var buttonReadReviews: UIButton!
     @IBOutlet weak var rateStackView: UIStackView!
     @IBOutlet weak var releaseDateStackView: UIStackView!
@@ -17,7 +18,6 @@ class DescriptionCell: UITableViewCell {
     @IBOutlet weak var labelOverview: UILabel!
     @IBOutlet weak var labelTagline: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var viewPlay: UIView!
     @IBOutlet weak var buttonPlayTrailer: UIButton!
     @IBOutlet weak var addToWatchListButton: ButtonAnimationView!
     @IBOutlet weak var addToFavoritesButton: ButtonAnimationView!
@@ -31,10 +31,12 @@ class DescriptionCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        viewPlay.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
-        viewPlay.layer.cornerRadius = 30
+        labelWatchTrailer.layer.cornerRadius = 20
+        labelWatchTrailer.layer.masksToBounds = true
+//        buttonPlayTrailer.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
+        buttonPlayTrailer.layer.cornerRadius = buttonPlayTrailer.bounds.width / 2
         imagePoster.layer.cornerRadius = 20
-        viewPlay.layer.masksToBounds = true
+        buttonPlayTrailer.layer.masksToBounds = true
         imagePoster.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMinXMinYCorner]
         addToFavoritesButton.setShadow(UIView: addToFavoritesButton, viewCornerRadius: 8)
         addToWatchListButton.setShadow(UIView: addToWatchListButton, viewCornerRadius: 8)

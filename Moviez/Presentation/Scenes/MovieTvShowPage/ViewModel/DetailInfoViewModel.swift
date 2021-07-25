@@ -22,7 +22,6 @@ protocol DetailInfoViewModelProtocol: AnyObject {
          with recommendedItemsManager: RecommendedManagerProtocol,
          with detailsManager: DetailsManagerProtocol,
          with castManager: CastManagerProtocol,
-         with navigationController: UINavigationController,
          with controller: CoordinatorDelegate)
 }
 
@@ -32,7 +31,6 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
     private var detailsManager: DetailsManagerProtocol!
     private var recommendedItemsManager: RecommendedManagerProtocol!
     private var castManager: CastManagerProtocol!
-    private var navigationController: UINavigationController?
     private var detailInfo: MovieTvShowDetails?
     private var similarItems: [SearchModel]?
     private var recommendedItems: [SearchModel]?
@@ -45,13 +43,11 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
                   with recommendedItemsManager: RecommendedManagerProtocol,
                   with detailsManager: DetailsManagerProtocol,
                   with castManager: CastManagerProtocol,
-                  with navigationController: UINavigationController,
                   with controller: CoordinatorDelegate) {
         self.similarItemsManager = similarItemsManager
         self.detailsManager = detailsManager
         self.recommendedItemsManager = recommendedItemsManager
         self.castManager = castManager
-        self.navigationController = navigationController
         self.controller = controller
     }
     

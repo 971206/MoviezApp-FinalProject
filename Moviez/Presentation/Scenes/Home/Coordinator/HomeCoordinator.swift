@@ -67,9 +67,15 @@ final class HomeCoordinator: CoordinatorProtocol {
         navigationController?.present(vc, animated: true, completion: nil)
     }
     
-    func onBack() {
-        self.navigationController?.popViewController(animated: true)
+    
+     func alertItemIsAlreadyInCollection(with collection: String) {
+        let alert = UIAlertController(title: "It's already in your \(collection)", message: "" , preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }))
+        self.navigationController?.present(alert, animated: true)
     }
+    
     
  
 }

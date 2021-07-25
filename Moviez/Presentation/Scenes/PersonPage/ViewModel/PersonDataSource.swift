@@ -29,12 +29,12 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         viewModel.fetchPersonDetailInfo(id: id ?? 0) { [weak self] personDetailInfo in
             guard let self = self else {return}
             self.personDetailInfo = PersonInfoViewModel(with: personDetailInfo)
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
         }
         
         viewModel.fetchMovieCredits(with: id ?? 0) { [weak self] movieCreditsList in
             self?.movieCreditsList = movieCreditsList
-            self?.tableView.reloadData()
+//            self?.tableView.reloadData()
         }
         
         viewModel.fetchTVShowCredits(with: id ?? 0) { [weak self] tvShowCreditsList in
@@ -78,14 +78,12 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 { return  UITableView.automaticDimension}
         
         if indexPath.row == 1 {
-            return 330
+            return movieCreditsList?.count != 0 ? 305 : 0
         }
         if indexPath.row == 2 {
-            return 305
+            return tvShowCreditsList?.count != 0 ? 305 : 0
         }
-        if indexPath.row == 3 {
-            return 305
-        }
+       
         return 0
     }
 }

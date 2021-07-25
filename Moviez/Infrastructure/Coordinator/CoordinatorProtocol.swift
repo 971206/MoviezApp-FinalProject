@@ -45,6 +45,7 @@ protocol CoordinatorProtocol: AnyObject {
     func onBack()
     func proceedToMoreNews(newsList: [ArticleViewModel])
     func proceetToNewsDetail(with news: ArticleViewModel)
+    func alertItemIsAlreadyInCollection(with collection: String)
 
 }
 
@@ -74,4 +75,5 @@ extension CoordinatorProtocol {
     func onBack() {}
     func proceedToMoreNews(newsList: [ArticleViewModel]) {}
     func proceetToNewsDetail(with news: ArticleViewModel) {}
+    func alertItemIsAlreadyInCollection(with collection: String){}
 }

@@ -25,7 +25,6 @@ class ReviewsCell: UITableViewCell {
 //MARK: - Configure
     func configure(with review: Review?) {
         self.labelAuthor.text =  "Author: \(review?.author ?? "")"
-        self.labelDate.text   = "Created: \(review?.createTime ?? "")"
         self.labelContent.text  = review?.content
     }
 }

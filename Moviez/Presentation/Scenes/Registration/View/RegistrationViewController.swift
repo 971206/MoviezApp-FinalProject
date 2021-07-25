@@ -26,12 +26,23 @@ class RegistrationViewController: BaseViewController {
     //MARK:- VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonView.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
+       addGradient()
+    }
+    
+    func addGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame.size = buttonRegistration.frame.size
+        gradientLayer.colors =
+            [UIColor(hex: "931BBD").cgColor, UIColor(hex: "FD286F").cgColor]
+        buttonRegistration.layer.addSublayer(gradientLayer)
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        buttonView.layer.cornerRadius = 8
+        buttonRegistration.layer.masksToBounds = true
+        buttonRegistration.layer.cornerRadius = 8
     }
     
     //MARK: - Check Fields
@@ -49,35 +60,33 @@ class RegistrationViewController: BaseViewController {
         let error = validateFields()
         
         if error != nil {
-            
             alertProblem(message: error ?? "")
-//            coordinator?.alertRegistrationProblem(message: error ?? "")
         } else {
             if let email = fieldEmail.text, let password = fieldPassword.text, let fullName = fieldFullName.text {
                 Auth.auth().createUser(withEmail: email, password: password) { result, error in
                     if let error = error  {
                         self.alertProblem(message: error.localizedDescription )
-//                        self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
                         self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
                         print(error.localizedDescription)
                     } else {
                         let dataBase = Firestore.firestore()
                         let uid = Auth.auth().currentUser?.uid
-                        dataBase.collection("users").document(uid!).setData(["fullName" : fullName, "uid" : uid!])
-                        
-//                        dataBase.collection("users").addDocument(data: ["fullName" : fullName, "uid" : result!.user.uid])
-                        { error in
+                        dataBase.collection("users").document(uid!).setData(["fullName" : fullName, "uid" : uid!]) { error in
                             if error != nil {
                                 guard let error = error?.localizedDescription else {return}
-//                                self.alertProblem(message: error ?? "")
                                 self.coordinator?.alertRegistrationProblem(message: error)
                             }
                         }
-//                        self.coordinator?.alertRegistrationSuccess()
                         self.coordinator?.alertRegistrationSuccess()
                         self.alertSuccess()
                     }
                 }
+                
+//                FirebaseHelper.signUp(email: email, password: password, fullName: fullName) {
+//                    <#code#>
+//                }
+                
+                
             }
             
         }

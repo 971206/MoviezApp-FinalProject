@@ -14,10 +14,11 @@ class MoreNewsDataSource: NSObject {
     private var tableView: UITableView!
     
     private var controller: CoordinatorDelegate?
+    private var vc: UIViewController?
     
      var newsList: [ArticleViewModel]?
     
-    init(with tableView: UITableView, controller: CoordinatorDelegate) {
+    init(with tableView: UITableView, controller: CoordinatorDelegate, vc: UIViewController) {
         super.init()
         self.tableView = tableView
         self.tableView.dataSource = self
@@ -36,8 +37,11 @@ extension MoreNewsDataSource: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.deque(NewsCell.self, for: indexPath)
         cell.configure(with: newsList?[indexPath.row])
+        cell.newsCellDelegate = self
         return cell
     }
+    
+ 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let news = newsList?[indexPath.row] else {return}
@@ -56,5 +60,18 @@ extension MoreNewsDataSource: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 250
+    }
+    
+    
+}
+
+extension MoreNewsDataSource: NewsCellDelegate {
+    func shareNews(cell: NewsCell) {
+        if let indexPath = tableView?.indexPath(for: cell) {
+            let link = newsList?[indexPath.row].sourceURL
+            let objectsToShare = [link]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            vc?.present(activityVC, animated: true)
+        }
     }
 }

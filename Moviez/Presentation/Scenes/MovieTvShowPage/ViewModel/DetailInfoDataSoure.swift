@@ -14,11 +14,9 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     
     private var tableView: UITableView!
     
-    private var navigationController: UINavigationController!
     private var viewModel: DetailInfoViewModelProtocol!
     var recommendedItemsList: [SearchModel]?
     var similarItemsList: [SearchModel]?
-    let dataBase = Firestore.firestore()
     var detailInfo: MovieTvShowDetailsViewModel?
     var castList: [PersonInfo]?
     var mediaType: String?
@@ -30,12 +28,11 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     var castInfoFetched = false
     
     
-    init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol, navigationController: UINavigationController) {
+    init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol) {
         super.init()
         
         self.tableView = tableView
         self.viewModel = viewModel
-        self.navigationController = navigationController
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -69,7 +66,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
     }
     
     func reloadFetchedData(){
-       // if castInfoFetched && similarItemsFetched && recomendedItemsFetched && detailInfoFetched {
+//        if castInfoFetched && similarItemsFetched && recomendedItemsFetched && detailInfoFetched {
             self.tableView.reloadData()
        // }
     }
@@ -99,7 +96,6 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         }
         
         if indexPath.row == 1 {
-            
             let cell = tableView.deque(SeasonCell.self, for: indexPath)
             return cell
         }
@@ -134,37 +130,51 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let id = id else  {return}
         guard let detailInfo = detailInfo else {return}
         
-        FirebaseHelper.saveItemInFirebaseCollection(collection:"favorites", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
-            self.descriptionCell?.addToFavoritesButton.makeAnimation()
-        })
+        FirebaseHelper.checkIfItemIsInCollection(id: id, collection: "favorites") { exists in
+            if exists {
+                self.viewModel.controller.coordinator?.alertItemIsAlreadyInCollection(with: "Favorites")
+            } else {
+                FirebaseHelper.saveItemInFirebaseCollection(collection:"favorites", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
+                    self.descriptionCell?.addToFavoritesButton.makeAnimation()
+                })
+
+            }
+        }
         
+                
     }
     @objc func addToWatchlist(_ sender: Any) {
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
         guard let detailInfo = detailInfo else {return}
         
-        FirebaseHelper.saveItemInFirebaseCollection(collection:"watchlists", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
-            self.descriptionCell?.addToWatchListButton.makeAnimation()
-        })
+        FirebaseHelper.checkIfItemIsInCollection(id: id, collection: "watchlists") { exist in
+            if exist {
+                self.viewModel.controller.coordinator?.alertItemIsAlreadyInCollection(with: "Watchlist")
+            } else {
+                FirebaseHelper.saveItemInFirebaseCollection(collection:"watchlists", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
+                    self.descriptionCell?.addToWatchListButton.makeAnimation()
+                })
+            }
+        }
     }
     
     @objc func playTrailer() {
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
     }
     
-    @objc func onBack() {
-        viewModel.controller.coordinator?.onBack()
-    }
-    
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.row == 0 { return  UITableView.automaticDimension}
         if indexPath.row == 1 && mediaType == "tv" { return 100 }
         if indexPath.row == 2 { return 305 }
-        if indexPath.row == 3 { return 305 }
-        if indexPath.row == 4 { return 305 }
+        if indexPath.row == 3 {
+            return similarItemsList?.count != 0 ? 305 : 0
+        }
+        if indexPath.row == 4 {
+            return recommendedItemsList?.count != 0 ? 305 : 0
+        }
         return 0
     }
 }

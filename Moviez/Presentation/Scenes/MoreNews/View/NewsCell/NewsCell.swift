@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol  NewsCellDelegate: AnyObject {
+    func shareNews(cell: NewsCell)
+}
+
 class NewsCell: UITableViewCell {
     
     //MARK: - IBOutlets
@@ -16,6 +20,8 @@ class NewsCell: UITableViewCell {
     @IBOutlet weak var labelTime: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
     private let cornerRadius = CGFloat(8)
+    @IBOutlet weak var buttonShare: UIButton!
+    weak var newsCellDelegate: NewsCellDelegate?
     
     //MARK: - VC Lifecycle
     override func awakeFromNib() {
@@ -36,4 +42,7 @@ class NewsCell: UITableViewCell {
         poster.kf.setImage(with: item?.imageURL)
     }
 
+    @IBAction func onShare(_ sender: Any) {
+        newsCellDelegate?.shareNews(cell: self)
+    }
 }

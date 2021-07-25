@@ -18,14 +18,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_line" translatesAutoresizingMaskIntoConstraints="NO" id="jDv-QJ-d2c">
-                        <rect key="frame" x="20" y="28" width="4" height="32"/>
+                        <rect key="frame" x="20" y="8" width="4" height="32"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="4" id="cne-ic-4AU"/>
                             <constraint firstAttribute="height" constant="32" id="krj-Sp-T6J"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Box Office" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-DK-kAb">
-                        <rect key="frame" x="34" y="30" width="119" height="29"/>
+                        <rect key="frame" x="34" y="10" width="119" height="29"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
@@ -48,10 +48,10 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="rsy-lF-Ob1" secondAttribute="trailing" id="DhB-4P-zbj"/>
                     <constraint firstItem="r1C-DK-kAb" firstAttribute="leading" secondItem="jDv-QJ-d2c" secondAttribute="trailing" constant="10" id="G4s-jM-h25"/>
-                    <constraint firstItem="jDv-QJ-d2c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="28" id="G6S-Uh-oZ8"/>
+                    <constraint firstItem="jDv-QJ-d2c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="G6S-Uh-oZ8"/>
                     <constraint firstItem="rsy-lF-Ob1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HEB-Sv-o95"/>
                     <constraint firstItem="jDv-QJ-d2c" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ULU-sJ-tWD"/>
-                    <constraint firstItem="r1C-DK-kAb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="YZw-oH-GlR"/>
+                    <constraint firstItem="r1C-DK-kAb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="YZw-oH-GlR"/>
                     <constraint firstAttribute="bottom" secondItem="rsy-lF-Ob1" secondAttribute="bottom" id="rKm-Py-83K"/>
                 </constraints>
             </tableViewCellContentView>
