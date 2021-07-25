@@ -104,8 +104,8 @@
 		FA3CD76D269F743C00A56BCA /* SignInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD76C269F743C00A56BCA /* SignInCoordinator.swift */; };
 		FA3CD771269F748000A56BCA /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD770269F748000A56BCA /* ProfileCoordinator.swift */; };
 		FA3CD774269F8BAD00A56BCA /* TvShowSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3CD773269F8BAD00A56BCA /* TvShowSeason.swift */; };
-		FA3DAC1F2688756900E75C35 /* SimilarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DAC1D2688756900E75C35 /* SimilarCell.swift */; };
-		FA3DAC202688756900E75C35 /* SimilarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3DAC1E2688756900E75C35 /* SimilarCell.xib */; };
+		FA3DAC1F2688756900E75C35 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DAC1D2688756900E75C35 /* BaseCell.swift */; };
+		FA3DAC202688756900E75C35 /* BaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3DAC1E2688756900E75C35 /* BaseCell.xib */; };
 		FA3DAC282688837700E75C35 /* CastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DAC272688837700E75C35 /* CastResponse.swift */; };
 		FA3DAC2B2688845D00E75C35 /* CastItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DAC292688845D00E75C35 /* CastItem.swift */; };
 		FA3DAC2C2688845D00E75C35 /* CastItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3DAC2A2688845D00E75C35 /* CastItem.xib */; };
@@ -188,8 +188,8 @@
 		FA947335266D6D7A0094069D /* BoxOfficeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA947334266D6D7A0094069D /* BoxOfficeManager.swift */; };
 		FAB4C1792698B56400207D30 /* PersonCredits.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB4C1782698B56400207D30 /* PersonCredits.swift */; };
 		FACFAE6F269B3B6300CFDCAD /* DetailInfoDataSoure.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACFAE6E269B3B6300CFDCAD /* DetailInfoDataSoure.swift */; };
-		FAD63089267746FA00A0CF9B /* SimilarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD63087267746FA00A0CF9B /* SimilarItem.swift */; };
-		FAD6308A267746FA00A0CF9B /* SimilarItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD63088267746FA00A0CF9B /* SimilarItem.xib */; };
+		FAD63089267746FA00A0CF9B /* BaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD63087267746FA00A0CF9B /* BaseItem.swift */; };
+		FAD6308A267746FA00A0CF9B /* BaseItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD63088267746FA00A0CF9B /* BaseItem.xib */; };
 		FAD630912677C12F00A0CF9B /* EmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD6308F2677C12F00A0CF9B /* EmptyCell.swift */; };
 		FAD630922677C12F00A0CF9B /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAD630902677C12F00A0CF9B /* EmptyCell.xib */; };
 		FAD630962677C39C00A0CF9B /* Helvetica Neue Medium Extended.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAD630952677C39C00A0CF9B /* Helvetica Neue Medium Extended.ttf */; };
@@ -300,8 +300,8 @@
 		FA3CD76C269F743C00A56BCA /* SignInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCoordinator.swift; sourceTree = "<group>"; };
 		FA3CD770269F748000A56BCA /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		FA3CD773269F8BAD00A56BCA /* TvShowSeason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowSeason.swift; sourceTree = "<group>"; };
-		FA3DAC1D2688756900E75C35 /* SimilarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarCell.swift; sourceTree = "<group>"; };
-		FA3DAC1E2688756900E75C35 /* SimilarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimilarCell.xib; sourceTree = "<group>"; };
+		FA3DAC1D2688756900E75C35 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		FA3DAC1E2688756900E75C35 /* BaseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseCell.xib; sourceTree = "<group>"; };
 		FA3DAC272688837700E75C35 /* CastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResponse.swift; sourceTree = "<group>"; };
 		FA3DAC292688845D00E75C35 /* CastItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastItem.swift; sourceTree = "<group>"; };
 		FA3DAC2A2688845D00E75C35 /* CastItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastItem.xib; sourceTree = "<group>"; };
@@ -382,8 +382,8 @@
 		FA947334266D6D7A0094069D /* BoxOfficeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeManager.swift; sourceTree = "<group>"; };
 		FAB4C1782698B56400207D30 /* PersonCredits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCredits.swift; sourceTree = "<group>"; };
 		FACFAE6E269B3B6300CFDCAD /* DetailInfoDataSoure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoDataSoure.swift; sourceTree = "<group>"; };
-		FAD63087267746FA00A0CF9B /* SimilarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarItem.swift; sourceTree = "<group>"; };
-		FAD63088267746FA00A0CF9B /* SimilarItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimilarItem.xib; sourceTree = "<group>"; };
+		FAD63087267746FA00A0CF9B /* BaseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItem.swift; sourceTree = "<group>"; };
+		FAD63088267746FA00A0CF9B /* BaseItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseItem.xib; sourceTree = "<group>"; };
 		FAD6308F2677C12F00A0CF9B /* EmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCell.swift; sourceTree = "<group>"; };
 		FAD630902677C12F00A0CF9B /* EmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
 		FAD630952677C39C00A0CF9B /* Helvetica Neue Medium Extended.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Helvetica Neue Medium Extended.ttf"; sourceTree = "<group>"; };
@@ -887,14 +887,14 @@
 			path = DescriptionCell;
 			sourceTree = "<group>";
 		};
-		FA3DAC212688757000E75C35 /* SimilarCell */ = {
+		FA3DAC212688757000E75C35 /* BaseCell */ = {
 			isa = PBXGroup;
 			children = (
-				FAD630852677468A00A0CF9B /* SimilarItem */,
-				FA3DAC1D2688756900E75C35 /* SimilarCell.swift */,
-				FA3DAC1E2688756900E75C35 /* SimilarCell.xib */,
+				FAD630852677468A00A0CF9B /* BaseItem */,
+				FA3DAC1D2688756900E75C35 /* BaseCell.swift */,
+				FA3DAC1E2688756900E75C35 /* BaseCell.xib */,
 			);
-			path = SimilarCell;
+			path = BaseCell;
 			sourceTree = "<group>";
 		};
 		FA3DAC2226887E4000E75C35 /* CastItem */ = {
@@ -1003,6 +1003,7 @@
 		FA4BDC78269A2A2700B2369B /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				FA3DAC212688757000E75C35 /* BaseCell */,
 				FA4BDC79269A2A3C00B2369B /* BaseViewController.swift */,
 			);
 			path = Base;
@@ -1169,7 +1170,6 @@
 			isa = PBXGroup;
 			children = (
 				FA03418826A72D9100712CDE /* Watchlist */,
-				FAB4C17B2698C9F100207D30 /* Reusable */,
 				FA4BDC78269A2A2700B2369B /* Base */,
 				FA607F25266B85D6009C9C61 /* TabBar */,
 				FA607F2B266B8669009C9C61 /* Home */,
@@ -1408,21 +1408,13 @@
 			path = PersonCredits;
 			sourceTree = "<group>";
 		};
-		FAB4C17B2698C9F100207D30 /* Reusable */ = {
+		FAD630852677468A00A0CF9B /* BaseItem */ = {
 			isa = PBXGroup;
 			children = (
-				FA3DAC212688757000E75C35 /* SimilarCell */,
+				FAD63087267746FA00A0CF9B /* BaseItem.swift */,
+				FAD63088267746FA00A0CF9B /* BaseItem.xib */,
 			);
-			path = Reusable;
-			sourceTree = "<group>";
-		};
-		FAD630852677468A00A0CF9B /* SimilarItem */ = {
-			isa = PBXGroup;
-			children = (
-				FAD63087267746FA00A0CF9B /* SimilarItem.swift */,
-				FAD63088267746FA00A0CF9B /* SimilarItem.xib */,
-			);
-			path = SimilarItem;
+			path = BaseItem;
 			sourceTree = "<group>";
 		};
 		FAD630932677C13500A0CF9B /* EmptyCell */ = {
@@ -1542,8 +1534,8 @@
 				FA3A612A26A82D7500B6C4AB /* CelebrityCell.xib in Resources */,
 				FA04672426A5FB7D00C1A411 /* AwardsItem.xib in Resources */,
 				FA2B634F2672A9F70000A038 /* ReviewsListViewController.storyboard in Resources */,
-				FA3DAC202688756900E75C35 /* SimilarCell.xib in Resources */,
-				FAD6308A267746FA00A0CF9B /* SimilarItem.xib in Resources */,
+				FA3DAC202688756900E75C35 /* BaseCell.xib in Resources */,
+				FAD6308A267746FA00A0CF9B /* BaseItem.xib in Resources */,
 				FA3F7BED26A4A28A00265171 /* InTheatersCell.xib in Resources */,
 				FA3F7BE926A4A27A00265171 /* InTheatersItem.xib in Resources */,
 				FA3A611E26A8177100B6C4AB /* TvShowCell.xib in Resources */,
@@ -1620,7 +1612,7 @@
 				FA4BDC75269A29D700B2369B /* CoordinatorDelegate.swift in Sources */,
 				FA607F42266B8A3E009C9C61 /* RegistrationViewController.swift in Sources */,
 				FA4B2EEF2676598B00383B56 /* ArticlesResponse.swift in Sources */,
-				FA3DAC1F2688756900E75C35 /* SimilarCell.swift in Sources */,
+				FA3DAC1F2688756900E75C35 /* BaseCell.swift in Sources */,
 				FA2B63482672781F0000A038 /* CustomTextField.swift in Sources */,
 				FAB4C1792698B56400207D30 /* PersonCredits.swift in Sources */,
 				FA04671E26A5FB5800C1A411 /* AwardsCell.swift in Sources */,
@@ -1697,7 +1689,7 @@
 				FA2B6343267239C50000A038 /* SimilarItemsManager.swift in Sources */,
 				FA0341A226A768C800712CDE /* MoreNewsViewController.swift in Sources */,
 				FA440CAD266FA01700F2B22D /* SearchResultCell.swift in Sources */,
-				FAD63089267746FA00A0CF9B /* SimilarItem.swift in Sources */,
+				FAD63089267746FA00A0CF9B /* BaseItem.swift in Sources */,
 				FA440CB2266FA5CC00F2B22D /* Movies.swift in Sources */,
 				FA40CDA7268672D600801FED /* HomeDataSource.swift in Sources */,
 				FA6426F326AC86BC003017B3 /* FirebaseHelper.swift in Sources */,

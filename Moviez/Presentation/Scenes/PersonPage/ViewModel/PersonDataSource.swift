@@ -57,7 +57,7 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         if indexPath.row == 1 {
-            let cell = tableView.deque(SimilarCell.self, for: indexPath)
+            let cell = tableView.deque(BaseCell.self, for: indexPath)
             cell.configureMovieCredits(items: movieCreditsList)
             cell.personCreditsDelegate = self
             return cell
@@ -65,7 +65,7 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         
         if indexPath.row == 2 {
-            let cell = tableView.deque(SimilarCell.self, for: indexPath)
+            let cell = tableView.deque(BaseCell.self, for: indexPath)
             cell.configureTvShowCredits(items: tvShowCreditsList)
             cell.personCreditsDelegate = self
             return cell

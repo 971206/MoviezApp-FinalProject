@@ -9,7 +9,7 @@ import UIKit
 
 class DescriptionCell: UITableViewCell {
 
-    @IBOutlet weak var onBack: UIButton!
+    @IBOutlet weak var buttonReadReviews: UIButton!
     @IBOutlet weak var rateStackView: UIStackView!
     @IBOutlet weak var releaseDateStackView: UIStackView!
     @IBOutlet weak var runtimeStackView: UIStackView!
@@ -36,9 +36,8 @@ class DescriptionCell: UITableViewCell {
         imagePoster.layer.cornerRadius = 20
         viewPlay.layer.masksToBounds = true
         imagePoster.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMinXMinYCorner]
-        addToFavoritesButton.layer.cornerRadius = 8
-        addToWatchListButton.layer.cornerRadius = 8
-
+        addToFavoritesButton.setShadow(UIView: addToFavoritesButton, viewCornerRadius: 8)
+        addToWatchListButton.setShadow(UIView: addToWatchListButton, viewCornerRadius: 8)
     }
 
     func configure(with item: MovieTvShowDetailsViewModel?) {
@@ -56,6 +55,5 @@ class DescriptionCell: UITableViewCell {
         let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
         self.imagePoster.kf.setImage(with: posterURL)
     }
-    
     
 }

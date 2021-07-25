@@ -33,3 +33,25 @@ class InTheatersManager: InTheatersManagerProtocol {
 
 
 
+//protocol InTheatersManagerProtocol: AnyObject {
+//    func fetchInTheatersMovies(completion: @escaping (Result<[Movies], Error>) -> Void)
+//}
+//
+//class InTheatersManager: InTheatersManagerProtocol {
+//
+//    func fetchInTheatersMovies(completion: @escaping (Result<[Movies], Error>) -> Void) {
+//        let url = APIURLS.createPath(path: "/movie/now_playing")
+//        NetworkManager.shared.get(url: url) { (result: Result<MoviesResponse, Error>) in
+//            switch result {
+//            case .success(let response):
+//                DispatchQueue.main.async {
+//                    completion(.success(response.results ?? []))
+//                }
+//            case .failure(let error):
+//                completion(.failure(error))
+//            }
+//        }
+//    }
+//
+//}
+

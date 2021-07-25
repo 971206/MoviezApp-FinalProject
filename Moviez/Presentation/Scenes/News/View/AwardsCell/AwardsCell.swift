@@ -50,9 +50,10 @@ extension AwardsCell: UICollectionViewDataSource, UICollectionViewDelegate, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let newsItem = awardsList?[indexPath.row].endpoint ?? ""
-            UIApplication.shared.openURL(NSURL(string: newsItem)! as URL)
-        
+        let newsURL = URL(string: awardsList?[indexPath.row].endpoint ?? "")
+        if let newsURL = newsURL {
+            UIApplication.shared.open(newsURL)
+        }
     }
     
 }

@@ -74,7 +74,7 @@ class DetailInfoViewController: BaseViewController {
     
     private func configureTableView() {
         tableView.separatorStyle = .none
-        tableView.registerNib(class: SimilarCell.self)
+        tableView.registerNib(class: BaseCell.self)
         tableView.registerNib(class: CastCell.self)
         tableView.registerNib(class: DescriptionCell.self)
         tableView.registerNib(class: SeasonCell.self)

@@ -89,6 +89,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
                 cell.buttonPlayTrailer.addTarget(self, action: #selector(playTrailer), for: .touchUpInside)
                 cell.addToFavoritesButton.addButton.addTarget(self, action: #selector(addToFavorites(_:)), for: .touchUpInside)
                 cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist(_:)), for: .touchUpInside)
+                cell.buttonReadReviews.addTarget(self, action: #selector(proceedToReviews), for: .touchUpInside)
                 
                 descriptionCell = cell
                 return cell
@@ -110,13 +111,13 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
             return cell
         }
         if indexPath.row == 3 {
-            let cell = tableView.deque(SimilarCell.self, for: indexPath)
+            let cell = tableView.deque(BaseCell.self, for: indexPath)
             cell.delegate = self
             cell.configureSimilarItems(items: similarItemsList ?? [])
             return cell
         }
         if indexPath.row == 4 {
-            let cell = tableView.deque(SimilarCell.self, for: indexPath)
+            let cell = tableView.deque(BaseCell.self, for: indexPath)
             cell.delegate = self
             cell.configureRecommenderItems(items: recommendedItemsList ?? [])
             return cell
@@ -134,7 +135,7 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let detailInfo = detailInfo else {return}
         
         FirebaseHelper.saveItemInFirebaseCollection(collection:"favorites", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
-            self.descriptionCell?.addToWatchListButton.makeAnimation()
+            self.descriptionCell?.addToFavoritesButton.makeAnimation()
         })
         
     }

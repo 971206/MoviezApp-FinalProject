@@ -18,7 +18,7 @@ protocol PersonCreditsDelegate: AnyObject {
     func onMovieCreditsClicked(id: Int)
 }
 
-class SimilarCell: UITableViewCell {
+class BaseCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var labelHeader: UILabel!
     private var apiManagerOfSimilarItems: SimilarItemsManagerProtocol!
@@ -42,7 +42,7 @@ class SimilarCell: UITableViewCell {
             collectionView.dataSource = self
             collectionView.delegate = self
             collectionView.showsHorizontalScrollIndicator = false
-            collectionView.registerNib(class: SimilarItem.self)
+            collectionView.registerNib(class: BaseItem.self)
         }
 
     func configureSimilarItems(items:[SearchModel]) {
@@ -71,7 +71,7 @@ class SimilarCell: UITableViewCell {
 
 }
 
-extension SimilarCell: UICollectionViewDataSource {
+extension BaseCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let item = similarItemsList { return item.count }
         if let item = recommendedItemsList { return item.count }
@@ -84,7 +84,7 @@ extension SimilarCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.deque(SimilarItem.self, for: indexPath)
+        let cell = collectionView.deque(BaseItem.self, for: indexPath)
         if let similarItem = similarItemsList?[indexPath.row] {
             cell.configureItem(with: similarItem)
             labelHeader.text = "Similar"
@@ -107,7 +107,7 @@ extension SimilarCell: UICollectionViewDataSource {
     }
 }
 
-extension SimilarCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension BaseCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height)
     }

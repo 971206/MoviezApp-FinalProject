@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class SimilarItem: UICollectionViewCell {
+class BaseItem: UICollectionViewCell {
 //MARK: - IBOutlets
     @IBOutlet weak var itemView: UIView!
     @IBOutlet weak var imagePoster: UIImageView!

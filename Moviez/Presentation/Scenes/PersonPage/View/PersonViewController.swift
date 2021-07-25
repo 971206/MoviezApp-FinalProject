@@ -40,7 +40,7 @@ class PersonViewController: BaseViewController {
     
     private func configureTableView() {
         tableView.separatorStyle = .none
-        tableView.registerNib(class: SimilarCell.self)
+        tableView.registerNib(class: BaseCell.self)
         tableView.registerNib(class: PersonInfoCell.self)
     }
 
