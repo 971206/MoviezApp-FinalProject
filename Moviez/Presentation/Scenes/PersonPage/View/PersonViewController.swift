@@ -24,6 +24,21 @@ class PersonViewController: BaseViewController {
         configureTableView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupNavigationController()
+    }
+    
+    
+    private func setupNavigationController() {
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.barTintColor = UIColor(named: "lightBackground")
+        navigationController?.navigationBar.tintColor = UIColor(named: "textColor")
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
     
     
     private func configureDataSource() {

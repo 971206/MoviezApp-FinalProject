@@ -27,10 +27,14 @@ class CastItem: UICollectionViewCell {
     }
     
     func configure(with person: PersonInfo?) {
-        let imageURL = URL(string:  BaseURL.imageBaseURL + "\(person?.imageProfile ?? "")")
-        imageProfile.kf.setImage(with: imageURL)
+        
+        if let imageURL = person?.imageProfile {
+            let url = URL(string: BaseURL.imageBaseURL + imageURL)
+            imageProfile.kf.setImage(with: url)
+        } else {
+            imageProfile.image = UIImage(named: "no_photo_person")
+        }
         labelPersonsRealName.text = person?.name
         labelCharacterName.text = person?.character
     }
-
 }

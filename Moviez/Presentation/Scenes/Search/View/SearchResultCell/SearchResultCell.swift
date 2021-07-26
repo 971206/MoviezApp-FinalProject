@@ -33,6 +33,7 @@ class SearchResultCell: UITableViewCell {
         labelAverageRate.text = String(describing: item.voteAverage ?? item.popularity ?? 0.0)
         labelType.text = item.mediaType?.firstUppercased
         labelReleaseDate.text = item.mediaType == MediaType.movie.rawValue ? item.movieReleaseDate : item.tvShowFirstAirDate ?? item.knownFor
+        
         if let posterURL = item.posterURL {
             if let url = URL(string: BaseURL.imageBaseURL + posterURL) {
                 self.imagePoster.kf.setImage(with: url)

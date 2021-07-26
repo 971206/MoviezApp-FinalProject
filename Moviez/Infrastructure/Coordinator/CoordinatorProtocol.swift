@@ -8,14 +8,7 @@
 import UIKit
 
 protocol CoordinatorProtocol: AnyObject {
-//    
-//    var networkManager: NetworkManagerProtocol {get}
-//    var inTheatersManager: InTheatersManagerProtocol {get}
-//    var trendingMoviesManager: TrendingMoviesManagerProtocol {get}
-//    var trendingTvShowsManager: TrendingTvShowsManagerProtocol {get}
-//    var comingSoonManager: ComingSoonManagerProtocol {get}
-    
-//    var networkManager: NetworkManagerProtocol {get}
+
     
     var newsManager: NewsManagerProtocol? { get }
     

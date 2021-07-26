@@ -33,7 +33,6 @@ class DetailInfoViewController: BaseViewController {
         super.viewDidLoad()
         configureDataSource()
         configureTableView()
-//        self.navigationController?.navigationBar.transparentNavigationBar()
     }
     
   

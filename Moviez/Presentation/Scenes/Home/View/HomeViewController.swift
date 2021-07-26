@@ -51,8 +51,7 @@ class HomeViewController: BaseViewController {
         tableView.registerNib(class: BoxOfficeCell.self)
         tableView.registerNib(class: InTheatersCell.self)
         tableView.registerNib(class: WatchlistCell.self)
-        tableView.registerNib(class: SignInCell.self)
-        tableView.registerNib(class: EmptyWatchlist.self)
+        tableView.registerNib(class: ReminderCell.self)
         tableView.registerNib(class: RecommendationCell.self)
         tableView.registerNib(class: TitleCell.self)
         

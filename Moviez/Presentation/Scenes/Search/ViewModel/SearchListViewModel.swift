@@ -12,7 +12,6 @@ protocol SearchListViewModelProtocol: AnyObject {
     var searchedText: String? { get set }
     func getSearchResult(searchText: String,page: Int, completion: @escaping (([SearchModel]) -> Void))
     var controller: CoordinatorDelegate { get }
-//    var tabBarDelegate: TabBarViewControllerDelegate { get set }
 
     init(with searchManager: SearchManagerProtocol, controller: CoordinatorDelegate)
 }
@@ -25,7 +24,6 @@ class SearchListViewModel: SearchListViewModelProtocol {
     var searchedText: String?
     
     private(set) var controller: CoordinatorDelegate
-//    var tabBarDelegate: TabBarViewControllerDelegate
 
     
     //MARK: - Internal Properties

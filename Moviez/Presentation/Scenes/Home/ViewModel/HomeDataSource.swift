@@ -144,12 +144,12 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
                     cell.watchlistDelegate = self
                     return cell
                 } else {
-                    let cell = tableView.deque(EmptyWatchlist.self, for: indexPath)
+                    let cell = tableView.deque(ReminderCell.self, for: indexPath)
                     cell.configure(with: "Save shows and movies to keep track of what you want to watch.", title: "Your watchlist is empty.", image: "ic_add_watchlist")
                     return cell
                 }
             } else {
-                let cell = tableView.deque(EmptyWatchlist.self, for: indexPath)
+                let cell = tableView.deque(ReminderCell.self, for: indexPath)
                 cell.configure(with: "Save shows and movies to keep track of what you want to watch.", title: "Sign in to access your Watchlist", image: "ic_add_watchlist")
                 return cell
             }
@@ -161,7 +161,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
                     cell.recommendationDelegate = self
                     return cell
                 } else {
-                    let cell = tableView.deque(EmptyWatchlist.self, for: indexPath)
+                    let cell = tableView.deque(ReminderCell.self, for: indexPath)
                     cell.configure(with: "In order to get recommendations, add movies and shows in favorites.", title: "No recommendations available yet.", image: "ic_favorite")
                     return cell
                 }
