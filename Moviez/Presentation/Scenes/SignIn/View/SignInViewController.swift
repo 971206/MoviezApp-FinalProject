@@ -52,6 +52,8 @@ class SignInViewController: BaseViewController {
                     self.coordinator?.alertSignInProblem()
                 } else {
 //                    self.coordinator?.proceedToProfile()
+                    self.fieldEmail.text = ""
+                    self.fieldPassword.text = ""
                     NotificationCenter.default.post(name: .signedIn, object: nil)
                 }
             }

@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What to watch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pza-4Y-x1w">
-                                <rect key="frame" x="20" y="12" width="203" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <rect key="frame" x="20" y="12" width="207" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -38,12 +38,12 @@
                         <rect key="frame" x="20" y="70" width="4" height="32"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From your Watchlist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjm-wt-DTA">
-                        <rect key="frame" x="34" y="75" width="207.5" height="27.5"/>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                        <rect key="frame" x="34" y="73" width="210.5" height="27"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JBc-DE-Ax5">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JBc-DE-Ax5">
                         <rect key="frame" x="0.0" y="173" width="320" height="280"/>
                         <color key="backgroundColor" name="collectionViewColor"/>
                         <constraints>
@@ -56,17 +56,12 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tv Shows and movies available to watch from your Watchlist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dyk-nd-y84">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Tv Shows and movies available to watch from your Watchlist" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dyk-nd-y84">
                         <rect key="frame" x="20" y="112" width="284" height="36"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" name="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CjZ-Sd-3Lx">
-                        <rect key="frame" x="253" y="72" width="83" height="28"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="SEE ALL"/>
-                    </button>
                 </subviews>
                 <color key="backgroundColor" name="lightBackground"/>
                 <constraints>
@@ -75,23 +70,19 @@
                     <constraint firstItem="JBc-DE-Ax5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="BlJ-f8-KCb"/>
                     <constraint firstItem="o1n-hw-DSy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="4" id="GKc-Q4-nsV"/>
                     <constraint firstItem="gjm-wt-DTA" firstAttribute="leading" secondItem="o1n-hw-DSy" secondAttribute="trailing" constant="10" id="Geu-5Q-AVc"/>
-                    <constraint firstItem="CjZ-Sd-3Lx" firstAttribute="top" secondItem="e2g-yA-2TJ" secondAttribute="bottom" constant="12" id="JPl-UG-ytr"/>
                     <constraint firstAttribute="trailing" secondItem="e2g-yA-2TJ" secondAttribute="trailing" id="Q5e-n7-ErO"/>
                     <constraint firstItem="JBc-DE-Ax5" firstAttribute="top" secondItem="Dyk-nd-y84" secondAttribute="bottom" constant="25" id="QYh-J3-a2h"/>
                     <constraint firstItem="Dyk-nd-y84" firstAttribute="top" secondItem="o1n-hw-DSy" secondAttribute="bottom" constant="10" id="X7a-Of-BkY"/>
                     <constraint firstAttribute="trailing" secondItem="JBc-DE-Ax5" secondAttribute="trailing" id="bJk-0u-i8o"/>
-                    <constraint firstItem="CjZ-Sd-3Lx" firstAttribute="leading" secondItem="gjm-wt-DTA" secondAttribute="trailing" constant="11.5" id="cfl-6C-Tla"/>
                     <constraint firstItem="o1n-hw-DSy" firstAttribute="top" secondItem="e2g-yA-2TJ" secondAttribute="bottom" constant="10" id="fm0-p8-vrU"/>
                     <constraint firstAttribute="trailing" secondItem="Dyk-nd-y84" secondAttribute="trailing" constant="16" id="kaO-cG-kxw"/>
                     <constraint firstItem="e2g-yA-2TJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pP4-zM-RV4"/>
                     <constraint firstItem="JBc-DE-Ax5" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" id="sKw-Mh-yrf"/>
-                    <constraint firstItem="CjZ-Sd-3Lx" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="16" id="ttk-Hg-Hm2"/>
-                    <constraint firstItem="gjm-wt-DTA" firstAttribute="top" secondItem="e2g-yA-2TJ" secondAttribute="bottom" constant="15" id="xJX-My-Oxb"/>
+                    <constraint firstItem="gjm-wt-DTA" firstAttribute="top" secondItem="e2g-yA-2TJ" secondAttribute="bottom" constant="13" id="xJX-My-Oxb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="onSeeAll" destination="CjZ-Sd-3Lx" id="gkb-L2-0Gy"/>
                 <outlet property="watchlistCollectionView" destination="JBc-DE-Ax5" id="XGR-o9-o9m"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="-66.629464285714278"/>

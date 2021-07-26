@@ -21,6 +21,7 @@ class HomeViewController: BaseViewController {
     private var comingSoonManager: ComingSoonManagerProtocol!
     private var boxOfficeManager: BoxOfficeManagerProtocol!
     private var firebaseManager: FirebaseManagerProtocol!
+    private var recommendedManager: RecommendedManagerProtocol!
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,8 @@ class HomeViewController: BaseViewController {
         tableView.registerNib(class: InTheatersCell.self)
         tableView.registerNib(class: WatchlistCell.self)
         tableView.registerNib(class: SignInCell.self)
+        tableView.registerNib(class: EmptyWatchlist.self)
+        tableView.registerNib(class: RecommendationCell.self)
         
         tableView.separatorStyle = .none
         header.layer.cornerRadius = 8
@@ -63,17 +66,19 @@ class HomeViewController: BaseViewController {
         comingSoonManager = ComingSoonManager()
         boxOfficeManager = BoxOfficeManager()
         firebaseManager = FirebaseManager()
+        recommendedManager = RecommendedManager()
         viewModel = HomeViewModel(with: inTheatersManager,
                                   trendingMoviesManager: trendingMoviesManager,
                                   trendingTvShowsManager: trendingTvShowsManager,
                                   comingSoonManager: comingSoonManager,
                                   boxOfficeManager: boxOfficeManager,
                                   firebaseManager: firebaseManager,
+                                  recommendedManager: recommendedManager,
                                   controller: self)
         dataSource = HomeDataSource(with: tableView,
                                     viewModel: viewModel, homeVC: self)
         dataSource.refresh()
-      
+//        dataSource.fetchRecommended()
     }
 }
 

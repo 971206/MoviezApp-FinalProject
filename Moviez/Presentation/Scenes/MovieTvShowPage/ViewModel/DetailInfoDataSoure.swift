@@ -82,12 +82,18 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
             let cell = tableView.deque(DescriptionCell.self, for: indexPath)
             if detailInfo != nil {
                 cell.configure(with: detailInfo)
-                
-                cell.buttonPlayTrailer.addTarget(self, action: #selector(playTrailer), for: .touchUpInside)
-                cell.addToFavoritesButton.addButton.addTarget(self, action: #selector(addToFavorites(_:)), for: .touchUpInside)
-                cell.addToWatchListButton.addButton.addTarget(self, action: #selector(addToWatchlist(_:)), for: .touchUpInside)
-                cell.buttonReadReviews.addTarget(self, action: #selector(proceedToReviews), for: .touchUpInside)
-                
+                cell.buttonPlayTrailer.addTarget(self,
+                                                 action: #selector(playTrailer),
+                                                 for: .touchUpInside)
+                cell.addToFavoritesButton.addButton.addTarget(self,
+                                                              action: #selector(addToFavorites(_:)),
+                                                              for: .touchUpInside)
+                cell.addToWatchListButton.addButton.addTarget(self,
+                                                              action: #selector(addToWatchlist(_:)),
+                                                              for: .touchUpInside)
+                cell.buttonReadReviews.addTarget(self,
+                                                 action: #selector(proceedToReviews),
+                                                 for: .touchUpInside)
                 descriptionCell = cell
                 return cell
             }
@@ -130,33 +136,40 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         guard let id = id else  {return}
         guard let detailInfo = detailInfo else {return}
         
-        FirebaseHelper.checkIfItemIsInCollection(id: id, collection: "favorites") { exists in
-            if exists {
-                self.viewModel.controller.coordinator?.alertItemIsAlreadyInCollection(with: "Favorites")
-            } else {
-                FirebaseHelper.saveItemInFirebaseCollection(collection:"favorites", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
-                    self.descriptionCell?.addToFavoritesButton.makeAnimation()
-                })
-
+        if Auth.auth().currentUser != nil {
+            FirebaseHelper.checkIfItemIsInCollection(id: id, collection: "favorites") { exists in
+                if exists {
+                    self.viewModel.controller.coordinator?.alertWhenUserAddsInCollection(with: "It's already in your Favorites.")
+                } else {
+                    FirebaseHelper.saveItemInFirebaseCollection(collection:"favorites", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
+                        self.descriptionCell?.addToFavoritesButton.makeAnimation()
+                    })
+                }
             }
+        } else {
+            self.viewModel.controller.coordinator?.alertWhenUserAddsInCollection(with: "In order to add items in favorites, you need to Sign in.")
         }
         
-                
+        
     }
     @objc func addToWatchlist(_ sender: Any) {
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
         guard let detailInfo = detailInfo else {return}
-        
-        FirebaseHelper.checkIfItemIsInCollection(id: id, collection: "watchlists") { exist in
-            if exist {
-                self.viewModel.controller.coordinator?.alertItemIsAlreadyInCollection(with: "Watchlist")
-            } else {
-                FirebaseHelper.saveItemInFirebaseCollection(collection:"watchlists", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
-                    self.descriptionCell?.addToWatchListButton.makeAnimation()
-                })
+        if Auth.auth().currentUser != nil {
+            FirebaseHelper.checkIfItemIsInCollection(id: id, collection: "watchlists") { exist in
+                if exist {
+                    self.viewModel.controller.coordinator?.alertWhenUserAddsInCollection(with: "It's already in your Watchlist.")
+                } else {
+                    FirebaseHelper.saveItemInFirebaseCollection(collection:"watchlists", id: id, mediaType: mediaType, movieRuntime: detailInfo.movieRuntime ?? "", tvshowRuntime: detailInfo.tvShowEpisodeRuntime ?? "", imageURL: detailInfo.imageURL ?? "", movieReleaseDate: detailInfo.movieReleaseDate ?? "", tvShowReleaseDate: detailInfo.tvShowReleaseDate ?? "", averageRate: detailInfo.averageVote ?? "", movieTitle: detailInfo.movieTitle  ?? "", tvShowTitle: detailInfo.tvShowTitle ?? "",completion: {
+                        self.descriptionCell?.addToWatchListButton.makeAnimation()
+                    })
+                }
             }
+        } else {
+            self.viewModel.controller.coordinator?.alertWhenUserAddsInCollection(with: "In order to add items in watchlist, you need to Sign in.")
         }
+        
     }
     
     @objc func playTrailer() {
@@ -169,12 +182,8 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         if indexPath.row == 0 { return  UITableView.automaticDimension}
         if indexPath.row == 1 && mediaType == "tv" { return 100 }
         if indexPath.row == 2 { return 305 }
-        if indexPath.row == 3 {
-            return similarItemsList?.count != 0 ? 305 : 0
-        }
-        if indexPath.row == 4 {
-            return recommendedItemsList?.count != 0 ? 305 : 0
-        }
+        if indexPath.row == 3 { return similarItemsList?.count != 0 ? 305 : 0 }
+        if indexPath.row == 4 { return recommendedItemsList?.count != 0 ? 305 : 0 }
         return 0
     }
 }

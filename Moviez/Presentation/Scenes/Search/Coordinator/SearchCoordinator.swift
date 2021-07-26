@@ -67,5 +67,12 @@ final class SearchCoordinator: CoordinatorProtocol {
         vc.modalPresentationStyle = .overFullScreen
         navigationController?.present(vc, animated: true, completion: nil)
     }
+    func alertWhenUserAddsInCollection(with title: String) {
+       let alert = UIAlertController(title: title, message: "" , preferredStyle: .alert)
+       alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
+           self.navigationController?.dismiss(animated: true, completion: nil)
+       }))
+       self.navigationController?.present(alert, animated: true)
+   }
     
 }

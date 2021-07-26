@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="299" id="DKa-X0-hIl" customClass="EmptyWatchlist" customModule="Moviez" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DKa-X0-hIl" id="DQE-4a-dbG">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="300"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RM-nT-Wrp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What to watch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6U-tD-oUb">
+                                <rect key="frame" x="20" y="12" width="202.5" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="darkBackground"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="ENM-ba-pcR"/>
+                            <constraint firstItem="F6U-tD-oUb" firstAttribute="top" secondItem="8RM-nT-Wrp" secondAttribute="top" constant="12" id="Rus-5y-jeJ"/>
+                            <constraint firstItem="F6U-tD-oUb" firstAttribute="leading" secondItem="8RM-nT-Wrp" secondAttribute="leading" constant="20" id="ZlB-Lm-wR9"/>
+                        </constraints>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_add_watchlist" translatesAutoresizingMaskIntoConstraints="NO" id="rH5-g2-aMk">
+                        <rect key="frame" x="135" y="90" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="cf9-Ih-fvj"/>
+                            <constraint firstAttribute="height" constant="50" id="yui-Ev-Hze"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AWE-HP-ZUd">
+                        <rect key="frame" x="20" y="150" width="280" height="70"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your watchlist is empty." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oga-hZ-7yj">
+                                <rect key="frame" x="37.5" y="0.0" width="205" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save shows and movies to keep track of what you want to watch." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0w-Bh-vHa">
+                                <rect key="frame" x="1" y="34" width="278" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" name="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" name="itemBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="rH5-g2-aMk" firstAttribute="top" secondItem="8RM-nT-Wrp" secondAttribute="bottom" constant="30" id="3fg-fF-HR3"/>
+                    <constraint firstItem="AWE-HP-ZUd" firstAttribute="leading" secondItem="DQE-4a-dbG" secondAttribute="leading" constant="20" id="95f-6H-dzV"/>
+                    <constraint firstItem="AWE-HP-ZUd" firstAttribute="top" secondItem="rH5-g2-aMk" secondAttribute="bottom" constant="10" id="EsO-lc-is0"/>
+                    <constraint firstItem="rH5-g2-aMk" firstAttribute="centerX" secondItem="DQE-4a-dbG" secondAttribute="centerX" id="VYa-Bw-zYy"/>
+                    <constraint firstItem="8RM-nT-Wrp" firstAttribute="leading" secondItem="DQE-4a-dbG" secondAttribute="leading" id="WiE-0N-Efn"/>
+                    <constraint firstAttribute="trailing" secondItem="8RM-nT-Wrp" secondAttribute="trailing" id="YCy-cQ-S5t"/>
+                    <constraint firstAttribute="trailing" secondItem="AWE-HP-ZUd" secondAttribute="trailing" constant="20" id="r8q-1U-3HW"/>
+                    <constraint firstItem="8RM-nT-Wrp" firstAttribute="top" secondItem="DQE-4a-dbG" secondAttribute="top" id="ti5-0u-v0P"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="3md-IL-CDz"/>
+            <point key="canvasLocation" x="21.739130434782609" y="22.433035714285712"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_add_watchlist" width="18" height="18"/>
+        <namedColor name="darkBackground">
+            <color red="0.078000001609325409" green="0.071000002324581146" blue="0.10199999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="itemBackgroundColor">
+            <color red="0.13300000131130219" green="0.11400000005960464" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -14,6 +14,8 @@ protocol HomeViewModelProtocol: AnyObject {
     func fetchComingSoonMovies(completion: @escaping ([MoviesViewModel]) -> Void)
     func fetchBoxOfficeInfo(completion: @escaping ([BoxOfficeViewModel]) -> Void)
     func fetchUsersWatchlist(completion: @escaping([FirebaseModel]) -> Void)
+    func fetchUsersFavorites(completion: @escaping([FirebaseModel]) -> Void)
+    func fetchRecommendedItems(with type: String, id: Int, completion: @escaping ([SearchModel]) -> Void)
 
     
     var controller: CoordinatorDelegate { get }
@@ -24,6 +26,7 @@ protocol HomeViewModelProtocol: AnyObject {
          comingSoonManager: ComingSoonManagerProtocol,
          boxOfficeManager: BoxOfficeManagerProtocol,
          firebaseManager: FirebaseManagerProtocol,
+         recommendedManager: RecommendedManagerProtocol,
          controller: CoordinatorDelegate)
 }
 
@@ -37,6 +40,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     private var comingSoonManager: ComingSoonManagerProtocol!
     private var boxOfficeManager: BoxOfficeManagerProtocol!
     private var firebaseManager: FirebaseManagerProtocol!
+    private var recommendedManager: RecommendedManagerProtocol!
     
     private(set) var controller: CoordinatorDelegate
 
@@ -47,6 +51,7 @@ final class HomeViewModel: HomeViewModelProtocol {
          comingSoonManager: ComingSoonManagerProtocol,
          boxOfficeManager: BoxOfficeManagerProtocol,
          firebaseManager: FirebaseManagerProtocol,
+         recommendedManager: RecommendedManagerProtocol,
          controller: CoordinatorDelegate) {
         
         self.inTheatersManager = inTheatersManager
@@ -55,6 +60,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         self.comingSoonManager = comingSoonManager
         self.boxOfficeManager = boxOfficeManager
         self.firebaseManager = firebaseManager
+        self.recommendedManager = recommendedManager
         self.controller = controller
     }
     
@@ -62,6 +68,10 @@ final class HomeViewModel: HomeViewModelProtocol {
     func fetchUsersWatchlist(completion: @escaping ([FirebaseModel]) -> Void) {
         firebaseManager.fetchUsersWatchlist(completion: completion)
     }
+    func fetchUsersFavorites(completion: @escaping([FirebaseModel]) -> Void) {
+        firebaseManager.fetchUsersFavorites(completion: completion)
+    }
+    
     
     func fetchInTheatersMovies(completion: @escaping ([MoviesViewModel]) -> Void) {
         inTheatersManager.fetchInTheatersMovies { inTheatersList in
@@ -91,6 +101,9 @@ final class HomeViewModel: HomeViewModelProtocol {
         boxOfficeManager.fetchBoxOfficeInfo { boxOfficeList in
             completion(boxOfficeList.map({ BoxOfficeViewModel(boxOffice: $0)}))
         }
+    }
+    func fetchRecommendedItems(with type: String, id: Int, completion: @escaping ([SearchModel]) -> Void) {
+        recommendedManager.fetchRecommendedItems(with: type, id: id, completion: completion)
     }
 
 }

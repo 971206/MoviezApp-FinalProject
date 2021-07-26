@@ -1,55 +1,53 @@
 //
-//  WatchlistCell.swift
+//  RecommendationCell.swift
 //  Moviez
 //
-//  Created by MacBook  on 20.07.21.
+//  Created by MacBook  on 26.07.21.
 //
 
 import UIKit
 
-protocol WatchlistCellDelegate: AnyObject {
-    func onWatchlisClicked(id: Int, mediaType: String)
+protocol RecommendationCellDelegate: AnyObject {
+    func onRecommendationClicked(id: Int, mediaType: String)
 }
 
 
-class WatchlistCell: UITableViewCell {
 
-    @IBOutlet weak var watchlistCollectionView: UICollectionView!
+class RecommendationCell: UITableViewCell {
+
+    @IBOutlet weak var recommendedCollectionView: UICollectionView!
     
-    private var usersWatchlist: [FirebaseModel]?
-    weak var watchlistDelegate: WatchlistCellDelegate?
-    
+    private var recommendationsForCurrentUser: [SearchModel]?
+    weak var recommendationDelegate: RecommendationCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        watchlistCollectionView.delegate = self
-        watchlistCollectionView.dataSource = self
-        watchlistCollectionView.registerNib(class: WatchlistItem.self)
+        
+        recommendedCollectionView.delegate = self
+        recommendedCollectionView.dataSource = self
+        recommendedCollectionView.registerNib(class: WatchlistItem.self)
     }
     
-    func configure(with item: [FirebaseModel]?) {
-        self.usersWatchlist = item
-        self.watchlistCollectionView.reloadData()
+    func configure(with item: [SearchModel]?) {
+        self.recommendationsForCurrentUser = item
+        self.recommendedCollectionView.reloadData()
     }
-    
-  
 }
 
-extension WatchlistCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension RecommendationCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return usersWatchlist?.count ?? 0
+        return recommendationsForCurrentUser?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.deque(WatchlistItem.self, for: indexPath)
-        cell.configure(with: usersWatchlist?[indexPath.row])
+        cell.configure(with: recommendationsForCurrentUser?[indexPath.row])
         return cell
     }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let id = usersWatchlist?[indexPath.row].id,
-           let mediaType = usersWatchlist?[indexPath.row].mediaType {
-            watchlistDelegate?.onWatchlisClicked(id: id, mediaType: mediaType)
+        if let id = recommendationsForCurrentUser?[indexPath.row].id,
+           let mediaType = recommendationsForCurrentUser?[indexPath.row].mediaType {
+            recommendationDelegate?.onRecommendationClicked(id: id, mediaType: mediaType)
         }
     }
     
@@ -64,4 +62,5 @@ extension WatchlistCell: UICollectionViewDataSource, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
+    
 }

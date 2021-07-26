@@ -68,14 +68,11 @@ final class HomeCoordinator: CoordinatorProtocol {
     }
     
     
-     func alertItemIsAlreadyInCollection(with collection: String) {
-        let alert = UIAlertController(title: "It's already in your \(collection)", message: "" , preferredStyle: .alert)
+     func alertWhenUserAddsInCollection(with title: String) {
+        let alert = UIAlertController(title: title, message: "" , preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { action in
             self.navigationController?.dismiss(animated: true, completion: nil)
         }))
         self.navigationController?.present(alert, animated: true)
     }
-    
-    
- 
 }

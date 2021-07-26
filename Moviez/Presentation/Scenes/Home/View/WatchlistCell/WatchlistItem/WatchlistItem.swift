@@ -44,21 +44,28 @@ class WatchlistItem: UICollectionViewCell {
 //            self.labelReleaseDate.text = item?.movieReleaseDate
 //        }
         
-        if item?.tvshowRuntime == "0" {
-            self.labelDuration.text = item?.movieRuntime
-        } else {
-            self.labelDuration.text = item?.tvshowRuntime
-        }
+//        if item?.tvshowRuntime == "0" {
+//            self.labelDuration.text = item?.movieRuntime
+//        } else {
+//            self.labelDuration.text = item?.tvshowRuntime
+//        }
         
         if item?.tvShowTitle == "" {
             self.labelTitle.text = item?.movieTitle
         } else {
             self.labelTitle.text = item?.tvShowTitle
         }
-        self.labelAverageRate.text = item?.averageRate
+//        self.labelAverageRate.text = item?.averageRate
         self.labelMediaType.text = item?.mediaType?.uppercased()
         guard let imageURL = item?.imageURL else {return}
         let posterURL = URL(string: BaseURL.imageBaseURL + imageURL)
         imagePoster.kf.setImage(with: posterURL)
+    }
+    
+    func configure(with item: SearchModel?) {
+        guard let url = item?.posterURL else {return}
+        let posterURL = URL(string: BaseURL.imageBaseURL + url)
+        imagePoster.kf.setImage(with: posterURL)
+        labelTitle.text = item?.mediaType == "movie" ? item?.originalTitle : item?.name
     }
 }

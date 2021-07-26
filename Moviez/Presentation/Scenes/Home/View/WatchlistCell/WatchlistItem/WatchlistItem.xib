@@ -45,45 +45,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2P-FB-k1v">
                         <rect key="frame" x="0.0" y="235" width="160" height="45"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z20-0B-YTq">
-                                <rect key="frame" x="30" y="23" width="100" height="12"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="btC-v5-lyu">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="12"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_time" translatesAutoresizingMaskIntoConstraints="NO" id="upZ-lG-0rx">
-                                                <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="12" id="1Do-lR-3ep"/>
-                                                    <constraint firstAttribute="height" constant="12" id="owZ-hl-v06"/>
-                                                </constraints>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2h" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSd-Ip-aMu">
-                                                <rect key="frame" x="13" y="0.0" width="32" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <color key="textColor" name="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-6" translatesAutoresizingMaskIntoConstraints="NO" id="tnE-jz-Ekj">
-                                        <rect key="frame" x="55" y="0.0" width="45" height="12"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_rate" translatesAutoresizingMaskIntoConstraints="NO" id="kFr-d5-z2J">
-                                                <rect key="frame" x="0.0" y="0.0" width="25.5" height="12"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izd-8d-pgT">
-                                                <rect key="frame" x="19.5" y="0.0" width="25.5" height="12"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                <color key="textColor" name="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNe-pL-4k4">
-                                <rect key="frame" x="5" y="3" width="150" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNe-pL-4k4">
+                                <rect key="frame" x="5" y="5" width="150" height="35"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -92,11 +55,9 @@
                         <color key="backgroundColor" name="lightBackground"/>
                         <constraints>
                             <constraint firstItem="pNe-pL-4k4" firstAttribute="leading" secondItem="P2P-FB-k1v" secondAttribute="leading" constant="5" id="86k-4l-B3j"/>
-                            <constraint firstItem="z20-0B-YTq" firstAttribute="leading" secondItem="P2P-FB-k1v" secondAttribute="leading" constant="30" id="MpK-ln-4wl"/>
-                            <constraint firstAttribute="trailing" secondItem="z20-0B-YTq" secondAttribute="trailing" constant="30" id="WMB-bB-fEd"/>
+                            <constraint firstAttribute="bottom" secondItem="pNe-pL-4k4" secondAttribute="bottom" constant="5" id="HSH-RG-ns2"/>
                             <constraint firstAttribute="trailing" secondItem="pNe-pL-4k4" secondAttribute="trailing" constant="5" id="Xvw-ws-DxQ"/>
-                            <constraint firstItem="pNe-pL-4k4" firstAttribute="top" secondItem="P2P-FB-k1v" secondAttribute="top" constant="3" id="fIM-PY-rhk"/>
-                            <constraint firstAttribute="bottom" secondItem="z20-0B-YTq" secondAttribute="bottom" constant="10" id="sbP-x2-gBK"/>
+                            <constraint firstItem="pNe-pL-4k4" firstAttribute="top" secondItem="P2P-FB-k1v" secondAttribute="top" constant="5" id="fIM-PY-rhk"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -117,8 +78,6 @@
             <connections>
                 <outlet property="blurView" destination="P2P-FB-k1v" id="R8u-Dc-jFD"/>
                 <outlet property="imagePoster" destination="JyX-ek-8OZ" id="jZw-Ge-U6c"/>
-                <outlet property="labelAverageRate" destination="izd-8d-pgT" id="Mn8-oB-54B"/>
-                <outlet property="labelDuration" destination="ZSd-Ip-aMu" id="26O-Rm-eNh"/>
                 <outlet property="labelMediaType" destination="qcf-Bt-DMU" id="EFh-dR-LHm"/>
                 <outlet property="labelTitle" destination="pNe-pL-4k4" id="P6i-zk-6Dg"/>
                 <outlet property="mediaTypeView" destination="QFX-Sh-uSw" id="sCR-7s-CiV"/>
@@ -127,8 +86,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="ic_rate" width="18" height="18"/>
-        <image name="ic_time" width="18" height="18"/>
         <namedColor name="lightBackground">
             <color red="0.082000002264976501" green="0.071000002324581146" blue="0.11800000071525574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

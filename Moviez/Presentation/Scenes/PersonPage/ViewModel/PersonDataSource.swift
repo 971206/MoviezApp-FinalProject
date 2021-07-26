@@ -29,12 +29,12 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         viewModel.fetchPersonDetailInfo(id: id ?? 0) { [weak self] personDetailInfo in
             guard let self = self else {return}
             self.personDetailInfo = PersonInfoViewModel(with: personDetailInfo)
-//            self.tableView.reloadData()
+            self.tableView.reloadData()
         }
         
         viewModel.fetchMovieCredits(with: id ?? 0) { [weak self] movieCreditsList in
             self?.movieCreditsList = movieCreditsList
-//            self?.tableView.reloadData()
+            self?.tableView.reloadData()
         }
         
         viewModel.fetchTVShowCredits(with: id ?? 0) { [weak self] tvShowCreditsList in

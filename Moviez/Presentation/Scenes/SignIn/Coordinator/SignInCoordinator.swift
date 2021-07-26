@@ -14,7 +14,7 @@ final class SignInCoordinator: CoordinatorProtocol {
         self.navigationController = navigationController
         let vc = SignInViewController.instantiateFromStoryboard()
         vc.coordinator = self
-        
+        self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.viewControllers = [vc]
     }
     
