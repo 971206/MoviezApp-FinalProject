@@ -47,14 +47,26 @@ class SignInViewController: BaseViewController {
     //MARK: - Login Pressed
     @IBAction func onLogin(_ sender: Any) {
         if let email = fieldEmail.text, let password = fieldPassword.text {
-            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if  error != nil {
-                    self.coordinator?.alertSignInProblem()
-                } else {
-//                    self.coordinator?.proceedToProfile()
+//            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//                if  error != nil {
+//
+//                } else {
+////                    self.coordinator?.proceedToProfile()
+//                    self.fieldEmail.text = ""
+//                    self.fieldPassword.text = ""
+//                    NotificationCenter.default.post(name: .signedIn, object: nil)
+//                }
+//            }
+            
+            FirebaseHelper.logIn(email: email, password: password) { success in
+                if success {
+                    print("success")
                     self.fieldEmail.text = ""
                     self.fieldPassword.text = ""
                     NotificationCenter.default.post(name: .signedIn, object: nil)
+                } else {
+                    print("failed")
+                    self.coordinator?.alertSignInProblem()
                 }
             }
         }
@@ -73,18 +85,8 @@ class SignInViewController: BaseViewController {
         }
     }
     
-    //MARK: - Alert
-//    private func problemAlert() {
-//        let alert = UIAlertController(title: "There was a problem", message: "Details are not correct or user does not exist ", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
-//        self.present(alert, animated: true)
-//    }
-//
     // MARK: - Signup Pressed
     @IBAction func onSignup(_ sender: Any) {
-//        let sb = UIStoryboard(name: VCIds.registrationVC, bundle: nil)
-//        let vc = sb.instantiateViewController(withIdentifier: VCIds.registrationVC)
-//        self.navigationController?.pushViewController(vc, animated: true)
         coordinator?.proceedToSignUp()
     }
     

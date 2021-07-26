@@ -60,12 +60,14 @@ class RegistrationViewController: BaseViewController {
         let error = validateFields()
         
         if error != nil {
-            alertProblem(message: error ?? "")
+//            alertProblem(message: error ?? "")
+            self.coordinator?.alertRegistrationProblem(message: error ?? "")
+
         } else {
             if let email = fieldEmail.text, let password = fieldPassword.text, let fullName = fieldFullName.text {
                 Auth.auth().createUser(withEmail: email, password: password) { result, error in
                     if let error = error  {
-                        self.alertProblem(message: error.localizedDescription )
+//                        self.alertProblem(message: error.localizedDescription )
                         self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
                         print(error.localizedDescription)
                     } else {
@@ -81,12 +83,8 @@ class RegistrationViewController: BaseViewController {
                         self.alertSuccess()
                     }
                 }
-                
-//                FirebaseHelper.signUp(email: email, password: password, fullName: fullName) {
-//                    <#code#>
-//                }
-                
-                
+            
+
             }
             
         }
@@ -94,17 +92,17 @@ class RegistrationViewController: BaseViewController {
     }
     
     
-    @IBAction func onShowAndHide(_ sender: UIButton) {
-        if !isHidden {
-            sender.setImage(UIImage(named: "ic_show"), for: .normal)
-            fieldPassword.isSecureTextEntry = true
-            isHidden = true
-        } else {
-            sender.setImage(UIImage(named: "ic_hide"), for: .normal)
-            fieldPassword.isSecureTextEntry = false
-            isHidden = false
-        }
-    }
+//    @IBAction func onShowAndHide(_ sender: UIButton) {
+//        if !isHidden {
+//            sender.setImage(UIImage(named: "ic_show"), for: .normal)
+//            fieldPassword.isSecureTextEntry = true
+//            isHidden = true
+//        } else {
+//            sender.setImage(UIImage(named: "ic_hide"), for: .normal)
+//            fieldPassword.isSecureTextEntry = false
+//            isHidden = false
+//        }
+//    }
     
     //MARK: - Alerts
     private func alertProblem(message: String) {

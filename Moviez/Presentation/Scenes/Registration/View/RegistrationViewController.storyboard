@@ -61,17 +61,6 @@
                                     <action selector="onCreateAccount:" destination="VtE-Ri-AQe" eventType="touchUpInside" id="23L-u2-uHh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGX-EA-7Ze">
-                                <rect key="frame" x="354" y="317" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="EQr-sf-tbe"/>
-                                    <constraint firstAttribute="height" constant="25" id="ftZ-vI-Ip3"/>
-                                </constraints>
-                                <state key="normal" image="ic_hide"/>
-                                <connections>
-                                    <action selector="onShowAndHide:" destination="VtE-Ri-AQe" eventType="touchUpInside" id="wbn-pU-yhu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2FD-k6-aTK"/>
                         <color key="backgroundColor" name="itemBackgroundColor"/>
@@ -84,14 +73,11 @@
                             <constraint firstItem="2FD-k6-aTK" firstAttribute="trailing" secondItem="kB8-CU-71A" secondAttribute="trailing" constant="24" id="KMK-ib-quq"/>
                             <constraint firstItem="j5b-L4-INQ" firstAttribute="leading" secondItem="2FD-k6-aTK" secondAttribute="leading" constant="16" id="L03-YO-u9O"/>
                             <constraint firstItem="kB8-CU-71A" firstAttribute="top" secondItem="j5b-L4-INQ" secondAttribute="bottom" constant="50" id="LAV-8p-Gkd"/>
-                            <constraint firstItem="2FD-k6-aTK" firstAttribute="bottom" secondItem="eGX-EA-7Ze" secondAttribute="bottom" constant="520" id="mda-56-aBI"/>
-                            <constraint firstItem="2FD-k6-aTK" firstAttribute="trailing" secondItem="eGX-EA-7Ze" secondAttribute="trailing" constant="35" id="qIv-L2-Gw6"/>
                             <constraint firstItem="2FD-k6-aTK" firstAttribute="trailing" secondItem="sED-61-sJo" secondAttribute="trailing" constant="24" id="qw0-En-JsR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonRegistration" destination="sED-61-sJo" id="fWM-7T-hSu"/>
-                        <outlet property="buttonShowAndHide" destination="eGX-EA-7Ze" id="pGO-Dj-v3v"/>
                         <outlet property="fieldEmail" destination="Hy8-vk-42y" id="icg-k0-tGO"/>
                         <outlet property="fieldFullName" destination="m7O-e8-DCM" id="9N3-ia-GLY"/>
                         <outlet property="fieldPassword" destination="kf0-eH-Ptw" id="sFH-UO-3Rj"/>
@@ -104,7 +90,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_hide" width="22" height="20"/>
         <namedColor name="darkBackground">
             <color red="0.078000001609325409" green="0.071000002324581146" blue="0.10199999809265137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -13,22 +13,20 @@
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="Y6W-OH-hqX" customClass="ProfileViewController" customModule="Moviez" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_line" translatesAutoresizingMaskIntoConstraints="NO" id="VuQ-k9-XtQ">
-                                <rect key="frame" x="16" y="84" width="5" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_line" translatesAutoresizingMaskIntoConstraints="NO" id="VuQ-k9-XtQ">
+                                <rect key="frame" x="16" y="40" width="4" height="32"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hello Eka!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-wH-H87">
-                                <rect key="frame" x="26" y="89" width="90" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Eka!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgI-wH-H87">
+                                <rect key="frame" x="26" y="45" width="90" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="2Qv-7o-pQQ">
-                                <rect key="frame" x="16" y="222" width="382" height="32"/>
+                                <rect key="frame" x="16" y="140.66666666666666" width="382" height="32"/>
                                 <color key="backgroundColor" name="itemBackgroundColor"/>
                                 <segments>
                                     <segment title="Watchlist"/>
@@ -37,11 +35,8 @@
                                 <color key="selectedSegmentTintColor" name="textColor"/>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LSt-pZ-hbX">
-                                <rect key="frame" x="0.0" y="263" width="414" height="550"/>
+                                <rect key="frame" x="0.0" y="176.66666666666666" width="414" height="510.33333333333337"/>
                                 <color key="backgroundColor" name="lightBackground"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="550" id="faa-my-Lag"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pma-ws-h6o">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -50,10 +45,13 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNk-4M-QXa">
-                                <rect key="frame" x="308" y="81" width="90" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pNk-4M-QXa">
+                                <rect key="frame" x="308" y="37" width="90" height="40"/>
                                 <color key="backgroundColor" name="itemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Cdb-Pv-l1K"/>
+                                    <constraint firstAttribute="height" constant="40" id="jPC-fE-0h9"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Log Out">
                                     <color key="titleColor" name="textColor"/>
@@ -62,9 +60,8 @@
                                     <action selector="onSignOut:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7RM-qP-Uva"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Here you can see your watchlist and favourite movies and TV shows." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CsR-gd-mLa">
-                                <rect key="frame" x="16" y="141" width="382" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here you can see your watchlist and favourite movies and TV shows." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CsR-gd-mLa">
+                                <rect key="frame" x="16" y="85" width="382" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <color key="textColor" name="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -73,12 +70,22 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="lightBackground"/>
                         <constraints>
-                            <constraint firstItem="2Qv-7o-pQQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="1qH-Cv-vVl"/>
-                            <constraint firstItem="LSt-pZ-hbX" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="AVX-0H-Dab"/>
-                            <constraint firstItem="LSt-pZ-hbX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="FOx-7F-399"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2Qv-7o-pQQ" secondAttribute="trailing" constant="16" id="LCs-2L-CmU"/>
-                            <constraint firstItem="LSt-pZ-hbX" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Ui7-Qr-mZP"/>
-                            <constraint firstItem="LSt-pZ-hbX" firstAttribute="top" secondItem="2Qv-7o-pQQ" secondAttribute="bottom" constant="10" id="ZlG-7j-k0X"/>
+                            <constraint firstItem="VuQ-k9-XtQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="02M-OF-yDS"/>
+                            <constraint firstItem="LSt-pZ-hbX" firstAttribute="top" secondItem="2Qv-7o-pQQ" secondAttribute="bottom" constant="5" id="0jW-JB-Q9z"/>
+                            <constraint firstItem="BgI-wH-H87" firstAttribute="leading" secondItem="VuQ-k9-XtQ" secondAttribute="trailing" constant="6" id="8EP-fN-65K"/>
+                            <constraint firstItem="CsR-gd-mLa" firstAttribute="top" secondItem="pNk-4M-QXa" secondAttribute="bottom" constant="8" symbolic="YES" id="Dvl-Gy-s9I"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CsR-gd-mLa" secondAttribute="trailing" constant="16" id="KBb-ot-ZKJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2Qv-7o-pQQ" secondAttribute="trailing" constant="16" id="O23-Pp-FPR"/>
+                            <constraint firstItem="BgI-wH-H87" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="45" id="PUK-g4-cgP"/>
+                            <constraint firstItem="VuQ-k9-XtQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="PhE-ug-CVV"/>
+                            <constraint firstItem="CsR-gd-mLa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="Y7c-B5-ZJ8"/>
+                            <constraint firstItem="LSt-pZ-hbX" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ZJu-Wi-m2Q"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pNk-4M-QXa" secondAttribute="trailing" constant="16" id="giW-3z-7qQ"/>
+                            <constraint firstItem="LSt-pZ-hbX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="iNZ-lJ-Rhl"/>
+                            <constraint firstItem="2Qv-7o-pQQ" firstAttribute="top" secondItem="CsR-gd-mLa" secondAttribute="bottom" constant="15" id="mcx-xG-nSO"/>
+                            <constraint firstItem="pNk-4M-QXa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="37" id="tci-nf-xPN"/>
+                            <constraint firstItem="LSt-pZ-hbX" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="xLu-kL-NEb"/>
+                            <constraint firstItem="2Qv-7o-pQQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="zeM-jY-6n3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="WSt-Vc-adQ"/>

@@ -9,7 +9,6 @@ import UIKit
 
 class DescriptionCell: UITableViewCell {
 
-    @IBOutlet weak var labelWatchTrailer: UILabel!
     @IBOutlet weak var buttonReadReviews: UIButton!
     @IBOutlet weak var rateStackView: UIStackView!
     @IBOutlet weak var releaseDateStackView: UIStackView!
@@ -31,8 +30,7 @@ class DescriptionCell: UITableViewCell {
     }
     
     private func setupLayout() {
-        labelWatchTrailer.layer.cornerRadius = 20
-        labelWatchTrailer.layer.masksToBounds = true
+      
 //        buttonPlayTrailer.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
         buttonPlayTrailer.layer.cornerRadius = buttonPlayTrailer.bounds.width / 2
         imagePoster.layer.cornerRadius = 20
