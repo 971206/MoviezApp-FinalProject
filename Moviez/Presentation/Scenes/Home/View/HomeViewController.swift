@@ -54,6 +54,7 @@ class HomeViewController: BaseViewController {
         tableView.registerNib(class: SignInCell.self)
         tableView.registerNib(class: EmptyWatchlist.self)
         tableView.registerNib(class: RecommendationCell.self)
+        tableView.registerNib(class: TitleCell.self)
         
         tableView.separatorStyle = .none
         header.layer.cornerRadius = 8

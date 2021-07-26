@@ -205,6 +205,8 @@
 		FAEFC654266EA4FC00183B45 /* HomePageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEFC652266EA4FC00183B45 /* HomePageCell.xib */; };
 		FAF31AFD26AEDD6100304928 /* RecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF31AFB26AEDD6100304928 /* RecommendationCell.swift */; };
 		FAF31AFE26AEDD6100304928 /* RecommendationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF31AFC26AEDD6100304928 /* RecommendationCell.xib */; };
+		FAF31B0226AEEF8E00304928 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF31B0026AEEF8E00304928 /* TitleCell.swift */; };
+		FAF31B0326AEEF8E00304928 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF31B0126AEEF8E00304928 /* TitleCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -402,6 +404,8 @@
 		FAEFC652266EA4FC00183B45 /* HomePageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomePageCell.xib; sourceTree = "<group>"; };
 		FAF31AFB26AEDD6100304928 /* RecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationCell.swift; sourceTree = "<group>"; };
 		FAF31AFC26AEDD6100304928 /* RecommendationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationCell.xib; sourceTree = "<group>"; };
+		FAF31B0026AEEF8E00304928 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		FAF31B0126AEEF8E00304928 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1217,6 +1221,7 @@
 		FA607F2C266B8672009C9C61 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAF31AFF26AEEF6200304928 /* TitleCell */,
 				FAF31AFA26AEDD4000304928 /* RecommendationCell */,
 				FAACA3D626AE16AE00581CA9 /* EmptyWatchlist */,
 				FA3C6B0C26A99F56000EDFD2 /* SignInCell */,
@@ -1469,6 +1474,15 @@
 			path = RecommendationCell;
 			sourceTree = "<group>";
 		};
+		FAF31AFF26AEEF6200304928 /* TitleCell */ = {
+			isa = PBXGroup;
+			children = (
+				FAF31B0026AEEF8E00304928 /* TitleCell.swift */,
+				FAF31B0126AEEF8E00304928 /* TitleCell.xib */,
+			);
+			path = TitleCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1580,6 +1594,7 @@
 				FA03418226A6C6E600712CDE /* WatchlistItem.xib in Resources */,
 				FAD630962677C39C00A0CF9B /* Helvetica Neue Medium Extended.ttf in Resources */,
 				FA20B40C267551B00020065A /* NewsCell.xib in Resources */,
+				FAF31B0326AEEF8E00304928 /* TitleCell.xib in Resources */,
 				FA0341A026A768BD00712CDE /* MoreNewsViewController.storyboard in Resources */,
 				FA3BFF942687A95900F076E5 /* PersonViewController.storyboard in Resources */,
 				FAD630922677C12F00A0CF9B /* EmptyCell.xib in Resources */,
@@ -1660,6 +1675,7 @@
 				FA4BDC71269A291600B2369B /* CoordinatorProtocol.swift in Sources */,
 				FA94730A266CAFFA0094069D /* SignInViewController.swift in Sources */,
 				FA3CD765269F73E800A56BCA /* HomeCoordinator.swift in Sources */,
+				FAF31B0226AEEF8E00304928 /* TitleCell.swift in Sources */,
 				FA607F06266B8416009C9C61 /* InTheatersManager.swift in Sources */,
 				FA04671A26A5F7C400C1A411 /* AwardsManager.swift in Sources */,
 				FA3BFF3F26AAD0FF0015EBE6 /* SearchViewModel.swift in Sources */,

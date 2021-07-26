@@ -9,14 +9,8 @@ import UIKit
 
 class SignInCell: UITableViewCell {
 
-    @IBOutlet weak var buttonSignIn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-       configureButtonSignIn()
-    }
-    
-    func configureButtonSignIn() {
-        buttonSignIn.layer.cornerRadius = 8
     }
     
 }

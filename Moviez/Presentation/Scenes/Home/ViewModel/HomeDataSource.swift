@@ -113,7 +113,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     //MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -133,6 +133,10 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
             
         case 2:
+            let cell = tableView.deque(TitleCell.self, for: indexPath)
+            return cell
+            
+        case 3:
             if currentUser != nil {
                 if usersWatchlist?.count != 0 {
                     let cell = tableView.deque(WatchlistCell.self, for: indexPath)
@@ -141,39 +145,41 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
                     return cell
                 } else {
                     let cell = tableView.deque(EmptyWatchlist.self, for: indexPath)
+                    cell.configure(with: "Save shows and movies to keep track of what you want to watch.", title: "Your watchlist is empty.", image: "ic_add_watchlist")
                     return cell
                 }
             } else {
-                let cell = tableView.deque(SignInCell.self, for: indexPath)
-                cell.buttonSignIn.addTarget(self, action: #selector(proceedToSignIn), for: .touchUpInside)
+                let cell = tableView.deque(EmptyWatchlist.self, for: indexPath)
+                cell.configure(with: "Save shows and movies to keep track of what you want to watch.", title: "Sign in to access your Watchlist", image: "ic_add_watchlist")
                 return cell
             }
-        case 3:
+        case 4:
             if currentUser != nil {
-                if recommendedItemsBasedOnFavorites?.count != 0 {
+                if recommendedItemsBasedOnFavorites?.count != 0 && recommendedItemsBasedOnFavorites != nil {
                     let cell = tableView.deque(RecommendationCell.self, for: indexPath)
                     cell.configure(with: recommendedItemsBasedOnFavorites)
                     cell.recommendationDelegate = self
                     return cell
                 } else {
                     let cell = tableView.deque(EmptyWatchlist.self, for: indexPath)
+                    cell.configure(with: "In order to get recommendations, add movies and shows in favorites.", title: "No recommendations available yet.", image: "ic_favorite")
                     return cell
                 }
             }
             
-        case 4:
+        case 5:
             let cell = tableView.deque(InTheatersCell.self, for: indexPath)
             cell.inTheatersCellDelegate = self
             cell.configureInTheares(movies: inTheatersList ?? [])
             return cell
             
-        case 5:
+        case 6:
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
             cell.homePageCellDelegate = self
             cell.configureComingSoon(items: comingSoonList ?? [])
             return cell
             
-        case 6:
+        case 7:
             let cell = tableView.deque(BoxOfficeCell.self, for: indexPath)
             cell.configure(with: boxOfficeList ?? [])
             return cell
@@ -185,15 +191,22 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     //MARK: - TableView Delegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 2 {
-            return currentUser == nil || usersWatchlist?.count == 0 ? 300 : 460
-        }
+        if indexPath.row == 2 {return 65}
         if indexPath.row == 3 {
-            return currentUser == nil || recommendedItemsBasedOnFavorites?.count == 0 ? 0 : 393
+            return currentUser == nil || usersWatchlist?.count == 0 ? 270 : 393
         }
-        if indexPath.row == 4 { return 290 }
-        if indexPath.row == 5 { return 410 }
-        if indexPath.row == 6 { return 482 }
+        if indexPath.row == 4 {
+            if currentUser == nil {
+                return 0
+            } else if recommendedItemsBasedOnFavorites?.count != 0 && recommendedItemsBasedOnFavorites != nil {
+                return 393
+            } else {
+                return 260
+            }
+        }
+        if indexPath.row == 5 { return 270 }
+        if indexPath.row == 6 { return 410 }
+        if indexPath.row == 7 { return 482 }
         return 395
     }
     
