@@ -30,6 +30,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     var boxOfficeInfoFetched = false
     var comingSoonInfoFetched = false
     var usersWatchlistFetched = false
+    var recommendedItemsForUserFetched = false
     var mediaTypeAndIdsList = [(Int, String)]()
     var recommendedItemsBasedOnFavorites: [SearchModel]?
 
@@ -69,17 +70,17 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             self.comingSoonInfoFetched = true
             self.reloadFetchedData()
         }
-        viewModel.fetchBoxOfficeInfo { [weak self] boxOfficeList in
-            guard let self = self else {return}
-            self.boxOfficeList = boxOfficeList
-            self.boxOfficeInfoFetched = true
-            self.reloadFetchedData()
-        }
+//        viewModel.fetchBoxOfficeInfo { [weak self] boxOfficeList in
+//            guard let self = self else {return}
+//            self.boxOfficeList = boxOfficeList
+//            self.boxOfficeInfoFetched = true
+//            self.reloadFetchedData()
+//        }
         viewModel.fetchUsersWatchlist { [weak self] usersWatchlist in
             guard let self = self else {return}
             if self.currentUser != nil {
                 self.usersWatchlist = usersWatchlist
-                self.usersWatchlistFetched = true
+                self.tableView.reloadData()
             }
         }
         viewModel.fetchUsersFavorites { [weak self] usersFavorites in
@@ -92,19 +93,21 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
                 let count = self.mediaTypeAndIdsList.count
                 if count != 0 {
                     let randomIndex = Int.random(in: 0..<count)
-                    self.viewModel.fetchRecommendedItems(with: self.mediaTypeAndIdsList[randomIndex].1, id: self.mediaTypeAndIdsList[randomIndex].0) { basedFavories in
-                        self.recommendedItemsBasedOnFavorites = basedFavories
+                    self.viewModel.fetchRecommendedItems(with: self.mediaTypeAndIdsList[randomIndex].1, id: self.mediaTypeAndIdsList[randomIndex].0) { recommendationsBasedOnFavorites in
+                        self.recommendedItemsBasedOnFavorites = recommendationsBasedOnFavorites
+                        self.tableView.reloadData()
                     }
                 }
                 
-             
             }
             
         }
     }
     
     func reloadFetchedData() {
-        if inTheatersInfoFetched && trendingMoviesInfoFetched && trendingTvShowsInfoFetched && comingSoonInfoFetched && boxOfficeInfoFetched {
+        if inTheatersInfoFetched && trendingMoviesInfoFetched && trendingTvShowsInfoFetched && comingSoonInfoFetched
+//        && boxOfficeInfoFetched
+        {
             self.tableView.reloadData()
             self.homeVC.view.stopLoading()
         }

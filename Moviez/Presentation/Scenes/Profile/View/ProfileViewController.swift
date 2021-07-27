@@ -29,11 +29,13 @@ class ProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelWelcomeUser.text = "Welcome to Moviez \(currentUser?.dropLast(10).uppercased() ?? "")" 
+        labelWelcomeUser.text = "Welcome to Moviez \(currentUser?.dropLast(10).uppercased() ?? "")"
         setupLayout()
         configureDataSource()
         setupCollectioView()
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
+        navigationController?.isNavigationBarHidden = true
+        
         
     }
     
@@ -45,16 +47,6 @@ class ProfileViewController: BaseViewController {
         
         print(currentUserId)
 
-//        Firestore.firestore().collection("users").document(currentUserId!).getDocument { document, error in
-//            if error == nil{
-//                if document != nil && document!.exists {
-//                    let document = document?.data()
-//                    print(document)
-//                } else {
-//                    print(error)
-//                }
-//            }
-//        }
     }
     
     func setupCollectioView() {

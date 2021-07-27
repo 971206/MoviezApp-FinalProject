@@ -59,6 +59,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonSkip" destination="rrG-Td-iWq" id="3CS-mX-LTE"/>
                         <outlet property="collectionView" destination="e5g-Y0-ggn" id="MI6-6R-FLW"/>
                         <outlet property="pageIndicator" destination="QGB-4E-kvG" id="rd1-Gb-39e"/>
                     </connections>

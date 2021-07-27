@@ -13,6 +13,9 @@ class WelcomeDataSource: NSObject {
     private var welcomePages = [WelcomePage]()
 
     var endDragging: ((Int) -> Void)?
+    
+    
+    
 
     init(with collectionView: UICollectionView, viewModel: WelcomeViewModelProtocol) {
         super.init()

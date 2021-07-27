@@ -7,12 +7,12 @@
 
 import UIKit
 
-final class SignInCoordinator: CoordinatorProtocol {
+final class LogInCoordinator: CoordinatorProtocol {
     var navigationController: UINavigationController?
     
     init(_ window: UIWindow? = nil, navigationController: UINavigationController? = UINavigationController()) {
         self.navigationController = navigationController
-        let vc = SignInViewController.instantiateFromStoryboard()
+        let vc = LogInViewController.instantiateFromStoryboard()
         vc.coordinator = self
         self.navigationController?.isNavigationBarHidden = true
         self.navigationController?.viewControllers = [vc]
@@ -38,7 +38,7 @@ final class SignInCoordinator: CoordinatorProtocol {
         self.navigationController?.present(alert, animated: true)
     }
     
-    func alertSignInProblem() {
+    func alertLogInProblem() {
         let alert = UIAlertController(title: "There was a problem", message: "Details are not correct or user does not exist ", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil))
         self.navigationController?.present(alert, animated: true)

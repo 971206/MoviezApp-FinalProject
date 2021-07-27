@@ -31,9 +31,9 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
     private var detailsManager: DetailsManagerProtocol!
     private var recommendedItemsManager: RecommendedManagerProtocol!
     private var castManager: CastManagerProtocol!
-    private var detailInfo: MovieTvShowDetails?
-    private var similarItems: [SearchModel]?
-    private var recommendedItems: [SearchModel]?
+//    private var detailInfo: MovieTvShowDetails?
+//    private var similarItems: [SearchModel]?
+//    private var recommendedItems: [SearchModel]?
     private(set) var controller: CoordinatorDelegate
 
     
@@ -44,11 +44,13 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
                   with detailsManager: DetailsManagerProtocol,
                   with castManager: CastManagerProtocol,
                   with controller: CoordinatorDelegate) {
+        
         self.similarItemsManager = similarItemsManager
         self.detailsManager = detailsManager
         self.recommendedItemsManager = recommendedItemsManager
         self.castManager = castManager
         self.controller = controller
+        
     }
     
     // MARK: - Fetch Info

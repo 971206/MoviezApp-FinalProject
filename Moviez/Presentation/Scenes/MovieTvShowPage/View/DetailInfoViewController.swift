@@ -17,25 +17,17 @@ class DetailInfoViewController: BaseViewController {
     private var castManager: CastManagerProtocol!
     private var dataSource: DetailInfoDataSource!
     private var viewModel: DetailInfoViewModel!
-    var navCont: UINavigationController!
     private var profileViewModel: ProfileViewModelProtocol!
     private var firebaseManager: FirebaseManagerProtocol!
-    
-    var similarItemsList: [SearchModel]?
-    var recommendedItemsList: [SearchModel]?
-    
-    
     var idOfItem: Int?
     var typeOfItem: MediaType.RawValue?
-    var detailInfo: MovieTvShowDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.startLoading()
         configureDataSource()
         configureTableView()
     }
-    
-  
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,6 +41,7 @@ class DetailInfoViewController: BaseViewController {
         navigationController?.isNavigationBarHidden = false
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        
     }
     
     private func configureDataSource() {
@@ -64,7 +57,8 @@ class DetailInfoViewController: BaseViewController {
                                         with: castManager,
                                         with: self)
         dataSource = DetailInfoDataSource(with: tableView,
-                                          viewModel: viewModel)
+                                          viewModel: viewModel,
+                                          vc: self)
         dataSource.id = idOfItem
         dataSource.mediaType = typeOfItem
         dataSource.refresh()

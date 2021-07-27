@@ -22,7 +22,7 @@ protocol CoordinatorProtocol: AnyObject {
     func alertRegistrationProblem(message: String)
     func onTrendingTvShowClicked(tvShow: TvShowViewModel)
     func alertRegistrationSuccess()
-    func alertSignInProblem()
+    func alertLogInProblem()
     func proceedToProfile()
     func proceedToSignUp()
     func proceetToReviews(with itemID: Int, mediaType: String)
@@ -49,7 +49,7 @@ extension CoordinatorProtocol {
     func alertRegistrationProblem(message: String) {}
     func onTrendingTvShowClicked(tvShow: TvShowViewModel) {}
     func alertRegistrationSuccess() {}
-    func alertSignInProblem(){}
+    func alertLogInProblem(){}
     func proceedToProfile() {}
     func proceedToSignUp(){}
     func proceetToReviews(with itemID: Int, mediaType: String) {}

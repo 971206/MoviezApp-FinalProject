@@ -26,15 +26,19 @@ class DetailInfoDataSource: NSObject {
     var recomendedItemsFetched = false
     var similarItemsFetched = false
     var castInfoFetched = false
+    private var vc: UIViewController?
     
     
-    init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol) {
+    init(with tableView: UITableView, viewModel: DetailInfoViewModelProtocol, vc: UIViewController) {
         super.init()
         
         self.tableView = tableView
         self.viewModel = viewModel
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        self.vc = vc
     }
     
     
@@ -66,9 +70,10 @@ class DetailInfoDataSource: NSObject {
     }
     
     func reloadFetchedData(){
-//        if castInfoFetched && similarItemsFetched && recomendedItemsFetched && detailInfoFetched {
+        if castInfoFetched && similarItemsFetched && recomendedItemsFetched && detailInfoFetched {
+            self.vc?.view.stopLoading()
             self.tableView.reloadData()
-       // }
+        }
     }
     
 }

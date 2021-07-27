@@ -17,30 +17,16 @@ class RegistrationViewController: BaseViewController {
     @IBOutlet weak var fieldEmail: UITextField!
     @IBOutlet weak var fieldPassword: UITextField!
     @IBOutlet weak var buttonRegistration: UIButton!
-    @IBOutlet weak var buttonShowAndHide: UIButton!
-    @IBOutlet weak var buttonView: UIView!
-    private var firebaseHelper = FirebaseHelper()
-
-    private var isHidden = true
+    
     
     //MARK:- VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-       addGradient()
+        configureRegistrationButton()
     }
     
-    func addGradient() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame.size = buttonRegistration.frame.size
-        gradientLayer.colors =
-            [UIColor(hex: "931BBD").cgColor, UIColor(hex: "FD286F").cgColor]
-        buttonRegistration.layer.addSublayer(gradientLayer)
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    func configureRegistrationButton() {
+        buttonRegistration.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
         buttonRegistration.layer.masksToBounds = true
         buttonRegistration.layer.cornerRadius = 8
     }
@@ -55,54 +41,27 @@ class RegistrationViewController: BaseViewController {
         return nil
     }
     
-   //MARK: - IBActions
+    //MARK: - IBActions
     @IBAction func onCreateAccount(_ sender: Any) {
         let error = validateFields()
-        
         if error != nil {
-//            alertProblem(message: error ?? "")
+            alertProblem(message: error ?? "")
             self.coordinator?.alertRegistrationProblem(message: error ?? "")
-
+            
         } else {
             if let email = fieldEmail.text, let password = fieldPassword.text, let fullName = fieldFullName.text {
-                Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                    if let error = error  {
-                        self.alertProblem(message: error.localizedDescription )
-                        self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
-                        print(error.localizedDescription)
-                    } else {
-                        let dataBase = Firestore.firestore()
-                        let uid = Auth.auth().currentUser?.uid
-                        dataBase.collection("users").document(uid!).setData(["fullName" : fullName, "uid" : uid!]) { error in
-                            if error != nil {
-                                guard let error = error?.localizedDescription else {return}
-                                self.coordinator?.alertRegistrationProblem(message: error)
-                            }
-                        }
-                        self.coordinator?.alertRegistrationSuccess()
+                FirebaseHelper.signUp(email: email, password: password, fullName: fullName) { completed in
+                    if completed {
+                        //                        self.coordinator?.alertRegistrationSuccess()
                         self.alertSuccess()
+                    } else {
+                        self.alertProblem(message: "problem")
                     }
                 }
-            
-
             }
-            
         }
         
     }
-    
-    
-//    @IBAction func onShowAndHide(_ sender: UIButton) {
-//        if !isHidden {
-//            sender.setImage(UIImage(named: "ic_show"), for: .normal)
-//            fieldPassword.isSecureTextEntry = true
-//            isHidden = true
-//        } else {
-//            sender.setImage(UIImage(named: "ic_hide"), for: .normal)
-//            fieldPassword.isSecureTextEntry = false
-//            isHidden = false
-//        }
-//    }
     
     //MARK: - Alerts
     private func alertProblem(message: String) {

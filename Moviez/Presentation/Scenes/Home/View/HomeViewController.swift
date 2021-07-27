@@ -78,7 +78,6 @@ class HomeViewController: BaseViewController {
         dataSource = HomeDataSource(with: tableView,
                                     viewModel: viewModel, homeVC: self)
         dataSource.refresh()
-//        dataSource.fetchRecommended()
     }
 }
 

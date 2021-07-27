@@ -14,7 +14,7 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     private var searchCoordinator = SearchCoordinator()
     private var newsCoordinator = NewsCoordinator()
     private var profileCoordinator = ProfileCoordinator()
-    private var signInCoordinator = SignInCoordinator()
+    private var logInCoordinator = LogInCoordinator()
     var coordinator: CoordinatorProtocol?
     
     
@@ -23,11 +23,12 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         UDManager.markOnboarded()
+        
         viewControllers = [
             homeCoordinator.navigationController!,
             searchCoordinator.navigationController!,
             newsCoordinator.navigationController!,
-            signInCoordinator.navigationController!,
+            logInCoordinator.navigationController!,
         ]
         addSignInObersver()
         addSignOutObserver()
@@ -94,7 +95,7 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
         if let viewControllers = self.viewControllers {
             var controllers = viewControllers
             controllers.removeLast()
-            let signInVC = signInCoordinator.navigationController!
+            let signInVC = logInCoordinator.navigationController!
             controllers.append(signInVC)
             self.setViewControllers(controllers, animated: true)
         }

@@ -22,12 +22,13 @@ class FirebaseHelper {
     static func signUp(email: String, password: String, fullName: String, completion: @escaping(Bool) -> Void) {
          let firebaseAuth = Auth.auth()
          let database = Firestore.firestore()
-         let currentUserID = Auth.auth().currentUser?.uid
+         
         
-         firebaseAuth.createUser(withEmail: email, password: password) { result, error in
+         firebaseAuth.createUser(withEmail: email, password: password) { _ , error in
              if error != nil {
                  completion(false)
              } else {
+                let currentUserID = Auth.auth().currentUser?.uid
                  database.collection("users").document(currentUserID ?? "").setData(["fullName" : fullName, "uid" : currentUserID ?? ""]) { error in
                      if error != nil {
                          completion(false)

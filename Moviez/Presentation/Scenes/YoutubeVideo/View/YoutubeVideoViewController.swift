@@ -33,7 +33,7 @@ class YoutubeVideoViewController: BaseViewController {
     }
     
     @objc func tapped() {
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.8) {
             self.view.alpha = 0
         } completion: { _ in
             self.dismiss(animated: false, completion: nil)
@@ -46,7 +46,7 @@ class YoutubeVideoViewController: BaseViewController {
     }
     
     private func presentWithAnimation() {
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.8) {
             self.view.alpha = 1
             self.playerView.isHidden = false
         } completion: { completed in
