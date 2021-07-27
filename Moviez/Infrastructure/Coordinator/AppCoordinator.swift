@@ -22,7 +22,16 @@ final class AppCoordinator: CoordinatorProtocol {
         self.navigationController = navigationController
     }
     
-    func start() {
+    func startWithWelcomePage() {
+        let vc = WelcomeViewController.instantiateFromStoryboard()
+        vc.coordinator = self
+        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.isNavigationBarHidden = true
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+    }
+    
+    func startWithTabBar() {
         let vc = TabBarViewController.instantiateFromStoryboard()
         vc.coordinator = self
         navigationController?.setViewControllers([vc], animated: false)
@@ -30,4 +39,10 @@ final class AppCoordinator: CoordinatorProtocol {
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
+    
+    func proceedToTabBar() {
+          let vc = TabBarViewController.instantiateFromStoryboard()
+          vc.coordinator = self
+          navigationController?.pushViewController(vc, animated: true)
+      }
 }

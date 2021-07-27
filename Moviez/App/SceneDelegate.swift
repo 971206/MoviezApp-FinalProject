@@ -61,7 +61,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func configureRootVC(with scene: UIWindowScene) {
         window = UIWindow(windowScene: scene)
         coordinator = AppCoordinator(window, navigationController: UINavigationController())
-        coordinator?.start()
+        if UDManager.isOnboarded {
+            coordinator?.startWithTabBar()
+        } else {
+            coordinator?.startWithWelcomePage()
+        }
     }
 }
 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WelcomeCell" customModule="Moviez" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="590"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="590"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pfK-Qp-gdv">
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="590"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="ljb-fL-MWe">
+                                <rect key="frame" x="16" y="390" width="313" height="154"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moviez will help you to keep track what to watch." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hoa-W2-sM0">
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="60"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                        <color key="textColor" name="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register, add movies and Tv shows in Watchlist and get back to them anytime you want" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2U-Bp-wvR">
+                                        <rect key="frame" x="0.0" y="83" width="300" height="71"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" name="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_welcome_2" translatesAutoresizingMaskIntoConstraints="NO" id="lUf-lW-qnb">
+                                <rect key="frame" x="0.0" y="40" width="345" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="4h7-gd-QdN"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="lightBackground"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ljb-fL-MWe" secondAttribute="trailing" constant="16" id="8Mg-QX-t7o"/>
+                            <constraint firstItem="lUf-lW-qnb" firstAttribute="top" secondItem="pfK-Qp-gdv" secondAttribute="top" constant="40" id="AaV-wj-OIi"/>
+                            <constraint firstItem="ljb-fL-MWe" firstAttribute="top" secondItem="lUf-lW-qnb" secondAttribute="bottom" constant="50" id="a2B-T7-9Ny"/>
+                            <constraint firstAttribute="trailing" secondItem="lUf-lW-qnb" secondAttribute="trailing" id="u2F-1B-y80"/>
+                            <constraint firstItem="lUf-lW-qnb" firstAttribute="leading" secondItem="pfK-Qp-gdv" secondAttribute="leading" id="wNU-8E-wdr"/>
+                            <constraint firstItem="ljb-fL-MWe" firstAttribute="leading" secondItem="pfK-Qp-gdv" secondAttribute="leading" constant="16" id="y2s-VE-YVA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pfK-Qp-gdv" secondAttribute="trailing" id="O57-0B-X5Q"/>
+                <constraint firstItem="pfK-Qp-gdv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VPz-lV-m0n"/>
+                <constraint firstAttribute="bottom" secondItem="pfK-Qp-gdv" secondAttribute="bottom" id="ZOv-iT-faL"/>
+                <constraint firstItem="pfK-Qp-gdv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="pTi-fB-x5S"/>
+            </constraints>
+            <size key="customSize" width="345" height="590"/>
+            <connections>
+                <outlet property="imgIllustration" destination="lUf-lW-qnb" id="j6y-2Z-H80"/>
+                <outlet property="labelText" destination="I2U-Bp-wvR" id="YN2-Kz-BCL"/>
+                <outlet property="labelTitle" destination="Hoa-W2-sM0" id="S7A-Fv-yBl"/>
+            </connections>
+            <point key="canvasLocation" x="34.057971014492757" y="30.133928571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="img_welcome_2" width="3710" height="3710"/>
+        <namedColor name="lightBackground">
+            <color red="0.082352941176470587" green="0.070588235294117646" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textColor">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

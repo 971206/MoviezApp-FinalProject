@@ -9,17 +9,11 @@ import UIKit
 
 protocol CoordinatorProtocol: AnyObject {
 
-    
-    var newsManager: NewsManagerProtocol? { get }
-    
     init(_ window: UIWindow?, navigationController: UINavigationController?)
     
-    
-    
-    
-    
-    func start()
-
+    func startWithWelcomePage()
+    func startWithTabBar()
+    func proceedToTabBar()
     func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel)
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel)
     func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String)
@@ -43,12 +37,10 @@ protocol CoordinatorProtocol: AnyObject {
 
 
 extension CoordinatorProtocol {
-    var newsManager: NewsManagerProtocol? {
-        set { print("") }
-        get { nil }
-    }
-    
-    func start(){}
+
+    func startWithWelcomePage(){}
+    func startWithTabBar(){}
+    func proceedToTabBar() {}
     func proceedToDetailsFromSearchMovieAndTvShowChoosed(with item : SearchModel) {}
     func proceedToDetailsFromSearchWhenPersonChoosed(with item: SearchModel){}
     func proceedToMovieAndTvShowDetailInfo(id: Int, mediaType: String){}

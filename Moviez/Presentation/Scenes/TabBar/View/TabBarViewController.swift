@@ -22,7 +22,7 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     // MARK: - VC LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UDManager.markOnboarded()
         viewControllers = [
             homeCoordinator.navigationController!,
             searchCoordinator.navigationController!,

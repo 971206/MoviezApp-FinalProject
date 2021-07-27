@@ -177,6 +177,15 @@
 		FA8FAE2D26B014D90062EFCA /* NothingAddedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FAE2B26B014D90062EFCA /* NothingAddedCell.swift */; };
 		FA8FAE2E26B014D90062EFCA /* NothingAddedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8FAE2C26B014D90062EFCA /* NothingAddedCell.xib */; };
 		FA8FAE3126B03DDA0062EFCA /* welcomePages.json in Resources */ = {isa = PBXBuildFile; fileRef = FA8FAE3026B03DDA0062EFCA /* welcomePages.json */; };
+		FA8FAE3426B03E9D0062EFCA /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FAE3326B03E9D0062EFCA /* DataProvider.swift */; };
+		FA8FAE3726B0403F0062EFCA /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FAE3626B0403F0062EFCA /* WelcomeViewController.swift */; };
+		FA8FAE3926B0404D0062EFCA /* WelcomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8FAE3826B0404D0062EFCA /* WelcomeViewController.storyboard */; };
+		FA8FAE3F26B040A60062EFCA /* WelcomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FAE3D26B040A60062EFCA /* WelcomeCell.swift */; };
+		FA8FAE4026B040A60062EFCA /* WelcomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA8FAE3E26B040A60062EFCA /* WelcomeCell.xib */; };
+		FA8FAE4326B0437E0062EFCA /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FAE4226B0437E0062EFCA /* WelcomePage.swift */; };
+		FA8FAE4526B043FF0062EFCA /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FAE4426B043FF0062EFCA /* WelcomeViewModel.swift */; };
+		FA8FAE4726B044080062EFCA /* WelcomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FAE4626B044080062EFCA /* WelcomeDataSource.swift */; };
+		FA8FAE4C26B055210062EFCA /* UDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FAE4B26B055210062EFCA /* UDManager.swift */; };
 		FA94730A266CAFFA0094069D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA947309266CAFFA0094069D /* SignInViewController.swift */; };
 		FA94730C266CB0020094069D /* SignInViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA94730B266CB0020094069D /* SignInViewController.storyboard */; };
 		FA94731D266D158D0094069D /* DetailInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA94731C266D158D0094069D /* DetailInfoViewController.storyboard */; };
@@ -377,6 +386,15 @@
 		FA8FAE2B26B014D90062EFCA /* NothingAddedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingAddedCell.swift; sourceTree = "<group>"; };
 		FA8FAE2C26B014D90062EFCA /* NothingAddedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NothingAddedCell.xib; sourceTree = "<group>"; };
 		FA8FAE3026B03DDA0062EFCA /* welcomePages.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = welcomePages.json; sourceTree = "<group>"; };
+		FA8FAE3326B03E9D0062EFCA /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		FA8FAE3626B0403F0062EFCA /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		FA8FAE3826B0404D0062EFCA /* WelcomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WelcomeViewController.storyboard; sourceTree = "<group>"; };
+		FA8FAE3D26B040A60062EFCA /* WelcomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCell.swift; sourceTree = "<group>"; };
+		FA8FAE3E26B040A60062EFCA /* WelcomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeCell.xib; sourceTree = "<group>"; };
+		FA8FAE4226B0437E0062EFCA /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
+		FA8FAE4426B043FF0062EFCA /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		FA8FAE4626B044080062EFCA /* WelcomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeDataSource.swift; sourceTree = "<group>"; };
+		FA8FAE4B26B055210062EFCA /* UDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UDManager.swift; sourceTree = "<group>"; };
 		FA947309266CAFFA0094069D /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		FA94730B266CB0020094069D /* SignInViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignInViewController.storyboard; sourceTree = "<group>"; };
 		FA94731C266D158D0094069D /* DetailInfoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailInfoViewController.storyboard; sourceTree = "<group>"; };
@@ -981,8 +999,8 @@
 		FA4BDC6F269A290100B2369B /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				FA4BDC70269A291600B2369B /* CoordinatorProtocol.swift */,
 				FA4BDC72269A299300B2369B /* AppCoordinator.swift */,
+				FA4BDC70269A291600B2369B /* CoordinatorProtocol.swift */,
 				FA4BDC74269A29D700B2369B /* CoordinatorDelegate.swift */,
 				FA4BDC76269A29F000B2369B /* Storyboarded.swift */,
 			);
@@ -1082,6 +1100,7 @@
 		FA607F0A266B843E009C9C61 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FA8FAE4126B0436C0062EFCA /* WelcomePage */,
 				FA04671626A5F75200C1A411 /* Awards */,
 				FA3F7BEE26A4B3CA00265171 /* Firebase */,
 				FA3CD772269F8B7E00A56BCA /* TvShowSeason */,
@@ -1103,22 +1122,24 @@
 		FA607F11266B84B0009C9C61 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				FA8FAE3226B03E930062EFCA /* Data */,
 				FA6426F426ACB073003017B3 /* Firebase */,
 				FA83813026A373310091F0ED /* CustomComponents */,
 				FA4BDC6F269A290100B2369B /* Coordinator */,
 				FA607F1A266B8506009C9C61 /* Extensions */,
 				FA607F15266B84DC009C9C61 /* Helpers */,
-				FA607F12266B84BF009C9C61 /* Networking */,
+				FA607F12266B84BF009C9C61 /* Managers */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
-		FA607F12266B84BF009C9C61 /* Networking */ = {
+		FA607F12266B84BF009C9C61 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				FA607F13266B84CE009C9C61 /* NetworkManager.swift */,
+				FA8FAE4B26B055210062EFCA /* UDManager.swift */,
 			);
-			path = Networking;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		FA607F15266B84DC009C9C61 /* Helpers */ = {
@@ -1159,6 +1180,7 @@
 			isa = PBXGroup;
 			children = (
 				FA4BDC78269A2A2700B2369B /* Base */,
+				FA8FAE3526B03FBD0062EFCA /* Welcome */,
 				FA607F25266B85D6009C9C61 /* TabBar */,
 				FA607F2B266B8669009C9C61 /* Home */,
 				FA2B634B2672A9A90000A038 /* Reviews */,
@@ -1338,6 +1360,59 @@
 				FA8FAE3026B03DDA0062EFCA /* welcomePages.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		FA8FAE3226B03E930062EFCA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FA8FAE3326B03E9D0062EFCA /* DataProvider.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FA8FAE3526B03FBD0062EFCA /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				FA8FAE3B26B040620062EFCA /* ViewModel */,
+				FA8FAE3A26B040550062EFCA /* View */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		FA8FAE3A26B040550062EFCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA8FAE3C26B040930062EFCA /* WelcomeCell */,
+				FA8FAE3626B0403F0062EFCA /* WelcomeViewController.swift */,
+				FA8FAE3826B0404D0062EFCA /* WelcomeViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA8FAE3B26B040620062EFCA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA8FAE4426B043FF0062EFCA /* WelcomeViewModel.swift */,
+				FA8FAE4626B044080062EFCA /* WelcomeDataSource.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FA8FAE3C26B040930062EFCA /* WelcomeCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA8FAE3D26B040A60062EFCA /* WelcomeCell.swift */,
+				FA8FAE3E26B040A60062EFCA /* WelcomeCell.xib */,
+			);
+			path = WelcomeCell;
+			sourceTree = "<group>";
+		};
+		FA8FAE4126B0436C0062EFCA /* WelcomePage */ = {
+			isa = PBXGroup;
+			children = (
+				FA8FAE4226B0437E0062EFCA /* WelcomePage.swift */,
+			);
+			path = WelcomePage;
 			sourceTree = "<group>";
 		};
 		FA947307266CAFCD0094069D /* SignIn */ = {
@@ -1565,6 +1640,7 @@
 				FA3A612F26A82DA300B6C4AB /* CelebrityItem.xib in Resources */,
 				FA04670226A5728C00C1A411 /* Sarabun-Regular.ttf in Resources */,
 				FA3A612A26A82D7500B6C4AB /* CelebrityCell.xib in Resources */,
+				FA8FAE4026B040A60062EFCA /* WelcomeCell.xib in Resources */,
 				FA04672426A5FB7D00C1A411 /* AwardsItem.xib in Resources */,
 				FA2B634F2672A9F70000A038 /* ReviewsListViewController.storyboard in Resources */,
 				FA3DAC202688756900E75C35 /* BaseCell.xib in Resources */,
@@ -1613,6 +1689,7 @@
 				FA04671F26A5FB5800C1A411 /* AwardsCell.xib in Resources */,
 				FA2B63532672AC4D0000A038 /* ReviewsCell.xib in Resources */,
 				FAF31AFE26AEDD6100304928 /* RecommendationCell.xib in Resources */,
+				FA8FAE3926B0404D0062EFCA /* WelcomeViewController.storyboard in Resources */,
 				FA3C6B1526A9AE47000EDFD2 /* SeasonCell.xib in Resources */,
 				FA607EFC266B83D3009C9C61 /* LaunchScreen.storyboard in Resources */,
 				FA607EF9266B83D3009C9C61 /* Assets.xcassets in Resources */,
@@ -1631,9 +1708,11 @@
 				FA3BFF962687A96600F076E5 /* PersonViewController.swift in Sources */,
 				FA3EC3632691C5A300BDA214 /* HomeViewModel.swift in Sources */,
 				FA440CBD266FAE3D00F2B22D /* SearchListViewModel.swift in Sources */,
+				FA8FAE4526B043FF0062EFCA /* WelcomeViewModel.swift in Sources */,
 				FA5860812673766600933FF7 /* ReviewsViewModel.swift in Sources */,
 				FA04671326A5B63A00C1A411 /* YoutubeVideoViewModel.swift in Sources */,
 				FA607F14266B84CE009C9C61 /* NetworkManager.swift in Sources */,
+				FA8FAE3726B0403F0062EFCA /* WelcomeViewController.swift in Sources */,
 				FA3BFF9E2687AA4600F076E5 /* PersonInfo.swift in Sources */,
 				FA3DAC2B2688845D00E75C35 /* CastItem.swift in Sources */,
 				FA04670626A5A42900C1A411 /* YoutubeVideoViewController.swift in Sources */,
@@ -1658,9 +1737,11 @@
 				FA2AFA5A268D0FAB00F34245 /* PersonManager.swift in Sources */,
 				FA8FAE2926B0127E0062EFCA /* MoreNewsViewModel.swift in Sources */,
 				FA32AECD2674A71400D3F0F3 /* SearchModel.swift in Sources */,
+				FA8FAE4326B0437E0062EFCA /* WelcomePage.swift in Sources */,
 				FA3C6B1426A9AE47000EDFD2 /* SeasonCell.swift in Sources */,
 				FA20B40026754F1E0020065A /* NewsManager.swift in Sources */,
 				FA607F1E266B8536009C9C61 /* UITableView + Extension.swift in Sources */,
+				FA8FAE4C26B055210062EFCA /* UDManager.swift in Sources */,
 				FA04672826A6026100C1A411 /* UITableViewCell + Extension.swift in Sources */,
 				FA2B63572672ACA10000A038 /* Review.swift in Sources */,
 				FA3A611D26A8177100B6C4AB /* TvShowCell.swift in Sources */,
@@ -1704,6 +1785,7 @@
 				FA3F7BF326A4D8E200265171 /* DescriptionCell.swift in Sources */,
 				FA607F20266B854B009C9C61 /* UICollectionView + Extension.swift in Sources */,
 				FA2B63522672AC4D0000A038 /* ReviewsCell.swift in Sources */,
+				FA8FAE3426B03E9D0062EFCA /* DataProvider.swift in Sources */,
 				FA947335266D6D7A0094069D /* BoxOfficeManager.swift in Sources */,
 				FA03419226A74F1C00712CDE /* MoviesItem.swift in Sources */,
 				FA94731F266D53400094069D /* TrendingMoviesManager.swift in Sources */,
@@ -1722,6 +1804,7 @@
 				FA3F7BEC26A4A28A00265171 /* InTheatersCell.swift in Sources */,
 				FA3BFF9C2687AA1E00F076E5 /* PersonDataSource.swift in Sources */,
 				FA607F30266B868E009C9C61 /* HomeViewController.swift in Sources */,
+				FA8FAE4726B044080062EFCA /* WelcomeDataSource.swift in Sources */,
 				FA20B40B267551B00020065A /* NewsCell.swift in Sources */,
 				FA440CB4266FA7D200F2B22D /* MoviesResponse.swift in Sources */,
 				FA04671526A5D6B800C1A411 /* Double + Extension.swift in Sources */,
@@ -1736,6 +1819,7 @@
 				FA6426F326AC86BC003017B3 /* FirebaseHelper.swift in Sources */,
 				FA607F6C266C1341009C9C61 /* TvShows.swift in Sources */,
 				FA04672326A5FB7D00C1A411 /* AwardsItem.swift in Sources */,
+				FA8FAE3F26B040A60062EFCA /* WelcomeCell.swift in Sources */,
 				FA3CD768269F740400A56BCA /* SearchCoordinator.swift in Sources */,
 				FA58607F2673765500933FF7 /* ReviewsDataSource.swift in Sources */,
 				FA947323266D53810094069D /* ComingSoonManager.swift in Sources */,
