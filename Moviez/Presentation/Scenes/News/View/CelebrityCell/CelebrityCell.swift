@@ -66,4 +66,11 @@ extension CelebrityCell: UICollectionViewDataSource, UICollectionViewDelegate, U
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+      cell.alpha = 0
+      UIView.animate(withDuration: 0.6) {
+          cell.alpha = 1
+      }
+  }
 }

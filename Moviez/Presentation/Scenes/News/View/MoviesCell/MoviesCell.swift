@@ -67,5 +67,11 @@ extension MoviesCell: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+      cell.alpha = 0
+      UIView.animate(withDuration: 0.6) {
+          cell.alpha = 1
+      }
+  }
     
 }
