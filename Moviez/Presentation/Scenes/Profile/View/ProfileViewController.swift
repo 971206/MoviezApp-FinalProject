@@ -16,30 +16,25 @@ class ProfileViewController: BaseViewController {
     // MARK: - Profile Outlets
     @IBOutlet weak var labelWelcomeUser: UILabel!
     @IBOutlet weak var buttonLogOut: UIButton!
-    @IBOutlet weak var buttonDone: UIButton!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var collectionView: UICollectionView!
     private var dataSource: ProfileDataSource!
     private var viewModel: ProfileViewModelProtocol!
     private var firebaseManager: FirebaseManagerProtocol!
     let firebaseAuth = Auth.auth()
-    var longPressedEnabled = false
     let currentUserId =  Auth.auth().currentUser?.uid
     let currentUser =  Auth.auth().currentUser?.email
-    
-    let firebaseHelper = FirebaseHelper()
-    
+        
     //MARK: - VC Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        labelWelcomeUser.text = currentUser?.dropLast(10)
+        labelWelcomeUser.text = "Welcome to Moviez \(currentUser?.dropLast(10).uppercased() ?? "")" 
         setupLayout()
         configureDataSource()
-        collectionView.registerNib(class: ProfileCell.self)
+        setupCollectioView()
         segmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged(_:)), for: .valueChanged)
         
-    
     }
     
     
@@ -60,9 +55,11 @@ class ProfileViewController: BaseViewController {
 //                }
 //            }
 //        }
-          
-        
-        
+    }
+    
+    func setupCollectioView() {
+        collectionView.registerNib(class: ItemsCell.self)
+        collectionView.registerNib(class: NothingAddedCell.self)
     }
     
     

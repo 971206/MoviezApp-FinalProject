@@ -8,17 +8,17 @@
 import UIKit
 
 
-protocol ProfileCellDelegate: AnyObject {
-    func delete(cell: ProfileCell)
+protocol ItemsCellDelegate: AnyObject {
+    func delete(cell: ItemsCell)
 }
 
-class ProfileCell: UICollectionViewCell {
+class ItemsCell: UICollectionViewCell {
     @IBOutlet weak var imagePoster: UIImageView!
 
     @IBOutlet weak var buttonDeleteView: UIButton!
     @IBOutlet weak var buttonDelete: UIButton!
     
-    weak var delegate : ProfileCellDelegate?
+    weak var delegate : ItemsCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()

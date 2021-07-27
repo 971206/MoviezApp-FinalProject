@@ -30,8 +30,6 @@ class DescriptionCell: UITableViewCell {
     }
     
     private func setupLayout() {
-      
-//        buttonPlayTrailer.setGradientBackground(colorOne: UIColor(hex: "931BBD"), colorTwo: UIColor(hex: "FD286F"))
         buttonPlayTrailer.layer.cornerRadius = buttonPlayTrailer.bounds.width / 2
         imagePoster.layer.cornerRadius = 20
         buttonPlayTrailer.layer.masksToBounds = true

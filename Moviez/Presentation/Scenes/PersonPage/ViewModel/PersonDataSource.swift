@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class PersonDataSource: NSObject {
     
     private var tableView: UITableView!
     private var viewModel: PersonViewModelProtocol!
@@ -42,8 +42,11 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             self?.tableView.reloadData()
         }
     }
-    
-    
+}
+
+// MARK: - TableView Datasource and Delegate
+ 
+extension PersonDataSource: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -88,6 +91,7 @@ class PersonDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+//MARK: - Cell Delegates
 extension PersonDataSource: PersonCreditsDelegate {
     func onTvShowCreditsClicked(id: Int) {
         viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: MediaType.tv.rawValue)

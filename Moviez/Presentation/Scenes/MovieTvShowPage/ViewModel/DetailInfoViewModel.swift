@@ -58,18 +58,11 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
         }
     }
     
-    
-    
-    
     func fetchDetailInfo(id: Int, type: String, completion: @escaping (MovieTvShowDetails) -> Void) {
         detailsManager.fetchDetailInfo(id: id, type: type) {detailInfo in
             completion(detailInfo)
         }
     }
-    
-    
-    
-    
     
     func fetchSimilarItems(with type: String, id: Int, completion: @escaping ([SearchModel]) -> Void) {
         similarItemsManager.fetchSimilarItems(with: type, id: id) {similarItems in

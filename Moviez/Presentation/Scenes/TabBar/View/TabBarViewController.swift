@@ -7,10 +7,6 @@
 
 import UIKit
 import FirebaseAuth
-//
-//protocol TabBarViewControllerDelegate {
-//    func getData()
-//}
 
 class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegate {
     
@@ -32,23 +28,20 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
             searchCoordinator.navigationController!,
             newsCoordinator.navigationController!,
             signInCoordinator.navigationController!,
-//            profileCoordinator.navigationController!
         ]
         addSignInObersver()
         addSignOutObserver()
-        setupTabbar()
-//        addSignInObersver()
-//        addSignOutObserver()
+
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(false)
         setupTabBar()
         checkUserSignedIn()
-
-        
     }
+    
+    
     
     //MARK: - Add Oberver
     func addSignInObersver() {
@@ -72,7 +65,7 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
         if Auth.auth().currentUser != nil {
             appendProfileVc()
         } else {
-           appendSignIn()
+           appendSignInVc()
         }
     }
     
@@ -94,10 +87,10 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     //MARK: - Show Sign in page when user signed out
     
     @objc func userSignedOut(with: Notification) {
-        appendSignIn()
+        appendSignInVc()
     }
 
-    func appendSignIn() {
+    func appendSignInVc() {
         if let viewControllers = self.viewControllers {
             var controllers = viewControllers
             controllers.removeLast()
@@ -115,25 +108,10 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
         items[2].title = "News"
         items[3].title = "Profile"
         items[1].image = UIImage(named: "ic_search")
-    }
-    
-    //MARK: - Setup TabBar
-    func setupTabbar() {
         tabBar.tintColor = UIColor(named: "pink")
         tabBar.layer.cornerRadius = 20
         tabBar.layer.masksToBounds = true
         tabBar.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
-    
-
-    
-  
 }
-
-//extension TabBarViewController: TabBarViewControllerDelegate {
-//    func getData() {
-//        print("get data called")
-//    }
-//}
-// romeli vcdan ginda wamogeba? 
 

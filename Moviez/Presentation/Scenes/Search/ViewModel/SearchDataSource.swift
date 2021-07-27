@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class SearchDataSource: NSObject {
     
  //MARK: - Private Properties
     private var tableView: UITableView!
@@ -56,8 +56,11 @@ class SearchDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             self.tableView.reloadData()
         }
     }
+}
     
-    //MARK: - TableView DataSource
+//MARK: - TableView DataSource
+    
+extension SearchDataSource: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchResult?.count == 0 || searchResult == nil { return 1 }
         return searchResult?.count ?? 0

@@ -67,7 +67,7 @@ class RegistrationViewController: BaseViewController {
             if let email = fieldEmail.text, let password = fieldPassword.text, let fullName = fieldFullName.text {
                 Auth.auth().createUser(withEmail: email, password: password) { result, error in
                     if let error = error  {
-//                        self.alertProblem(message: error.localizedDescription )
+                        self.alertProblem(message: error.localizedDescription )
                         self.coordinator?.alertRegistrationProblem(message: error.localizedDescription)
                         print(error.localizedDescription)
                     } else {

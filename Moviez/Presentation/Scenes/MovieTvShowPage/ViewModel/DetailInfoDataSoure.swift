@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
+class DetailInfoDataSource: NSObject {
     
     
     private var tableView: UITableView!
@@ -71,6 +71,9 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
        // }
     }
     
+}
+ 
+extension DetailInfoDataSource: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -127,9 +130,23 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 { return  UITableView.automaticDimension}
+        if indexPath.row == 1 && mediaType == "tv" { return 100 }
+        if indexPath.row == 2 { return castList?.count != 0 ? 305 : 0 }
+        if indexPath.row == 3 { return similarItemsList?.count != 0 ? 305 : 0 }
+        if indexPath.row == 4 { return recommendedItemsList?.count != 0 ? 305 : 0 }
+        return 0
+    }
+    
+    //MARK: - Proceed to Reviews
+    
     @objc func proceedToReviews() {
         viewModel.controller.coordinator?.proceetToReviews(with: id ?? 0, mediaType: mediaType ?? "")
     }
+    
+    //MARK: - Add to Favorites
     
     @objc func addToFavorites (_ sender: Any) {
         guard let mediaType = mediaType else {return}
@@ -149,9 +166,10 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         } else {
             self.viewModel.controller.coordinator?.alertWhenUserAddsInCollection(with: "In order to add items in favorites, you need to Sign in.")
         }
-        
-        
     }
+    
+    //MARK: - Add to Watchlist
+    
     @objc func addToWatchlist(_ sender: Any) {
         guard let mediaType = mediaType else {return}
         guard let id = id else  {return}
@@ -172,21 +190,15 @@ class DetailInfoDataSource: NSObject, UITableViewDataSource, UITableViewDelegate
         
     }
     
+    //MARK: - Play Trailer
     @objc func playTrailer() {
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
     }
-    
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.row == 0 { return  UITableView.automaticDimension}
-        if indexPath.row == 1 && mediaType == "tv" { return 100 }
-        if indexPath.row == 2 { return 305 }
-        if indexPath.row == 3 { return similarItemsList?.count != 0 ? 305 : 0 }
-        if indexPath.row == 4 { return recommendedItemsList?.count != 0 ? 305 : 0 }
-        return 0
-    }
 }
+
+
+//MARK: - Cell Delegates
 
 extension DetailInfoDataSource: CastCellDelegate, SimilarCellDelegate {
     func onSimilarClicked(id: Int) {
