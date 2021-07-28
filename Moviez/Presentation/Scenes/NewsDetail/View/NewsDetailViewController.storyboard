@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSO-89-BpR" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="589.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="579.33333333333337"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1q-hb-1II">
                                                 <rect key="frame" x="16" y="30" width="382" height="26.333333333333329"/>
@@ -28,7 +28,7 @@
                                                 <color key="textColor" name="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PI5-fi-thJ">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PI5-fi-thJ">
                                                 <rect key="frame" x="0.0" y="76.333333333333314" width="414" height="250"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="2gT-IH-eXA"/>
@@ -65,7 +65,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDz-ua-hdJ">
-                                                <rect key="frame" x="288" y="519.33333333333337" width="110" height="40"/>
+                                                <rect key="frame" x="288" y="509.33333333333326" width="110" height="40"/>
                                                 <color key="backgroundColor" name="itemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="110" id="7X6-vq-4eb"/>
@@ -85,7 +85,7 @@
                                             <constraint firstItem="34q-5d-2LU" firstAttribute="leading" secondItem="pSO-89-BpR" secondAttribute="leading" constant="16" id="6sj-Jy-URK"/>
                                             <constraint firstItem="Ujo-Ez-jdK" firstAttribute="leading" secondItem="pSO-89-BpR" secondAttribute="leading" constant="16" id="9el-gv-J55"/>
                                             <constraint firstAttribute="trailing" secondItem="jDz-ua-hdJ" secondAttribute="trailing" constant="16" id="9l8-Gk-PFq"/>
-                                            <constraint firstItem="jDz-ua-hdJ" firstAttribute="top" secondItem="Ujo-Ez-jdK" secondAttribute="bottom" constant="50" id="DNB-ho-JwD"/>
+                                            <constraint firstItem="jDz-ua-hdJ" firstAttribute="top" secondItem="Ujo-Ez-jdK" secondAttribute="bottom" constant="40" id="DNB-ho-JwD"/>
                                             <constraint firstItem="HAm-W0-Eg0" firstAttribute="top" secondItem="PI5-fi-thJ" secondAttribute="bottom" constant="40" id="EXi-nT-UDk"/>
                                             <constraint firstAttribute="trailing" secondItem="34q-5d-2LU" secondAttribute="trailing" constant="16" id="HAs-c5-ZVi"/>
                                             <constraint firstItem="Ujo-Ez-jdK" firstAttribute="top" secondItem="34q-5d-2LU" secondAttribute="bottom" constant="10" id="IPr-Qj-v3e"/>

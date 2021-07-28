@@ -67,5 +67,4 @@ class LogInViewController: BaseViewController {
     @IBAction func onSignup(_ sender: Any) {
         coordinator?.proceedToSignUp()
     }
-    
 }

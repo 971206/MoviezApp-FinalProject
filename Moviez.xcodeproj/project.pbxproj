@@ -1373,8 +1373,8 @@
 		FA8FAE3526B03FBD0062EFCA /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				FA8FAE3B26B040620062EFCA /* ViewModel */,
 				FA8FAE3A26B040550062EFCA /* View */,
+				FA8FAE3B26B040620062EFCA /* ViewModel */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";

@@ -77,8 +77,6 @@ extension BaseCell: UICollectionViewDataSource {
         if let item = recommendedItemsList { return item.count }
         if let item = creditsTvShowList { return item.count }
         if let item = creditsMovieList { return item.count }
-
-        
         return 0
         
     }

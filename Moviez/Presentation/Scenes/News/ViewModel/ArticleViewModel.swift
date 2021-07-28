@@ -28,7 +28,7 @@ class ArticleViewModel {
         article.description
     }
     var content: String? {
-        article.content
+        article.content?.replacingOccurrences(of: "\\[[+\\w\\s]*\\]", with: "", options: .regularExpression).replacingOccurrences(of: "\n", with: "").replacingOccurrences(of: "\r", with: "")
     }
     var fullSourceName: String? {
         "\(article.author ?? ""),  \(article.source?.name ?? "")"

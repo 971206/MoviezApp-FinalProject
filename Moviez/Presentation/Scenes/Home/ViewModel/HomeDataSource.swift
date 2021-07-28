@@ -33,7 +33,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     var recommendedItemsForUserFetched = false
     var mediaTypeAndIdsList = [(Int, String)]()
     var recommendedItemsBasedOnFavorites: [SearchModel]?
-
+    
     init(with tableView: UITableView, viewModel: HomeViewModelProtocol, homeVC: HomeViewController) {
         super.init()
         self.tableView = tableView
@@ -70,50 +70,57 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             self.comingSoonInfoFetched = true
             self.reloadFetchedData()
         }
-//        viewModel.fetchBoxOfficeInfo { [weak self] boxOfficeList in
-//            guard let self = self else {return}
-//            self.boxOfficeList = boxOfficeList
-//            self.boxOfficeInfoFetched = true
-//            self.reloadFetchedData()
-//        }
-        viewModel.fetchUsersWatchlist { [weak self] usersWatchlist in
+        viewModel.fetchBoxOfficeInfo { [weak self] boxOfficeList in
             guard let self = self else {return}
-            if self.currentUser != nil {
-                self.usersWatchlist = usersWatchlist
-                self.tableView.reloadData()
-            }
+            self.boxOfficeList = boxOfficeList
+            self.boxOfficeInfoFetched = true
+            self.reloadFetchedData()
         }
-        viewModel.fetchUsersFavorites { [weak self] usersFavorites in
-            guard let self = self else {return}
-            if self.currentUser != nil {
+        
+        if self.currentUser != nil {
+            viewModel.fetchUsersWatchlist { [weak self] usersWatchlist in
+                self?.usersWatchlist = usersWatchlist
+                self?.usersWatchlistFetched = true
+                self?.reloadFetchedData()
+            }
+        } else {
+            self.usersWatchlistFetched = true
+            self.reloadFetchedData()
+        }
+        
+        
+        if self.currentUser != nil {
+            viewModel.fetchUsersFavorites { [weak self] usersFavorites in
+                guard let self = self else { return }
                 self.usersFavorites = usersFavorites
                 usersFavorites.forEach { item in
                     self.mediaTypeAndIdsList.append((item.id ?? 0, item.mediaType ?? ""))
-               }
+                }
                 let count = self.mediaTypeAndIdsList.count
-                if count != 0 {
+                if  count != 0 {
                     let randomIndex = Int.random(in: 0..<count)
                     self.viewModel.fetchRecommendedItems(with: self.mediaTypeAndIdsList[randomIndex].1, id: self.mediaTypeAndIdsList[randomIndex].0) { recommendationsBasedOnFavorites in
                         self.recommendedItemsBasedOnFavorites = recommendationsBasedOnFavorites
-                        self.tableView.reloadData()
                     }
                 }
-                
+                self.recommendedItemsForUserFetched = true
+                self.reloadFetchedData()
             }
-            
+        } else {
+            self.recommendedItemsForUserFetched = true
+            self.reloadFetchedData()
         }
     }
     
     func reloadFetchedData() {
         if inTheatersInfoFetched && trendingMoviesInfoFetched && trendingTvShowsInfoFetched && comingSoonInfoFetched
-//        && boxOfficeInfoFetched
-        {
+            && boxOfficeInfoFetched && recommendedItemsForUserFetched && usersWatchlistFetched {
             self.tableView.reloadData()
             self.homeVC.view.stopLoading()
         }
     }
     
-
+    
     //MARK: - TableView Data Source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 8
@@ -128,7 +135,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.homePageCellDelegate = self
             cell.configureTrendingMovies(items: trendingMoviesList ?? [])
             return cell
-        
+            
         case 1:
             let cell = tableView.deque(HomePageCell.self, for: indexPath)
             cell.homePageCellDelegate = self
@@ -221,7 +228,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         guard let cell = cell as? HomePageCell else { return }
         storedOffsets[indexPath.row] = cell.collectionViewOffset
     }
-  
+    
     
     @objc func proceedToSignIn() {
         viewModel.controller.coordinator?.proceedToSignUp()
@@ -236,7 +243,7 @@ extension HomeDataSource: HomePageCellDelegate, InTheatersCellDelegate, Watchlis
     func onRecommendationClicked(id: Int, mediaType: String) {
         viewModel.controller.coordinator?.proceedToMovieAndTvShowDetailInfo(id: id, mediaType: mediaType)
     }
-
+    
     func onTrendingMoviesClicked(movie: MoviesViewModel) {
         viewModel.controller.coordinator?.onTrendingComingSoonTheatersClicked(movie: movie)
     }

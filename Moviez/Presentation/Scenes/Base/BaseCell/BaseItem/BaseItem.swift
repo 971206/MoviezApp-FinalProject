@@ -36,8 +36,14 @@ class BaseItem: UICollectionViewCell {
         }
         let averageRate = String(item?.voteAverage ?? 0.0 )
         self.labelAverageRate.text = averageRate
-        let posterURL = URL(string:  BaseURL.imageBaseURL + "\(item?.posterURL ?? "")")
-        imagePoster.kf.setImage(with: posterURL)
+        
+        if let posterURL = item?.posterURL {
+            if let url = URL(string: BaseURL.imageBaseURL + posterURL) {
+                self.imagePoster.kf.setImage(with: url)
+            } else {
+                self.imagePoster.image = UIImage(named: "no_poster")
+            }
+        }
     }
     
     

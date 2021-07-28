@@ -69,7 +69,6 @@ class DetailInfoViewController: BaseViewController {
         tableView.registerNib(class: BaseCell.self)
         tableView.registerNib(class: CastCell.self)
         tableView.registerNib(class: DescriptionCell.self)
-        tableView.registerNib(class: SeasonCell.self)
     }
 }
 

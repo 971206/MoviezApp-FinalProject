@@ -81,7 +81,7 @@ class DetailInfoDataSource: NSObject {
 extension DetailInfoDataSource: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,23 +110,18 @@ extension DetailInfoDataSource: UITableViewDataSource, UITableViewDelegate {
         }
         
         if indexPath.row == 1 {
-            let cell = tableView.deque(SeasonCell.self, for: indexPath)
-            return cell
-        }
-        
-        if indexPath.row == 2 {
             let cell = tableView.deque(CastCell.self, for: indexPath)
             cell.delegate = self
             cell.configureCastList(items: castList ?? [])
             return cell
         }
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
             let cell = tableView.deque(BaseCell.self, for: indexPath)
             cell.delegate = self
             cell.configureSimilarItems(items: similarItemsList ?? [])
             return cell
         }
-        if indexPath.row == 4 {
+        if indexPath.row == 3 {
             let cell = tableView.deque(BaseCell.self, for: indexPath)
             cell.delegate = self
             cell.configureRecommenderItems(items: recommendedItemsList ?? [])
@@ -138,10 +133,9 @@ extension DetailInfoDataSource: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 { return  UITableView.automaticDimension}
-        if indexPath.row == 1 && mediaType == "tv" { return 100 }
-        if indexPath.row == 2 { return castList?.count != 0 ? 305 : 0 }
-        if indexPath.row == 3 { return similarItemsList?.count != 0 ? 305 : 0 }
-        if indexPath.row == 4 { return recommendedItemsList?.count != 0 ? 305 : 0 }
+        if indexPath.row == 1 { return castList?.count != 0 ? 305 : 0 }
+        if indexPath.row == 2 { return similarItemsList?.count != 0 ? 305 : 0 }
+        if indexPath.row == 3 { return recommendedItemsList?.count != 0 ? 305 : 0 }
         return 0
     }
     
