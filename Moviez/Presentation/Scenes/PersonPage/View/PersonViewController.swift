@@ -20,8 +20,7 @@ class PersonViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSource()
-
-        configureTableView()
+        setupTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +52,7 @@ class PersonViewController: BaseViewController {
         
     }
     
-    private func configureTableView() {
+    private func setupTableView() {
         tableView.separatorStyle = .none
         tableView.registerNib(class: BaseCell.self)
         tableView.registerNib(class: PersonInfoCell.self)

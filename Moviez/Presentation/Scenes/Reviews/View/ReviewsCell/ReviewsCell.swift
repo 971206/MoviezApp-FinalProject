@@ -10,7 +10,6 @@ import UIKit
 class ReviewsCell: UITableViewCell {
     //MARK: - IBoutlets
     @IBOutlet weak var labelAuthor: UILabel!
-    @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelReview: UILabel!
     @IBOutlet weak var labelContent: UILabel!
     @IBOutlet weak var reviewsView: UIView!

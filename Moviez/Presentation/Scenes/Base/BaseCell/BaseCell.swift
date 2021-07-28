@@ -7,44 +7,46 @@
 
 import UIKit
 
+//MARK: - Delegates
 protocol SimilarCellDelegate: AnyObject {
     func onSimilarClicked(id: Int)
     func onRecommendedClicked(id: Int)
-   
+    
 }
-
 protocol PersonCreditsDelegate: AnyObject {
     func onTvShowCreditsClicked(id: Int)
     func onMovieCreditsClicked(id: Int)
 }
 
 class BaseCell: UITableViewCell {
+    //MARK: - IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var labelHeader: UILabel!
-    private var apiManagerOfSimilarItems: SimilarItemsManagerProtocol!
-    private var apiManagerOfRecommendedItems: RecommendedManagerProtocol!
+
+    //MARK: - Private Properties
     private var similarItemsList: [SearchModel]?
     private var recommendedItemsList: [SearchModel]?
+    private var creditsMovieList: [SearchModel]?
+    private var creditsTvShowList: [SearchModel]?
+    
     weak var delegate: SimilarCellDelegate!
     weak var personCreditsDelegate: PersonCreditsDelegate!
-    private var creditsManager: PersonCreditsManagerProtocol!
-    var creditsMovieList: [SearchModel]?
-    var creditsTvShowList: [SearchModel]?
-
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpCollectionView()
     }
+    
     // MARK: - Setup CollectionView
-         func setUpCollectionView() {
-            collectionView.dataSource = self
-            collectionView.delegate = self
-            collectionView.showsHorizontalScrollIndicator = false
-            collectionView.registerNib(class: BaseItem.self)
-        }
-
+    func setUpCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.registerNib(class: BaseItem.self)
+    }
+    
+    //MARK: - Configure
     func configureSimilarItems(items:[SearchModel]) {
         similarItemsList = items
         recommendedItemsList = nil
@@ -68,9 +70,10 @@ class BaseCell: UITableViewCell {
         creditsTvShowList = nil
         collectionView.reloadData()
     }
-
+    
 }
 
+//MARK: - CollectionView DataSource
 extension BaseCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let item = similarItemsList { return item.count }
@@ -105,6 +108,7 @@ extension BaseCell: UICollectionViewDataSource {
     }
 }
 
+//MARK: - CollectionView Delegates
 extension BaseCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height)

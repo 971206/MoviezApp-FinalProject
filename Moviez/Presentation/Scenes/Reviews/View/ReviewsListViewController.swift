@@ -25,7 +25,6 @@ class ReviewsListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureViewModel()
-        fetchReviews()
         setupTableView()
     }
     
@@ -39,12 +38,7 @@ class ReviewsListViewController: BaseViewController {
         reviewsManager = ReviewsManager()
         viewModel = ReviewsListViewModel(with: reviewsManager)
         dataSource = ReviewsDataSource(with: tableView, viewModel: viewModel)
-    }
-    
-    private func fetchReviews() {
         dataSource.refresh(with: id ?? 0, type: type ?? "")
-        tableView.reloadData()
     }
-    
 }
 

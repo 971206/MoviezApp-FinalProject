@@ -31,9 +31,7 @@ class DetailInfoViewModel: DetailInfoViewModelProtocol {
     private var detailsManager: DetailsManagerProtocol!
     private var recommendedItemsManager: RecommendedManagerProtocol!
     private var castManager: CastManagerProtocol!
-//    private var detailInfo: MovieTvShowDetails?
-//    private var similarItems: [SearchModel]?
-//    private var recommendedItems: [SearchModel]?
+    
     private(set) var controller: CoordinatorDelegate
 
     

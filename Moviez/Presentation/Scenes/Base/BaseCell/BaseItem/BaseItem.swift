@@ -9,13 +9,15 @@ import UIKit
 import Kingfisher
 
 class BaseItem: UICollectionViewCell {
-//MARK: - IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var itemView: UIView!
     @IBOutlet weak var imagePoster: UIImageView!
     @IBOutlet weak var labelAverageRate: UILabel!
     @IBOutlet weak var labelName: UILabel!
+    
+    //MARK: - Private Properties
     private let cornerRadius = CGFloat(8)
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpLayout()
@@ -25,9 +27,10 @@ class BaseItem: UICollectionViewCell {
         itemView.clipsToBounds = true
         itemView.layer.cornerRadius = cornerRadius
         imagePoster.layer.cornerRadius = cornerRadius
-        
     }
-
+    
+    //MARK: - Configure
+    
     func configureItem(with item: SearchModel?) {
         if item?.name == nil {
             self.labelName.text = item?.originalTitle
@@ -45,7 +48,6 @@ class BaseItem: UICollectionViewCell {
             }
         }
     }
-    
     
     
     func configure(with item: FirebaseModel?) {

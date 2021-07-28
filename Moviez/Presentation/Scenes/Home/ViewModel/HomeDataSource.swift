@@ -11,7 +11,7 @@ import Firebase
 
 class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     
-    
+    //MARK: - Private Properties
     private var tableView: UITableView!
     private var viewModel: HomeViewModelProtocol!
     private var storedOffsets = [Int: CGFloat]()
@@ -24,15 +24,15 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var usersFavorites: [FirebaseModel]?
     private var currentUser = Auth.auth().currentUser
     private var homeVC: HomeViewController!
-    var inTheatersInfoFetched = false
-    var trendingMoviesInfoFetched = false
-    var trendingTvShowsInfoFetched = false
-    var boxOfficeInfoFetched = false
-    var comingSoonInfoFetched = false
-    var usersWatchlistFetched = false
-    var recommendedItemsForUserFetched = false
-    var mediaTypeAndIdsList = [(Int, String)]()
-    var recommendedItemsBasedOnFavorites: [SearchModel]?
+    private var inTheatersInfoFetched = false
+    private var trendingMoviesInfoFetched = false
+    private var trendingTvShowsInfoFetched = false
+    private var boxOfficeInfoFetched = false
+    private var comingSoonInfoFetched = false
+    private var usersWatchlistFetched = false
+    private var recommendedItemsForUserFetched = false
+    private var mediaTypeAndIdsList = [(Int, String)]()
+    private var recommendedItemsBasedOnFavorites: [SearchModel]?
     
     init(with tableView: UITableView, viewModel: HomeViewModelProtocol, homeVC: HomeViewController) {
         super.init()
@@ -43,6 +43,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         self.homeVC = homeVC
     }
     
+    //MARK: - Refresh
     func refresh() {
         viewModel.fetchInTheatersMovies { [weak self] inTheatersList in
             guard let self = self else {return}
@@ -180,7 +181,7 @@ class HomeDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
         case 5:
             let cell = tableView.deque(InTheatersCell.self, for: indexPath)
             cell.inTheatersCellDelegate = self
-            cell.configureInTheares(movies: inTheatersList ?? [])
+            cell.configureInTheatres(movies: inTheatersList ?? [])
             return cell
             
         case 6:

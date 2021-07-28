@@ -7,34 +7,37 @@
 
 import UIKit
 
+//MARK: - Delegate
 protocol RecommendationCellDelegate: AnyObject {
     func onRecommendationClicked(id: Int, mediaType: String)
 }
 
-
-
 class RecommendationCell: UITableViewCell {
-
+    
+    //MARK: - IBOutlets
     @IBOutlet weak var recommendedCollectionView: UICollectionView!
     
+    //MARK: - Private properties
     private var recommendationsForCurrentUser: [SearchModel]?
+    
     weak var recommendationDelegate: RecommendationCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         recommendedCollectionView.delegate = self
         recommendedCollectionView.dataSource = self
         recommendedCollectionView.registerNib(class: WatchlistItem.self)
     }
     
+    //MARK: - Configure
     func configure(with item: [SearchModel]?) {
         self.recommendationsForCurrentUser = item
         self.recommendedCollectionView.reloadData()
     }
 }
 
-extension RecommendationCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+//MARK: - UICollectionView DataSource
+extension RecommendationCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recommendationsForCurrentUser?.count ?? 0
     }
@@ -44,6 +47,11 @@ extension RecommendationCell: UICollectionViewDataSource, UICollectionViewDelega
         cell.configure(with: recommendationsForCurrentUser?[indexPath.row])
         return cell
     }
+}
+
+//MARK: - UICollectionView Delegates
+extension RecommendationCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let id = recommendationsForCurrentUser?[indexPath.row].id,
            let mediaType = recommendationsForCurrentUser?[indexPath.row].mediaType {
@@ -64,10 +72,10 @@ extension RecommendationCell: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-      cell.alpha = 0
-      UIView.animate(withDuration: 0.6) {
-          cell.alpha = 1
-      }
-  }
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.6) {
+            cell.alpha = 1
+        }
+    }
     
 }

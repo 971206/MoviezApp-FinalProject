@@ -193,7 +193,6 @@ extension DetailInfoDataSource: UITableViewDataSource, UITableViewDelegate {
     @objc func playTrailer() {
         viewModel.controller.coordinator?.proceedToTrailer(with: mediaType ?? "", with: id ?? 0)
     }
-
 }
 
 

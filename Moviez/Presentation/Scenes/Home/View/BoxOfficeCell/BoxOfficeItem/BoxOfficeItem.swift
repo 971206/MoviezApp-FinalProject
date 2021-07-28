@@ -9,6 +9,7 @@ import UIKit
 
 class BoxOfficeItem: UICollectionViewCell {
     
+    //MARK: - IBOutlets
     @IBOutlet weak var viewRank: UIView!
     @IBOutlet weak var viewBoxOffice: UIView!
     @IBOutlet weak var imagePoster: UIImageView!
@@ -16,6 +17,7 @@ class BoxOfficeItem: UICollectionViewCell {
     @IBOutlet weak var labelWeekRevenue: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelRank: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupLayout()
@@ -29,6 +31,7 @@ class BoxOfficeItem: UICollectionViewCell {
         viewRank.clipsToBounds = true
     }
     
+    //MARK: - Configure
     func configure(with item: BoxOfficeViewModel?) {
         self.labelRank.text = item?.rank
         self.labelTotalRevenue.text = item?.totalRevenue

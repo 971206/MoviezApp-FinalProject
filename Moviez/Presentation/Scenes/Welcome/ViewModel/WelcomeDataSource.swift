@@ -8,15 +8,14 @@
 import UIKit
 
 class WelcomeDataSource: NSObject {
+    //MARK: - Private Properties
     private var collectionView: UICollectionView!
     private var viewModel: WelcomeViewModelProtocol!
     private var welcomePages = [WelcomePage]()
-
+    
     var endDragging: ((Int) -> Void)?
     
-    
-    
-
+    //MARK: - Init
     init(with collectionView: UICollectionView, viewModel: WelcomeViewModelProtocol) {
         super.init()
         self.viewModel = viewModel
@@ -26,16 +25,18 @@ class WelcomeDataSource: NSObject {
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
         layout.scrollDirection = .horizontal
-     
+        
     }
-
+    
+    //MARK: - Refresh
     func refresh() {
         welcomePages.append(contentsOf: viewModel.welcomePages())
         collectionView.reloadData()
     }
 }
 
-extension WelcomeDataSource: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+//MARK: - UICollectionView DataSource
+extension WelcomeDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return welcomePages.count
     }
@@ -45,7 +46,11 @@ extension WelcomeDataSource: UICollectionViewDataSource, UICollectionViewDelegat
         cell.configure(with: welcomePages[indexPath.row])
         return cell
     }
-    
+}
+
+
+//MARK: - UICollectionView Delegates
+extension WelcomeDataSource: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 590)
     }

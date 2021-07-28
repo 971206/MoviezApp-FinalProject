@@ -23,6 +23,7 @@ class ReviewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    //MARK: - Refresh
     func refresh(with id: Int, type: String) {
         viewModel.fetchReviewsList(id: id, type: type) { [weak self] reviewsList in
             guard let self = self else {return}

@@ -8,23 +8,26 @@
 import UIKit
 
 class CelebrityItem: UICollectionViewCell {
-
+    //MARK: - IBOutlets
     @IBOutlet weak var itemView: UIView!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelSource: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var imageCover: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupLayout()
     }
+    
     
     private func setupLayout() {
         imageCover.layer.cornerRadius = 8
         itemView.clipsToBounds = true
         itemView.layer.cornerRadius = 8
     }
-
+    
+    //MARK: - Configure
     func configure(with item: ArticleViewModel?) {
         self.labelSource.text = item?.sourceName
         self.labelDate.text = item?.publishDate

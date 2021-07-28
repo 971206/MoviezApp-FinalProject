@@ -32,8 +32,6 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
         ]
         addSignInObersver()
         addSignOutObserver()
-
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +42,7 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     
     
     
-    //MARK: - Add Oberver
+    //MARK: - Add Obervers
     func addSignInObersver() {
         NotificationCenter.default.addObserver(
             self,
@@ -61,7 +59,7 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
             object: nil)
     }
     
-    // MARK: - Check user
+    // MARK: - Check user status
     func checkUserSignedIn() {
         if Auth.auth().currentUser != nil {
             appendProfileVc()
@@ -86,7 +84,6 @@ class TabBarViewController: UITabBarController, Storyboarded, CoordinatorDelegat
     }
     
     //MARK: - Show Sign in page when user signed out
-    
     @objc func userSignedOut(with: Notification) {
         appendSignInVc()
     }

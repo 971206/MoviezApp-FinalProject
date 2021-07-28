@@ -26,16 +26,14 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.startLoading()
-       configureTableView()
+        setupTableView()
         configureDataSource()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         setupNavController()
         configureDataSource()
-      
     }
     
     private func setupNavController() {
@@ -46,7 +44,7 @@ class HomeViewController: BaseViewController {
     }
     
 // MARK: - Configure TableView
-    private func configureTableView() {
+    private func setupTableView() {
         tableView.registerNib(class: HomePageCell.self)
         tableView.registerNib(class: BoxOfficeCell.self)
         tableView.registerNib(class: InTheatersCell.self)
@@ -59,6 +57,7 @@ class HomeViewController: BaseViewController {
         header.layer.cornerRadius = 8
     }
     
+    //MARK: - Configure DataSource
     private func configureDataSource() {
         inTheatersManager = InTheatersManager()
         trendingMoviesManager = TrendingMoviesManager()

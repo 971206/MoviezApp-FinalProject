@@ -7,16 +7,17 @@
 
 import UIKit
 
+//MARK: - Delegate
 protocol CelebrityCellDelegate: AnyObject {
     func onCelebrityCellClicked(news: ArticleViewModel?)
 }
 
 class CelebrityCell: UITableViewCell {
-
+//MARK: - IBOutlets
     @IBOutlet weak var celebrityCollectionView: UICollectionView!
     @IBOutlet weak var onReadMore: UIButton!
     
-    var celebrityNewsList: [ArticleViewModel]?
+    private var celebrityNewsList: [ArticleViewModel]?
     weak var celebrityCellDelegate: CelebrityCellDelegate?
     
     override func awakeFromNib() {
@@ -36,7 +37,8 @@ class CelebrityCell: UITableViewCell {
     }
 }
 
-extension CelebrityCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+//MARK: - CollectionView DataSource
+extension CelebrityCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return celebrityNewsList?.count ?? 0
     }
@@ -47,6 +49,11 @@ extension CelebrityCell: UICollectionViewDataSource, UICollectionViewDelegate, U
         return cell
     }
     
+}
+
+//MARK: - CollectionView Delegate
+extension CelebrityCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         celebrityCellDelegate?.onCelebrityCellClicked(news: celebrityNewsList?[indexPath.row])
     }

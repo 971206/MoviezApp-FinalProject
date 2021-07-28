@@ -52,10 +52,9 @@ class RegistrationViewController: BaseViewController {
             if let email = fieldEmail.text, let password = fieldPassword.text, let fullName = fieldFullName.text {
                 FirebaseHelper.signUp(email: email, password: password, fullName: fullName) { completed in
                     if completed {
-                        //                        self.coordinator?.alertRegistrationSuccess()
                         self.alertSuccess()
                     } else {
-                        self.alertProblem(message: "problem")
+                        self.alertProblem(message: "There was a problem, Please try again.")
                     }
                 }
             }

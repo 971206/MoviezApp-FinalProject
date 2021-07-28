@@ -8,7 +8,7 @@
 import UIKit
 
 class WelcomeCell: UICollectionViewCell {
-
+    //MARK: - IBOutlets
     @IBOutlet weak var imgIllustration: UIImageView!
     @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
@@ -17,7 +17,7 @@ class WelcomeCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
+    //MARK: - Configure
     func configure(with item: WelcomePage) {
         self.labelTitle.text = item.title
         self.labelText.text = item.text

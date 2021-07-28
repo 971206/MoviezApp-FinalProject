@@ -8,11 +8,12 @@
 import UIKit
 
 class BoxOfficeCell: UITableViewCell {
-
     
+    //MARK: - IBOutlets
     @IBOutlet weak var boxOfficeCollectionView: UICollectionView!
-    var boxOfficeList: [BoxOfficeViewModel]?
     
+    //MARK: - PrivateP Properties
+    private var boxOfficeList: [BoxOfficeViewModel]?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,15 +22,16 @@ class BoxOfficeCell: UITableViewCell {
         self.boxOfficeCollectionView.dataSource = self
     }
     
+    //MARK: - Configure
     func configure(with items: [BoxOfficeViewModel]?) {
-
         self.boxOfficeList = items
         self.boxOfficeCollectionView.reloadData()
     }
-
+    
 }
 
-extension BoxOfficeCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+//MARK: - CollectionView DataSource
+extension BoxOfficeCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return boxOfficeList?.count ?? 0
     }
@@ -39,6 +41,11 @@ extension BoxOfficeCell: UICollectionViewDelegate, UICollectionViewDataSource, U
         cell.configure(with: boxOfficeList?[indexPath.row])
         return cell
     }
+    
+}
+
+//MARK: - CollectionView Delegates
+extension BoxOfficeCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width - 32, height: 70)

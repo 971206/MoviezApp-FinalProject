@@ -19,6 +19,11 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var vc: NewsViewController?
     private var awardsList: [Awards]?
     
+    var awardsFetched = false
+    var celebrityNewsFetched = false
+    var movieNewsFetched = false
+    var tvShowNewsFethed = false
+    
     init(with tableView: UITableView, viewModel: NewsViewModelProtocol,vc: NewsViewController?) {
         super.init()
         self.tableView = tableView
@@ -29,28 +34,34 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func refresh() {
-       
         viewModel.fetchAwards { [weak self] awardsList in
             self?.awardsList = awardsList
-            self?.vc?.view.stopLoading()
-            self?.tableView.reloadData()
+            self?.awardsFetched = true
+            self?.reloadTableView()
         }
         
         viewModel.fetchCelebrityNews(page:1) { [weak self] celebrityNewsList in
             self?.celebrityNewsList = celebrityNewsList
-            self?.vc?.view.stopLoading()
-            self?.tableView.reloadData()
+            self?.celebrityNewsFetched = true
+            self?.reloadTableView()
         }
         
         viewModel.fetchMovieNews(page: 1) { [weak self] moviesNewsList  in
             self?.moviesNewsList = moviesNewsList
-            self?.vc?.view.stopLoading()
-            self?.tableView.reloadData()
+            self?.movieNewsFetched = true
+            self?.reloadTableView()
         }
         viewModel.fetchTvShowNews(page: 1) { [weak self] tvShowsList in
             self?.tvShowNewsList = tvShowsList
-            self?.vc?.view.stopLoading()
-            self?.tableView.reloadData()
+            self?.tvShowNewsFethed = true
+            self?.reloadTableView()
+        }
+    }
+    
+    func reloadTableView() {
+        if awardsFetched && movieNewsFetched && celebrityNewsFetched && tvShowNewsFethed {
+            self.tableView.reloadData()
+            self.vc?.view.stopLoading()
         }
     }
     

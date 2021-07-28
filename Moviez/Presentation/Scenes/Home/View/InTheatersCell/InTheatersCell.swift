@@ -7,24 +7,26 @@
 
 import UIKit
 
+//MARK: - Delegate
 protocol InTheatersCellDelegate: AnyObject {
     func onInTheatersClicked(movie: MoviesViewModel)
 }
 
 class InTheatersCell: UITableViewCell {
-
+    //MARK: - IBOutlets
     @IBOutlet weak var inTheatersCollectionView: UICollectionView!
     
     private var inTheatersList: [MoviesViewModel]?
     weak var inTheatersCellDelegate: InTheatersCellDelegate?
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCollectionView()
         
     }
-
+    
+    //MARK: - Setup CollectioView
     func setupCollectionView(){
         inTheatersCollectionView.registerNib(class: InTheatersItem.self)
         inTheatersCollectionView.delegate = self
@@ -33,21 +35,18 @@ class InTheatersCell: UITableViewCell {
         inTheatersCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         layout.minimumLineSpacing = 10
         layout.scrollDirection = .horizontal
-//        layout.itemSize = CGSize(width: 320, height: 160)
         inTheatersCollectionView.collectionViewLayout = layout
     }
-
-
     
-    func configureInTheares(movies: [MoviesViewModel]) {
-      inTheatersList = movies
-       self.inTheatersCollectionView.reloadData()
-       
-   }
     
+    //MARK: - Configure
+    func configureInTheatres(movies: [MoviesViewModel]) {
+        inTheatersList = movies
+        self.inTheatersCollectionView.reloadData()
+    }
 }
 
-
+//MARK: - CollectionView DataSource
 extension InTheatersCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return inTheatersList?.count ?? 0
@@ -58,35 +57,24 @@ extension InTheatersCell: UICollectionViewDataSource {
         cell.configure(with: inTheatersList?[indexPath.row])
         return cell
     }
-    
-    
 }
-
+//MARK: - CollectionView Delegates
 extension InTheatersCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 340, height: 190)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 16
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let movie = inTheatersList?[indexPath.row] {
             inTheatersCellDelegate?.onInTheatersClicked(movie: movie)
         }
-
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-      cell.alpha = 0
-      UIView.animate(withDuration: 0.6) {
-          cell.alpha = 1
-      }
-  }
-  
+        cell.alpha = 0
+        UIView.animate(withDuration: 0.6) {
+            cell.alpha = 1
+        }
+    }
+    
 }

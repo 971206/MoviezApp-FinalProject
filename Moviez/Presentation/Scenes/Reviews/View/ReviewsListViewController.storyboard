@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hZW-o1-b8v">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" name="lightBackground"/>
                             </tableView>
                         </subviews>
@@ -25,7 +25,7 @@
                         <color key="backgroundColor" name="lightBackground"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hZW-o1-b8v" secondAttribute="trailing" id="3LI-rp-uUg"/>
-                            <constraint firstItem="hZW-o1-b8v" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="AhT-cc-QPZ"/>
+                            <constraint firstItem="hZW-o1-b8v" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="AhT-cc-QPZ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="hZW-o1-b8v" secondAttribute="bottom" id="P5O-2y-X9U"/>
                             <constraint firstItem="hZW-o1-b8v" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ovy-I9-x6F"/>
                         </constraints>

@@ -20,10 +20,6 @@ class HomePageCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     //MARK: - Private Properties
-    private var apiManagerOfTrendingTvShows: TrendingTvShowsManagerProtocol!
-    private var apiManagerOfTrendingMovies: TrendingMoviesManagerProtocol!
-    private var apiManagerOfComingSoon: ComingSoonManagerProtocol!
-    private var apiManagerOfInTheaters: InTheatersManagerProtocol!
     private var listOfTrendingTvShows: [TvShowViewModel]?
     private var listOfTrendingMovies: [MoviesViewModel]?
     private var listoOfComingSoon: [MoviesViewModel]?
@@ -60,8 +56,7 @@ class HomePageCell: UITableViewCell {
         
     }
     
-    //MARK: - FetchInfo
-    
+    //MARK: - Configure
     func configureTrendingTvShows(items: [TvShowViewModel]) {
         listOfTrendingTvShows = items
         self.collectionView.reloadData()
@@ -93,8 +88,7 @@ class HomePageCell: UITableViewCell {
         
 }
 
-//MARK: - CollectionView Datasource and Delegate
-
+//MARK: - CollectionView Datasource
 extension HomePageCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let item = listOfTrendingMovies { return item.count }
@@ -130,7 +124,7 @@ extension HomePageCell: UICollectionViewDataSource {
     
     
 }
-    
+ //MARK: - CollectionView Delegate
 extension HomePageCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width / 3, height: collectionView.frame.height)

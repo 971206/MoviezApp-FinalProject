@@ -10,19 +10,16 @@ import UIKit
 class WelcomeViewController: BaseViewController {
     
     //MARK: - IBoutlets
-    
     @IBOutlet weak var buttonSkip: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageIndicator: UIPageControl!
     
     //MARK: - Private Properties
-    
     private var dataSource: WelcomeDataSource!
     private var viewModel: WelcomeViewModel!
     private var lastPage = 3
     
-    
-    
+    // MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButton()
@@ -41,7 +38,7 @@ class WelcomeViewController: BaseViewController {
     }
     
     
-    
+    //MARK: - Configure ViewModel
     private func configureViewModel() {
         viewModel = WelcomeViewModel()
         dataSource = WelcomeDataSource(with: collectionView, viewModel: viewModel)
@@ -61,7 +58,7 @@ class WelcomeViewController: BaseViewController {
         pageIndicator.numberOfPages = viewModel.numberOfPages
     }
     
-    
+    //MARK: - IBActions
     @IBAction func onSkip(_ sender: Any) {
         coordinator?.proceedToTabBar()
     }
