@@ -25,7 +25,7 @@
                         <color key="backgroundColor" name="lightBackground"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XUG-Ou-MTC" secondAttribute="trailing" id="FMa-gH-V5n"/>
-                            <constraint firstItem="XUG-Ou-MTC" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="PC3-MW-Obk"/>
+                            <constraint firstItem="XUG-Ou-MTC" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="PC3-MW-Obk"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="XUG-Ou-MTC" secondAttribute="bottom" id="ee9-RC-1J8"/>
                             <constraint firstItem="XUG-Ou-MTC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="wbS-0D-94M"/>
                         </constraints>

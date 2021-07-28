@@ -14,8 +14,9 @@ struct PersonInfoViewModel {
         self.personInfo = personInfo
     }
     
-    var posterURL: URL? {
-        URL(string:  BaseURL.imageBaseURL + "\(personInfo.imageProfile ?? "")")
+    var posterURL: String? {
+//        URL(string:  BaseURL.imageBaseURL + "\(personInfo.imageProfile ?? "")")
+     personInfo.imageProfile 
     }
     
     var name: String? {

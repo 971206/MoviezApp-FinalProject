@@ -29,7 +29,12 @@ class PersonInfoCell: UITableViewCell {
     }
     
     func configure(with item: PersonInfoViewModel?) {
-        imagePerson.kf.setImage(with: item?.posterURL )
+        if item?.posterURL != nil {
+            let url = URL(string: BaseURL.imageBaseURL + "\(item?.posterURL ?? "")")
+            imagePerson.kf.setImage(with: url)
+        } else {
+            imagePerson.image = UIImage(named: "no_photo_person")
+        }
         labelName.text = item?.name
         if item?.gender == 1 {
             labelGender.text = item?.female
