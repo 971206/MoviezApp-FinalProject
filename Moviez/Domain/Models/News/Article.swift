@@ -22,3 +22,9 @@ struct ArticleSource: Codable {
     let id: String?
     let name: String?
 }
+
+enum Categories: String {
+    case celebrity
+    case movie
+    case show
+}

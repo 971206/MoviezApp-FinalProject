@@ -9,9 +9,9 @@ import Foundation
 
 protocol NewsViewModelProtocol: AnyObject {
     func fetchAwards(completion: @escaping ([Awards]) -> Void)
-    func fetchMovieNews(completion: @escaping ([ArticleViewModel]) -> Void)
-    func fetchCelebrityNews(completion: @escaping ([ArticleViewModel]) -> Void)
-    func fetchTvShowNews(completion: @escaping ([ArticleViewModel]) -> Void)
+    func fetchMovieNews(page: Int, completion: @escaping ([ArticleViewModel]) -> Void)
+    func fetchCelebrityNews(page: Int,completion: @escaping ([ArticleViewModel]) -> Void)
+    func fetchTvShowNews(page: Int, completion: @escaping ([ArticleViewModel]) -> Void)
     var controller: CoordinatorDelegate {get}
     init(with newsManager: NewsManagerProtocol, awardsManager: AwardsManagerProtocol, controller: CoordinatorDelegate)
 }
@@ -28,20 +28,20 @@ class NewsViewModel: NewsViewModelProtocol {
         self.controller = controller
     }
     
-    func fetchMovieNews(completion: @escaping ([ArticleViewModel]) -> Void) {
-        newsManager.fetchMovieNews { movieNews in
+    func fetchMovieNews(page: Int, completion: @escaping ([ArticleViewModel]) -> Void) {
+        newsManager.fetchMovieNews(page: page) { movieNews in
             completion(movieNews.map({ ArticleViewModel(article: $0)}))
         }
     }
 
-    func fetchCelebrityNews(completion: @escaping ([ArticleViewModel]) -> Void) {
-        newsManager.fetchCelebrityNews { celebrityNews in
+    func fetchCelebrityNews(page: Int,completion: @escaping ([ArticleViewModel]) -> Void) {
+        newsManager.fetchCelebrityNews(page: page) { celebrityNews in
             completion(celebrityNews.map({ ArticleViewModel(article: $0)}))
         }
     }
     
-    func fetchTvShowNews(completion: @escaping ([ArticleViewModel]) -> Void) {
-        newsManager.fetchTvShowNews { tvShowNews in
+    func fetchTvShowNews(page: Int, completion: @escaping ([ArticleViewModel]) -> Void){
+        newsManager.fetchTvShowNews(page: page) { tvShowNews in
             completion(tvShowNews.map({ ArticleViewModel(article: $0)}))
         }
     }

@@ -20,10 +20,10 @@ final class NewsCoordinator: CoordinatorProtocol {
         newManager = NewsManager()
     }
     
-    func proceedToMoreNews(newsList: [ArticleViewModel]) {
+    func proceedToMoreNews(category: String) {
         let vc = MoreNewsViewController.instantiateFromStoryboard()
         vc.coordinator = self
-        vc.newsList = newsList
+        vc.category = category
         navigationController?.pushViewController(vc, animated: true)
     }
     

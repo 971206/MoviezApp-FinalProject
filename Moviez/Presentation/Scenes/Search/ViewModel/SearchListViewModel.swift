@@ -34,7 +34,6 @@ class SearchListViewModel: SearchListViewModelProtocol {
         
         self.searchManager = searchManager
         self.controller = controller
-//        self.tabBarDelegate = tabBarDelegate
     }
     
     //MARK: - Get Search Result

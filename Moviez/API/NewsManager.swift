@@ -17,7 +17,7 @@ protocol NewsManagerProtocol: AnyObject {
 
 class NewsManager: NewsManagerProtocol {
     func fetchMovieNews(page: Int, completion: @escaping ([Article]) -> Void) {
-        let url = APIURLS.movieNewsURL
+        let url = "\(APIURLS.movieNewsURL + "\(page)")" 
         NetworkManager.shared.get(url: url) { (result: Result<ArticlesResponse, Error>) in
             switch result {
             case .success(let response):

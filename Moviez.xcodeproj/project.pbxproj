@@ -989,9 +989,9 @@
 		FA440CB9266FAE1000F2B22D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				FA3BFF3E26AAD0FF0015EBE6 /* SearchViewModel.swift */,
 				FA440CBA266FAE2600F2B22D /* SearchDataSource.swift */,
 				FA440CBC266FAE3D00F2B22D /* SearchListViewModel.swift */,
+				FA3BFF3E26AAD0FF0015EBE6 /* SearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

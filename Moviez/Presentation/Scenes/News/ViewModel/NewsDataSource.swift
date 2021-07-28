@@ -36,18 +36,18 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
             self?.tableView.reloadData()
         }
         
-        viewModel.fetchCelebrityNews { [weak self] celebrityNewsList in
+        viewModel.fetchCelebrityNews(page:1) { [weak self] celebrityNewsList in
             self?.celebrityNewsList = celebrityNewsList
             self?.vc?.view.stopLoading()
             self?.tableView.reloadData()
         }
         
-        viewModel.fetchMovieNews { [weak self] moviesNewsList  in
+        viewModel.fetchMovieNews(page: 1) { [weak self] moviesNewsList  in
             self?.moviesNewsList = moviesNewsList
             self?.vc?.view.stopLoading()
             self?.tableView.reloadData()
         }
-        viewModel.fetchTvShowNews { [weak self] tvShowsList in
+        viewModel.fetchTvShowNews(page: 1) { [weak self] tvShowsList in
             self?.tvShowNewsList = tvShowsList
             self?.vc?.view.stopLoading()
             self?.tableView.reloadData()
@@ -90,13 +90,13 @@ class NewsDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func readMoreMoviwNews() {
-        viewModel.controller.coordinator?.proceedToMoreNews(newsList: moviesNewsList ?? [])
+        viewModel.controller.coordinator?.proceedToMoreNews(category: Categories.movie.rawValue)
     }
     @objc func readMoreTvShowNews() {
-        viewModel.controller.coordinator?.proceedToMoreNews(newsList: tvShowNewsList ?? [])
+        viewModel.controller.coordinator?.proceedToMoreNews(category: Categories.show.rawValue)
     }
     @objc func readMoreCelebrityNews() {
-        viewModel.controller.coordinator?.proceedToMoreNews(newsList: celebrityNewsList ?? [])
+        viewModel.controller.coordinator?.proceedToMoreNews(category: Categories.celebrity.rawValue)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
