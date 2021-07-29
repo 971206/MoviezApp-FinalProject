@@ -75,7 +75,8 @@ class HomeViewController: BaseViewController {
                                   recommendedManager: recommendedManager,
                                   controller: self)
         dataSource = HomeDataSource(with: tableView,
-                                    viewModel: viewModel, homeVC: self)
+                                    viewModel: viewModel,
+                                    homeVC: self)
         dataSource.refresh()
     }
 }

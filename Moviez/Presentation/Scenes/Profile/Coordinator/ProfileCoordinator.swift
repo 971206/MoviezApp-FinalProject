@@ -51,4 +51,13 @@ final class ProfileCoordinator: CoordinatorProtocol {
        self.navigationController?.present(alert, animated: true)
    }
     
+
+    func proceetToReviews(with itemID: Int, mediaType: String) {
+        let vc = ReviewsListViewController.instantiateFromStoryboard()
+        vc.type = mediaType
+        vc.id = itemID
+        vc.coordinator = self
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }

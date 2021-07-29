@@ -55,7 +55,6 @@
 		FA2AFA5A268D0FAB00F34245 /* PersonManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2AFA59268D0FAB00F34245 /* PersonManager.swift */; };
 		FA2B633E2671FCEB0000A038 /* NSNotification.name + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B633D2671FCEB0000A038 /* NSNotification.name + Extension.swift */; };
 		FA2B6343267239C50000A038 /* SimilarItemsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B6342267239C50000A038 /* SimilarItemsManager.swift */; };
-		FA2B63482672781F0000A038 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B63472672781F0000A038 /* CustomTextField.swift */; };
 		FA2B634D2672A9E20000A038 /* ReviewsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B634C2672A9E20000A038 /* ReviewsListViewController.swift */; };
 		FA2B634F2672A9F70000A038 /* ReviewsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2B634E2672A9F70000A038 /* ReviewsListViewController.storyboard */; };
 		FA2B63522672AC4D0000A038 /* ReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2B63502672AC4D0000A038 /* ReviewsCell.swift */; };
@@ -264,7 +263,6 @@
 		FA2AFA59268D0FAB00F34245 /* PersonManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonManager.swift; sourceTree = "<group>"; };
 		FA2B633D2671FCEB0000A038 /* NSNotification.name + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.name + Extension.swift"; sourceTree = "<group>"; };
 		FA2B6342267239C50000A038 /* SimilarItemsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarItemsManager.swift; sourceTree = "<group>"; };
-		FA2B63472672781F0000A038 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FA2B634C2672A9E20000A038 /* ReviewsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsListViewController.swift; sourceTree = "<group>"; };
 		FA2B634E2672A9F70000A038 /* ReviewsListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReviewsListViewController.storyboard; sourceTree = "<group>"; };
 		FA2B63502672AC4D0000A038 /* ReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsCell.swift; sourceTree = "<group>"; };
@@ -1133,7 +1131,6 @@
 			children = (
 				FA607F16266B84E9009C9C61 /* Constants.swift */,
 				FA607F18266B84F7009C9C61 /* Utilities.swift */,
-				FA2B63472672781F0000A038 /* CustomTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1712,7 +1709,6 @@
 				FA607F42266B8A3E009C9C61 /* RegistrationViewController.swift in Sources */,
 				FA4B2EEF2676598B00383B56 /* ArticlesResponse.swift in Sources */,
 				FA3DAC1F2688756900E75C35 /* BaseCell.swift in Sources */,
-				FA2B63482672781F0000A038 /* CustomTextField.swift in Sources */,
 				FAB4C1792698B56400207D30 /* PersonCredits.swift in Sources */,
 				FA04671E26A5FB5800C1A411 /* AwardsCell.swift in Sources */,
 				FA3BFF8F2687437C00F076E5 /* YoutubeVideoManager.swift in Sources */,

@@ -33,7 +33,7 @@ class DescriptionCell: UITableViewCell {
         buttonPlayTrailer.layer.cornerRadius = buttonPlayTrailer.bounds.width / 2
         imagePoster.layer.cornerRadius = 20
         buttonPlayTrailer.layer.masksToBounds = true
-        imagePoster.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMinXMinYCorner]
+        imagePoster.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
         addToFavoritesButton.setShadow(UIView: addToFavoritesButton, viewCornerRadius: 8)
         addToWatchListButton.setShadow(UIView: addToWatchListButton, viewCornerRadius: 8)
     }
